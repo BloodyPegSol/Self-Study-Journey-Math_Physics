@@ -1,0 +1,346 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label*=\arabic*.}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Section 1.2: Some Preliminaries}
+	\author{Juan Patricio Carrizales Torres}
+	\date{April 26, 2022}
+	\maketitle
+
+	\begin{problem}{1.2.1}
+		\begin{enumerate}[label=(\alph*)]
+			\item Prove that $\sqrt{3}$ is irrational. Does a similar argument work to show $\sqrt{6}$ is irrational?
+			\begin{proof}
+				Suppose, to the contrary, that $\sqrt{3}$ is rational. Thus, $\sqrt{3} = \frac{a}{b}$ for some integers $a$ and $b\neq 0$. We may further assume that $\frac{a}{b}$ is totally simplified and so both integers have no common factors. Therefore, $a^{2} = 3b^{2}$ and so $3\mid a^2$ and $3\mid a$. Thus, $a = 3r$ for some $r\in \Z$ and so $3r = b^{2}$, which implies that $3\mid b$. Note that $a$ and $b$ have a factor in common, which leads to a contradiction.	\\
+				
+				Note that $\frac{a^{2}}{b^{2}} = 6 = 3(2)$ and $a^{2} = 3(2)b^{2}$. Therefore, we have the starting "ingredients" to use the same technique to prove that $\sqrt{6}$ is irrational with a similar argument. 
+			\end{proof}
+		
+			\item Where does the proof of \textbf{Theorem 1.1.1} break down if we try to use it to prove $\sqrt{4}$ is irrational?
+			\begin{solution}{(b)}
+				The proof breaks because $2^{2} = 4$, and so $4r^{2} = 2(2)b^{2}$ implies that $r^{2} = b^{2}$ and so we are devoid of the chance of showing that $a$ and $b$ have $2$ as a common factor with this specific argument.
+			\end{solution}
+		\end{enumerate}
+	\end{problem}
+
+	\begin{problem}{1.2.2}
+		Show that there is no rational number $r$ satysfying $2^{r} = 3$
+		\begin{proof}
+			Suppose, to the contrary, that there is some rational number $r$ such that $2^{r} = 3$. Thus, 
+			\begin{equation*}
+				2^{\frac{a}{b}} = 3
+			\end{equation*}
+			 for some integers $a$ and $b\neq 0$. We may further assume that $a\neq 0$ since $1\neq 3$. Also note that $\frac{a}{b}>0$ because $3$ is an integer. Thus,
+			 \begin{equation*}
+			 	2^{\frac{a}{b}} = \left(2^{a}\right)^{\frac{1}{b}} =3
+			 \end{equation*}
+		 which implies that $2^{a} = 3^{b}$. If $a,b>0$, then $2^{a}$ and $3^{b}$ are an even and an odd number, respectively, which is a contradiction. On the other hand, if $a,b<0$, then $2^{a} \cdot 3^{-b}= 3^{b} \cdot 3^{-b} = 1$. Note that $2^{a}\cdot 3^{-b} = 1$ implies that $3^{-b} = 2^{-a}$. Since $-a,-b>0$, it follows that $2^{-a}$ and $3^{-b}$ are even and odd numbers, respectively. This is a contradiciton.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{1.2.3}
+		Decide which of the following represent true statements about the nature of sets. For any that are false, provide a specific example where the statement in question does not hold.
+		\begin{enumerate}[label=(\alph*)]
+			\item If $A_{1} \supseteq A_{2} \supseteq A_{3} \supseteq A_{4} \cdots$ are all sets containing an infinite number of elements, then the intersection $\bigcap^{\infty}_{n=1} A_{n}$ is infinite as well.
+			\begin{solution}{a}
+				This statement is false. Let $A_{n} = \{x\in \N: x\geq n\}$. Then, for every $n\in \N$, $A_{n} \supseteq A_{n+1}$ and $A_{n}$ is infinite. Assume, to the contrary, that $\bigcap^{\infty}_{n=1} A_{n}$ contains some element $m\in \N$. However, $m\notin A_{m+1}$, which leads to a contradiciton. 
+			\end{solution}
+			\item If $A_{1}\supseteq A_{2} \supseteq A_{3} \supseteq A_{4} \cdots$ are all finite, nonempty sets of real numbers, then the intersection $\bigcap_{n=1}^{\infty} A_{n}$ is finite and nonempty.
+			\begin{solution}{b}
+				This seems to be true. Since they are nested and finite sets, it follows that $|A_{1}| \geq A_{n}$ for all $n\in \N$. However, we only have a finite quantity number of elements for an infinite sequence of nonempty finite nested sets. Therefore, for some $k\in \N$, all sets $n\geq k$ must be equal. Hence, $\bigcap_{n=1}^{\infty} A_{n} = A_{k}$.
+			\end{solution}
+			\item $A\cap (B\cup C) = (A\cap B)\cup C$.
+			\begin{solution}{c}
+				This is false. Let $A=\{1,2,3\}$, $B=\{3\}$ and $C=\{8,2\}$. Then $A\cap (B\cup C) = A\cap \{8,2,3\} = \{2,3\}$ and $(A\cap B)\cup C = \{3\}\cup \{8,2\} = \{8,2,3\}$. Hence, $A\cap (B\cup C) \neq (A\cap B)\cup C$ and this represents a counterexample.
+			\end{solution}
+			
+			\item $A\cap (B\cap C) = (A\cap B)\cap C$.
+			\begin{solution}{d}
+				This is true. 
+			\end{solution}
+		
+			\item $A\cap (B\cup C) = (A\cap B)\cup (A\cap C)$.
+			\begin{solution}{e}
+				This is true.
+			\end{solution}
+		\end{enumerate}
+	\end{problem}
+
+	\begin{problem}{1.2.5}
+		\textbf{(De Morgan's Laws).} Let $A$ and $B$ b subsets of $\R$. 
+		\begin{enumerate}[label=(\alph*)]
+			\item If $x\in (A\cap B)^{c}$, explain why $x\in A^{c}\cup B^{c}$. This shows that $(A\cup B)^{c} \subseteq A^{c}\cup B^{c}$.
+			\begin{proof}
+			 Assume that $x\in (A\cap B)^{c}$. Then, $x\in \R$ such that $x\not\in A\cap B$ and so $x\not\in A$ or $x\not\in B$. Therefore, $x\in A^{c}$ or $x\in B^{c}$, namely, $x\in A^{c} \cup B^{c}$.
+			\end{proof}
+		
+			\item Prove the reverse inclusion $(A\cap B)^{c} \supseteq A^{c}\cup B^{c}$, and conclude that $(A\cap B)^{c} = A^{c}\cup B^{c}$.
+			\begin{proof}
+				Let $x\in A^{c}\cup B^{c}$. Then, $x\in \R$ and either $x\notin A$ or $x\notin B$. Thus, $x\in \R$ and $x\notin A\cap B$, namely, $x\in (A\cap B)^{c}$.
+			\end{proof}
+		
+			\item Show $(A\cup B)^{c} = A^{c} \cap B^{c}$ by demonstrating inclusion both ways.
+			\begin{proof}
+				With arguments \textbf{(a)} and \textbf{(b)} one can conlcude that $(A\cup B)^{c} = A^{c} \cap B^{c}$ (inclusion both ways).
+			\end{proof}
+		\end{enumerate}
+	\end{problem}
+
+	\begin{problem}{1.2.6}
+		\begin{enumerate}[label=(\alph*)]
+			\item Verify the triangle inequality in the special case where $a$ and $b$ have the same sign.
+			\begin{proof}
+				Let $a,b\geq 0$. Hence, $a+b \geq 0$ and so $|a+b| = a+b = |a|+|b|$. On the other hand, consider some real numbers $a,b<0$. Thus, $|a+b| < 0$ and so $|a+b| = -(a+b) = (-a)+(-b)=|a|+|b|$.
+			\end{proof}
+			
+			\begin{lemma}{1.2.6.b}
+				For any $a,b\in \R$, $(a+b)^{2} \leq (|a|+|b|)^{2}$.
+				\begin{proof}
+					Let $a,b\in \R$. Consider $(a+b)^{2} = a^{2}+2ab+b^{2}$. Note that $a^{2} +2ab + b^{2} = |a|^{2}+2ab+|b|^{2} \leq |a|^{2} +2|a||b| +|b|^{2} = (|a|+|b|)^{2}$.
+				\end{proof}
+			\end{lemma}
+			\item Find an efficient proof for all the cases at once by first demonstrating $(a+b)^{2} \leq (|a|+|b|)^{2}$.
+			\begin{proof}
+				Let $a$ and $b$ be some real numbers. Since either $|a+b| = a+b$ or $|a+b| = -(a+b)$, it follows that $\left(|a+b|\right)^{2} = (a+b)^{2} \leq \left(|a|+|b|\right)^{2}$, by \textbf{Lemma 1.2.6.b}. Because $|a+b|, |a|+|b| \geq 0$, it follows that $|a+b| \leq |a|+|b|$.
+			\end{proof}
+			
+			\item Prove $|a-b|\leq |a-c|+|c-d|+ |d-b|$ for all $a,b,c,$ and $d$.
+			\begin{proof}
+				Consider some real numbers $a,b,c$ and $d$. Note that 
+				\begin{align*}
+					\left|[(a-c)+(c-d)]+(d-b)\right| &\leq |(a-c)+(c-d)|+|d-b|\\
+					&\leq  |a-c|+|c-d|+|d-b|.
+				\end{align*}
+			Since $\left|[(a-c)+(c-d)]+(d-b)\right| = |a-b|$, it follows that $|a-b|\leq  |a-c|+|c-d|+|d-b|$, as desired.\\
+			
+			This seems to be a particular case of a more general statement, namely, let $\{a_{1},a_{2},\ldots,a_{n}\}$ be a set of $n$ real numbers, then $|a_{1}+a_{2}+\ldots+a_{n}| \leq |a_{1}|+|a_{2}|+\ldots+|a_{n}|$.
+			\end{proof}
+			
+			\item Prove $||a|-|b||\leq |a-b|$. (The unremarkable identity $a=a-b+b$ may be useful.)
+			\begin{proof}
+				Consider some real numbers $a$ and $b$. Note that
+				\begin{align*}
+					||a|-|b|| &= ||(a-b)+b|-|b||\\
+					&\leq ||a-b|+|b|-|b|| = ||a-b||\\
+					&= |a-b|.
+				\end{align*}
+			Therefore, $||a|-|b|| \leq |a-b|$, as desired. 
+			\end{proof}
+ 		\end{enumerate}
+	\end{problem}
+
+	\begin{problem}
+		Given a function $f$ and s subset $A$ of its domain, let $f(A)$ represent the range of $f$ over the set $A$; that is, $f(A) = \{f(x):x\in A\}$.
+		\begin{enumerate}[label=(\alph*)]
+			\item Let $f(x) = x^{2}$. If $A=[0,2]$ (the closed interval $\{x\in \R:0\leq x \leq 2\}$) and $B=[1,4]$, find $f(A)$ and $f(B)$. Does $f(A\cap B) = f(A) \cap f(B)$ in this case? Does $f(A\cup B) = f(A)\cup f(B)$?
+			\begin{solution}{(a)}
+				Since for any $x\in A$, $x\geq 0$, it follows that $a<b$ implies $a^{2}<b^{2}$ for some $a,b \in A$. Hence, $f(A) = [0,4]$. The same argument can be used to conclude that $f(B) = [1,16]$. \\
+				
+				Note that 
+				\begin{align*}
+					f(A\cap B) &= f([0,2]\cap [1,4]) = f([1,2])\\
+					&= [1,4]\\
+					&= [0,4]\cap [1,16] = f(A)\cap f(B).
+				\end{align*}
+			 Also,
+			\begin{align*}
+				f(A\cup B) &= f([0,2]\cup [1,4]) = f([0,4])\\
+				&= [0,16]\\
+				&= [0,4]\cup [1,16] = f(A)\cup f(B).
+			\end{align*}
+		Therefore, for this particular case, both $f(A\cap B) = f(A)\cap f(B)$ and $f(A\cup B) = f(A)\cup f(B)$ hold.
+			\end{solution}
+		
+		\item Find two sets $A$ and $B$ for which $f(A\cap B) \neq f(A)\cap f(B)$.
+		\begin{solution}{b}
+			Let $A=[-4,-1]$ and $B=[-5,-1]$. Then $f(A\cap B) = f([-4,-1]) = [1,16]$ and $f(A)\cap f(B) = [1,16]\cap [1,25] = [1,25]$. Therefore, for this particular case, $f(A\cap B) \subset f(A)\cap f(B)$.
+		\end{solution}
+		
+		\item Show that, for an arbitrary function $g:\R \to \R$, it is always true that $g(A\cap B) \subseteq g(A)\cap g(B)$ for all sets $A,B \subseteq \R$.
+		\begin{proof}
+			Consider some arbitrary function $g:\R \to \R$ and sets $A,B\subseteq \R$. Since $A\cap B \subseteq A$ and $A\cap B \subseteq B$, if follows that $g(A\cap B) \subseteq g(A)$ and $g(A\cap B) \subseteq g(B)$. Therefore, $g(A\cap B) \subseteq g(A)\cap g(B)$. 
+		\end{proof}
+		
+		\item Form and prove a conjecture about the relationship between $g(A\cup B)$ and $g(A)\cup g(B)$ for an arbitrary funciton $g$.
+		\begin{result}{d}
+			For an arbitrary function $g:\R \to \R$, it is always true that $g(A\cup B) = g(A)\cup g(B)$ for all sets $A,B \subseteq \R$.
+		\end{result}
+		\begin{proof}
+				Consider some arbitrary function $g:\R \to \R$ and sets $A,B\subseteq \R$. Let $y\in g(A\cup B)$. This implies that there is some $x\in A\cup B$ such that $g(x) = y$. However, $x\in A$ or $x\in B$ and so $g(x) \in g(A)$ or $g(x) \in g(B)$. Hence, $g(A\cup B) \subseteq g(A)\cup g(B)$.\\
+				
+				For the converse, let $y\in g(A)\cup g(B)$. Then, either $y\in g(A)$ or $y\in g(B)$. This means that there is some $x\in A$ or $x\in B$ such that $g(x) = y$. Then, $x\in A\cup B$ and so $g(x) = y \in g(A\cup B)$. Thus, $g(A\cup B) = g(A)\cup g(B)$.
+				
+				
+		\end{proof}
+		\end{enumerate} 
+	\end{problem}
+
+	\begin{problem}{1.2.8}
+		Here are two important definitions related to a function $f:A\to B$. The function $f$ is \textit{one-to-one} (1,1) if $a_{1} \neq a_{2}$ in $A$ implies that $f(a_{1}) \neq f(a_{2})$ in $B$. The function $f$ is \textit{onto} if, given any $b\in B$, it is possible to find an element $a\in A$ for which $f(a) = b$.
+		
+		Give an example of each or state that the request is impossible:
+		\begin{enumerate}[label=(\alph*)]
+			\item $f:\N \to \N$ that is 1-1 but not onto.
+			\begin{solution}{a}
+			Let $f(x) = x^{2}$. Then, $f:\N \to \N$ is 1-1 since every natural number has one unique square and it is not onto since not all natural numbers are perfect squares.
+			\end{solution}
+			\item $f:\N \to \N$ that is onto but not 1-1.
+			\begin{solution}{b}
+				Let 
+				\begin{equation*}
+					f(x) = 
+					\begin{cases}
+						1 &\quad \text{if } x\leq 2\\
+						x-1 &\quad \text{if } x>2
+					\end{cases}
+				\end{equation*}
+			\end{solution}
+			\item $f:\N \to \Z$ that is 1-1 and onto.
+			\begin{solution}{c}
+				Let 
+				\begin{equation*}
+				f(x) =
+				\begin{cases}
+					0 &\text{if } x=1\\
+					n &\text{if } \exists n\in \N, x=2n\\
+					-n &\text{if }\exists n\in \N, x=2n+1
+				\end{cases}
+				\end{equation*}
+			\end{solution}
+		\end{enumerate}
+	\end{problem}
+
+	\begin{problem}{1.2.9}
+		Given a function $f:D\to \R$ and a subset $B\subseteq \R$, let $f^{-1}(B)$ be the set of all points from the domain $D$ that get mapped into $B$; that is, $f^{-1}(B) = \{x\in D:f(x)\in B\}$. This set is calles the \textit{preimage} of $B$.
+		\begin{enumerate}[label=(\alph*)]
+			\item Let $f(x) = x^{2}$. If $A$ is the closed interval $[0,4]$ and $B$ is the closed interval $[-1,1]$, find $f^{-1}(A)$ and $f^{-1}(B)$. Does $f^{-1}(A\cap B) = f^{-1}(A)\cap f^{-1}(B)$ in this case? Does $f^{-1}(A\cup B) = f^{-1}(A)\cup f^{-1}(B)$?
+			\begin{solution}{a}
+				We know that $f^{-1}(A) = [-2,2]$ and $f^{-1}(B) = [-1,1]$. Hence,  
+				\begin{align*}
+					f^{-1} (A\cap B) &= f^{-1} ([-1,1]) \\
+					&= [-1,1] = [-2,2]\cap [-1,1] \\
+					&= f^{-1}(A)\cap f^{-1}(B).
+				\end{align*}
+			Also,
+				\begin{align*}
+					f^{-1}(A\cup B) &= f^{-1} ([-1,4])\\
+					&= [-2,2] = [-2,2]\cup [-1,1]\\
+					&= f^{-1}(A)\cup f^{-1}(B)
+				\end{align*}
+			\end{solution}
+			\item The good behavior of preimages demonstarted in (a) is completely general. Show that for an arbitrary function $g:\R \to \R$, it is always true that $g^{-1}(A\cap B) = g^{-1}(A)\cap g^{-1}(B)$ and $g^{-1}(A\cup B) = g^{-1}(A)\cup g^{-1}(B)$ for all sets $A,B\subseteq \R$.
+			\begin{proof}
+				Let $A,B\subseteq \R$ and $g:\R\to \R$. We divide this proof in two parts.
+				\begin{enumerate}[label=(\alph*)]
+					\item We show that $g^{-1}(A\cap B) = g^{-1}(A)\cap g^{-1}(B)$. First, consider some $x\in g^{-1}(A\cap B)$. Then, there is some $y = g(x) \in A\cap B$ and so $y \in A$ and $y\in B$. Thus, $x\in g^{-1}(A)$ and $x\in g^{-1}(B)$ and so $x\in g^{-1}(A)\cap g^{-1}(B)$. Therefore, $g^{-1}(A\cap B) \subseteq g^{-1}(A)\cap g^{-1}(B)$.\\
+					
+					For the converse, consider some $x\in g^{-1}(A)\cap g^{-1}(B)$. Then, $x\in g^{-1}(A)$ and $x\in g^{-1}(B)$, and so there is some $y=g(x)\in A$ and $y=g(x) \in B$. Hence, $y\in A\cap B$, which implies that $x\in g^{-1}(A\cap B)$. Therefore, $g^{-1}(A)\cap g^{-1}(B)\subseteq g^{-1}(A\cap B)$.\\
+					
+					\item We show that $g^{-1}(A\cup B) = g^{-1}(A)\cup g^{-1}(B)$. Consider some $x\in g^{-1}(A\cup B)$. Then, there is some $y=g(x) \in A\cup B$ and so either $y\in A$ or $y\in B$. This implies that $x\in g^{-1}(A)$ or $x\in g^{-1}(B)$. Hence, $x\in g^{-1}(A)\cup g^{-1}(B)$ and so $g^{-1}(A\cup B) \subseteq g^{-1}(A)\cup g^{-1}(B)$.\\
+					
+					For the converse, let $x\in g^{-1}(A)\cup g^{-1}(B)$. Then, there is some $y=f(x)$ such that either $y\in A$ or $y\in B$. Hence, $y\in A\cup B$, which implies that $x\in g^{-1}(A\cup B)$. Therefore, $g^{-1}(A)\cup g^{-1}(B) \subseteq g^{-1}(A\cup B)$.
+				\end{enumerate}
+			\end{proof}
+		\end{enumerate}
+	\end{problem}
+
+	\begin{problem}{1.2.12}
+		Let $y_{1} = 6$, and for each $n\in \N$ define $y_{n+1} = (2y_{n}-6)/3$.
+		\begin{enumerate}[label=(\alph*)]
+			\item Use induction to prove that the sequence satisfies $y_{n} > -6$ for all $n\in \N$.
+			\begin{proof}
+				Since $y_{1} = 6$, it follows that $y_{2} = (2\cdot 6-6)/3 = 2$ and so $y_{1},y_{2}>-6$. Assume that $y_{k} > -6$ for any $k\geq 2$. We show that $y_{k+1} > -6$. Note that
+				\begin{align*}
+					y_{k+1} &= \frac{2y_{k}-6}{3} = \frac{2}{3} y_{k}-2\\
+					&> \frac{2}{3}(-6) -2 \\
+					&= -6. 
+				\end{align*}
+			By the Principle of Mathematical Induction, $y_{n} > -6$ for all $n\in \N$.\\
+			
+			The number $-6$ seems to be some type of \textit{limit} the sequence approaches.
+			\end{proof}
+			
+			\item Use another induction argument to show the sequence $(y_{1},y_{2},y_{3},\ldots)$ is decreasing.
+		\end{enumerate}
+	\end{problem}
+	
+	\begin{problem}{1.2.13}
+		\begin{enumerate}[label=(\alph*)]
+			\item Show how induction can be used to conclude that
+			\begin{equation*}
+				\left(\bigcup_{i=1}^{n} A_{i}\right)^{c} = \bigcap_{i=1}^{n} A_{i}^{c}
+			\end{equation*}
+		\begin{proof}
+			We proceed by induction. By \textbf{De Morgan's Laws}, $(A_{1}\cup A_{2})^{c} = A_{1}^{c}\cap A_{2}^{c}$ for any sets $A_{1}$ and $A_{2}$. Hence, the statement is true for $n=2$. Assume for any $k$ sets $B_{1},B_{2},B_{3},\ldots, B_{k}$ that 
+			\begin{equation*}
+				\left(\bigcup_{i=1}^{k} B_{i}\right)^{c} = \bigcap_{i=1}^{k} B_{i}^{c}.
+			\end{equation*}
+		We show fro any $k+1$ sets $C_{1},C_{2},C_{3},\ldots, C_{k+1}$ that 
+			\begin{equation*}
+				\left(\bigcup_{i=1}^{k+1} C_{i}\right)^{c} = \bigcap_{i=1}^{k+1} C_{i}^{c}.
+			\end{equation*}
+		Note that 
+		\begin{align*}
+			\left(\bigcup_{i=1}^{k+1} C_{i}\right)^{c} &= \left(\left(\bigcup_{i=1}^{k} C_{i}\right)\cup C_{k+1}\right)^{c}.
+		\end{align*}
+	Since $\bigcup_{i=1}^{k} C_{i}$ is a set, it follows, by \textbf{De Morgan's Laws}, that 
+	\begin{align*}
+		\left(\left(\bigcup_{i=1}^{k} C_{i}\right)\cup C_{k+1}\right)^{c} &= \left(\bigcup_{i=1}^{k} C_{i}\right)^{c}\cap C_{k+1}^{c}\\
+		&= \bigcap_{i=1}^{k} C_{i}^{c} \cap C_{k+1}^{c} = \bigcap_{i=1}^{k+1} C_{i}^{c}
+	\end{align*}
+      according to our inductive hypothesis.
+      By the Theorem of Mathematical Induction, for any $n\geq 2$ sets $A_{1},A_{2},\ldots,A_{n}$, it is true that
+      \begin{equation*}
+      	\left(\bigcup_{i=1}^{n} A_{i}\right)^{c} = \bigcap_{i=1}^{n} A_{i}^{c}
+      \end{equation*}
+		\end{proof}
+		\end{enumerate}
+	\end{problem}
+\end{document}
