@@ -1,0 +1,132 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 6}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 11: Characterization of Statements}
+	\date{August 25, 2021}
+	\maketitle
+	
+	\begin{problem}{80}
+		Give a definition of each of the following and then state a characterization of each.\\
+		
+		(a) Two lines in the plane are perpendicular.
+		\begin{solution}{a}
+			\textbf{Definition:} Two lines in the plane are perpendicular if they form a right angle at their intersection.\\
+			\textbf{Characterization:} Two lines in the plane are perpendicular if and only if the slopes of their equations are negative reciprocals. 
+		\end{solution}
+	
+		(b) A rational number.
+		\begin{solution}{b}
+			\textbf{Definition:} A real number $n$ is rational if $n=a/b$, where $a,b\in \Z$ and $b\neq 0$.\\
+			\textbf{Characterization:} A real number $n$ is rational if and only if $n$ has a repeating decimal expansion.  
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{81}
+		Define an integer $n$ to be odd if $n$ is not even. State a characterization of odd integers.
+		\begin{solution}{}
+			The integer $n$ is odd if and only if $n^{2}$ is odd. 
+		\end{solution}
+	\end{problem}
+	\begin{problem}{82}
+		Define a triangle to be isosceles if it has two equal sides. Which of the following statements are characterizations of isosceles triangles? If a statement is not a characterization of isosceles triangles, then explain why.\\
+		
+		(a) If a triangle is equilateral, then it is isosceles.
+		\begin{solution}{a}
+			This is statement does not represent a characterization because is not a biconditional	
+		\end{solution}
+	
+		(b) A triangle $T$ is isosceles if and only if $T$ has two equal sides. 
+		\begin{solution}{b}
+			This is the already given definition of an isosceles triangle. A characterization of a concept gives an alternative, but equivalent to the definition, way to look at this concept.
+		\end{solution}
+	
+		(c) If a triangle has two equal sides, then it is isosceles.
+		\begin{problem}{c}
+			This statement is not a characterization since it is not a biconditional.
+		\end{problem}
+	
+		(d) A triangle $T$ is isosceles if and only if $T$ is equilateral.
+		\begin{problem}{d}
+			This is not a characterization of isosceles triangles. Notwithstanding that equilateral triangles are isosceles, isosceles triangles do not fall into the category of equilateral ones. This biconditional is false.
+		\end{problem}
+	
+		(e) If a triangle has two equal angles, then it is isosceles.
+		\begin{solution}{e}
+			This statement does not represent a characterization since it is not a biconditional.
+		\end{solution}
+	
+		(f) A triangle $T$ is isosceles if and only if $T$ has two equal angles.
+		\begin{solution}{f}
+			This statement is a characterization of isosceles triangles. A triangle having two equal angles implies it having two equal sides (definition of an isosceles triangle) and vice versa. 
+		\end{solution}
+	\end{problem}
+	
+	\begin{problem}{83}
+		By definition, a right triangle is a triangle one of whose angles is a right angle. Also, two angles in a triangle are complementary if the sum of their degrees is $90^{\circ}$. Which of the following statements are characterizations of a right triangle? If a statement is not a characterization of a right triangle, then explain why.\\
+		
+		(a) A triangle is a right triangle if and only if two of its sides are perpendicular.
+		\begin{solution}{a}
+			This is a characterization of a right triangle. Two of its sides being perpendicular implies the existence of a right angle at their intersection and vice versa.
+		\end{solution}
+	
+		(b) A triangle is a right triangle if and only if it has two complementary angles.
+		\begin{solution}{b}
+			This statement is a characterization of a right triangle. In an Euclidean space, the sum of the degrees of the angles of a triangle is $180^{\circ}$. Therefore, two of its angles being complementary (the sum of their degrees is $90^{\circ}$) implies that the other one is a right angle (angle of $90^{\circ}$) and vice versa.
+		\end{solution}
+	
+		(c) A triangle is a right triangle if and only if its area is half of the product of the lengths of some pair of its sides.
+		\begin{solution}{c}
+			This statement is a characterization of a right triangle. Let $A$ be the area of a triangle. In an euclidean space, $A = (bh)/2$, where $b$ and $h$ are the distance of the base and distance of height of a triangle, respectively. For the base and height to be two sides of a triangle, they must be perpendicular to each other (the height is the perpendicular line to the base that goes to the opposite vertex). Therefore, two sides of the traingle being able to represent its base and height implies that these are perpendicular (they form a right angle at their intersection) and vice versa
+		\end{solution}
+		
+		(d) A triangle is a right triangle if and only if the square of the length of its longest side equals to the sum of the squares of the lengths of the two smallest sides.
+		\begin{solution}{d} 
+			This is a characterization of a right triangle. The equality of the Pythagorean Theorem described above only holds for right triangles in an Euclidean Space.
+		\end{solution} 
+	
+		(e) A triangle is a right triangle if and only if twice of the area of the triangle equals the area of some rectangle.
+		\begin{solution}{e}
+			This is not true. Every positive real number represents the area of some rectangle ($Area = ab$, being $a$ and $b$ the length of two different sides of the rectangle (positive real numbers)) since real numbers are closed under multiplication. Then, one can construct some triangle of any type whose area equals the half of this positive number. 
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{84}
+		Two distinct lines in the plane are defined to be parallel if they don't intersect. Which of the following is a characterization of parallel lines.
+		
+		\begin{solution}{}
+			According to the books solution manual (a) and (b) are characterizations of parallel lines, which makes sense (a third line that intersects a parallel line also intersects the other parallel line, and they form corresponding angles (all of them being right angles when this intersecting line is perpendicular to one of this parallel lines)). (d) is not a characterization of two distinct parallel lines since these two parallel lines are not the same and can therefore have different points. (c) not being a characterization still troubles me and can not figure out why (does it has to do with the 4 posible angles an intersecting line can form on each parallel line?). My knowledge is still limited to express my reasoning in a clear manner.
+		\end{solution}
+	\end{problem} 
+	
+\end{document}

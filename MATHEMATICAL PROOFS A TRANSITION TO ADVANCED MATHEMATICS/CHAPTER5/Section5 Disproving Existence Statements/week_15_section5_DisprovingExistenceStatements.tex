@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 15}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 4: Existence Proofs}
+	\date{November 11, 2021}
+	\maketitle
+
+	Let $R(x)$ be an open sentence over the set $S$. In order to disprove the existence statement $\exists x\in S, R(x)$, one must prove it's negations, namely, $\sim (\exists x\in S, R(x)) \equiv \forall x\in S, \sim R(x)$. Basically, one must show that the open sentence $R(x)$ is false for all $x\in S$.
+	
+	\begin{problem}{49}
+		Disprove the statement: There exist odd integers $a$ and $b$ such that $4\mid (3a^{2}+7b^{2})$.
+		\begin{solution}{}
+			We show that for every odd integers $a$ and $b$, $4\nmid (3a^{2}+7b^{2})$. Let $a$ and $b$ be odd integers. Then $a=2m+1$ and $b=2n+1$ for some integers $m,n$. Therefore,
+			\begin{align*}
+				3a^{2}+7b^{2} &= 3(2m+1)^{2}+7(2n+1)^{2}\\
+				&= 3(4m^{2}+4m+1)+7(4n^{2}+4n+1) =  4(3m^{2}+3m) +  4(7n^{2}+7n) + 10\\
+				&= 4(3m^{2}+3m+7n^{2}+7n+2)+2
+			\end{align*}
+		Since $3m^{2}+3m+7n^{2}+7n+2 \in \Z$, it follows that $4\nmid (3a^{2}+7b^{2})$.
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{50}
+		Disprove the statement: There is a real number $x$ such that $x^{6}+x^{4}+1=2x^{2}$.
+		\begin{solution}{}
+			We show that for every $x\in \R$, $x^{6}+x^{4}+1\neq 2x^{2}$. Note that, $x^{6}+x^{4}-2x^{2}+1 = x^{6}+ (x^{2}-1)^{2} = 0$. Since $x^{6}\geq 0$ and $(x^{2}-1)^{2}\geq 0$, it follows that $x^{6}+ (x^{2}-1)^{2} = 0$ iff $x^{6} = (x^{2}-1)^{2} = 0$. Note that, $x^{6}=0$ iff $x=0$. However, $(x^{2}-1)^{2}=(-1)^{2}=1\neq 0$ for $x=0$. Thus, there is no real solution for $x^{6}+x^{4}+1=2x^{2}$.
+		\end{solution}
+	\end{problem}
+ 
+	\begin{problem}{51}
+		Disprove the statement: There is an integer $n$ such that $n^{4}+n^{3}+n^{2}+n$ is odd.
+		\begin{solution}{}
+			We show that for any integer $n$, the integer $n^{4}+n^{3}+n^{2}+n$ is even. Let $n\in \Z$. We consider two cases.\\
+			\textit{Case 1.} $n$ is even. Then $n =2a$ for some integer $a$. Therefore, $n^{4}+n^{3}+n^{2}+n = n(n^{3}+n^{2}+n+1) = 2[a(n^{2}+n^{2}+n+1)]$. Since $a(n^{2}+n^{2}+n+1)$ is an integer, it follows that $n^{4}+n^{3}+n^{2}+n$ is even.\\
+			\textit{Case 2.} $n$ is odd. According to \textit{Theorem 3.17}, $ab$ is odd if and only if $a$ and $b$ are odd. Therefore, $n^{4}=n^{2}\cdot n^{2}$, $n^{3} = n^{2}\cdot n$ and $n^{2}$ are odd. Let $n^{4}=2a+1$, $n^{3}=2b+1$, $n^{2} = 2c+1$ and $n = 2d+1$ for some integers $a,b,c,d$. Thus, $n^{4}+n^{3}+n^{2}+n = 2a+2b+2c+2d+4=2(a+b+c+d+2)$. Since $a+b+c+d+2\in \Z$, it follows that $n^{4}+n^{3}+n^{2}+n$ is even.
+		\end{solution}
+	\end{problem}
+
+\end{document}

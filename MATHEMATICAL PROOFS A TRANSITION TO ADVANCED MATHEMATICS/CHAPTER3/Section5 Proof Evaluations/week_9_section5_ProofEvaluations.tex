@@ -1,0 +1,121 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem} 
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 10}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 5: Proof Evaluations}
+	\date{September 22, 2021}
+	\maketitle
+	
+	\begin{problem}{37}
+		After reading the given proof. Which of the following is proved?
+		\begin{solution}{}
+			The right answer is (3). The proof is a direct proof by cases of (3). 
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{38}
+		After reading the given proof. What result is being proved?
+		\begin{solution}{}
+			The following biconditional is being proved\\ 
+			
+			\textbf{Result} Let $x\in \Z$. Then $x$ is even if and only if  $3x^{2}-4x-5$ is odd.\\
+			
+			However, the bicoditional of the contrapositives of the implications from the previous biconditional is also being proved.\\
+			
+			\textbf{Result} Let $x\in \Z$. Then $x$ is odd if and only if  $3x^{2}-4x-5$ is even.
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{39}
+		Evaluate the proof of the following result.
+		\begin{solution}{}
+			The given proof is a direct proof of the converse of the result. Thus, althougth the method and proof are correct, it does not proof the original result.
+		\end{solution}
+	\end{problem}
+	
+	\begin{problem}{40}
+		Evaluate the proof of the following result.
+		\begin{solution}{}
+			This is proof only proofs two cases with subcases. The biconditional should be proven by proving an implication in it and its convers. The proposed proof does not specify the assumptions and implications being proved.
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{41}
+		The following is an attempted proof of a result. What is the result and is the attempted proof correct?
+		\begin{solution}{}
+			The result seems to be\\
+			
+			\textbf{Result} Let $x,y\in \Z$. If $x$ or $y$ is even, then $xy^{2}$ is even.\\
+			
+			If this is true, then the attempted proof is not correct. It assumes that one just needs to prove the case when $x$ is even. However, another proof of the case when $y$ is even is needed.
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{42}
+		Given below is a proof of a result. What is the result?
+		\begin{solution}{}
+			From the first and last sentences, it appears that the result is\\
+			\textbf{Result } Let $x,y,z\in \Z$. If two of the three integers $x,y,z$ are even, then $xy+xz+yz$ is even.
+		\end{solution}
+	\end{problem}
+	
+	\begin{problem}{43}
+		What result is being proved below, and what procedure is being used to verify the result?
+		\begin{solution}{}
+			First, some lemma is proven. It seems that the lemma is\\ 
+			
+			\textbf{Lemma } Let $x\in\Z$. If $7x-3$ is even, then $x$ is odd.\\
+			
+			Then, the main result is proven using the previous lemma. It seems that the main result is\\
+			\textbf{Result } Let $x\in \Z$. If $7x -3$ is even, then $3x+8$ is odd.\\
+			
+			If we are correct, then the lemma was proven by contrapositive and the main result was proven directly using the lemma.
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{44}
+		Consider the following statement.\\ 
+		Let $n\in \Z$. Then $(n-5)(n+7)(n+13)$ is odd if and only if $n$ is even.
+		Which of the following would be an appropiate way to begin a proofof this statement?
+		\begin{solution}{} 
+			Answers from (a) to (d) are good ways to start a proof of the biconditional. They begin with an assumption to whether prove directly or by contrapositive an implication from the biconditional (it would be easier to begin with either (c) or (d)) Sentence (e) is not an appropiate way to begin the proof since it only considers cases and does not specify the implications to be proven.
+		\end{solution}
+	\end{problem}
+
+\end{document}

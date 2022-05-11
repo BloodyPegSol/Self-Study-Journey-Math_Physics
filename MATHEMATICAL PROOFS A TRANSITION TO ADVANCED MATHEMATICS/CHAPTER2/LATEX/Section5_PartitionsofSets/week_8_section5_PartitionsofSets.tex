@@ -1,0 +1,185 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem} 
+\usepackage{tikz}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\def\rectangle{(-3,-3) rectangle(5,3)}
+\def\firstcircle{(0,0) circle(2)}
+\def\secondcircle{(2,0) circle(2)}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 8}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 5: Partitions of Sets}
+	\date{September 11, 2021}
+	\maketitle
+
+\begin{problem}{46}
+	Which of the following are partitions of $A=\{a,b,c,d,e,f,g\}$? For each collection of subsets that is not a partition of $A$, explain your answer.\\
+	
+	(a) $S_{1} = \{\{a,c,e,g\},\{b,f\},\{d\}\}$
+	\begin{solution}{a}
+		The set $S_{1}$ is a partition of $A$.
+	\end{solution}
+
+	(b) $S_{2} = \{\{a,b,c,d\},\{e,f\}\}$
+	\begin{solution}{b}
+		The set $S_{2}$ is not a partition of $A$ since $\bigcup_{X\in S_{2}}X \neq A$. The letter $g$ belongs to no subset in $S_{2}$.
+	\end{solution}
+
+	(c) $S_{3} = \{A\}$
+	\begin{solution}{c}
+		The set $S_{3}$ is a partition of $A$.
+	\end{solution}
+
+	(d) $S_{4} = \{\{a\},\emptyset, \{b,c,d\}, \{e,f,g\}\}$
+	\begin{solution}{d}
+		The set $S_{4}$ is not a partition of $A$ because $\emptyset \in S_{4}$.
+	\end{solution}
+
+	(e)  $S_{5} = \{\{a,c,d\},\{b,g\},\{e\},\{b,f\}\}$
+	\begin{solution}{e}
+		The set $S_{5}$ is not a partition of $A$ since $b$ belongs to two distinct subsets in $S_{5}$, namely $\{b,g\}$ and $\{b,f\}$.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{47}
+	Which of the following sets are partitions of $A=\{1,2,3,4,5\}$?\\
+	
+	(a) $S_{1} = \{\{1,3\},\{2,5\}\}$
+	\begin{solution}{a}
+		The set $S_{1}$ is not a partition of $A$ since the number 4 belongs to no subset in $S_{1}$ ($\bigcup_{X\in S_{1}}X \neq A$).
+	\end{solution}
+
+	(b) $S_{2} = \{\{1,2\},\{3,4,5\}\}$
+	\begin{solution}{b}
+		The set $S_{2}$ is a partition of $A$. 
+	\end{solution}
+
+	(c) $S_{3} = \{\{1,2\},\{2,3\},\{3,4\},\{4,5\}\}$
+	\begin{solution}{c}
+		The set $S_{3}$ is not a partition of $A$ because each number 2, 3 and 4 belongs to two distinct sets. The set $S_{3}$ is not pairwise disjoint.
+	\end{solution}
+
+	(d) $S_{4} = A$
+	\begin{solution}{d} 
+		The set $S_{4}$ is not a partition of $A$ since it is not a collection subsets of $A$.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{48}
+	Let $A = \{1,2,3,4,5,6\}$. Give an example of a partition $S$ of $A$ such that $|S| = 3$.
+	\begin{solution}{}
+		The partition $S$ of $A$ must contain only 3 subsets. One such example is $S=\{\{1,2\},\{3,4,5\},\{6\}\}$.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{49}
+	Give an example of a set $A$ with $|A|=4$ and two disjoint partitions of $S_{1}$ and $S_{2}$ of $A$ with $|S_{1}|=|S_{2}|=3$.
+	\begin{solution}{}
+		Let $A=\{1,2,3,4\}$, $S_{1} = \{\{1\},\{2\},\{3,4\}\}$ and $S_{2} = \{\{1,2\},\{3\},\{4\}\}$.
+		Therefore, $|A| = 4$, the sets $S_{1}$ and $S_{2}$ are disjoint partitions of $A$, and $|S_{1}|=|S_{2}|=3$.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{50}
+	Give an example of a partition of $\N$ into three subsets.
+	\begin{solution}{}
+		Let $S=\{A_{1}, A_{2}, A_{3}\}$, where $A_{1} = \{x\in \N: x<3\}$, $A_{2} = \{3\}$ and $A_{3} = \{x \in \N: x>3\}$. \\ 
+		Another solution to this problem:\\
+		Let $S=\{A_{1}, A_{2}, A_{3}\}$, where $A_{1} = \{x\in \N: x = 3k, \text{ for some } k\in \Z\}$, $A_{2} = \{x\in \N: x = 3k+1, \text{ for some } k\in \Z\}$ and $A_{3} = \{x\in \N: x = 3k+2, \text{ for some } k\in \Z\}$.
+	\end{solution} 
+\end{problem}
+
+\begin{problem}{51}
+	Give an example of a partition of $\Q$ into three subsets.
+	\begin{solution}{}
+		Let $S=\{A_{1},A_{2},A_{3}\}$, where $A_{1} = \{x\in \Q: x < 2\}$, $A_{2}=\{2\}$ and $A_{3} = \{x\in \Q: x > 2\}$. The set $S$ is a partition of $\Q$ and $|S|=3$.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{52}
+	Give an example of three sets $A$, $S_{1}$ and $S_{2}$ such that $S_{1}$ is a partition of $A$, $S_{2}$ is a partition of $S_{1}$ and $|S_{2}|<|S_{1}|<|A|$.
+	\begin{solution}{}
+		Let $A=\{1,2,3\}$, $S_{1} = \{\{1,2\},\{3\}\}$ and $S_{2} = \{S_{1}\}$. Thus, $S_{1}$ is a partition of $A$, the set $S_{2}$ is a partition of $S_{1}$ and $|S_{2}|=1<|S_{1}|=2<|A|=3$.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{53}
+	
+\end{problem}
+
+\begin{problem}{54}
+	
+\end{problem}
+
+\begin{problem}{55}
+	A set $S$ is partitioned into two subsets $S_{1}$ and $S_{2}$. This produces a partition $\mathcal{P}_{1}$ of $S$ where $\mathcal{P}_{1} = \{S_{1},S_{2}\}$ and so $|\mathcal{P}_{1}| = 2$. One of the sets in $\mathcal{P}_{1}$ is then partitioned into two subsets, producing a partition $\mathcal{P}_{2}$ with $|\mathcal{P}_{2}|=3$. A total of $|\mathcal{P}_{1}|$ sets in $\mathcal{P}_{2}$ are partitioned into two subsets each, producing a partition $\mathcal{P}_{3}$ of $S$. Next, a total of $|\mathcal{P}_{2}|$ sets in $\mathcal{P}_{3}$ are partitioned into two subsets each, producing a partition $\mathcal{P}_{4}$ of $S$. This is continued until a partition $\mathcal{P}_{6}$ of $S$ is produced. What is $|\mathcal{P}_{6}|$?
+	\begin{solution}{}
+		A pattern can be seen in the description of the problem.  For all natural numbers $n>2$, a new partition $\mathcal{P}_{n}$ is produced by partitioning $|\mathcal{P}_{n-2}|$ sets in $\mathcal{P}_{n-1}$ into two subsets each. This means that $\mathcal{P}_{n}$ has $|\mathcal{P}_{n-2}|$ more elements than $\mathcal{P}_{n-1}$.
+		Therefore,  $|\mathcal{P}_{n}| = |\mathcal{P}_{n-1}|+ |\mathcal{P}_{n-2}|$ for every natural number $n>2$.\\
+		The cardinality 
+		\begin{align*}
+		| \mathcal{P}_{6}|&= |\mathcal{P}_{4}| + |\mathcal{P}_{5}|\\
+		&= 2|\mathcal{P}_{4}| + |\mathcal{P}_{3}|\\
+		&= 2(|\mathcal{P}_{3}|+|\mathcal{P}_{2}|) + |\mathcal{P}_{3}|\\
+		&= 3|\mathcal{P}_{3}| + 2|\mathcal{P}_{2}|\\
+		&= 5|\mathcal{P}_{2}| + 3|\mathcal{P}_{1}|\\
+		&= 21
+	\end{align*}
+	\end{solution}
+\end{problem}
+
+\begin{problem}{56}
+	We mentioned that there are three ways that a collection $\mathcal{S}$ of subsets of a nonempty set $A$ is defined to be a partition of $A$.\\
+	\textbf{Definition 1} The collection $\mathcal{S}$ consists of pairwise disjoint nonempty subsets of $A$ and every element of $A$ belongs to a subset in $\mathcal{S}$.\\
+	\textbf{Definition 2} The collection $\mathcal{S}$ consists of nonempty subsets of $A$ and every element of $A$ belongs to exactly one subset in $\mathcal{S}$.\\
+	\textbf{Definition 3} The collection $\mathcal{S}$ consists of subsets of $A$ satisfying the three properties (1) every subset in $\mathcal{S}$ is nonempty, (2) every two subsets of $A$ are equal or disjoint and (3) the union of all subsets in $\mathcal{S}$ is $A$.\\
+	 
+	(a) Show that any collection $\mathcal{S}$ of subsets of $A$ satisfying Definition 1 satisfies Definition 2.
+	\begin{solution}{a}
+		Let the collection $\mathcal{S}$ of subsets of $A$ satisfy \textbf{Definition 1}. Then the sets in $\mathcal{S}$ are nonempty. Every element of $A$ belongs to a subset in $\mathcal{S}$. However, if some element of $A$ belonged to more than one subset in $\mathcal{S}$, then the sets in $\mathcal{S}$ would not be pairwise disjoint. Therefore, the set $\mathcal{S}$ satisfies \textbf{Definition 2}.
+	\end{solution}
+
+	(b) Show that any collection $\mathcal{S}$ of subsets of $A$ satisfying \textbf{Definition 2} satisfies \textbf{Definition 3}.
+	\begin{solution}{b} 
+			Let the collection $\mathcal{S}$ of subsets of $A$ satisfy \textbf{Definition 2}. Then the set $\mathcal{S}$ consists of nonempty subsets of $A$. If two different subsets $A_{1},A_{2} \in \mathcal{S}$ were not disjoint, then there would be some $a\in A$ such that $A_{1}\cap A_{2} = a$. There would be some $a\in A$ that belongs to more than one subset. This does not satisfy \textbf{Definition 2}. Also, if $\bigcup_{X\in \mathcal{S}}X \neq A$, then some $x\in A$ does not belong to any subset in $\mathcal{S}$. This does not satisfy \textbf{Definition 2}. Therefore, the set $\mathcal{S}$ satisfies conditionss (1), (2) and (3) of \textbf{Definition 3}.
+	\end{solution} 
+
+	(c) Show that any collection $\mathcal{S}$ of subsets of $A$ satisfying \textbf{Definition 3} satisfies \textbf{Definition 1}.
+	\begin{solution}{c}
+		Let collection $\mathcal{S}$ of subsets of $A$ satisfy \textbf{Definition 3}. By condition (1) and (2), the subsets in $\mathcal{S}$ are nonempty and disjoint. Also, since condition (3) states that $\bigcup_{X\in \mathcal{S}}X = A$, it follows that every $x \in A$ belongs to a subset in $\mathcal{S}$. Thus, $\mathcal{S}$ satisfies \textbf{Definition 1}.
+	\end{solution}
+\end{problem}
+\end{document}

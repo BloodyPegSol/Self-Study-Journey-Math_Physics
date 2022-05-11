@@ -1,0 +1,150 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 13}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 6: Proofs involving cartesian products of sets}
+	\date{October 15, 2021}
+	\maketitle
+
+	\begin{problem}{60}
+		For $A=\{x,y\}$, determine $A\times \mathcal{P}(A)$.
+		\begin{solution}{}
+			The power set of $A$ is $\mathcal{P}(A) = \{\emptyset, \{x\},\{y\},\{x,y\}\}$. Hence, $A\times \mathcal{P}(A) = \{(x,\emptyset),(x,\{x\}),(x,\{y\}),(x,\{x,y\}),(y,\emptyset),(y,\{x\}),(y,\{y\}),(y,\{x,y\})\}$.
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{61}
+		For $A=\{1\}$ and $B=\{2\}$, determine $\mathcal{P}(A\times B)$ and $\mathcal{P}(A)\times \mathcal{P}(B)$.
+		\begin{solution}{}
+			Since $A\times B = \{(1,2)\}$, it follows that $\mathcal{P}(A\times B) = \{\emptyset, \{(1,2)\}\}$.\\
+			On the other hand, $\mathcal{P}(A)\times \mathcal{P}(B) = \{\emptyset, \{1\}\}\times \{\emptyset, \{2\}\} = \{(\emptyset, \emptyset), (\emptyset,\{2\}), (\{1\},\emptyset), (\{1\},\{2\})\}$.
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{62}
+		Let $A$ and $B$ be sets. Prove that $A\times B = \emptyset$ if and only if $A=\emptyset$ or $B=\emptyset$.
+		\begin{proof}
+			First assume that either $A=\emptyset$ or $B=\emptyset$, say the former. Since $A=\emptyset$, it follows that there is no $(a,b)$ such that $a\in A$ and $b\in B$. Hence, $A\times B = \emptyset$.\\
+			For the converse, assume that $A\neq \emptyset$ and $B\neq \emptyset$. Then, there is some $a\in A$ and $b\in B$. Therefore, $(a,b)\in A\times B$ and so $A\times B \neq \emptyset$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{63}
+		For sets $A$ and $B$, find a necessary and sufficient condition for $A\times B = B\times A$.
+		\begin{solution}{}
+			\textbf{Result} Let $A$ and $B$ be sets. $A\times B = B\times A$ if and only if $A=B$ or one of them is the empty set.
+			\begin{proof}
+				First suppose $A=B$ or one of them is empty. If $A=B$ then $A\times B = A\times A = A\times A = B\times A$. If either $A=\emptyset$ or $B=\emptyset$, then $A\times B = B\times A = \emptyset.$\\
+				For the converse, assume $A\neq B$ and that they are nonempty sets. Then, either $A\not\subseteq B$ or $B\not\subseteq A$, say the latter. Since $B\not\subseteq A$, there is some $b\in B$ such that $b\not\in A$. Also, since $A$ is a nonempty set, there must be some $x\in A$. Thus, $(b,x)\in B\times A$ and $(b,x) \not\in A\times B$. Hence, $A\times B \neq B\times A$.
+			\end{proof}
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{64}
+		For sets $A$ and $B$, find a necessary and sufficient condition for $(A\times B)\cap (B\times A)=\emptyset$. Verify that this condition is necessary and sufficient.
+		\begin{solution}{}
+			\textbf{Result} Let $A$ and $B$ be sets. Then $(A\times B)\cap (B\times A)=\emptyset$ if and only if $A\cap B = \emptyset$. 
+			\begin{proof}
+				First assume that $A\cap B \neq \emptyset$. Then, there is some $y\in A\cap B$, and so $y\in A$ and $y\in B$. Therefore, $(y,y)\in (A\times B)$ and $(y,y)\in (B\times A)$ and so $(y,y)\in (A\times B)\cap (B\times A)$.\\
+				For the converse assume that $(A\times B)\cap (B\times A)\neq \emptyset$. Therefore, there is some $(x,y) \in (A\times B)\cap (B\times A)$. Then $(x,y)\in (A\times B)$ and $(x,y) \in (B\times A)$. Therefore, $x\in A,B$ and $y\in A,B$ and so $x,y\in A\cap B$.
+			\end{proof}
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{65}
+		Let $A$, $B$ and $C$ be nonempty sets. Prove that $A\times C \subseteq B \times C$ if and only if $A\subseteq B$.
+		\begin{proof}
+			First, assume that $A\not\subseteq B$. Then, there is some $x\in A$ such that $x\not\in B$. Since $B$ is nonempty, there is some $y \in B$. Therefore, $(x,y) \in A\times C$ but $(x,y) \not\in B\times C$. Therefore $A\times C \not\subseteq B \times C$.\\
+			For the converse, suppose that $A\times C \not\subseteq B \times C$. Then, there is some $(x,y)\in A\times C$ such that $(x,y) \not\in B \times C$. Therefore, $x\in A$ and $x\not\in B$ and so $A\not\subseteq B$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{66}
+		Result 23 states that if $A$, $B$, $C$ and $D$ are sets such that $A\subseteq C$ and $B\subseteq D$, then $A\times B \subseteq C\times D$.\\
+	
+		(a) Show that the converse of Result 23 is false.\\
+		
+		\textbf{Result} Let $A$, $B$, $C$ and $D$ be sets. If $A\times B \subseteq C\times D$, then  $A\subseteq C$ and $B\subseteq D$. 
+		\begin{proof}
+			Let $A= \emptyset$ and $B\not\subseteq D$. Then $A\times B = \emptyset \subseteq C\times D$. However we know that $B\not\subseteq D$ and so the implication is false. This is a counterexample.
+		\end{proof}
+	
+		(b) Under what added hypothesis is the converse true? Prove your assertion.\\
+		
+		\textbf{Result} Let $A$, $B$, $C$ and $D$ be sets such that $A$ and $B$ are nonempty. If $A\times B \subseteq C\times D$, then  $A\subseteq C$ and $B\subseteq D$. 
+		\begin{proof}
+			Since $A$ and $B$ are nonempty sets, let $x\in A$ and $y\in B$. Then, $(x,y) \in A\times B$. Since $A\times B \subseteq C\times D$, it follows that $(x,y)\in C\times D$. Therefore, $x\in C$ and $y\in D$. 
+		\end{proof}
+		
+	\end{problem}
+
+	\begin{problem}{67}
+		Let $A$, $B$ and $C$ be sets. Prove that $A\times (B\cap C) = (A\times B)\cap (A\times C)$.
+		\begin{proof}
+			First we prove that $A\times (B\cap C) \subseteq (A\times B)\cap (A\times C)$. Let $(x,y) \in A\times (B\cap C)$. Then $x\in A$ and $y\in B\cap C$. Since $y\in B\cap C$, it follows that $y\in B$ and $y\in C$. Because $x\in A$ and $y\in B$, $(x,y)\in A\times B$. Also, since $x\in A$ and $y\in C$, $(x,y)\in A\times C$. Therefore, $(x,y)\in (A\times B)\cap (A\times C)$.\\
+			Then we shall prove that $(A\times B)\cap (A\times C)\subseteq A\times (B\cap C)$. Let $(x,y)\in (A\times B)\cap (A\times C)$. Then $(x,y)\in A\times B$ and  $(x,y)\in A\times C$. Since $(x,y)\in A\times B$, it follows that $x\in A$ and $y\in B$. Also, since $(x,y)\in A\times C$, $x\in A$ and $y\in C$. Therefore, $y\in B\cap C$ and so $(x,y) \in A\times (B\cap C)$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{68}
+		Let $A$, $B$, $C$ and $D$ be sets. Prove that $(A\times B)\cap (C\times D) = (A\cap C)\times (B\cap D)$.
+		\begin{proof}
+			First we prove that $(A\times B)\cap (C\times D) \subseteq (A\cap C)\times (B\cap D)$. Let $(x,y)\in (A\times B)\cap (C\times D)$. Then $(x,y)\in A\times B$ and $(x,y)\in C\times D$; so $x\in A$, $x\in C$, $y\in B$ and $y\in D$. Therefore, $x\in A\cap C$ and $y\in B\cap D$, and so $(x,y) \in (A\cap C)\times (B\cap D)$.\\
+			We then prove that $(A\cap C)\times (B\cap D) \subseteq (A\times B)\cap (C\times D)$. Let $(x,y)\in (A\cap C)\times (B\cap D)$. Then $x\in A\cap C$ and $y\in B\cap D$; so $x\in A$, $x\in C$, $y\in B$ and $y\in D$. Since $x\in A$ and $y\in B$, it follows that $(x,y)\in A\times B$. Also, since $x\in C$ and $y\in D$, it follows that $(x,y)\in C\times D$. Thus, $(x,y)\in (A\times B)\cap (C\times D)$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{69}
+		Let $A$, $B$, $C$ and $D$ be sets. Prove that $(A\times B)\cup (C\times D)\subseteq (A\cup C)\times (B\cup D)$.
+		\begin{proof}
+			Suppose there is some $(x,y)\in (A\times B)\cup (C\times D)$. Then, either $(x,y)\in A\times B$ or $(x,y)\in C\times D$, say the former. Then, $x\in A$ and $y\in B$, and so $x\in A\cup C$ and $y\in B\cup D$. Thus, $(x,y)\in (A\cup C)\times (B\cup D)$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{70}
+		Let $A$ and $B$ be sets. Show, in general, that $\overline{A\times B} \neq \overline{A}\times \overline{B}$
+		\begin{proof}
+			We show that $\overline{A\times B} \subseteq \overline{A}\times \overline{B}$ is true or false depending on the case. Let $(x,y)\in \overline{A\times B}$. Then $(x,y)\not\in A\times B$ and so either $x\not\in A$ or $y\not\in B$. Without loss of generality, let $x\not\in A$; so $x\in \overline{A}$. We consider two cases. If $y\in B$, then $y\not\in \overline{B}$ and so $(x,y) \not\in \overline{A}\times \overline{B}$. On the other hand, if $y\not\in B$, then $y\in \overline{B}$ and so $(x,y)\in \overline{A}\times \overline{B}$.\\
+			
+			We show that $\overline{A}\times \overline{B} \subseteq \overline{A\times B}$ is true. Let $(x,y)\in \overline{A}\times \overline{B}$. Then $x\not\in A$ and $y\not\in B$. Therefore, $(x,y)\not\in A\times B$ and so $(x,y)\in \overline{A\times B}$.\\
+			Therefore, this implication is not always true and some hypothesis must be added (\textbf{SPECULATION:} $A=B\neq \emptyset$ ???).
+		\end{proof}  
+	\end{problem}
+\end{document}

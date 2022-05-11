@@ -1,0 +1,244 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}
+\usepackage[linguistics]{forest}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+\title{Week 4}
+\author{Juan Patricio Carrizales Torres \\
+	Section 9: Some Fundamental Properties of Logical Equivalences}
+\date{August 09, 2021}
+
+\maketitle	
+
+\begin{problem}{58}
+	Verify the following laws stated in Theorem 18:\\
+	
+	(A) Let $P$, $Q$ and $R$ be statements. Then
+	\begin{equation*}
+		P \vee (Q \wedge R) \text{ and } (P \vee Q)\wedge (P \vee R) \text{ are logically equivalent.}
+	\end{equation*}
+	\begin{solution}{a}
+		The logical equivalence $P \vee (Q \wedge R) \equiv (P \vee Q)\wedge (P \vee R)$ is one of the \textit{Distributive Laws} of Theorem 18. Both compound statements $P \vee (Q \wedge R)$ and $(P \vee Q)\wedge (P \vee R)$ are logically equivalent since they have the same truth values for all combinations of truth values for component statements $P$, $Q$ and $R$. This is shown in the next truth table:
+		\begin{center}
+			\begin{tabular}{c |c| c| c| c| c| c |c}
+				$P$ & $Q$ & $R$ & $Q\wedge R$ & $P\vee Q$ & $P\vee R$ & $P \vee (Q \wedge R)$ & $(P \vee Q) \wedge (P \vee R)$\\
+				\hline
+				T & T & T & T & T & T & T & T\\
+				T & F & T & F & T & T & T & T\\
+				F & T & T & T & T & T & T & T\\
+				F & F & T & F & F & T & F & F\\
+				T & T & F & F & T & T & T & T\\
+				T & F & F & F & T & T & T & T\\
+				F & T & F & F & T & F & F & F\\
+				F & F & F & F & F & F & F & F\\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{solution}
+	(B) Let $P$ and $Q$ be statements. Then
+	\begin{equation*}
+		\sim (P\vee Q) \text{ and } (\sim P)\wedge (\sim Q) \text{ are logically equivalent.}
+	\end{equation*}
+	\begin{solution}{b}
+		The logical equivalence $\sim (P\vee Q) \equiv (\sim P)\wedge (\sim Q)$ is one of \textit{De Morgan's Laws} of Theorem 18. Since the compound statements $\sim (P\vee Q)$ and $(\sim P)\wedge (\sim Q)$ have the same truth values for all combinations of truth values for the component statements $P$ and $Q$, these two compound statements are logically equivalent. This can be seen in the truth table below:
+		\begin{center}
+			\begin{tabular}{c c c c c c c}
+				$P$ & $Q$ & $\sim P$ & $\sim Q$ & $P\vee Q$ & $\sim(P \vee Q)$ & $(\sim P) \wedge (\sim Q)$\\
+				\hline
+				T & T & F & F & T & F & F\\
+				T & F & F & T & T & F & F\\
+				F & T & T & F & T & F & F\\
+				F & F & T & T & F & T & T\\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{solution}
+\end{problem}
+
+\begin{problem}{59}
+	Write negations of the following open sentences:\\
+	
+	(A) Either $x = 0$ or $y = 0$.
+	\begin{solution}{a}
+		Consider the following open sentences: 
+		\begin{equation*}
+			P(x) : x = 0 \text{ and } Q(y) : y = 0
+		\end{equation*}
+		The open sentence (A) is a disjunction of $P(x)$ and $Q(x)$, $P(x)\vee Q(y):$ either $x = 0$ or $y = 0$. Using \textit{De Morgan's Laws} of Theorem 18, we get the following logical equivalence $\sim (P(x)\vee Q(y)) \equiv (\sim P(x))\wedge (\sim Q(y))$.
+		Therefore, the negation of the open sentence (A) is:
+		\begin{equation*}
+			(\sim P(x))\wedge (\sim Q(y)) : \text{ Both } x\neq 0 \text{ and } y\neq 0
+		\end{equation*}
+	\end{solution} 
+	
+	(B) The integers $a$ and $b$ are both even.
+	\begin{solution}{b}
+		Consider the following open sentences:
+		\begin{equation*}
+			P(a) : \text{ the integer } a \text{ is even.} \; \text{ and } \; Q(b) : \text{ the integer } b \text{ is even.}
+		\end{equation*}
+	The conjunction $P(a) \wedge Q(b) : $ The integers $a$ and $b$ are both even. represents the open sentence (B). With the help of \textit{De Morgan's Laws} from Theorem 18, we get the following logical equivalence $\sim (P(a) \wedge Q(b)) \equiv (\sim P(a))\vee (\sim Q(b))$. Thus, the negation of the open sentence (B) is:
+	\begin{equation*}
+		(\sim P(a))\vee(\sim Q(b)) : \text{ Either the integer } a \text{ is odd or the integer } b \text{ is odd.}
+	\end{equation*}
+	\end{solution}
+\end{problem}
+\begin{problem}{60}
+	Consider the implication: If $x$ and $y$ are even, then $xy$ is even.\\
+	Before answering the excercises, let's consider the following open sentences:
+	\begin{equation*}
+		P(x) : x \text{ is even.} \; ,\; Q(y) : y \text{ is even.} \; \text{ and } \; R(x,y) : xy \text{ is even.}
+	\end{equation*}
+	The following open sentence represents the implication of problem 60:
+	\begin{equation*}
+		(P(x)\wedge Q(y)) \Rightarrow R(x,y): \text{ If } x \text{ and } y \text{ are even, then } xy \text{ is even.}
+	\end{equation*}
+
+(A) State the implication using "only if."
+\begin{solution}{a}
+	$(P(x)\wedge Q(y)) \Rightarrow R(x,y):$ Both $x$ and $y$ are even only if $xy$ is even
+\end{solution}
+
+(B) State the converse of the implication.
+\begin{solution}{b}
+		$R(x,y) \Rightarrow (P(x)\wedge Q(y)):$ If $xy$ is even, then $x$ and $y$ are even.
+\end{solution}
+
+(C) State the implication as a disjunction (see Theorem 17).
+\begin{solution}{c}
+	Using Theorem 17 and \textit{De Morgan's Laws}, the implication of problem 60 can be stated as a disjunction by the following string of logical equivalences:
+	\begin{align*}
+			 (P(x)\wedge Q(y)) \Rightarrow R(x,y) &\equiv \sim(P(x)\wedge Q(y))\vee R(x,y)\\
+			 & \equiv ((\sim P(x))\vee(\sim Q(y)))\vee R(x,y)
+	\end{align*}
+The implication of problem 60 as a disjunction states the following:
+	\begin{equation*}
+		((\sim P(x))\vee(\sim Q(y)))\vee R(x,y) : \text{ Either } x \text{ or } y \text{ is odd, or } xy \text{ is even.} 
+	\end{equation*}
+\end{solution}
+
+(D) State the negation of the implication as a conjunction (see Theorem 21(a))
+\begin{solution}{d}
+Using Theorem 21(a), the negation of the implication of problem 60 can be stated as a conjunction:
+\begin{align*}
+	\sim ((P(x)\wedge Q(y)) \Rightarrow R(x,y)) &\equiv (P(x)\wedge Q(y)) \wedge (\sim R(x,y))
+\end{align*}
+This conjunction declares the following:
+\begin{equation*}
+	(P(x)\wedge Q(y)) \wedge (\sim R(x,y)) : \text{Both } x \text{ and } y \text{ are even, and } xy \text{ is odd.}
+\end{equation*}
+\end{solution}
+\end{problem}
+
+\begin{problem}{61}
+	For a real number $x$, let $P(x):x^{2} = 2.$ and $Q(x):x=\sqrt{2}$. State the negation of the biconditional $P \Leftrightarrow Q$ in words (see Theorem 21(b)).
+	\begin{solution}{}
+		From Theorem 21(b) we can use the following logical equivalence $\sim(P\Leftrightarrow Q) \equiv (P\wedge (\sim Q))\vee (Q\wedge (\sim P))$. The biconditional $\sim(P(x)\Leftrightarrow Q(x))$ is logically equivalent to the following:
+		\begin{equation*}
+			(P(x)\wedge (\sim Q(x)))\vee (Q(x) \wedge (\sim P(x))):\text{Either } x^{2} = 2 \text{ and } x\neq \sqrt{2} \text{, or } x = \sqrt{2} \text{ and } x^{2} \neq 2
+		\end{equation*}
+	\end{solution}
+\end{problem}
+
+\begin{problem}{62}
+	Let $P$ and $Q$ be statements. Show that $(P\vee Q)\wedge (\sim(P \wedge Q))\equiv \; \sim(P\Leftrightarrow Q).$
+	\begin{solution}{}
+		In order to show the logical equivalence $(P\vee Q)\wedge (\sim(P \wedge Q))\equiv \; \sim(P\Leftrightarrow Q)$, we will be using the laws of Theorem 18, Theorem 21(b) and the following logical equivalences \cite{logicalequiv}:
+		\begin{enumerate}
+			\item \emph{Identity Laws}
+			\begin{enumerate}[label = \alph*]
+				\item $P\wedge T \equiv P$
+				\item $P \vee F \equiv P$
+			\end{enumerate}
+			\item \emph{Negation Laws}
+			\begin{enumerate}[label = \alph*]
+				\item $P \wedge (\sim P) \equiv F$
+				\item $P \vee (\sim P) \equiv T$
+			\end{enumerate}
+		\end{enumerate}
+	Due to the commutative properties of the conjunctions and disjunctions, the \emph{Identity Laws} and \emph{Negation Laws} are commutative (e.g., $P\wedge T \equiv T\wedge P\equiv P$). Now we show the logical equivalence:
+	\begin{align*}
+		\text{\emph{De Morgan's Laws}}\\
+		(P\vee Q)\wedge (\sim(P\wedge Q)) & \equiv (P\vee Q)\wedge((\sim P)\vee (\sim Q))\\
+		\text{\emph{Distributive Laws}}\\
+		& \equiv ((P\vee Q)\wedge (\sim P))\vee ((P\vee Q)\wedge (\sim Q))\\
+		\text{\emph{Commutative Laws}}\\
+		& \equiv ((\sim P)\wedge (P\vee Q))\vee ((\sim Q)\wedge (P\vee Q))\\
+		\text{\emph{Distributive Laws}}\\
+		& \equiv (((\sim P)\wedge P)\vee ((\sim P)\wedge Q))\vee (((\sim Q)\wedge P)\vee ((\sim Q)\wedge Q))\\
+		\text{\emph{Negation Laws}}\\
+			& \equiv (F\vee ((\sim P)\wedge Q))\vee (((\sim Q)\wedge P)\vee F)\\
+		\text{\emph{Identity Laws}}\\
+			& \equiv ((\sim P)\wedge Q)\vee ((\sim Q)\wedge P)\\
+		\text{\emph{Commutative Laws}}\\
+		& \equiv ((\sim Q)\wedge P)\vee ((\sim P)\wedge Q)\\
+		& \equiv (P\wedge (\sim Q))\vee (Q\wedge (\sim P))\\
+		\text{\emph{Theorem 21(b)}}\\
+		& \equiv \; \sim(P\Leftrightarrow Q)
+	\end{align*}
+	\end{solution}
+\end{problem}
+
+\begin{problem}{63}
+	Let $n \in \Z$. For which implication is its negation the following?\\
+	The integer $3n + 4$ is odd and $5n -6$ is even.
+	\begin{solution}{}
+	We consider the logical equivalence $\sim(P \Rightarrow Q) \equiv P \wedge (\sim Q)$ from Theorem 21(a) and we derive the following open sentences from the negation stated in problem 63.
+	\begin{equation*}
+	P(n):3n + 4 \text{ is odd.} \; \text{ and } \; Q(n):5n - 6 \text{ is odd.}
+	\end{equation*}
+	Therefore, $P(n)$ and $Q(n)$ are the hypothesis and conlusion of the implication in question, respectively. 
+	\begin{equation*} 
+		P(n)\Rightarrow Q(n):\text{If }3n+4 \text{ is odd, then } 5n - 6 \text{ is odd.}
+	\end{equation*} 
+	It's important to note that if we consider the commutative laws of disjunction in the logical equivalence from Theorem 21(a) (e.g., $P\wedge (\sim Q) \equiv (\sim Q) \wedge P \equiv \sim(P\Rightarrow Q)$) we could get 2 possible answers for this problem (including the one we have shown).
+	\end{solution}
+\end{problem}
+
+\begin{problem}{64}
+	For which biconditional is its negation the following?\\
+	$n^{3}$ and $7n + 2$ are odd or $n^{3}$ and $7n + 2$ are even.
+	\begin{solution}{}
+		We consider the logical equivalence $\sim (P \Leftrightarrow Q) \equiv (P \wedge (\sim Q)) \vee (Q \wedge (\sim P))$ from Theorem 21(b) and we derive the following open sentences from the negation stated in problem 64.
+			\begin{equation*}
+			P(n):n^{3} \text{ is odd.}\; \text{ and }\; Q(n):7n+2 \text{ is even.}
+		\end{equation*}
+	Therefore, the biconditional in question is the following:
+	\begin{equation*}
+		P(n)\Leftrightarrow Q(n): n^{3} \text{ is odd if and only if } 7n + 2 \text{ is even.}
+	\end{equation*}
+	Due to the commutative properties of conjunctions and disjunctions, we could get 2 different combinations of open sentences $P(n)$ and $Q(n)$ by changing the order of the conjunctions in the disjunction of the logical equivalence from Theorem 21(b) (e.g., $(P\wedge(\sim Q))\vee(Q\wedge (\sim P)) \equiv (Q\wedge (\sim P)) \vee (P\wedge(\sim Q))$). For each of the 2 different ways to order the conjunctions we can get another combination of open sentences $P(n)$ and $Q(n)$ by changing the order of the elements of the first conjunction (e.g., $(Q\wedge (\sim P)) \vee (P\wedge(\sim Q)) \equiv ((\sim P)\wedge Q) \vee (P\wedge(\sim Q))$). Therefore, $2+ 2= 4$ combinations of open sentences for the biconditional can be derived. \\
+	However, due to the commutative nature of the biconditional (e.g., $P\Leftrightarrow Q \equiv Q \Leftrightarrow P$), every two possible combinations of open sentences $P(n)$ and $Q(n)$ will yield the same biconditional. Thus, only 2 possible different answers can be derived for the biconditional.
+	\end{solution}
+\end{problem}
+\begin{thebibliography}{3}
+		\bibitem{logicalequiv}
+	GeeksforGeeks, \textit{Mathematics Propositional Equivalences}, Apr 02, 2019. Retrieved Aug 04, 2021.
+\end{thebibliography}
+\end{document}

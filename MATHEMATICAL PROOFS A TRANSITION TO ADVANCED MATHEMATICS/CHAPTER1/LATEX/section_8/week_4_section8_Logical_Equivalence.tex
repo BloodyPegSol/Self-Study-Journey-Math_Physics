@@ -1,0 +1,227 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}
+\usepackage[linguistics]{forest}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 4}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 8: Logical Equivalence}
+	
+	\maketitle
+
+\begin{problem}{51}
+	For statements $P$ and $Q$, the implication $(\sim P) \Rightarrow (\sim Q)$ is called the \textbf{inverse} of the implication $P \Rightarrow Q$.\\
+	
+	(A) Use a truth table to show that these statements are not logically equivalent.
+	\begin{solution}{a}
+		The implication $P \Rightarrow Q$ and its inverse $(\sim P) \Rightarrow (\sim Q)$ don't have the same truth values for all combinations of truth values of the component statements $P$ and $Q$. Therefore, the compound statements $P \Rightarrow Q$ and $(\sim P) \Rightarrow (\sim Q)$ are not logically equivalent.	This is shown in the following table:
+			\begin{center}
+			\begin{tabular}{c c c c c c}
+				$P$ & $Q$ & $\sim P$ & $\sim Q$ & $P \Rightarrow Q$ & $(\sim P) \Rightarrow (\sim Q)$\\
+				\hline
+				T & T & F & F & T & T\\
+				T & F & F & T & F & T\\
+				F & T & T & F & T & F\\
+				F & F & T & T & T & T\\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{solution}
+	(B) Find another implication that is logically equivalent to $(\sim P) \Rightarrow (\sim Q)$ and verify your answer.
+	\begin{solution}{b}
+		Using \textbf{Theorem 17} and the Commutative Properties of disjunctions, the compound statement $(\sim P) \Rightarrow (\sim Q) \equiv P\vee (\sim Q)\equiv (\sim Q) \vee P \equiv Q \Rightarrow P$. Consequently, $Q \Rightarrow P \not\equiv P \Rightarrow Q$. Therefore, the compound statements $P \Rightarrow Q$ and $(\sim P) \Rightarrow (\sim Q)$ are not logically equivalent.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{52}
+	Let $P$ and $Q$ be statements.\\
+	
+	(A) Is $\sim (P \vee Q)$ logically equivalent to $(\sim P) \vee (\sim Q)$? Explain.
+	\begin{solution}{a}
+		The compound statements  $\sim (P \vee Q)$ and $(\sim P) \vee (\sim Q)$ are not logically equivalent, since they don't have the same truth values for all combinations of truth values for $P$ and $Q$. This can be seen in the following truth table:
+		\begin{center}
+			\begin{tabular}{c c c c c c c}
+				$P$ & $Q$ & $\sim P$ & $\sim Q$ & $P \vee Q$ & $\sim (P \vee Q)$ & $(\sim P) \vee (\sim Q)$\\
+				\hline
+				T & T & F & F & T & F & F\\
+				T & F & F & T & T & F & T\\
+				F & T & T & F & T & F & T\\
+				F & F & T & T & F & T & T\\
+				\hline
+			\end{tabular}
+		\end{center}
+	The negation $\sim (P \vee Q)$ must be a statement that is false when either $P$ or $Q$ are true, and it is true only when $P$ and $Q$ are false. The compound statement $(\sim P) \vee (\sim Q)$ does not fulfill these requirements.
+	\end{solution}
+	
+	(B) What can you say about the biconditional $\sim(P \vee Q) \Leftrightarrow ((\sim P) \vee (\sim Q))$?
+	\begin{solution}{b}
+	This biconditional is true whenever $\sim(P \vee Q)$ and $((\sim P) \vee (\sim Q))$ have the same truth values. According to the previous truth table, both compound statements have the same truth values if and only if the component statements $P$ and $Q$ have the same truth values. Therefore, $P$ and $Q$ having the same truth values is a necessary and sufficient condition for $\sim(P \vee Q) \Leftrightarrow ((\sim P) \vee (\sim Q))$. This biconditional is not a \textbf{tautology}.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{53}
+	For statements $P$, $Q$ and $R$, use a truth table to show that each of the following pairs of statements is logically equivalent.\\
+	
+	(A) $(P \wedge Q) \Leftrightarrow P$ and $P \Rightarrow Q$.
+	\begin{solution}{a}
+		The compound statements $(P \wedge Q) \Leftrightarrow P$ and $P \Rightarrow Q$ are logically equivalent, since they have the same truth values for all combinations of truth values of the component statements $P$ and $Q.$ This is shown in the following truth table:
+		\begin{center}
+			\begin{tabular}{c c c c c}
+			$P$ & $Q$ & $P \wedge Q$ & $(P \wedge Q) \Leftrightarrow P$ & $P \Rightarrow Q$\\
+			\hline
+			T & T & T & T & T\\
+			T & F & F & F & F\\
+			F & T & F & T & T\\
+			F & F & F & T & T\\
+			\hline
+			\end{tabular}
+		\end{center}
+	\end{solution}
+	
+	(B) $P \Rightarrow (Q \vee R)$ and $(\sim Q) \Rightarrow ((\sim P)\vee R)$.
+	\begin{solution}{b}
+	The compound statements $P \Rightarrow (Q \vee R)$ and $(\sim Q) \Rightarrow ((\sim P)\vee R)$ have the same truth values for all combinations of truth values for the component statements $P$, $Q$ and $R$. Therefore, these compound statements are logically equivalent.
+	\begin{center}
+		\begin{tabular}{c| c| c| c| c| c| c| c| c}
+			$P$ & $Q$ & $R$ & $\sim P$ & $\sim Q$ & $Q \vee R$ & $(\sim P)\vee R$ & $P \Rightarrow (Q\vee R)$ & $(\sim Q) \Rightarrow ((\sim P)\vee R)$\\
+			\hline
+			T & T & T & F & F & T & T & T & T\\
+			T & F & T & F & T & T & T & T & T\\
+			F & T & T & T & F & T & T & T & T\\
+			F & F & T & T & T & T & T & T & T\\
+			T & T & F & F & F & T & F & T & T\\
+			T & F & F & F & T & F & F & F & F\\
+			F & T & F & T & F & T & T & T & T\\
+			F & F & F & T & T & F & T & T & T\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\end{solution}
+\end{problem}
+\begin{problem}{54}
+	For statements $P$ and $Q$, show that $(\sim Q) \Rightarrow (P \wedge (\sim P))$ and $Q$ are logically equivalent.
+	\begin{solution}{}
+		The compound statements $(\sim Q) \Rightarrow (P \wedge (\sim P))$ and $Q$ are logically equivalent since they have the same truth values for all the combinations of truth values for $P$ and $Q$. This is shown in the truth table below:
+		\begin{center}
+			\begin{tabular}{c c c c c c}
+				$P$ & $Q$ & $\sim Q$ & $\sim P$ & $P \wedge (\sim P)$ & $(\sim Q) \Rightarrow (P \wedge (\sim P))$\\
+				\hline
+				T & T & F & F & F & T\\ 
+				T & F & T & F & F & F\\
+				F & T & F & T & F & T\\
+				F & F & T & T & F & F\\
+				\hline
+			\end{tabular}
+		\end{center}
+	The conclusion of the implication $(\sim Q) \Rightarrow (P \wedge (\sim P))$ is a contradiction. Therefore, $(\sim Q) \Rightarrow (P \wedge (\sim P))$ will be true when the premise is false and it will be false otherwise. Since the premise is the negation of $Q$, the statement $Q \equiv (\sim Q) \Rightarrow (P \wedge (\sim P))$. 
+	\end{solution}
+\end{problem}
+
+\begin{problem}{55}
+	For statements $P$, $Q$ and $R$,  show that $(P \vee Q) \Rightarrow R$ and $(P \Rightarrow R) \wedge (Q \Rightarrow R)$ are logically equivalent. 
+	\begin{solution}{}
+		The compound statements $(P \vee Q) \Rightarrow R$ and $(P \Rightarrow R) \wedge (Q \Rightarrow R)$ are logically equivalent since they have the same truth value for all combinations of truth values of $P$, $Q$ and $R$. This is shown in the following table:
+		\begin{center}
+			\begin{tabular}{c|c|c|c|c|c|c|c}
+				$P$ & $Q$ & $R$ & $P \vee Q$ & $P \Rightarrow R$ & $Q \Rightarrow R$ & $(P \vee Q) \Rightarrow R$ & $(P \Rightarrow R) \wedge (Q \Rightarrow R)$\\
+				\hline
+				T & T & T & T & T & T & T & T\\
+				T & F & T & T & T & T & T & T\\
+				F & T & T & T & T & T & T & T\\
+				F & F & T & F & T & T & T & T\\
+				T & T & F & T & F & F & F & F\\
+				T & F & F & T & F & T & F & F\\
+				F & T & F & T & T & F & F & F\\
+				F & F & F & F & T & T & T & T\\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{solution}
+\end{problem}
+
+\begin{problem}{56}
+	Two compound statements $S$ and $T$ are composed of the same component statements $P$, $Q$ and $R$. If $S$ and $T$ are not logically equivalent, then what can we conclude from this?
+	\begin{solution}{}
+		If $S$ and $T$ are not logically equivalent, then the biconditional $S \Leftrightarrow T$ is not a tautology.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{57}
+	Five compound statements $S_1$, $S_2$, $S_3$, $S_4$ and $S_5$ are all composed of the same component statements $P$ and $Q$ and whose truth tables have identical first and fourth rows. Show that at least two of these five statements are logically equivalent.
+	
+	\begin{solution}{}
+		The combinations where the component statements $P$ and $Q$ have the same truth values belong to the first and fourth rows of the truth table. This is seen in the following truth table:
+		\begin{center}
+			\begin{tabular}{c c c c c c c}
+				$P$ & $Q$ & $S_1$ & $S_2$ & $S_3$ & $S_4$ & $S_5$\\
+				\hline
+				T & T & T & T & T & T & T\\
+				T & F &   &   &   &   &   \\
+				F & T &   &   &   &   &   \\
+				F & F & F  & F & F  & F  & F  \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Let's suppose that there are compound statements $S_1$, $S_2$, $S_3$, $S_4$ and $S_5$ composed of the same statements $P$ and $Q$ such that
+		\begin{equation}\label{nonequiv}
+			S_i \not\equiv S_j \Leftrightarrow i\neq j
+		\end{equation}
+	, which means they are not logically equivalent. Since the truth table has two identical rows, the columns of the five compound statements must differ in truth values on the other two nonidentical rows. Basically, we must find 5 different combinations of truth values for the second and third rows.
+	
+	However, since the order of the truth values matters (e.g., $(T_2,F_3) \neq (F_2, T_3)$, being 2 and 3 the second and third row, respectively), there are only $2^{2} = 4$  different combinations of truth values for the second and third rows. These is shown in the following diagram:
+	\begin{center}
+	\begin{tabular}{c c}
+	\begin{forest}
+		scshape/.style={font=\scshape},
+		nice empty nodes,
+		for tree={
+			calign angle=50,
+		}
+		[$T_2$
+		[$T_3$][$F_3$]
+		]
+	\end{forest} & 
+\begin{forest}
+	scshape/.style={font=\scshape},
+	nice empty nodes,
+	for tree={
+		calign angle=50,
+	}
+	[$F_2$
+	[$T_3$][$F_3$]
+	]
+\end{forest}
+	\end{tabular}
+	\end{center}
+	No more than four of the five compound statements can have different columns and the remaining compound statement must have an equal column to one of the four compound statements. Therefore, there are no compound statements $S_1$, $S_2$, $S_3$, $S_4$ and $S_5$, which are composed of the same component statements $P$ and $Q$ and whose truth tables have identical first and fourth rows, such that (\ref{nonequiv}) is true and at least two of these five compound statements must be logically equivalent.
+	
+	\end{solution}
+\end{problem}
+\end{document}

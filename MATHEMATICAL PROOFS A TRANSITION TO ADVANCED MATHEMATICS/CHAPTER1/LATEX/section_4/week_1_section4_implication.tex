@@ -1,0 +1,345 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+	
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+	
+\title{Week 1}
+\author{Juan Patricio Carrizales Torres \\
+Section 4: The Implication}
+
+\maketitle
+\epigraph{``At times, the desire becomes almost overpowering, in its intensity. It is not mere curiosity, that prompts me; but more as though some unexplained influence were at work``}{--- \textup{William Hope Hodgson}, The House on the Borderland}
+
+\begin{problem}{19}
+	Consider the statements \emph{P: 17 is even.} and \emph{Q: 19 is prime}. Write each of the following statements in words and indicate whether it is true or false.\\
+
+(A) $\sim P: \text{ 17 is odd.}$ \textbf{ TRUE}
+\begin{proof}
+The real integer 17 is odd, thus the statement $P$ is false. The negation of this statement will have the opposite truth value, \emph{true}.
+\end{proof}
+(B) $P \vee Q: \text{ 17 is even or 19 is prime.}$ \textbf{ TRUE}
+\begin{proof}
+The real integer 19 is prime, thus $Q$ is true. Because this statement is the disjunction of $P$ and $Q$, it is only needed for one of them to be true for the statement to be true. 
+\end{proof}
+(C) $P \wedge Q: \text{ 17 is even and 19 is prime.}$ \textbf{ FALSE}
+\begin{proof}
+	We already know that the statement $Q$ is true and $P$ is false. This statement is a conjunction of both $Q$ and $P$, and since one of them is false, the statement is false.
+\end{proof}
+(D) $P \implies Q: \text{If 17 is even, then 19 is prime.}$ \textbf{ TRUE}
+\begin{proof}
+	Acording to this statement $P$ implies $Q$, so the only way for it to be false is when $P$ is true and $Q$ is false. We know that $P$ is false, which means that the statement is true, because it tells nothing about what would happen when $P$ is false. 
+\end{proof}
+\end{problem}
+\newpage
+\begin{problem}{20}
+For statements $P$ and $Q$, construct a truth table for $(P\implies Q)\implies (\sim P)$ 
+\end{problem}
+\begin{center}
+\begin{tabular}{c c c c c}
+	$P$ & $Q$ & $P \implies Q$ & $\sim P$ & $(P \implies Q) \implies (\sim P)$\\
+	\hline
+	T & T & T & F & \textbf{F} \\
+	T & F & F & F & \textbf{T}\\
+	F & T & T & T & \textbf{T}\\
+	F & F & T & T & \textbf{T}\\
+	\hline
+\end{tabular}
+\end{center}
+\begin{problem}{21}
+	Consider the statements $P:\sqrt{2} \text{ is rational.}$ and $Q:22/7 \text{ is rational.}$ Write each of the following statements in words and indicate whether it is true or false. \\
+	
+Let's assume that $\sqrt{2}$ is irrational (I don't prove it here because it is out of the scope of the excercise). The number $22/7$ is rational because it can be represented as a fraction of two integers, where the denominator is nonzero. $P$ is \textbf{FALSE} and $Q$ is \textbf{TRUE} \\
+
+(A) $P \implies Q:$ If $\sqrt{2}$ is rational, then 22/7 is rational. \textbf{ TRUE}
+\begin{proof}
+	Since $\sqrt{2}$ is irrational, the statement $P$ is false. The implication $P \implies Q$ just declares a statement in the case when P is true, not when it is false. We can not prove its falseness, thus it is considered true.
+\end{proof}
+(B) $Q \implies P:$ If 22/7 is rational, then $\sqrt{2}$ is rational. \textbf{ FALSE}
+\begin{proof}
+	The statement $Q$ is true and $P$ is false. This means that $Q$ does not imply $P$. 
+\end{proof}
+(C) $(\sim P) \implies (\sim Q):$ If $\sqrt{2}$ is irrational, then 22/7 is irrational. \textbf{ FALSE}
+\begin{proof}
+	The statement $\sim P$ is true and $\sim Q$ is false. Thus, the implication $(\sim P) \implies (\sim Q)$ is not true. 
+\end{proof}
+(D) $(\sim Q) \implies (\sim P):$ If 22/7 is irrational, then $\sqrt{2}$ is irrational. \textbf{ TRUE}
+\begin{proof}
+	The statement $\sim Q$ is false and $\sim P$ is true. Since we can not prove the falseness of this implication, it is considered true.
+\end{proof} 
+\end{problem}
+\begin{problem}{22}
+	Consider the statements:
+	\begin{equation}
+		P:\sqrt{2} \text{ is rational.} \quad Q:\frac{2}{3} \text{ is rational.} \quad R:\sqrt{3} \text{ is rational.}
+	\end{equation}
+	Write each of the following statments in words and indicate whether the statement is true or false.\\
+	
+	Both $\sqrt{2}$ and $\sqrt{3}$ are irrational (We don't prove them here), and 2/3 is rational because it can be represented as a fraction of two integers and the denominator is nonzero. Thus,
+	\begin{center}
+		\begin{tabular}{c c c}
+			$P$ & $Q$ & $R$ \\
+			\hline
+			F & T & F\\
+			\hline
+		\end{tabular}
+	\end{center}
+	(A) $(P \wedge Q) \implies R:$ If the $\sqrt{2}$ is rational and 2/3 is rational, then $\sqrt{3}$ is rational. \textbf{ TRUE}
+	\begin{proof}
+		The conjunction $P\wedge Q$ is false because the statement $P$ is false. Therefore, the implication $(P\wedge Q) \implies R$ must be true, since we can not prove its falseness.
+	\end{proof}
+	(B) $(P\wedge Q) \implies (\sim R):$ If $\sqrt{2}$ is rational and 2/3 is rational, then $\sqrt{3}$ is irrational. \textbf{ TRUE}
+	\begin{proof}
+		The conjunction $P \wedge Q$ is false, because the statement $P$ is false. Thus, the implication $(P\wedge Q) \implies (\sim R)$ must be considered true as it declares nothing when the conjunction is false $P \wedge Q$. 	
+	\end{proof}
+	(C) $((\sim P)\wedge Q) \implies R:$ If $\sqrt{2}$ is irrational and 2/3 is rational, then $\sqrt{3}$ is rational. \textbf{ FALSE}
+	\begin{proof}
+		The conjunction $(\sim P)\wedge Q$ is true because both of the statements that it contains are true, and the statement $R$ is false. Consequently, the implication $((\sim P)\wedge Q) \implies R$ is false.
+	\end{proof}
+	(D) $(P \vee Q) \implies (\sim R):$ If $\sqrt{2}$ is rational or 2/3 is rational, then $\sqrt{3}$ is not rational. \textbf{ TRUE}
+	\begin{proof}
+		Since the statement $Q$ is true, the disjunction $P \vee Q$ is true. The statement $\sim R$ is also true. This means that the implication $(P \vee Q) \implies (\sim R)$ is true.
+	\end{proof}
+\end{problem}
+\begin{problem}{23}
+	Suppose that $\{ S_1, S_2 \}$ is a partition of a set $S$ and $x \in S$. Which of the following are true. \\
+	
+	Before diving into the excercise, it is important to define what a partition is. For the family of sets $\{ S_1, S_2\}$ to be considered a partition of $S$, it must satisfy 3 requirements \cite{mathproofs} (let's call $\{S_1, S_2\} $ the set $P$):
+	\begin{enumerate}
+		\item $\forall X \in P, X \neq \emptyset$ (The set $P$ does not contain the empty set)
+		\item $\bigcup_{X\in P} X = S$  (The union of all the sets in $P$ is equal to the set $S$)
+		\item $(\forall X,Y \in P) \, X\neq Y \implies X\cap Y = \emptyset$ (The intersection of any two different sets in $P$ is the empty set)
+	\end{enumerate}
+(A) If we know that $x \notin S_1$, then $x$ must belong to $S_2$. \textbf{ TRUE}
+\begin{proof}
+	According to the second and third requirements, $S_1 \cup S_2 = S$ and $S_1 \cap S_2 = \emptyset$. Therefore, if $x \in S$, then $(x \in S_1) \vee (x \in S_2)$. We know that $x \notin S_1$ and hence $x \in S_2$.
+\end{proof}
+(B) It's possible that $x \notin S_1$, and $x \notin S_2$. \textbf{ FALSE}
+\begin{proof}
+	We know that $x \in S$, therefore, if $x \notin S_1$ and $x \notin S_2$, then $S_1 \cup S_2 \neq S$. This does not satisfy the second requirement. 
+\end{proof}
+(C) Either $x \notin S_1$ or $x \notin S_2$. \textbf{ TRUE}
+\begin{proof}
+	 If $x \notin S_1$, then $x \in S_2$ in order to fulfill the second requirement ($S_1 \cup S_2 = S$). If $x \notin S_2$ we would arrive to a similar conclusion where $x \in S_1$ must be true. Therefore, either $x \notin S_1$ or $x \notin S_2$. 
+\end{proof}
+(D) Either $x \in S_1$ or $x \in S_2$. \textbf{ TRUE}
+\begin{proof}
+	If $x \in S_1$, then $x \notin S_2$, because the third requirement must be fulfilled ($S_1 \cap S_2 = \emptyset$). On the other hand, if $x \in S_2$, then $x \notin S_1$. So $x$ must be a member of $S_1$ or $S_2$, but not of both. 
+\end{proof}
+(E) It's possible that $x \in S_1$ and $x \in S_2$ \textbf{ FALSE}
+\begin{proof}
+	If $x \in S_1$ and $x \in S_2$, then $S_1 \cap S_2 \neq \emptyset$. This would hinder the set $P$ from fulfilling the third requirment. 
+\end{proof}
+\end{problem}
+\begin{problem}{24}
+	Two sets $A$ and $B$ are nonempty disjoint subsets of a set $S$. If $x \in S$, then which of the following are true. \\
+	
+(A) It's possible that $x \in A \cap B$ \textbf{ FALSE}
+\begin{proof}
+	The subsets $A$ and $B$ are disjoint, so by definition $A\cap B = \emptyset$. Therefore $x \notin A\cap B$.
+\end{proof}
+(B) If $x$ is an element of $A$, then $x$ can't be an element of $B$. \textbf{ TRUE}
+\begin{proof}
+	Since $A$ and $B$ are disjoint subsets, if $x \in A$, then $x \notin B$ so that $A \cap B = \emptyset$. 
+\end{proof}
+(C) If $x$ is not an element of $A$, then $x$ must be an element of $B$. \textbf{ FALSE}
+\begin{proof}
+	The excercise just declares that $A$ and $B$ are nonempty subsets of $S$, so it isn't a must that $A \cup B = S$. Therefore, $x$ must not necessarily belong to either $A$ or $B$, if $x \in S$.
+\end{proof}
+(D) It's possible that $x \notin A$ and $x \notin B$. \textbf{ TRUE}
+\begin{proof}
+	As we have already commented in the previous statement (C), it isn't a must that $A \cup B = S$. So if $x \in S$, then it's possible that $x \notin A$ and $x \notin B$.
+\end{proof}
+(E) For each nonempty set C, either $x \in A\cap C$ or $x \in B\cap C$. \textbf{ FALSE}
+\begin{proof}
+	Since $A \cup B = S$ is not a must, let's take the case where $x \notin A$ and $x \notin B$. In both cases where $x \in C$ or $x \notin C$, $x \notin A\cap C$ and $x \notin B\cap C$. 
+\end{proof}
+(F) For some nonempty set C, both $x \in A\cup C$ and $x \in B\cup C$. \textbf{ TRUE} 
+\begin{proof}
+	In the case where $x \in C$, if $((x \in A) \vee (x \in B)) \vee ((x\notin A) \wedge (x\notin B))$, then ($x \in A\cup C) \wedge (x \in B\cup C)$.
+\end{proof}
+\end{problem}
+\begin{problem}{25}
+	A college student makes the following statement:
+	\begin{quote}
+		If I receive an \emph{A} in both Calculus I and Discrete Mathematics this semester, then I'll take either Calculus II or Computer Programming this summer.
+	\end{quote}
+	For each of the following, determine whether this statement is true or false.\\
+	
+	(A) The student doesn't get an $A$ in Calculus I but decides to take Calculus II this semester anyway. \textbf{ TRUE}
+	\begin{proof}
+		The student just gave a statement of what would happen if he got an $A$ in Calculus I and Discrete Mathematics. They didn't promise anything when they didn't get an $A$ in Calculus I. They didn't lied.
+	\end{proof}
+	(B) The student gets an $A$ in both Calculus I and Discrete Mathematics but decides not to take any class this summer. \textbf{ FALSE}
+	\begin{proof}
+		The student lied, because according to their statement they would take Calculus II or Computer Programming if they got an $A$ in both Calculus I and Discrete Mathematics.
+	\end{proof}
+	(C) The student does not get an $A$ in Calculus I and decides not to take Calculus II but takes Computer Programming this summer. \textbf{ TRUE}
+	\begin{proof}
+		The student didn't promise anything when they didn't get an $A$ in Calculus I, so in this case they didn't lie.
+	\end{proof}
+	(D) The student gets an $A$ in both Calculus I and Discrete Mathematics and decides to take both Calculus II and Computer Programming this summer. \textbf{ TRUE}
+	\begin{proof}
+		The student said they would take either Calculus II or Computer Programming in this case, which is a conjunction. If the student takes both assignatures, then this conjunction remains true. 
+	\end{proof}
+	(E) The student gets an $A$ in neither Calculus I nor Discrete Mathematics and takes neither Calculus II nor Computer Programming this summer. \textbf{ TRUE}
+	\begin{proof}
+		The statement just refers to the situation where the student gets an $A$ in both Calculus I and Discrete Mathematics, so in this case he did not lied.
+	\end{proof}
+\end{problem}
+\begin{problem}{26}
+	A college student makes the following statement:
+	\begin{quote}
+		If I don't see my advisor today, then I'll see her tomorrow.
+	\end{quote}
+	For each of the following, determine whether this statement is true or false.\\
+	
+	(A) The student doesn't see his advisor either day. \textbf{ FALSE}
+	\begin{proof}
+		The student didn't visit his advisor the day he made the statement, which means that the hypothesis of the implication is true. In this case, he promised he would see his advisor the next day, but he did not. Thus the implication is false in this situation.
+	\end{proof}
+	(B) The student sees his advisor both days. \textbf{ TRUE}
+	\begin{proof}
+		The student visited his advisor the same day of the statement, so the the hypothesis is false and the implication must be considered true. This is so, because the condition of the hypothesis was not met.
+	\end{proof}
+	(C) The student sees his advisor on one of the two days. \textbf{ TRUE}
+	\begin{proof}
+		If the student sees his advisor the same day he made the statement, then the hypothesis is false and the implication is true. On the other hand, if they only visits the advisor the next day, then the hypothesis is true and conclusion also, which means that the implication is true.
+	\end{proof}
+	(D) The student doesn't see his advisor today and waits until next week to see her. \textbf{ FALSE}
+	\begin{proof}
+		The hypothesis is true but the conclusion is not, since he did not visited her the next day. Thus the implication is false in this case.
+	\end{proof}
+\end{problem}
+\begin{problem}{27}
+	The instructor of a computer science class announces to her class that there will be a well-known speaker on campus later that day. Four students in the class are Alice, Ben, Cindy and Don. Ben says that he'll attend the lecture if Alice does. Cindy says that she'll attend the talk if Ben does. Don says that he will go to the lecture if Cindy does. That afternoon exactly two of the four students attend the talk. Which two students went to the lecture. \\
+	
+	The statements made by Ben, Cindy and Don are all implications. They will go to the lecture if other person goes to it. Also, it is important to notice that the attendance of Don does not imply the presence of another student, which means that it does not belong to the hypothesis of any other implication. The presence of Cindy implies the presence of Don, so if Cindy goes, then Don goes. Don's implication is true. If Alice and Ben don't go, then Ben's implication is true. In the case of Cindy, the hypothesis is false and the conclusion is true, thus her implication is also true. Cindy and Don were the unique students to attend the lecture.
+\end{problem}
+\begin{problem}{28}
+	Consider the statement (implication):
+	\begin{quote}
+		If Bill takes Sam to the concert, then Sam will take Bill to dinner.
+	\end{quote}
+	\textbf{P} : Bill takes Sam to the concert.\\
+	\textbf{Q} : Sam will take Bill to dinner.\\
+	Which of the following implies that this statement is true?\\
+	
+	(A) Sam takes Bill to dinner only if Bill takes Sam to the concert. \textbf{ FALSE, DOES NOT IMPLY}
+	\begin{equation}
+		(Q \implies P) \implies (P \implies Q)
+	\end{equation}
+	\begin{proof}
+		If $Q$ is false and  $P$ is true, then in this case the hypothesis $(Q \implies P)$ is true, but the conclusion $(P \implies Q)$ is false.
+	\end{proof}
+	(B) Either Bill doesn't take Sam to the concert or Sam takes Bill to dinner. \textbf{ TRUE, DOES IMPLY}
+	\begin{equation}
+		((\sim P) \vee Q) \implies (P \implies Q)
+	\end{equation}
+ 	\begin{proof}
+		If $P$ is false, the hypothesis $(\sim P \vee Q)$ is true and the hypothesis $P$ of the conclusion $(P \implies Q)$ is false, so the statement would be considered true for both truth values of the conclusion $Q$. If $Q$ is true, the hypothesis $(\sim P \vee Q)$ is true, and the implication $(P \implies Q)$ of the conclusion would be considered to be true for both truth values of the hypothesis $P$. 
+	\end{proof}
+	(C) Bill takes Sam to the concert. \textbf{ FALSE, DOES NOT IMPLY}
+	\begin{equation}
+		P \implies (P \implies Q)
+	\end{equation}
+	\begin{proof}
+		If $P$ is true, then the hypothesis is also. The conclusion $(P \implies Q)$ is only true when $Q$ is true. If $Q$ is false, then the hypothesis $P$ is true and the conclusion $Q$ is false.
+	\end{proof}
+	(D) Bill takes Sam to the concert and Sam takes Bill to dinner. \textbf{ TRUE, DOES IMPLY }
+	\begin{equation}
+		(P\wedge Q) \implies (P \implies Q)
+	\end{equation}
+	\begin{proof}
+		When the hypothesis $(P\wedge Q)$ is true, the conclusion $(P \implies Q)$ is true.
+	\end{proof}
+	(E) Bill takes Sam to the concert and Sam doesn't take Bill to dinner. \textbf{ FALSE, DOES NOT IMPLY}
+	\begin{equation}
+		(P \wedge (\sim Q)) \implies (P \implies Q)
+	\end{equation}
+	\begin{proof}
+		If the hypothesis $(P \wedge \sim Q)$ is true, then the conclusion $(P \implies Q)$ is false. $(P \wedge \sim Q)$ does not imply $(P \implies Q)$ true. 
+	\end{proof}
+ 	(F) The concert is cancelled. \textbf{ TRUE, DOES IMPLY}
+ 	\begin{equation}
+ 		\sim P \implies (P\implies Q)
+ 	\end{equation}
+ 	\begin{proof}
+ 		If the concert is cancelled, then $P$ is false and the hypothesis $\sim P$ is true. In the conclusion $(P\implies Q)$, the hypothesis $P$ is false, so the implication $(P\implies Q)$ is true for both truth values of $Q$.
+ 	\end{proof}
+ 	(G) Sam doesn't attend the concert. \textbf{ TRUE, DOES IMPLY}
+ 	\begin{equation}
+ 		\sim P \implies (P\implies Q)
+ 	\end{equation}
+ 	\begin{proof}
+ 		If Sam doesn't go to the concert with Bill, then $P$ is false and the hypothesis is true. The implication $(P\implies Q)$ is true regardless of the truth value of the conclusion because its hypothesis $P$ is false.
+ 	\end{proof}
+\end{problem}
+\begin{problem}{29}
+	Let $P$ and $Q$ be statements. Which of the following implies that $P \, \vee \, Q$ is false?\\
+	
+	(A) $(\sim P) \vee (\sim Q)$ is false. \textbf{ DOES NOT IMPLY FALSENESS}
+	\begin{equation}
+		(P \wedge Q) \implies ((\sim P) \wedge (\sim Q))
+	\end{equation}
+\begin{proof}
+	If $(P \wedge Q)$ is true, then $P$ and $Q$ are both true and $(P \vee Q)$ is also true. Thus, the statement $(P \wedge Q)$ does not imply the falseness of $(P \vee Q)$.
+\end{proof}
+	(B) $(\sim P) \vee Q$ is true. \textbf{ DOES NOT IMPLY FALSENESS}
+	\begin{equation}
+		((\sim P) \wedge Q) \implies ((\sim P) \wedge (\sim Q))
+	\end{equation}
+	\begin{proof}
+		If $(\sim P \wedge Q)$ is true, then $\sim P$ and $Q$ are true. Since $Q$ is true, the disjunction $P \vee Q$ is also true.
+	\end{proof}
+	(C) $(\sim P) \wedge (\sim Q)$ is true. \textbf{ DOES IMPLY FALSENESS}
+	\begin{equation}
+		((\sim P) \wedge (\sim Q)) \implies ((\sim P) \wedge (\sim Q))
+	\end{equation}
+\begin{proof}
+	The conjunction $(\sim P) \wedge (\sim Q)$ is true only when both $P$ and $Q$ are false. Since both these statements are false, the disjuntion $P \vee Q$ is also false.
+\end{proof}
+	(D) $Q \implies P$ is true. \textbf{ DOES NOT IMPLY FALSENESS}
+	\begin{equation}
+		(Q \implies P) \implies ((\sim P) \wedge (\sim Q))
+	\end{equation}
+\begin{proof}
+	If $P$ and $Q$ are false, then $Q \implies P$ and $((\sim P) \wedge (\sim Q))$ are true.
+\end{proof}
+	(E) $P \wedge Q$ is false. \textbf{DOES NOT IMPLY FALSENESS}
+	\begin{equation}
+		((\sim P) \vee (\sim Q)) \implies ((\sim P) \wedge (\sim Q))
+	\end{equation}
+\begin{proof}
+	If both $(\sim P)$ and $(\sim Q)$ are true, then both $(\sim P) \vee (\sim Q)$ and $(\sim P) \wedge (\sim Q)$ are true.
+\end{proof}
+\end{problem}
+\begin{thebibliography}{3}
+	\bibitem{mathproofs}
+	G. Chartrand,  A. Polimeni, P. Zhang, 
+	\textit{Mathematical Proofs: A Transition to Advanced Mathematics}, Pearson, 2014.
+\end{thebibliography}
+\end{document}

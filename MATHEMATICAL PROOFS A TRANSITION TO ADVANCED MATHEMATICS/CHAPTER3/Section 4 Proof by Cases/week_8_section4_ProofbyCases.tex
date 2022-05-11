@@ -1,0 +1,189 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem} 
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 9}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 4: Proof by Cases}
+	\date{September 21, 2021}
+	\maketitle
+	
+Let $S$ be the domain of some open sentence $P(x)$. It can be useful to observe that an arbitrary $x\in S$ may have one of two or more properties (i.e. belong to a particular subset of $S$). If one proves that $P(x)$ is true for each property that $x$ can have, then $P(x)$ is shown to be true. Then the proof of $P(x)$ can be divided into cases, and, if necessary, each case into subcases. This method is called Proof by Cases.\\
+When the proof of two cases is similar, one can use \textbf{without loss of generality} (WLOG) to indicate that only the proof of one situation is needed. 
+
+\begin{problem}{26}
+	Prove that if $n\in \Z$, then $n^{2}-3n+9$ is odd.
+	\begin{proof}
+		We proceed by cases, according to whether $n$ is even or odd.\\
+		\textit{Case 1.} Assume $n$ is even. Then $n=2k$ for some $k\in \Z$. Therefore,
+		\begin{equation*}
+			(2k)^{2}-3(2k)+9=4k^{2}-6k+8+1=2(2k^{2}-3k+4)+1
+		\end{equation*}
+	Since $2k^{2}-3k+4\in \Z$, $n^{2}-3n+9$ is odd.\\
+	\textit{Case 2.} Assume $n$ is odd. Then $n=2k+1$ for some $k\in \Z$. Thus,
+	\begin{equation*}
+		(2k+1)^{2}-3(2k+1)+9=4k^{2}+4k+1-6k-3+9=4k^{2}-2k+1+6 = 2(2k^{2}-k+3)+1
+	\end{equation*}
+	Because $2k^{2}-k+3\in \Z$, $n^{2}-3n+9$ is odd.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{27}
+	Prove that if $n\in \Z$, then $n^{3}-n$ is even.
+	\begin{proof}
+		For this proof we consider two cases.\\
+		\textit{Case 1.} Assume $n$ is even. Then $n=2k$ for some $k\in \Z$. Hence,
+		\begin{equation*}
+			(2k)^{3}-2k=8k^{3}-2k=2(4k^{3}-k)
+		\end{equation*} 
+		Since $4k^{3}-k$ is an integer, $n^{3}-n$ is even.\\
+		\textit{Case 2.} Let $n$ be odd. Then $n=2k+1$ for some $k\in \Z$. Therefore,
+		\begin{align*}
+			(2k+1)^{3}-2k-1 &= 8k^{3}+12k^{2}+6k+1-2k-1\\
+			&= 8k^{3}+12k^{2}+4k\\
+			&= 2(4k^{3}+6k^{2}+2k)
+		\end{align*}
+	Because $4k^{3}+6k^{2}+2k$ is an integer, it follows that $n^{3}-n$ is even.
+	\end{proof} 
+\end{problem}
+
+\begin{problem}{28}
+	Let $x,y\in \Z$. Prove that if $xy$ is odd, then $x$ and $y$ are odd.
+	\begin{proof}
+		Assume that $x$ or $y$ is even. Without loss of generality, let $x$ be even. Then $x=2a$ for some $a\in \Z$. Therefore,
+			$2a(y) = 2(ay)$.\\
+	Since $ay\in \Z$, it follows that $xy$ is even.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{29}
+	Let $a,b \in \Z$. Prove that if $ab$ is odd, then $a^{2}+b^{2}$ is even.
+	\begin{proof}
+		Assume $ab$ is odd. By result 28, $a$ and $b$ are odd. Therefore $a=2m+1$ and $b=2n+1$ for some $m,n\in  \Z$. Hence,
+		\begin{align*}
+			(2m+1)^{2}+(2n+1)^{2}&=4m^{2}+4m+1+4n^{2}+4n+1\\
+			&= 4m^{2}+4m+4n^{2}+4n+2\\
+			&= 2(2m^{2}+2m+2n^{2}+2n+1)
+		\end{align*}
+	Since $2m^{2}+2m+2n^{2}+2n+1 \in \Z$, it follows that $a^{2}+b^{2}$ is even.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{30}
+	Let $x,y\in \Z$. Prove that $x-y$ is even if and only if $x$ and $y$ are of the same parity.\\
+	
+		\textbf{Lemma} If $n\in \Z$, then $n$ and $-n$ are of the same parity.
+		\begin{proof}
+			We consider two cases.\\
+			\textit{Case 1.} Assume $n$ is even. Then $n=2k$ for some $k\in \Z$. Therefore, $-n=-(2k)=2(-k)$.
+			Since $-k$ is an integer, it follows that $n$ is even.\\
+			\textit{Case 2.} Let $n$ be odd. Then $n=2k+1$ for some $k\in \Z$. Thus, $-n=-(2k+1)=-2k-1=-2k-2+1=2(-k-1)+1$. Since $-k-1$ is an integer, $-n$ is odd.
+		\end{proof}
+	\begin{proof}
+		We now proceed to prove the result.\\
+		Let $x$ and $y$ be of opposite parity. By lemma, $x+(-y)$ is a sum of two integers of opposite parity. Therefore, by theorem 16, $x-y$ is odd.\\
+		For the converse, assume $x$ and $y$ are of the same parity. By lemma, $x+(-y)$ is a sum of two integers of the same parity. Therefore, by theorem 16, $x-y$ is even.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{31}
+	Let $a,b\in \Z$. Prove that if $a+b$ and $ab$ are of the same parity, then $a$ and $b$ are even.
+	\begin{proof}
+		Assume that $a$ or $b$ are odd. We consider two cases.\\
+		\textit{Case 1.} Without loss of generality, let $b$ be odd and $a$ be even. Then $b=2m+1$ and $a=2k$ for some $m,k \in \Z$. Therefore,
+		\begin{align*}
+			a+b&=2k+2m+1=2(k+m)+1\\
+			ab &= (2k)(2m+1)=4km+2k=2(2km+k)
+		\end{align*}
+	Since both $2km+k$ and $k+m$ are integers, $a+b$ is odd and $ab$ is even. They are of opposite parity.\\
+	
+	\textit{Case 2.} Let $a$ and $b$ be odd. Then $a=2k+1$ and $b=2m+1$ for some $k,m \in \Z$. Thus,
+	\begin{align*}
+		a+b &= 2k+1+2m+1=2(k+m+1)\\
+		ab &= (2k+1)(2m+1) = 4km+2k+2m+1=2(2km+k+m)+1
+	\end{align*}
+	Because both $k+m+1$ and $2km+k+m$ are integers, $a+b$ is even and $ab$ is odd. They are of opposite parity.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{32}
+	$(\text{a})$ Let $x$ and $y$ be integers. Prove that $(x+y)^{2}$ is even if and only if $x$ and $y$ are of the same parity.
+	\begin{proof}
+		For this proof we will use the following two theorems:\\
+		\textbf{Theorem 12} Let $x\in \Z$. Then $x^{2}$ is even if and only if $x$ is even.\\
+		\textbf{Theorem 16} Let $x,y\in \Z$. Then $x$ and $y$ are of the same parity if and only if $x+y$ is even.\\
+		
+		Assume $(x+y)^{2}$ is even. By theorem 12, $x+y$ is even. Thus, by theorem 16, $x$ and $y$ are of the same parity.\\
+		For the converse, let $x$ and $y$ be of the same parity. By theorem 16, $x+y$ is even and so, by theorem 12, $(x+y)^{2}$ is even.
+	\end{proof}
+
+	$(\text{b})$ Restate the result in $(\text{a})$ in terms of odd integers.
+	\begin{solution}{}
+		Let $x,y\in \Z$. Then $(x+y)^{2}$ is odd if and only if $x$ and $y$ are of opposite parity.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{33}
+	Let $A=\{1,2,3\}$ and $B=\{2,3,4\}$ be subsets of $S=\{1,2,3,4\}$. Let $n\in S$. Prove that $2n^{2}-5n$ is either $(\text{a})$ positive and even or $(\text{b})$ negative and odd if and only if $n\notin A\cap B$.
+	\begin{proof}
+		Let $n\in S$ such that $n\in A\cap B$. Then $n\in \{2,3\}$. If $n=2$, then $2n^{2}-5n=-2$ is even and negative; while, if $n=3$, then $2n^{2}-5n=3$ is odd and positive.\\
+		For the converse, let $n\in S$ such that $n\notin A\cap B$. Then $n\in \{1,4\}$. If $n=1$, then $2n^{2}-5n=-3$ is negative and odd. If $n=4$, then $2n^{2}-5n=12$ is positive and even.
+	\end{proof} 
+\end{problem}
+
+\begin{problem}{34}
+	Let $A=\{3,4\}$ be a subset of $S=\{1,2,\ldots,6\}$. Let $n\in S$. Prove that if $\frac{n^{2}(n+1)^{2}}{4}$ is even, then $n\in A$.
+	\begin{proof}
+		Let $n\in S$ such that $n\notin A$. Then $n=\{1,2,5,6\}$. If $n=1$, then $n^{2}(n+1)^{2}/4=1$ is odd. If $n=2$, then $n^{2}(n+1)^{2}/4=9$ is odd. If $n=5$, then $n^{2}(n+1)^{2}/4=225$ is odd. If $n=6$, then $n^{2}(n+1)^{2}/4=441$ is odd. 
+	\end{proof}
+\end{problem}
+
+\begin{problem}{35}
+	Prove for every nonnegative integer $n$ that $2^{n}+6^{n}$ is an even integer.
+	\begin{proof}
+		Let $n$ be a nonnegative integer. We consider two cases for this proof.\\ 
+		\textit{Case 1.} Assume $n\in \Z$ such that $n = 0$. Therefore, $2^{0}+6^{0}=2$ is an even integer.\\
+		\textit{Case 2.} Let $n > 0$. Then $n-1 \geq 0$. Note that
+		\begin{align*}
+			2^{n}+6^{n} &= 2(2^{n-1})+ 6(6^{n-1})\\
+						&= 2(2^{n-1} + 3(6^{n-1}))
+		\end{align*}
+	Since $n-1 \geq 0$, it follows that $2^{n-1} + 3(6^{n-1}) \in \Z$. Thus, $2^{n}+6^{n}$ is an even integer.
+	\end{proof}
+\end{problem}
+
+\end{document}

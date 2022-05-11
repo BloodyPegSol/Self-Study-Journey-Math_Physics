@@ -1,0 +1,211 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem} 
+\usepackage{tikz}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\def\rectangle{(-3,-3) rectangle(5,3)}
+\def\firstcircle{(0,0) circle(2)}
+\def\secondcircle{(2,0) circle(2)}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 7}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 4: Indexed Collctions of Sets}
+	\date{September 06, 2021}
+	\maketitle
+	
+	\begin{problem}{37}
+	Let $A=\{1,2,5\}$, $B=\{0,2,4\}$, $C=\{2,3,4\}$ and $S=\{A,B,C\}$. Determine $\bigcup_{X\in S}X$ and $\bigcap_{X\in S}X$.
+	\begin{solution}{}
+		The set of all elements that belong to at least one of the sets in $S$.\\
+		$\bigcup_{X\in S}X = A\cup B\cup C=\{0,1,\ldots,5\}$. \\
+		The set of all elements that belong to every set in $S$.\\
+		$\bigcap_{X\in S}X = A\cap B\cap C= \{2\}$.
+	\end{solution}
+	\end{problem}
+
+	\begin{problem}{38}
+		For a real number $r$, define $A_r = \{r^{2}\}$, $B_r$ as the closed interval $[r-1,r+1]$ and $C_r$ as the interval $(r, \infty)$. For $S=\{1,2,4\}$, determine\\
+		
+		(a) $\bigcup_{\alpha \in S}A_{\alpha}$ and $\bigcap_{\alpha \in S}A_{\alpha}$.
+		\begin{solution}{a}
+			$A_{1} = \{1\}$, $A_{2} = \{4\}$ and $A_{4} = \{16\}$.\\
+			 $\bigcup_{\alpha \in S}A_{\alpha} = A_{1}\cup A_{2} \cup A_{4} = \{1,4,16\}$.\\
+			 $\bigcap_{\alpha \in S}A_{\alpha} = A_{1}\cap A_{2} \cap A_{4} = \emptyset$. 
+		\end{solution}
+	
+		(b) $\bigcup_{\alpha \in S}B_{\alpha}$ and $\bigcap_{\alpha \in S}B_{\alpha}$.
+		\begin{solution}{b}
+			$B_{1} = [0,2]$, $B_{2}= [1,3]$ and $B_{4} = [3,5]$.\\
+			$\bigcup_{\alpha \in S}B_{\alpha} = B_{1}\cup B_{2}\cup B_{4} = [0,5]$.\\
+			$\bigcap_{\alpha \in S}B_{\alpha} = B_{1}\cap B_{2}\cap B_{4} = \emptyset$ (since $B_{1}\cap B_{4} = \emptyset$).\\
+		\end{solution}
+	
+		(c) $\bigcup_{\alpha \in S}C_{\alpha}$ and $\bigcap_{\alpha \in S}C_{\alpha}$.
+		\begin{solution}{c}
+			$C_{1} = (1,\infty)$, $C_{2} = (2,\infty)$ and $C_{4} = (4,\infty)$.\\
+			 $\bigcup_{\alpha \in S}C_{\alpha} = C_{1}\cup C_{2} \cup C_{4} = (1,\infty)$.\\
+			 $\bigcap_{\alpha \in S}C_{\alpha} = C_{1}\cap C_{2} \cap C_{4} = (4,\infty)$.\\
+		\end{solution}
+	\end{problem}
+	\begin{problem}{39}
+		Let $A=\{a,b,\ldots,z\}$ be the set consisting of the letters of the alphabet. For $\alpha \in A$, let $A_{\alpha}$ consist of $\alpha$ and the two letters that follow it, where $A_{y} = \{y,z,a\}$ and $A_{z} = \{z,a,b\}$. Find a set $S\subseteq A$ of smallest cardinality such that $\bigcup_{\alpha \in S}A_{\alpha} = A$. Explain why your set $S$ has the required properties.
+		\begin{solution}{}
+		Since $|A|=26$ and $|A_{\alpha}|=3$ for every $\alpha \in S$, at least 9 subsets $A_{\alpha}$ are needed (the greatest multiple of 3 nearest to 26 is 27) for their union to be the set $A$.
+			Let, $S=\{a,d,g,j,m,p,s,v,y\}$.
+			 A majority of 8 subsets contains three different letters and one contains 2 different and one repeated letters, namely $A_{y} = \{y,z,a\}$.\\
+		\end{solution} 
+	\end{problem}
+	
+	\begin{problem}{40}
+		For $i \in \Z$, let $A_{i} = \{i-1, i+1\}$. Determine the following:\\
+		
+		(a) $\bigcup\limits_{i=1}^{5}A_{2i}$
+		\begin{solution}{a}
+			Since each set $A_{2i} = \{2i-1, 2i+1\}$, it follows that $\bigcup_{i=1}^{5}A_{2i}$ contains the odd numbers that precede and follow each of the first 5 positive multiples of 2.
+			\begin{equation*}
+				\bigcup\limits_{i=1}^{5}A_{2i} = \{1,3,5,7,9,11\}
+			\end{equation*}
+		\end{solution}
+	
+		(b) $\bigcup\limits_{i=1}^{5}(A_{i}\cap A_{i+1})$
+		\begin{solution}{b}
+			Because $A_{i}=\{i-1,i+1\}$ and $A_{i+1}=\{i,i+2\}$, it follows that $A_{i} \cap A_{i+1} = \emptyset$ for every $i\in \Z$. Thus,
+			\begin{equation*}
+				\bigcup\limits_{i=1}^{5}(A_{i}\cap A_{i+1}) = \emptyset
+			\end{equation*}
+		\end{solution}
+	
+		(c)  $\bigcup\limits_{i=1}^{5}(A_{2i-1}\cap A_{2i+1})$
+		\begin{solution}{c}
+			Since $A_{2i-1}=\{2(i-1),2i\}$ and $A_{2i+1}=\{2i,2(i+1)\}$, it follows that $A_{2i-1}\cap A_{2i+1} = \{2i\}$. Let $B=\{1,2,\ldots,5\}$. Therefore,
+			\begin{equation*}
+				\bigcup\limits_{i=1}^{5}(A_{2i-1}\cap A_{2i+1}) =\{2i: i\in B\} = \{2,4,6,8,10\}
+			\end{equation*}
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{41}
+		For each of the following, find an indexed collection $\{A_{n}\}_{n\in \N}$ of distinct sets (that is, no two sets are equal) satisfying the given conditions.\\
+		
+		(a) $\bigcap\limits_{n=1}^{\infty} A_{n} = \{0\}$ and $\bigcup\limits_{n=1}^{\infty}A_{n}=[0,1]$
+		\begin{solution}{a}
+			 Let the indexed collection of sets be $\{A_{n}\}_{n\in \N}$, where $A_{n} = \{x\in \R: 0\leq x \leq \frac{1}{n}\} = \left[0,\frac{1}{n}\right]$.\\
+			 The intersection $\bigcap_{n=1}^{\infty} A_{n} = \{0\}$ since $A_{n} = \left[0,\frac{1}{n}\right]$ 
+			 and
+			 \begin{equation*}
+			 	\lim_{n\to \infty} A_{n} = \{0\}
+			 \end{equation*} 
+			 The union $\bigcup_{n=1}^{\infty}A_{n}=[0,1]$ mainly because $A_{1} = [0,1]$ (For all positive integers $n>1$, the positive number $1/n < 1$).
+		\end{solution}
+	
+		(b) $\bigcap\limits_{n=1}^{\infty} A_{n} = \{-1,0,1\}$ and $\bigcup\limits_{n=1}^{\infty}A_{n}= \Z$
+		\begin{solution}{b}
+			 Let the indexed collection of sets be $\{A_{n}\}_{n\in \N}$, where $A_{n} = \{x\in \Z: |x| \leq n\}$.\\
+			 The intersection $\bigcap_{n=1}^{\infty} A_{n} = \{-1,0,1\}$ since $A_{n} = \{x\in \Z: -n\leq x\leq n\}$ and $A_{1} = \{-1,0,1\}$.\\
+			 The union $\bigcup_{n=1}^{\infty}A_{n}= \Z$ mainly because 
+			 \begin{equation*}
+			 	\lim_{n\to \infty} A_{n} = \{\ldots,-1,0,1,\ldots\} = \Z
+			 \end{equation*}
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{42}
+		For each of the following collections of sets, define a set $A_{n}$ for each $n \in \N$ such that the indexed collection $\{A_{n}\}_{n\in \N}$ is precisely the given collection of sets. Then find both the union and intersection of the indexed collections of sets.\\
+		
+		(a) $\{[1,2+1), [1,2+1/2), [1,2+1/3),\ldots\}$
+		\begin{solution}{a}
+			Let the indexed collection be $\{A_{n}\}_{n\in \N}$, where $A_{n}=\{x\in \R: 1\leq x < 2+ 1/n\} = [1,2+1/n)$.\\
+			The union $\bigcup_{n\in \N} A_{n}= [1,2+1) = [1,3)$ since $A_{1} = [1,2+1) = [1,3)$. The value of the positive number $1/n$ decreases as the positive integer $n$ increases ($n\in \N$).\\
+			The intersection $\bigcap_{n\in \N} A_{n} = [1,2)$ because $A_{n}=[1,2+1/n)$ and
+			\begin{equation*}
+				\lim_{n\to \infty} A_{n} = [1,2+0) = [1,2)
+			\end{equation*}
+		\end{solution}
+		(b) $\{(-1,2),(-3/2,4),(-5/3,6),(-7/4,8),\ldots\}$
+		\begin{solution}{b}
+			Let the indexed collection be $\{A_{n}\}_{n\in \N}$, where 
+			\begin{equation*}
+				A_{n} = \left\{x\in \R: \frac{-2n+1}{n} <x< 2n\right\} = \left(\frac{-2n+1}{n},2n\right)
+			\end{equation*}
+			Certainly, for $n \in \N$, 
+			\begin{align*}
+			\lim_{n\to \infty}	A_{n} &= \left(\lim_{n\to \infty}\frac{-2n+1}{n},\lim_{n\to \infty}2n\right)\\
+					  &= \left(-2+\lim_{n\to \infty}\frac{1}{n},\infty\right)\\
+					  &= \left(-2,\infty\right)\\
+			\end{align*}
+		It is understood that for $a,b \in \N$, if $a > b$, then $A_{b} \subseteq A_{a}$.\\
+		Therefore, the union $\bigcup_{n\in \N} A_{n} = (-2,\infty)$.\\
+		Also, the intersection $\bigcap_{n\in \N} A_{n} = A_{1} = (-1,2)$.
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{43}
+		For $r \in \R^{+}$, let $A_{r} = \{x \in \R: |x|<r\}$. Determine $\bigcup_{r\in \R^{+}}A_{r}$ and $\bigcap_{r\in \R^{+}}A_{r}$.
+		\begin{solution}{}
+			Certainly, for every $r \in \R^{+}$,
+			\begin{equation*}
+				A_{r} = \{x \in \R: |x|<r\} = \{x \in \R: -r<x<r\} = (-r,r)
+			\end{equation*}
+		It is understood that for $a,b \in \R^{+}$, if $a > b$, then $A_{b} \subseteq A_{a}$; In fact, for $r \in \R^{+}$,
+		\begin{equation*}
+			\lim_{r\to \infty} A_{r} = (-\infty,\infty)
+		\end{equation*}
+		Therefore, the union $\bigcup_{r\in \R^{+}} A_{r} = (-\infty,\infty) = \R$.\\
+		Also, the intersection $\bigcap_{r\in \R^{+}} A_{r}= \{0\}$ since $0 \in A_{r}$ for every $r \in \R^{+}$.
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{44}
+		Each of the following sets is a subset of $A=\{1,2,\ldots,10\}$:\\
+			$A_{1} = \{1,5,7,9,10\}$, $A_{2} = \{1,2,3,8,9\}$, $A_{3} = \{2,4,6,8,9\}$,\\
+			$A_{4} = \{2,4,8\}$, $A_{5} =\{3,6,7\}$, $A_{6} = \{3,8,10\}$, $A_{7} = \{4,5,7,9\}$,\\
+			$A_{8} = \{4,5,10\}$, $A_{9} = \{4,6,8\}$, $A_{10} = \{5,6,10\}$,\\
+			$A_{11}=\{5,8,9\}$, $A_{12} = \{6,7,10\}$, $A_{13}=\{6,8,9\}$.\\
+		Find a set $I \subseteq \{1,2,\ldots,13\}$ such that for every two distinct elements $j,k \in I$, $A_{j}\cap A_{k} = \emptyset$ and $|\bigcup_{i\in I}A_{i}|$ is maximum. 
+	\end{problem}
+ 
+	\begin{problem}{45}
+		For $n \in \N$, let $A_{n} = \left(-\frac{1}{n}, 2-\frac{1}{n}\right)$. Determine $\bigcup_{n\in \N}A_{n}$ and $\bigcap_{n\in \N}A_{n}$.
+		\begin{solution}{}
+			For every $a,b \in \N$, if $a>b$, then $1/b > 1/a$. Also, for $n \in \N$,  
+			\begin{equation*}
+				A_{1} = (-1,1) \quad \text{and} \quad \lim_{n\to \infty}A_{n} = (0,2)
+			\end{equation*} 
+		Therefore, as $n$ increases, the left and right endpoints of the interval $A_{n}$ approach from the left, respectively, 0 and 2.\\
+		Certainly, the union $\bigcup_{n \in \N}A_{n} = (-1,2)$.\\
+		Also, the intersection $\bigcap_{n \in \N}A_{n} = [0,1)$ since $[0,1) \subseteq A_{n}$ for every $n \in \N$.
+		\end{solution}
+	\end{problem}
+\end{document}

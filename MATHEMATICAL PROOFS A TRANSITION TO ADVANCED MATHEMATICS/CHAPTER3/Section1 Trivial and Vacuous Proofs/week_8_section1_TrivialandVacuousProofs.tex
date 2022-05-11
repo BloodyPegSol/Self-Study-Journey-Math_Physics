@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem} 
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 8}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 1: Trivial and Vacuous Proofs}
+	\date{September 15, 2021}
+	\maketitle
+	
+	\begin{problem}{1}
+		Let $x\in \R$. Prove that if $0<x<1$, then $x^{2}-2x+2\neq 0$.
+		\begin{proof}
+			Note that
+			\begin{equation*}
+				x^{2}-2x+1=(x-1)^{2}\geq 0
+			\end{equation*}
+			Thus, $x^{2}-2x+2 = (x-1)^{2}+1\geq 1 >0$. Hence, $x^{2}-2x+2\neq 0$ is true for all $x\in \R$ and the implication is true trivially.  
+		\end{proof}
+	\end{problem}
+ 	
+ 	\begin{problem}{2}
+ 		Let $n\in \N$. Prove that if $|n-1|+|n+1|\leq 1$, then $|n^{2}-1|\leq 4$.
+ 		\begin{proof}
+ 			 Note that for $n \in \N$, $|n+1|\geq 2 > 1$. Thus, $|n-1|+|n+1|\leq 1$ is false for all $n\in \N$ and the implication follows vacuously.
+ 		\end{proof}
+ 	\end{problem}
+ 	
+ 	\begin{problem}{3}
+ 		Let $r\in \Q^{+}$. Prove that if $\frac{r^{2}+1}{r}\leq 1$, then $\frac{r^{2}+2}{r}\leq 2$.
+ 		\begin{proof}
+ 			Note that $\frac{r^{2}+1}{r} = r+\frac{1}{r}$. If $r \geq 1$, then $r+\frac{1}{r}>1$. On the other hand, if $0<r<1$, then $\frac{1}{r}>1$ and $r+\frac{1}{r}>1$. Hence, $\frac{r^{2}+1}{r}\leq 1$ is false for all $r\in \Q^{+}$ and the implication follows vacuously. 
+ 		\end{proof}	
+ 	\end{problem}
+  
+ 	\begin{problem}{4}
+ 		Let $x \in \R$. Prove that if $x^{3}-5x-1 \geq 0$, then $(x-1)(x-3)\geq -2$.
+ 		\begin{solution}{}
+ 			Note that $(x-1)(x-3)=x^{2}-4x+3$. Also, 
+ 			\begin{equation*}
+ 				x^{2}-4x+4 = (x-2)^{2}\geq 0
+ 			\end{equation*}
+ 		Thus, $x^{2}-4x+3 = (x-2)^{2}-1\geq -1$. Therefore, $(x-1)(x-3)\geq -2$ is true for all $x \in \R$ and this implication is true trivially.
+ 		\end{solution}
+ 	\end{problem}
+ 
+ 	\begin{problem}{5}
+ 		Let $n \in \N$. Prove that if $n+\frac{1}{n}<2$, then $n^{2}+\frac{1}{n^{2}}<4$.
+ 		\begin{solution}{}
+ 			For $n=1$, $n+\frac{1}{n}=2$. On the other cases, $n\geq 2$. Thus, $n+\frac{1}{n}<2$ is false for all $n \in \N$ and this implication follows vacuously.
+ 		\end{solution}
+ 	\end{problem}
+ 
+ 	\begin{problem}{6}
+ 		Prove that if $a$, $b$ and $c$ are odd integers such that $a+b+c=0$, then $abc<0$. (You are permitted to use well-known properties of integers here.)
+ 		\begin{solution}{}
+ 			Let $a=2m+1$, $b=2k+1$ and $c=2n+1$ for some $m,k,n\in \Z$. Note that $a+b+c = 2(m+k+n)+3$. The sum of three odd integers is an odd integer. Since $0$ is an even integer, it follows that $a+b+c=0$ is false for all odd integers $a,b,c$. This implication is true vacuously.
+ 		\end{solution} 
+ 	\end{problem}
+ 
+ 	\begin{problem}{7}
+ 		Prove that if $x$, $y$ and $z$ are three real numbers such that $x^{2}+y^{2}+z^{2}<xy+xz+yz$, then $x+y+z>0$.
+ 		\begin{solution}{}
+ 			Since $(x-y)^{2}+(y-z)^{2}+(z-x)^{2} \geq 0$, it follows that $2x^{2}+2y^{2}+2z^{2} - 2xy - 2yz - 2xz\geq 0$. Therefore, $x^{2}+y^{2}+z^{2}\geq xy+xz+yz$ for all $x,y,z \in \R$. This implication is true vacuously.
+ 		\end{solution}
+ 	\end{problem}
+\end{document}

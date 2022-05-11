@@ -1,0 +1,153 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 13}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 1: Counterexamples}
+	\date{October 19, 2021}
+	\maketitle
+
+	A quantified statement of the type $\forall x \in S, R(x)$ can be \textbf{disproved} (proved to be false) by showing that $\sim (\forall x \in S, R(x)) \equiv \exists x \in S, \sim R(x)$ is true. If $\forall x \in S, R(x)$ is false, then there is some $x\in S$ for which the open sentence $R(x)$ is false, namely a \textbf{counterexample}. Therefore, the truth value of $\forall x \in S, R(x)$ not only depends on the open sentence $R(x)$ but also on the domain $S$.
+	
+	\begin{problem}{1}
+		Disprove the statement: If $a$ and $b$ are any two real numbers, then $\log(ab) = \log(a) + \log(b)$.
+		\begin{solution}{}
+			Let $a\leq 0$ and $b>0$. Then $\log(ab)$ and $\log(a)$ are not defined (The domain over the open sentence influences on the truth value of the quantified statement).
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{2}
+		Disprove the statement: If $n\in \{0,1,2,3,4\}$, then $2^{n}+3^{n}+n(n-1)(n-2)$ is prime.
+		\begin{solution}{}
+			If $n=4$, then $2^{n}+3^{n}+n(n-1)(n-2) = 121$ is not a prime number. Therefore, $n=4$ is a counterexample
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{3}
+		Disprove the statement: If $n\in \{1,2,3,4,5\}$, then $3\mid (2n^{2}+1)$.
+		\begin{solution}{}
+			Since $3\nmid (2(3)^{2}+1)$, it follows that $n=3$ is a counterexample.
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{4}
+		Disprove the statement: Let $n\in \N$. If $\frac{n(n+1)}{2}$ is odd, then $\frac{(n+1)(n+2)}{2}$ is odd.
+		\begin{solution}{}
+			Let $n=2(2k+1)$ where $k\in \N$. Then 
+			\begin{align*}
+				\frac{n(n+1)}{2} &= \frac{2(2k+1)(2(2k+1)+1)}{2}\\
+				&= (2k+1)(4k+3) = 8k^{2} + 10k +3 = 2(4k^{2}+5k+1)+1
+			\end{align*}
+		Since $4k^{2}+5k+1\in \N$, it follows that $\frac{n(n+1)}{2}$ is odd for this values of $n$. Then,
+		\begin{align*}
+			\frac{(n+1)(n+2)}{2} &= \frac{(2(2k+1)+1)(2(2k+1)+2)}{2} = \frac{2(2k+2)(2(2k+1)+1)}{2}\\
+			&= (2k+2)(2(2k+1)+1) = 2(k+1)(2(2k+1)+1)
+		\end{align*}
+		The positive integer $2(k+1)(2(2k+1)+1)$ is even. Thus, all $n=2(2k+1)$ where $k\in \N$ are counterexamples.
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{5}
+		Disprove the statement: For every two positive integers $a$ and $b$, $(a+b)^{3}=a^{3}+2a^{2}b+2ab+2ab^{2}+b^{3}$.
+		\begin{solution}{}
+			Let $a,b\in \Z$ such that $a>0$ and $b>0$. Note that 
+			\begin{align*}
+				(a+b)^{3} &= (a^{2}+2ab+b^{2})(a+b)\\
+				&= a^{3} +2a^{2}b+ab^{2}+a^{2}b+2ab^{2}+b^{3}\\
+				&= a^{3} + 3a^{2}b + 3ab^{2} + b^{3}
+			\end{align*}
+		Then, let's check for which values of $a$ and $b$, $a^{3}+2a^{2}b+2ab+2ab^{2}+b^{3} = a^{3} + 3a^{2}b + 3ab^{2} + b^{3}$ holds.
+		\begin{align*}
+			a^{3}+2a^{2}b+2ab+2ab^{2}+b^{3} &= a^{3} + 3a^{2}b + 3ab^{2} + b^{3}\\
+			2a^{2}b+2ab+2ab^{2} &= 3a^{2}b + 3ab^{2}\\
+			2ab &= a^{2}b + ab^{2}\\
+			ab(2) &= ab(a+b)
+		\end{align*}
+	Since $a>0$ and $b>0$, $ab > 0$ and so we can divide both sides by $ab$. Then, $2 = a+b$. Therefore, all those positive integers $a$ and $b$ such that $a+b\neq 2$ are counterexamples, namely, $a\neq 1$ or $b\neq 1$.
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{6}
+		Let $a,b \in \Z$. Disprove the statement: If $ab$ and $(a+b)^{2}$ are of opposite parity, then $a^{2}b^{2}$ and $a+ab+b$ are of opposite parity.
+		\begin{solution}{}
+			Let $a$ and $b$ be odd integers. Then $ab$ is odd (multiplication of two odd integers) and $a+b$ is even (sum of two odd integers); so $(a+b)^{2}$ is even. The hypothesis is true. Note that $(ab)^{2} = a^{2}b^{2}$ is odd (multiplication of two odd integers) and $(a+b) + ab$ is odd (sum of an even and odd integer). They are of the same parity. Therefore, all integers $a$ and $b$ such that both are odd will be counterexamples.
+			
+		\end{solution}
+	\end{problem}
+	
+	\begin{problem}{7}
+		For positive real numbers $a$ and $b$, it can be shown that $(a+b)\left(\frac{1}{a} + \frac{1}{b}\right)\geq 4$. If $a=b$, then this inequality is an equality. Consider the following statement:\\
+		If $a$ and $b$ are positive real numbers such that $(a+b)\left(\frac{1}{a}+\frac{1}{b}\right) = 4$, then $a=b$. Is there a counterexample to this statement?
+		\begin{solution}{}
+			If we can show that the previous result is true, then there will be no counterexample. Let $a,b\in \R$ such that $a>0$, $b>0$ and $(a+b)\left(\frac{1}{a}+\frac{1}{b}\right) = 4$. Note that,
+			\begin{align*}
+				(a+b)\left(\frac{1}{a}+\frac{1}{b}\right) &= 4\\
+				1+\frac{b}{a}+\frac{a}{b}+1 &= 4\\
+				\frac{b}{a}+\frac{a}{b} &= 2\\
+				a^{2}+b^{2} &= 2ab\\
+				a^{2}-2ab+b^{2} &= 0\\
+				(a-b)(a-b) &= 0
+			\end{align*}
+		Since $(a-b)(a-b) = 0$ and $(a-b)=(a-b)$, it follows by \textit{Theorem 4.13} that $a-b = 0$; so $a=b$. Therefore, the result is proven to be true and so there are no counterexamples. 
+		\end{solution} 
+	\end{problem}
+
+	\begin{problem}{8}
+		In Exercise 7, it is stated that $(a+b)(\frac{1}{a}+\frac{1}{b})\geq 4$ for every two positive real numbers $a$ and $b$. Does it therefore follows that $(c^{2}+d^{2})\left(\frac{1}{c^{2}}+\frac{1}{d^{2}}\right)\geq 4^{2}$ for every two positive real numbers $c$ and $d$? 
+		\begin{solution}{}
+			Since $c,d\in \R^{+}$, it follows that $c^{2},d^{2}\in \R^{+}$ and so it is true that $(c^{2}+d^{2})\left(\frac{1}{c^{2}}+\frac{1}{d^{2}}\right)\geq 4$. However let's check whether $(c^{2}+d^{2})\left(\frac{1}{c^{2}}+\frac{1}{d^{2}}\right)\geq 4^{2}$ holds. Note that,
+			\begin{align*}
+				(c^{2}+d^{2})\left(\frac{1}{c^{2}}+\frac{1}{d^{2}}\right) &\geq 4^{2}\\
+				1+\frac{d^{2}}{c^{2}}+\frac{c^{2}}{d^{2}}+1 & \geq 16\\
+				\frac{d^{2}}{c^{2}}+\frac{c^{2}}{d^{2}} & \geq 14\\
+				d^{4} + c^{4} &\geq 14c^{2}d^{2}\\
+				d^{4} -14c^{2}d^{2}+ c^{4} &\geq 0\\
+				(d^{2}-c^{2})^{2}-12c^{2}d^{2} &\geq 0
+			\end{align*}
+		Thus all $c,d\in \R^{+}$ such that $(d^{2}-c^{2})^{2} < 12c^{2}d^{2}$ will be counterexamples. If $c=d$, then $c^{2} = d^{2}$; so $(d^{2}-c^{2})^{2} = 0$ and $12c^{2}d^{2}>0$. Then $(d^{2}-c^{2})^{2} < 12c^{2}d^{2}$. Therefore, all $c,d\in \R^{+}$ such that $c=d$ will be counterexamples. Something that we already knew from the previous problem, namely, $(a+b)\left(\frac{1}{a}+\frac{1}{b}\right) = 4$ if and only if $a=b$. 
+		\end{solution}
+	\end{problem}   
+
+	\begin{problem}{9}
+		Disprove the statement: For every positive integer $x$ and every integer $n\geq 2$, the equation $x^{n}+(x+1)^{n}=(x+2)^{n}$ has no solution.
+		\begin{solution}{}
+			A very famous counterexample is $3^{2}+4^{2} = 5^{2}$ ($x=3$ and $n=2$). By Fermat's Last Theorem, all posible counterexamples will only be found in the cases where $n=2$.
+		\end{solution}
+	\end{problem}
+\end{document}

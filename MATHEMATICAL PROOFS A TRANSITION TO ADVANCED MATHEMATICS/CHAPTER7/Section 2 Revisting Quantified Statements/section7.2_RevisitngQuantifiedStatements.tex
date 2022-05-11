@@ -1,0 +1,202 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label*=\arabic*.}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 1}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 7.2: Revisiting Quantified Statements}
+	\date{April 03, 2022}
+	\maketitle
+
+\begin{problem}{10}
+	Express the following quantified statement in symbols:
+	\begin{center}
+		\textit{For every odd integer n, the integer $3n+1$ is even.}
+	\end{center}
+	and prove it true.
+	\begin{solution}{}
+		Let $T$ be the set of odd integers and $P(n):$ the integer $3n+1$ is even.\\
+		
+		$\forall n\in T, P(n)$.
+		\begin{proof}
+			Since $n$ is odd, it follows that $3n$ is odd. Then, $3n +1$ is the sum of two odd integers, which is even.
+		\end{proof}
+	\end{solution}
+\end{problem}
+
+\begin{problem}{11}
+	Express the following quantified statement in symbols:
+	\begin{center}
+		\textit{There exists a positive even integer n such that $3n+2^{n-2}$ is odd.}
+	\end{center}
+	and prove it true.
+	\begin{solution}{}
+		Let $S^{+}$ be the set of positive even integers and $P(n): 3n+2^{n-2}$ is odd. Then\\
+		
+		$\exists n\in S^{+}, P(n)$.
+		\begin{proof}
+			Consider $n=2$. Then $3(2) + 2^{2-2} = 6 +1 = 7$ is odd.
+		\end{proof} 
+	\end{solution}
+\end{problem}
+
+\begin{problem}{12}
+	Express the following quantified statement in symbols:
+	\begin{center} 
+		\textit{For every positive integer n, the integer $n^{n-1}$ is even.}
+	\end{center}
+	and prove it false.
+	\begin{solution}{}
+		Let $P(n):$ is even. Then\\
+		$\forall n\in \N, P(n)$. \\
+		 
+		This statement is false. Consider $n=1$. Then $1^{1-1} = 1$ is odd. Also, let $n\geq 3$ be some odd number. Then $n^{n-1}$ is the multiplication of odd numbers, which is odd. ($a$ and $c$ are odd $\iff$ $ab$ is odd). 
+	\end{solution}
+\end{problem}
+
+	\begin{problem}{13}
+		Express the following quantified statement in symbols:
+		\begin{center}
+			\textit{There exists an integer n such that $3n^{2} -5n+1$ is an even integer.}
+		\end{center}
+		and prove it false.
+		\begin{solution}{}
+			\begin{lemma}{ODD}
+				Let $\{a_{1},a_{2},a_{3},\ldots, a_{n}\}$ be a finite set of $n$ integers, where the integer $n\geq 2$. Then $\prod_{i=1}^{n} a_{i}$ is odd if and only if every integer $a_{i}$ is odd.
+				\begin{proof}
+					We prove this by induction. First, suppose that all integers considered are odd. Since $ab$ is odd $\iff a$ and $b$ are odd, it follows that the result is true for $n=2$. Assume for some set $\{b_{1},b_{2},b_{3},\ldots, b_{k}\}$ of  $k\geq 2$ odd integers that $\prod_{i=1}^{k} b_{i}$ is odd. We show for some set $\{c_{1},c_{2},c_{3},\ldots, c_{k+1}\}$ of $k+1$ odd integers that $\prod_{i=1}^{k+1} c_{i}$ is odd. Note that
+					\begin{align*}
+						\prod_{i=1}^{k+1} c_{i} &= \left(\prod_{i=1}^{k} c_{i}\right)\cdot c_{k+1} 
+					\end{align*}
+				is odd since it is a multiplication of two odd integers according to our inductive hypothesis. By the Principle of Mathematical Induction, if every $a_{i}$ is odd, then $\prod_{i=1}^{n} a_{i}$ is odd.\\
+				
+				For the converse, suppose that at least some $a_{i}$ is even. Then, the multiplication of two integers, where one of them is even, is even since $ab$ is odd $\iff a$ and $b$ are odd.  By the Principle of Mathematical Induction, if some $a_{i}$ is even, then $\prod_{i=1}^{n} a_{i}$ is even.
+				\end{proof}
+			\end{lemma}
+		We proceed with the problem.
+			Let $P(n): 3n^{2}-5n+1$ is an even integer. Then, \\ $\forall n\in \Z, P(n)$.\\
+			
+			We prove this statement false. Let $n$ be odd. Note that $3n^{2}$ and $5n$ are a multiplication of 3 and 2 odd integers, respectively. By \textbf{Lemma ODD}, $3n^{2} +5n$ is a sum of two odd integers, which is an even number. Therefore, $(3n^{2}+5n) +1 $ is the sum of an even and odd number, which is odd.\\
+			
+			Suppose $n$ is even. Then, by \textbf{Lemma ODD}, $3n^{2}$ and $5n$ are even and so $(3n^{2} + 5n) +1$ is the sum of an even number and an odd number, which is odd.
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{14}
+		Express the following quantified statement in symbols:
+		\begin{center}
+			\textit{For every integer $n\geq 2$, there exists an integer m such that $n<m<2n$}
+		\end{center}
+		and prove it true.
+		\begin{solution}{}
+			Let $A=\{x\in \Z: x\geq 2\}$ and $P(n,m):n<m<2n$. Then, \\
+			$\forall n\in A, \exists m\in \Z, P(n,m)$ 
+			\begin{proof}
+				Consider some integer $n\geq 2$. Then $n < n+1 = m < n+2 \leq 2n$. 
+			\end{proof}
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{24}
+		Express the following quantified statement in symbols:
+		\begin{center}
+			\textit{For every three odd integers a, b and c, their product abc is odd.}
+		\end{center}
+		and prove it true.
+		\begin{solution}{}
+			Let $P(a,b,c): abc\in T$. Then\\
+			$\forall a,b,c\in T, P(a,b,c)$\\
+			Remember that $\forall a\in B, \forall b\in B \equiv \forall a,b \in B$.
+			\begin{proof}
+				Let $a,b$ and $c$ be odd integers. Then, $a= 2m +1, b=2n+1$ and $c= 2l+1$. Therefore, 
+				\begin{align*}
+					abc &= (2m+1)(2n+1)(2l+1)\\
+					&= (4mn+2m+2n+1)(2l+1)\\
+					&= 8lmn+4ml+4nl+2l+4mn+2m+2n+1\\
+					&= 2(4lmn+2ml+2nl+l+2mn+m+n)+1.
+				\end{align*}
+			Thus, $abc$ is odd.
+			\end{proof}
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{25}
+		Consider the following statement.
+		\begin{center}
+			$R:$ There exists a real number $L$ such that for every positive real number $e$, there exists a positive real number $d$ such that if $x$ is a real number with $|x|< d$, then $|3x-L|< e$.
+		\end{center}
+	Use $P(x,d): |x| < d$ and $Q(x,L,e): |3x-L|<e$ to express the statement $R$ in symbols. Prove $R$ true.
+	\begin{solution}{}
+		$\exists L\in \R, \forall e\in \R^{+}, \exists d\in \R^{+}, \forall x\in \R, P(x,d) \implies Q(x,L,e)$
+		\begin{proof}
+			Let $L=0$ and $d=\frac{e}{3}$. Now, consider some real number $x$ such that $|x| < \frac{e}{3}$ since $e>0$. Therefore,
+			$3|x| = |3x| < 3\frac{e}{3} = e$ and so $|3x-0| = |3x-L| < e $.  
+		\end{proof}
+	\end{solution}
+	\end{problem}
+	
+	\begin{problem}{26}
+		Prove the following statement. For every positive real number $a$ and positive rational number $b$, there exist a real number $c$ and irrational number $d$ such that $ac+bd =1$.
+		\begin{proof}
+Let $a\in \R^{+}$ and $b\in \Q^{+}$. Then $d=\frac{1-r}{b}$ and $c=\frac{r}{a}$, where $r$ is any irrational number. This is posible since $a,b>0$. Note that $d$ is irrational since $b$ is rational and $1-r$ is irrational. Therefore, 
+\begin{equation*}
+	ac+bd = a\left(\frac{r}{a}\right) + b\left(\frac{1-r}{b}\right) = 1
+\end{equation*}
+ is the sum of two irrational numbers that equals to 1. \\	.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{27}
+		Prove the following statement. For every integer $a$, there exist integers $b$ and $c$ such that $|a-b|> cd$ for every integer $d$.
+		\begin{proof}
+			Let $a\in \Z$. Consider some integer $b\neq a$ and let $c=0$. Therefore, $|a-b|>0 = cd$ for every integer $d$. 
+		\end{proof}
+	\end{problem}
+\end{document}

@@ -1,0 +1,215 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 11}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 3: Proofs involving real numbers}
+	\date{October 04, 2021}
+	\maketitle
+
+	\begin{problem}{25}
+		Let $x,y \in \R$. Prove that if $x^{2}-4x = y^{2} -4y$ and $x\neq y$, then $x+y=4$.
+		\begin{proof}
+			Assume $x^{2}-4x = y^{2} -4y$ and $x\neq y$. Note that,
+			\begin{align*}
+				x^{2}-y^{2}-4x+4y &= 0\\
+				(x+y)(x-y)-4(x-y) &= 0\\
+				(x-y)[(x+y)-4] &= 0
+			\end{align*}
+		Since $x-y=0$ if and only if $x=y$, it follows that $x+y -4 = 0$ and so $x+y=4$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{26}
+		Let $a,b$ and $m$ be integers. Prove that if $2a+3b\geq 12m+1$, then $a\geq 3m+1$ or $b\geq 2m+1$.
+		\begin{proof}
+			Assume $a<3m+1$ and $b<2m+1$. Since $a,b\in \Z$, $a\leq 3m$ and $b\leq 2m$. Hence
+			\begin{equation*}
+				2a+3b \leq 12m < 12m+1
+			\end{equation*}
+		Thus, $2a+3b < 12m+1$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{27}
+		Let $x\in \R$. Prove that if $3x^{4}+1 \leq x^{7} +x^{3}$, then $x>0$.
+		\begin{proof}
+			Assume $x\leq 0$. We consider the following two cases.\\
+			\textit{Case 1.} $x=0$. Then, $3x^{4}+1 = 1 > 0 = x^{7} +x^{3}$.\\
+			\textit{Case 2.} $x<0$. Then $x^{7} < 0$, $x^{3}<0$ and $x^{4} > 0$. Therefore,
+			\begin{align*}
+				x^{7} -3x^{4} +x^{3} -1 &< 0\\
+				x^{7} +x^{3} &< 3x^{4} +1
+			\end{align*}
+			Therefore, $3x^{4} +1 > x^{7} +x^{3}$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{28}
+		Prove that if $r$ is a real number such that $0<r<1$, then $\frac{1}{r(1-r)}\geq 4$.
+		\begin{proof}
+			Assume $0<r<1$. Note that $(2r-1)^{2}\geq 0$. Thus,
+			\begin{align*}
+				(2r-1)^{2} &\geq 0\\
+				4r^{2}-4r+1 &\geq 0\\
+				1 &\geq -4r^{2}+4r = 4[r(1-r)]
+			\end{align*}
+		Since $0<r<1$, it follows that $r(1-r)>0$. Thus, $\frac{1}{r(1-r)} \geq 4$.
+		\end{proof}
+	\end{problem}
+ 
+	\begin{problem}{29}
+		Prove that if $r$ is a real number such that $|r-1|<1$, then $\frac{4}{r(4-r)}\geq 1.$
+		\begin{proof}
+			Let $r \in \R$ such that $|r-1|<1$. Then $-1<r-1<1$ and so $0<r<2$. Note that, for any $r\in \R$, $(r-2)^{2} \geq 0$. Thus,
+			\begin{align*}
+				r^{2} - 4r +4 &\geq 0\\
+				4 &\geq -r^{2} +4r = r(4-r)
+			\end{align*}
+		Since $0<r<2$, it follows that $r(4-r)>0$ and so we can divide both sides by $r(4-r)$. Hence, $\frac{4}{r(4-r)}\geq 1$, as desired.
+		\end{proof}
+	\end{problem}
+	
+	\begin{problem}{30} 
+		Let $x,y\in \R$. Prove that $|xy| = |x|\cdot |y|$.
+		\begin{proof}
+			Let $x,y \in \R$. First, observe that when $x=y=0$ the equation  $|xy| = |x|\cdot |y|$ holds. Then, we consider the following cases when $x$ and $y$ are nonzero.\\
+			\textit{Case 1.} $x>0$ and $y>0$. Then, $|xy| = xy$ and $|x|\cdot |y| = xy$. Thus, $|xy|=|x|\cdot|y|$.\\
+			\textit{Case 2.} $x<0$ and $y<0$. Then, $|xy| = xy$ and $|x|\cdot |y| = (-x)(-y) = xy$. Therefore, $|xy| = |x|\cdot |y|$.\\
+			\textit{Case 3.} Exactly one of $x$ and $y$ is greater than zero and the other is lower than zero. Without loss of generality, let $x>0$ and $y<0$. Then, $|xy|= -xy$ and $|x|\cdot |y| = (x)(-y) = -xy$. Thus, $|xy| = |x|\cdot |y|$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{31}
+		Prove for every two real numbers $x$ and $y$ that $|x+y|\geq |x|-|y|$.
+		\begin{proof}
+		
+		\end{proof}
+	\end{problem}
+	
+	\begin{problem}{32}
+		(a) Recall that $\sqrt{r}>0$ for every positive real number $r$. Prove that if $a$ and $b$ are positive real numbers, then $0<\sqrt{ab}\leq \frac{a+b}{2}$. (The number $\sqrt{ab}$ is called the \textbf{geometric mean} of $a$ and $b$, while $(a+b)/2$ is called the \textbf{arithmetic mean} or \textbf{average}.)
+		\begin{proof} 
+			Let $a,b \in \R$ such that $a>0$ and $b>0$. We know that $(a-b)^{2} \geq 0$. Then,
+			\begin{align*}
+				a^{2}-2ab+b^{2} &\geq 0 \\
+				a^{2}-2ab+4ab+b^{2} &\geq 4ab\\
+				(a+b)^{2} &\geq 4ab
+			\end{align*} 
+		Since $ab>0$, we can square both sides. Then, $|a+b| \geq 2\sqrt{ab}$. Note that $a+b>0$ and so $a+b = |a+b|$. Therefore, $0 < \sqrt{ab} \leq \frac{a+b}{2}$.
+		\end{proof}
+	
+		(b) Under what conditions does $\sqrt{ab} = (a+b)/2$ for positive real numbers $a$ and $b$? Justify your answer.
+		\begin{solution}{b}
+			For positive real numbers $a$ and $b$ such that $a=b$.
+		\end{solution}
+	\end{problem}
+	\begin{problem}{34}
+		Prove for every three real numbers $x$, $y$ and $z$ that $|x-z|\leq |x-y| + |y-z|$.
+		\begin{proof}
+			Let $x,y,z \in \Z$. Then, by the Triangle Inequality, 
+			\begin{align*}
+				|(x-y)+(y-z)| &\leq |x-y| + |y-z|\\
+				|x-z| &\leq |x-y| + |y-z|
+			\end{align*}
+		As desired.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{35}
+		Prove that if $x$ is a real number such that $x(x+1)>2$, then $x<-2$ or $x>1.$
+		\begin{proof}
+			Let $x\in \R$ such that $x(x+1)>2$. Note that
+			\begin{align*}
+				x^{2}+x &> 2\\
+				x^{2}+x+\frac{1}{4} &> \frac{9}{4}\\
+				\left(x+\frac{1}{2}\right)^{2} &> \frac{9}{4}\\
+				\left|x+\frac{1}{2}\right| &> \frac{3}{2}
+			\end{align*}
+		Hence, $x+\frac{1}{2} < -\frac{3}{2}$ or $x+\frac{1}{2} > \frac{3}{2}$. Then, $x < -2$ or $x > 1$, as desired.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{36} 
+		Prove for every positive real number $x$ that $1+\frac{1}{x^{4}} \geq \frac{1}{x}+\frac{1}{x^{3}}$.
+		\begin{proof}
+			Let $x\in \R$ such that $x>0$. Let's consider $(x^{3}-1)(x-1)$. If $0<x<1$, then $x^{3}-1<0$ and $x-1<0$. If $x=1$, then $x^{3}-1=x-1=0$. Also, if $x>1$, then $x^{3}-1>0$ and $x-1>0$. Therefore, $(x^{3}-1)(x-1)\geq 0$. Then,
+			\begin{align*}
+				(x^{3}-1)(x-1)&\geq 0\\
+				x^{4}-x^{3}-x+1&\geq 0\\
+				x^{4}+1 &\geq x^{3}+x
+			\end{align*}
+		Since $x^{4}>0$, $\frac{x^{4}+1}{x^{4}} = 1+ \frac{1}{x^{4}} \geq   \frac{1}{x} + \frac{1}{x^{3}} = \frac{x^{3}+x}{x^{4}}$, as desired.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{37}
+		Prove for $x,y,z\in \R$ that $x^{2}+y^{2}+z^{2} \geq xy+xz+yz$.
+		\begin{proof}
+			Let $x,y,z\in \R$. We know that $(x-y)^{2}+(x-z)^{2}+(z-y)^{2} \geq 0$. Then
+			\begin{align*}
+				x^{2} -2xy +y^{2} +x^{2} -2xz + z^{2} +z^{2}-2zy +y^{2} &\geq 0\\
+				2x^{2} + 2y^{2} + 2z^{2} &\geq 2xy + 2xz +2zy\\
+				x^{2} + y^{2} + z^{2} &\geq xy + xz +zy
+			\end{align*}
+		As desired.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{38}
+		Let $a,b,x,y \in \R$ and $r\in \R^{+}$. Prove that if $|x-a|<r/2$ and $|y-b|<r/2$, then $|(x+y)-(a+b)|<r$.
+		\begin{proof}
+			Assume $|x-a|<r/2$ and $|y-b|<r/2$. Then $|x-a|+|y-b|<r$ and, by the Triangle Inequality, $|(x-a)+(y-b)|\leq |x-a|+|y-b|$. Therefore, $|(x+y)-(a+b)|<r$
+		\end{proof}
+	\end{problem}  
+
+	\begin{problem}{39}
+		Prove that if $a,b,c,d \in \R$, then $(ab+cd)^{2}\leq (a^{2}+c^{2})(b^{2}+d^{2})$.
+		\begin{proof}
+		Let $a,b,c,d \in \R$. Note that,
+		\begin{align*}
+			(ab+cd)^{2} &\leq (ab+cd)^{2}+(cb-ad)^{2}\\
+			(ab+cd)^{2}+(cb-ad)^{2} &= a^{2}b^{2}+2abcd+c^{2}d^{2}+c^{2}b^{2}-2abcd+a^{2}d^{2}\\
+			&= (a^{2}+c^{2})(b^{2}+d^{2})
+		\end{align*}
+		Therefore, $(ab+cd)^{2} \leq (a^{2}+c^{2})(b^{2}+d^{2})$.
+		\end{proof}
+	\end{problem}
+
+\end{document}

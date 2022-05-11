@@ -1,0 +1,425 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 16}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 1: The Principle of Mathematical Induction}
+	\date{November 18, 2021}
+	\maketitle
+
+	Thus far, we have explored three types of mathematical proofs for the quantified statement $\forall x\in S, R(x)$, namely, direct proof, proof by contrapositive and proof by contradiction. However, for some sets $S$, it is posible to prove $\forall x\in S, R(x)$ by using the Principle of Mathematical Induction.\\
+	
+	Before delving into it, we must define what is understood for a \textbf{least element} of an arbitrary set $X$ of real numbers. The \textbf{least element} of an arbitrary set $X$ of real numbers is some $m\in X$ such that $\forall n\in X, n\geq m$ is true. This $m$ is unique. Thus, some sets can have \textbf{least elements} and others don't. For example, the least element of $\N$ is $1$, but for the open interval $(0,1)$ there is no least element. Now, if all nonempty subsets of an arbitrary nonempty set $X$ of real numbers have a least element, then we say that $X$ is \textbf{well-ordered}. Note that having a least element is a necessary condition for a nonempty set to be well-ordered, but it is not sufficient (i.e., $[0,1]$ has 0 as a least element, but $(0,1)\subset [0,1]$ has no least element).\\ 
+	
+	In number theory, the \textbf{Well-ordering principle} states that the set $\N$ is well-ordered. We don't prove it here and so we take it as an axiom. From the \textbf{Well-ordering principle} we get the \textbf{Principle of Mathematical Induction} (Theorem 1).
+	
+	\begin{theorem}{1}
+		For each positive integer $n$, let $P(n)$ be a statement. If
+		\begin{align*}
+			&P(1) \text{ is true and}\\
+			&\forall k\in \N, P(k)\implies P(k+1) \text{ is true}\\ \\
+			&\text{then}\\
+			&\forall n\in \N, P(n) \text{ is true.}
+		\end{align*}
+	\end{theorem}
+
+	\begin{proof}
+		Assume, to the contrary, that $P(1)$ and $\forall k\in \N, P(k)\implies P(k+1)$ are true, and that there are $n\in \N$ such that $P(n)$ is false. Let $S$ be the set of all counterexamples for $\forall n \in \N, P(n)$. Since $S\neq \emptyset$ and $S\subseteq \N$, it follows by the \textbf{Well-ordering principle} that $S$ has a least element $m$; so $m\in S$. Because $m\in \N$ and $P(1)$ is true, $m\geq 2$ and so $m-1\in \N$ and $m-1\not\in S$ ($m$ is the least element of $S$). Thus, $P(m-1)$ is true and, by the second condition $\forall k\in \N, P(k)\implies P(k+1)$, $P(m)$ must be true. However, this implies that $m\not\in S$, which leads to a contradiction.
+	\end{proof}
+
+	Therefore, a proof by induction uses the \textbf{Principle of Mathematical Induction}. In such proof, for an open sentence  $P(x)$ over $\N$, it suffices to show that $P(1)$ is true (basis step) and that $\forall k\in \N, P(k)\implies P(k+1)$ is true (inductive step) so that one can conclude that $\forall n\in \N, P(n)$ is true by \textbf{Modus Pollens} ($([p\land (p\implies q)]\implies q) \equiv T$)
+	
+	\begin{problem}{1}
+		Which of the following sets are well-ordered?\\
+		
+		(a) $S = \{x\in \Q: x\geq -10\}$
+		\begin{solution}{a}
+			Consider the set $M = \left\{\frac{1}{n}: n\in \N\right\}$. Since $M\subset S$ and $M$ has no least element, it follows that $S$ is not well-ordered.
+		\end{solution} 
+	
+		(b) $S=\{-2,-1,0,1,2\}$
+		\begin{solution}{b}
+			Since $S$ is a nonempty finite set of real numbers, it follows that it is well-ordered.
+		\end{solution} 
+	
+		(c) $S=\{x\in \Q: -1\leq x \leq 1\}$
+		\begin{solution}{c}
+			Consider the set $M = \left\{\frac{1}{n}: n\in \N\right\}$. Just as in example (a), $M\subset S$ and $M$ has no least element. Therefore, $S$ is not well-ordered.
+		\end{solution}
+	
+		(d) $S=\{p:p \text{ is a prime}\} = \{2,3,5,7,11,13,17,\ldots \}$.
+		\begin{solution}{d}
+			It can be seen that $S\subset \N$. Since $\N$ is well ordered, all nonempty subsets of $\N$ have a least element. Therefore, all nonempty subsets of $S$ have a least element (since all subsets of $S$ are subsets of $\N$) and so $S$ is well-ordered.
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{2}
+		Prove that if $A$ is any well-ordered set of real numbers and $B$ is a nonempty subset of $A$, then $B$ is also well-ordered.
+		\begin{proof}
+			Let $A$ and $B$ be two arbitrary  nonempty sets of real numbers such that $A$ is well-ordered and $B\subseteq A$. Since $A$ is well-ordered, it follows that each nonempty subset of $A$ has a least element. Because $B\subseteq A$, it follows that every subset of $B$ is also a subset of $A$ and so every nonempty subset of $B$ has a least element. Thus, $B$ is well-ordered.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{3}
+		Prove that every nonempty set of negative integers has a largest element.
+		\begin{proof}
+			Let $S$ be a nonempty subset of $\N$. Since $\N$ is well ordered, it follows that there is some $m\in S$ such that $x\geq m$ for every $x\in S$. Now, consider the set $M = \{-n:n\in S\}$. Then $-m\in M$ and so $-x\leq -m$ for every $-x\in M$. Thus, $-m$ is the largest element in $M$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{4}
+		Prove that $1+3+5+\ldots+(2n-1)=n^{2}$ for every positive integer $n$\\
+		
+		(1) by mathematical induction 
+		\begin{proof}
+			We proceed by induction. Since $2\cdot 1 -1 = 1 = 1^{2}$, the statement is true for $n=1$. Then, assume that the statement is true for an arbitrary positive integer $k$, namely,
+			\begin{equation*}
+				1+3+5+\ldots+(2k-1) = k^{2}.
+			\end{equation*}
+		We now show that the statement is true for $k+1$, namely,
+		\begin{equation*}
+			1+3+5+\ldots+(2k+1) = (k+1)^{2} 
+		\end{equation*}
+	Note that
+	\begin{align*}
+		1+3+5+\ldots+(2k+1) &= [1+3+5+\ldots+(2k-1)]+(2k+1)\\
+		&= k^{2}+2k+1 = (k+1)^{2}
+	\end{align*}
+Thus, by the principles of mathematical induction, for every positive integer $n$, 
+\begin{equation*}
+	1+3+5+\ldots +(2n-1) = n^{2}
+\end{equation*}
+		\end{proof}
+	(b) by adding $1+3+5+\ldots+(2n-1)$ and $(2n-1)+(2n-3)+\ldots+1$.
+	\begin{proof}
+		Let $S=1+3+5+\ldots+(2n-1)$ for any positive integer $n$. Note that, by inverting the orther of the terms, $S=(2n-1)+(2n-3)+(2n-5)+\ldots+1$. Adding them we get
+		\begin{equation*}
+			2S = [(2n-1)+1]+ [(2n-3)+3]+[(2n-5)+5]+\ldots+[1+(2n-1)] = 2n+2n+2n+\ldots+2n.
+		\end{equation*}
+	Since there are $n$ terms, it follows that $2S=2n^{2}$ or $S=n^{2}$. Therefore, 
+	\begin{equation*}
+		1+3+5+\ldots+(2n-1)=n^{2}
+	\end{equation*}
+	for every positive integer $n$.
+	\end{proof}
+	\end{problem}
+ 
+\begin{problem}{5}
+	Use mathematical induction to prove that
+	\begin{equation*}
+		1+5+9+\ldots+(4n-3)=2n^{2}-n
+	\end{equation*}
+	for every positive integer $n$.
+\begin{proof}
+	We proceed by induction. Since $1=2-1$, the statement is true when $n=1$. Now, assume that $1+5+9+\ldots+(4k-3)=2k^{2}-k$ where $k$ is a positive integer. We then show that $1+5+9+\ldots+(4k+1)=2(k+1)^{2}-(k+1)$. Observe that
+	\begin{align*}
+	 1+5+9+\ldots+(4k+1)&= [1+5+9+\ldots+(4k-3)]+(4k+1) \\
+	 &= (2k^{2}-k)+4k+1 = 2k^{2}+4k+2-k-1\\
+	 &= 2(k^{2}+2k+1)-(k+1) = 2(k+1)^{2}-(k+1)
+ 	\end{align*}
+ By the principle of mathematical induction, 	$1+5+9+\ldots+(4n-3)=2n^{2}-n$ for every positive integer $n$.
+\end{proof}
+\end{problem}
+
+\begin{problem}{6}
+	(a) We have seen that $1^{2}+2^{2}+\ldots+n^{2}$ is the number of squares in an $n\times n$ square composed of $n^{2} \; 1\times 1$ squares. What does $1^{3}+2^{3}+3^{3}+\ldots+n^{3}$ represent geometrically?
+	\begin{solution}{}
+		Let $n\geq 1$. In $\R^{3}$, for a $k\times k \times k$ cube, where $1\leq k \leq n$, each of the variables in the ordered triple $(x,y,z)$ (lower corner of a cube) can have values $0\leq x,y,z\leq n-k$ and so there are $(n-k+1)^{3}$ possible  ordered triples (possible different positions for a $k\times k\times k$ cube inside a $n\times n\times n$ cube). Thus, the number of different cubes (different proportions or position) in an $n\times n \times n$ cube composed of $n^{3} \; 1\times 1 \times 1$ cubes is
+		\begin{align*}
+			\sum\limits_{k=1}^{n}(n-k+1)^{3} &= n^{3}+(n-1)^{3}+(n-2)^{3}+\ldots+1^{3}\\
+			&= 1^{3}+2^{3}+\ldots+(n-1)^{3}+n^{3} = \sum\limits_{k=1}^{n} k^{3}
+		\end{align*}
+	\end{solution}
+
+	(b) Use mathematical induction to prove that $1^{3}+2^{3}+3^{3}+\ldots+n^{3} = \frac{n^{2}(n+1)^{2}}{4}$ for every positive integer $n$.
+	\begin{proof}
+		We proceed by induction. Since $1^{3} = 1 = \frac{1^{2}\cdot (1+1)^{2}}{4}$, the statement holds for $n=1$. Assume that $1^{3}+2^{3}+3^{3}+\ldots + k^{3} = \frac{k^{2}(k+1)^{2}}{4}$ for some positive integer $k$. We then show that the statement holds for $n=k+1$, that is, $1^{3}+2^{3}+3^{3}+\ldots+(k+1)^{3}=\frac{(k+1)^{2}(k+2)^{2}}{4}$. Note that 
+		\begin{align*}
+			1^{3}+2^{3}+3^{3}+\ldots+ (k+1)^{3} &= [1^{3}+2^{3}+3^{3}+\ldots+k^{3}]+(k+1)^{3}\\
+			&= \frac{k^{2}(k+1)^{2}}{4} + (k+1)^{3} = \frac{k^{2}(k+1)^{2}+4(k+1)^{3}}{4}\\
+			&= \frac{(k+1)^{2}(k^{2}+4k+4)}{4} = \frac{(k+1)^{2}(k+2)^{2}}{4}
+		\end{align*}
+	By the principle of mathematical induction, the equality holds for any positive integer $n$.
+	\end{proof} 
+\end{problem}
+
+\begin{problem}{7}
+	Find another formula suggested by Exercises $4$ and $5$, and verify your formula by mathematical induction.\\
+	
+	\textbf{Result 1.} Let $n\in \N$. Then $1+7+13+\ldots+(6n-5) = 3n^{2}-2n$
+	\begin{proof}  
+		We prove this by induction. Since $6-5=1=3\cdot1^{2}-2$, the statement is true for $n=1$. Assume that $1+7+13+\ldots+(6k-5) = 3k^{2}+2k$ for an arbitrary positive integer $k$. We then show that $1+7+13+\ldots+(6(k+1)-5)=3(k+1)^{2}-2(k+1)$. Note that
+		\begin{align*}
+			1+7+13+\ldots+(6(k+1)-5) &= [1+7+13+\ldots+(6k-5)]+(6(k+1)-5)\\
+			&= (3k^{2}-2k)+6k+6-5 = (3k^{2}+6k+3)-2k-2\\
+			&= 3(k^{2}+2k+1)-2(k+1) = 3(k+1)^{2}-2(k+1)
+		\end{align*}
+	By the principle of mathematical induction, 
+	\begin{equation*}
+		1+7+13+\ldots+(6n-5) = 3n^{2}-2n
+	\end{equation*}
+for every positive integer $n$. (Lol, what a lovely coincidence :D)
+	\end{proof}
+\end{problem}
+
+\begin{problem}{8}
+	Find a formula for $1+4+7+\ldots+(3n-2)$ for positive integers $n$, and then verify your formula by induction.
+	\begin{solution}{}
+		Let $S=1+4+7+\ldots+(3n-2)$ for some positive integer $n$. By inverting the order of the terms, we conclude that $S=(3n-2)+(3(n-1)-2)+(3(n-2)-2)\ldots+1$. Therefore,
+		\begin{align*}
+			2S &= [(3n-2)+1]+[(3(n-1)-2)+4]+\ldots+[1+(3n-2)]\\
+			&= (3n-1)+(3n-1)+\ldots+(3n-1)
+		\end{align*}
+		Thus, $2S = n(3n-1)$ or $S=\frac{3n^{2}-n}{2}$ for any positive integer $n$.
+		
+		\textbf{Result 2.} Let $n$ be some positive integer. Then $1+4+7+\ldots+(3n-2)=\frac{3n^{2}-n}{2}$.
+		\begin{proof}
+			We proceed by induction. Since $3-2=1=\frac{3\cdot1^{2}-1}{2}$, it follows that the statement is true for $n=1$.
+			Now, suppose that $1+4+7+\ldots+(3k-2)=\frac{3k^{2}-k}{2}$ for an arbitrary positive integer $k$. We then show that $1+4+7+\ldots+(3(k+1)-2)=\frac{3(k+1)^{2}-(k+1)}{2}$. Observe that
+			\begin{align*}  
+				1+4+7+\ldots+(3(k+1)-2) &= [1+4+7+\ldots+(3k-2)]+ (3(k+1)-2)\\
+				&= \frac{3k^{2}-k}{2} + 3(k+1)-2 = \frac{3k^{2}-k+6(k+1)-4}{2}\\
+				&= \frac{(3k^{2}+6k+3)-k+3-4}{2}=\frac{3(k+1)^{2}-(k+1)}{2}
+			\end{align*}
+		By the principle of mathematical induction,
+		\begin{equation*}
+			1+4+7+\ldots+(3n-2)=\frac{3n^{2}-n}{2}
+		\end{equation*}
+	for every positive integer $n$.
+		\end{proof}
+	\end{solution}
+\end{problem}
+
+\begin{problem}{9}
+	Prove that $1\cdot 3+2\cdot 4+ 3\cdot 5+\ldots+n(n+2)=\frac{n(n+1)(2n+7)}{6}$ for every positive integer $n$.
+	\begin{proof}
+		We proceed by induction. Since $1(1+2)=3=\frac{1(1+1)(2+7)}{6}$, it follows that the statement is true for $n=1$. Assume that $1\cdot 3+2\cdot 4+ 3\cdot 5+\ldots+k(k+2)=\frac{k(k+1)(2k+7)}{6}$ for some positive integer $k$. We then show that $1\cdot 3+2\cdot 4+ 3\cdot 5+\ldots+(k+1)(k+3)=\frac{(k+1)(k+2)(2(k+1)+7)}{6}$. Note that
+		\begin{align*}
+			1\cdot 3+2\cdot 4+\ldots+(k+1)(k+3) &= [1\cdot 3 + 2\cdot 4 +\ldots+k(k+2)] + (k+1)(k+3)\\
+			&= \frac{k(k+1)(2k+7)}{6} + (k+1)(k+3) \\
+			&= \frac{k(k+1)(2k+7) + 6(k+1)(k+3)}{6}\\
+			&= \frac{(k+1)(k(2k+7)+6(k+3))}{6} = \frac{(k+1)(2k^{2}+7k+6k+18)}{6}\\
+			&= \frac{(k+1)(k+2)(2k+9)}{6} = \frac{(k+1)(k+2)(2(k+1)+7)}{6}
+		\end{align*}
+	By the principle of mathematical induction, this statement is true for every positive integer $n$.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{10}
+	Let $r\neq 1$ be a real number. Use induction to prove that $a+ar+ar^{2}+\ldots+ar^{n-1}=\frac{a(1-r^{n})}{1-r}$ for every positive integer $n$.
+	\begin{proof}
+		We prove this by induction. For $n=1$ we have $ar^{1-1} = a = \frac{a(1-r^{1})}{1-r}$, which is true. Assume that $a+ar+ar^{2}+\ldots+ar^{k-1}=\frac{a(1-r^{k})}{1-r}$ where $k\in \N$. We then show that $a+ar+ar^{2}+\ldots+ar^{k}=\frac{a(1-r^{k+1})}{1-r}$. Observe that
+		\begin{align*}
+			a+ar+ar^{2}+\ldots+ar^{k} &= [a+ar+ar^{2}+\ldots+ar^{k-1}] + ar^{k}\\
+			&= \frac{a(1-r^{k})}{1-r}+ar^{k} = \frac{a(1-r^{k})+ar^{k}(1-r)}{1-r}\\
+			&= \frac{a-ar^{k}+ar^{k}-ar^{k+1}}{1-r}=\frac{a(1-r^{k+1})}{1-r}
+		\end{align*}
+	By the principle of mathematical induction,
+	\begin{equation*}
+		a+ar+ar^{2}+\ldots+ar^{n-1}=\frac{a(1-r^{n})}{1-r}
+	\end{equation*}
+	where $n\in \N$.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{11}
+	Prove that $\frac{1}{3\cdot 4}+\frac{1}{4\cdot 5}+\ldots+\frac{1}{(n+2)(n+3)}=\frac{n}{3n+9}$ for every positive integer $n$.
+	\begin{proof}
+		We proceed by induction. Since $\frac{1}{(1+2)(1+3)}=\frac{1}{12}=\frac{1}{3+9}$, the statement is true for $n=1$. Assume that $\frac{1}{3\cdot 4}+\frac{1}{4\cdot 5}+\ldots+\frac{1}{(k+2)(k+3)}=\frac{k}{3k+9}$ for an arbitrary positive integer $k$. We then show that $\frac{1}{3\cdot 4}+\frac{1}{4\cdot 5}+\ldots+\frac{1}{(k+3)(k+4)}=\frac{k+1}{3k+12}$. Observe that
+		\begin{align*}
+			\frac{1}{3\cdot 4}+\frac{1}{4\cdot 5}+\ldots+\frac{1}{(k+3)(k+4)} &= \left[\frac{1}{3\cdot 4}+\frac{1}{4\cdot 5}+\ldots+\frac{1}{(k+2)(k+3)}\right]+\frac{1}{(k+3)(k+4)}\\
+			&= \frac{k}{3k+9} + \frac{1}{(k+3)(k+4)} = \frac{k(k+4)+3}{3(k+3)(k+4)}\\
+			&= \frac{(k+3)(k+1)}{3(k+3)(k+4)} = \frac{k+1}{3k+12}
+		\end{align*}
+	By the principle of mathematical induction,
+	\begin{align*}
+		\frac{1}{3\cdot 4}+\frac{1}{4\cdot 5}+\ldots+\frac{1}{(n+2)(n+3)}=\frac{n}{3n+9}
+	\end{align*}
+	for every positive integer $n$.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{12}
+	Consider the open sentence $P(n):9+13+\ldots+(4n+5)=\frac{4n^{2}+14n+1}{2}$, where $n\in \N$.\\
+	
+	(a) Verify the implication $P(k)\implies P(k+1)$ for an arbitrary positive integer $k$.
+	\begin{solution}{}
+		Assume that $P(k)$ is true for some $k \in \N$, namely, $9+13+\ldots+(4k+5)=\frac{4k^{2}+14k+1}{2}$. We then show that $P(k+1): 9+13+\ldots+(4k+9)=\frac{4(k+1)^{2}+14(k+1)+1}{2} = \frac{4k^{2}+22k+19}{2}$. Note that
+		\begin{align*}
+			9+13+\ldots+(4k+9) &= [9+13+\ldots+(4k+5)]+(4k+9)\\
+			&= \frac{4k^{2}+14k+1}{2} + 4k+9 = \frac{4k^{2}+14k+1+8k+18}{2}\\
+			&= \frac{4k^{2}+22k+19}{2}.
+		\end{align*}
+	\end{solution}
+	(b) Is $\forall n \in \N, P(n)$ true?
+	\begin{solution}{}
+		Proving the truth of $\forall k \in \N, P(k)\implies P(k+1)$ is not enough to determine whether $\forall n \in \N, P(n)$ is true or false. This is so, since $P(k)\implies P(k+1)$ is also considered to be true when $P(k)$ is false (a fact harnessed by the direct proof). For example, for $n=1$ we have that $P(1):4+5=9= \frac{19}{2} = \frac{4\cdot 1^{2} +14+1}{2}$ (basis step), which is clearly false.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{13}
+	Prove that $1\cdot 1! +2\cdot 2! + \ldots+n\cdot n! = (n+1)!-1$ for every positive integer $n$.
+	\begin{proof}
+		We proceed by induction. Since $1\cdot1! = 1 = (1+1)!-1$, the equation holds for $n=1$. Assume that
+		\begin{equation*}
+			1\cdot 1!+ 2\cdot 2! + \ldots + k\cdot k! = (k+1)!-1
+		\end{equation*}
+		for some positive integer $k$. We now show that
+		\begin{equation*}
+			1\cdot 1!+ 2\cdot 2! + \ldots + (k+1)\cdot (k+1)! = (k+2)!-1.
+		\end{equation*}
+		Note that 
+		\begin{align*}
+			1\cdot 1!+ 2\cdot 2! + \ldots + (k+1)\cdot (k+1)! &= \left[ 1\cdot 1!+ 2\cdot 2! + \ldots + k\cdot k!\right] + (k+1)\cdot (k+1)!\\
+			&= (k+1)!-1+(k+1)\cdot (k+1)!\\
+			&= (k+1)!\cdot [(k+1)+1]-1 = ((k+2)-1)!\cdot (k+2) -1\\
+			&= (k+2)!-1  
+		\end{align*}
+	By the principle of mathematical induction, 
+	\begin{equation*}
+		1\cdot 1! +2\cdot 2! + \ldots+n\cdot n! = (n+1)!-1
+	\end{equation*}
+	for any positive integer $n$.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{14}
+	Prove that $2!\cdot 4!\cdot 6!\cdot \ldots \cdot (2n)! \geq [(n+1)!]^{n}$ for every positive integer $n$.
+	\begin{proof}
+		We proceed by induction. Since $(2\cdot 1)! = 2! = [(1+1)!]^{1}$, the statement is true for $n=1$. Assume that 
+		\begin{equation*}
+			2!\cdot 4!\cdot 6!\cdot \ldots \cdot (2k)! \geq [(k+1)!]^{k}
+		\end{equation*}
+	for some $k\in \N$. We then show that 
+		\begin{equation*}
+			2!\cdot 4!\cdot 6!\cdot \ldots \cdot (2k+2)! > [(k+2)!]^{k+1}. 
+		\end{equation*}
+	Observe that 
+		\begin{align*}
+			2!\cdot 4!\cdot 6!\cdot \ldots \cdot (2k+2)! &= \left[	2!\cdot 4!\cdot 6!\cdot \ldots \cdot (2k)!\right]\cdot (2k+2)!\\
+			&\geq [(k+1)!]^{k} (2k+2)!  \;\;\;\;\; \text{ since } (2k+2)! \in \N.\\
+			&= [(k+1)!]^{k}\cdot 1\cdot2\cdot \ldots \cdot (2(k+1)-(k+1))\cdot\ldots\cdot(2(k+1)-1)\cdot (2(k+1))\\
+			&= [(k+1)!]^{k+1}(2(k+1)-k)\cdot \ldots \cdot (2(k+1)-1)\cdot (2(k+1))\\
+			&= [(k+1)!]^{k+1}(2(k+1)-k)[m]
+		\end{align*}
+	where the positive integer $m = (2(k+1)-(k-1))\ldots(2(k+1)-1)(2(k+1)-0)$. Note that $m$ is a multiplication of $k$ positive terms and each of them are greater than $k+2>0$. Therefore,
+	\begin{equation*}
+		[(k+1)!]^{k+1}(k+2)[m] > [(k+1)!]^{k+1}(k+2)\left[(k+2)^{k}\right]
+	\end{equation*}
+	and so
+	\begin{align*}
+		2!\cdot 4!\cdot 6!\cdot \ldots \cdot (2k+2)! &> [(k+1)!]^{k+1}(k+2)\left[(k+2)^{k}\right]\\
+		&>  [(k+1)!]^{k+1}(k+2)^{k+1} = [(k+2)!]^{k+1}
+	\end{align*}
+	Remember that for $n=1$, it is true that $2!\cdot 4!\cdot 6!\cdot \ldots \cdot (2n)! = [(n+1)!]^{n}$. Since we have proven that
+	\begin{align*}
+		2!\cdot 4!\cdot 6!\cdot \ldots \cdot (2k)! \geq [(k+1)!]^{k}\implies  2!\cdot 4!\cdot 6!\cdot \ldots \cdot (2(k+1))! > [(k+2)!]^{k+1}
+	\end{align*}
+	for every positive integer $k$, it follows that $2!\cdot 4!\cdot 6!\cdot \ldots \cdot (2n)! = [(n+1)!]^{n}$ if and only if $n=1$ and for $n>1$ we have that $2!\cdot 4!\cdot 6!\cdot \ldots \cdot (2n)! > [(n+1)!]^{n}$. Thus,
+	by the principle of mathematical induction, 
+	\begin{equation*}
+		2!\cdot 4!\cdot 6!\cdot \ldots \cdot (2n)! \geq [(n+1)!]^{n}
+	\end{equation*}
+	for every positive integer $n$.
+	\end{proof}
+\end{problem} 
+
+\begin{problem}{15}
+	Prove that $\frac{1}{\sqrt{1}}+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{3}}+\ldots+\frac{1}{\sqrt{n}}\leq 2\sqrt{n}-1$ for every positive integer $n$.
+	\begin{proof}
+		We proceed by induction. Since $\frac{1}{\sqrt{1}} = 1 = 2\sqrt{1}-1$, the statement is true for $n=1$. Assume that
+		\begin{equation*} 
+			\frac{1}{\sqrt{1}}+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{3}}+\ldots+\frac{1}{\sqrt{k}}\leq 2\sqrt{k}-1
+		\end{equation*}
+		for some arbitrary positive integer $k$. Now, we show that 
+		\begin{equation*}
+			\frac{1}{\sqrt{1}}+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{3}}+\ldots+\frac{1}{\sqrt{k+1}} \leq 2\sqrt{k+1}-1.
+		\end{equation*}
+	Observe that
+	\begin{align*}
+		\frac{1}{\sqrt{1}}+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{3}}+\ldots+\frac{1}{\sqrt{k+1}} &= \left[\frac{1}{\sqrt{1}}+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{3}}+\ldots+\frac{1}{\sqrt{k}}\right]+\frac{1}{\sqrt{k+1}}\\
+		&\leq 2\sqrt{k}-1+\frac{1}{\sqrt{k+1}}\\
+		&= \frac{2\sqrt{k^{2}+k}+1}{\sqrt{k+1}}-1
+	\end{align*}
+	Since $4(k^{2}+k)<(2k+1)^{2}$, it follows that $2\sqrt{k^{2}+k}<|2k+1| = 2k+1$ and so $2\sqrt{k^{2}+k}+1<2k+2$. Thus,
+	\begin{align*}
+		\frac{2\sqrt{k^{2}+k}+1}{\sqrt{k+1}}-1 &< \frac{2(k+1)}{\sqrt{k+1}}-1\\
+		&< 2\sqrt{k+1}-1
+	\end{align*}
+	and so
+	\begin{equation*}
+		\frac{1}{\sqrt{1}}+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{3}}+\ldots+\frac{1}{\sqrt{k+1}} < 2\sqrt{k+1}-1
+	\end{equation*}
+or
+\begin{equation*}
+	\frac{1}{\sqrt{1}}+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{3}}+\ldots+\frac{1}{\sqrt{k+1}} \leq 2\sqrt{k+1}-1
+\end{equation*}
+By the principle of mathematical induction, 
+\begin{equation*}
+	\frac{1}{\sqrt{1}}+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{3}}+\ldots+\frac{1}{\sqrt{n}} \leq 2\sqrt{n}-1
+\end{equation*}
+for any positive integer $n$.
+	\end{proof} 
+\end{problem}
+
+\begin{problem}{16}
+	Prove that $7\mid [3^{4n+1}-5^{2n-1}]$ for every positive integer $n$.
+	\begin{proof}
+		We proceed by induction. Since $3^{4+1}-5^{2-1} = 238 =7(34)$, it follows that $7\mid [3^{4+1}-5^{2-1}]$ and so the statement is true for $n=1$. Assume that $7\mid [3^{4k+1}-5^{2k-1}]$ for some positive integer $k$. We then show that $7\mid [3^{4k+5}-5^{2k+1}]$. Since $7\mid [3^{4k+1}-5^{2k-1}]$, it follows that $3^{4k+1}-5^{2k-1} = 7c$, where $c\in \Z$. Note that
+		\begin{align*}
+			3^{4k+5}-5^{2k+1} &= 3^{4k+1+4} - 5^{2k-1+2} \\
+			&= 3^{4k+1}\cdot 3^{4} - 5^{2k-1}\cdot 5^{2}\\
+			&= (7c+5^{2k-1})\cdot 3^{4} - 5^{2k-1}\cdot 5^{2}\\
+			&= 7c\cdot 3^{4} + 5^{2k-1}(3^{4}-5^{2}) \\
+			&= 7c\cdot 3^{4} + 5^{2k-1}(56) \\
+			&= 7(3^{4}c+5^{2k-1}\cdot8)
+		\end{align*}
+	Because $3^{4}c+5^{2k-1}\cdot8 \in \Z$, it follows that $7\mid [3^{4k+5}-5^{2k+1}]$. By the principle of mathematical induction,
+	\begin{equation*}
+		7\mid [3^{4n+1}-5^{2n-1}]
+	\end{equation*}
+	for every integer $n$.  
+	\end{proof}
+\end{problem}
+\end{document}

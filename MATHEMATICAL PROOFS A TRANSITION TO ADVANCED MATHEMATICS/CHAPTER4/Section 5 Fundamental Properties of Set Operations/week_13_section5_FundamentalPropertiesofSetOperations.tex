@@ -1,0 +1,121 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 13}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 5: Fundamental properties of set operations}
+	\date{October 13, 2021}
+	\maketitle
+
+	\begin{problem}{52}
+		Prove that $A\cap B = B\cap A$ for every two sets $A$ and $B$ (Theorem 22(1b)).
+		\begin{proof}
+			First we prove $A\cap B \subseteq B\cap A$. Let $x\in A\cap B$. Then, $x\in A$ and $x\in B$. By the  commutative law of conjunction of two statements, we conclude that $x\in B$ and $x\in A$. Hence, $x\in B\cap A$ and so $A\cap B \subseteq B\cap A$.\\
+			We prove $B\cap A \subseteq A\cap B$ using the same argument and therefore the proof is omitted.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{53}
+		Prove that $A\cap (B\cup C) = (A\cap B)\cup (A\cap C)$ for every three sets $A$, $B$ and $C$ (Theorem 22(3b)).
+		\begin{proof}
+			First we prove $A\cap (B\cup C) \subseteq (A\cap B)\cup (A\cap C)$. Let $x\in A\cap (B\cup C)$. Then, $x\in A$ and $x\in (B\cup C)$. Hence, $x\in A$ and either $x \in B$ or $x\in C$. Applying the distributive law, we conclude that either $x\in A$ and $x\in B$ or $x\in A$ and $x\in C$. Thus, $x\in (A\cap B)\cup(A\cap C)$.\\
+			
+			We then prove $(A\cap B)\cup (A\cap C) \subseteq A\cap (B\cup C)$. Let $x\in (A\cap B)\cup (A\cap C)$. Then, either $x\in A\cap B$ or $x\in A\cap C$. Say the former, then $x\in A$ and $x\in B$, and so $x\in B\cup C$. Hence, $x\in A\cap (B\cup C)$. Therefore, $x\in A\cap (B\cup C)$ and so $(A\cap B)\cup (A\cap C) \subseteq A\cap (B\cup C)$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{54} 
+		Prove that $\overline{A\cap B} = \overline{A}\cup \overline{B}$ for every two sets $A$ and $B$ (Theorem 22(4b)).
+		\begin{proof}
+			First we prove $\overline{A\cap B} \subseteq \overline{A}\cup \overline{B}$. Let $x\in \overline{A\cap B}$. Then, $x\not\in A\cap B$. Thus, $x\not\in A$ or $x\not\in B$. Assume that $x\not\in A$. Hence, $x\in \overline{A}$, and so $x\in \overline{A}\cup \overline{B}$.\\
+			
+			We now prove $ \overline{A}\cup \overline{B} \subseteq \overline{A\cap B}$. Let $x\in \overline{A}\cup \overline{B}$. Then either $x\in \overline{A}$ or $x\in \overline{B}$. Say the latter. Hence, $x\in \overline{B}$; so $x\not\in B$. Therefore, $x\not\in A\cap B$ and so $x\in \overline{A\cap B}$.
+		\end{proof} 
+	\end{problem}
+
+	\begin{problem}{55}
+		Let $A$, $B$ and $C$ be sets. Prove that $(A-B)\cap (A-C)=A-(B\cup C)$.
+		\begin{proof}
+			First we prove that $(A-B)\cap(A-C) \subseteq A-(B\cup C)$. Let $x\in (A-B)\cap(A-C)$. Then $x\in A-B$ and $x\in A-C$. The former implies that $x\in A$ and $x\not\in B$ and the latter implies that $x\in A$ and $x\not\in C$. Since $x\not\in C$ and $x\not\in B$, it follows that $x\not\in B\cup C$. Because $x\in A$ and $x\not\in B\cup C$, $x\in A - (B\cup C)$.\\
+			
+			We then prove that $A-(B\cup C) \subseteq (A-B)\cap(A-C)$. Let $x\in A-(B\cup C)$. Then $x\in A$ and $x\not\in B\cup C$. Since $x\not\in B\cup C$, it follows that $x\not\in B$ and $x\not\in C$. Since $x\not\in B$, $x\in(A-B)$. And, since $x\not\in C$, $x\in(A-C)$.Therefore, $x\in (A-B)\cap(A-C)$
+		\end{proof}
+	\end{problem}  
+
+	\begin{problem}{56}
+			Let $A$, $B$ and $C$ be sets. Prove that $(A-B)\cup (A-C)=A-(B\cap C)$. 
+		\begin{proof}
+			We first prove that $(A-B)\cup (A-C) \subseteq A-(B\cap C)$. Let $x\in (A-B)\cup (A-C)$. Then, either $x\in A-B$ or $x\in A-C$, say the former. Therefore, $x\in A$ and $x\not\in B$; so $x\not\in B\cap C$. Since  $x\in A$ and $x\not\in B\cap C$, it follows that $x\in A-(B\cap C)$.\\
+			
+			We then show that $A-(B\cap C) \subseteq (A-B)\cup (A-C)$. Let $x\in A-(B\cap C)$. Then $x\in A$ and $x\not\in B\cap C$. Since $x\not\in B\cap C$, it follows that $x\not\in B$ or $x\not\in C$, say the former. Because $x\in A$ and $x\not\in B$, $x\in A-B$ and so $x\in (A-B)\cup (A-C)$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{57}
+		Let $A$, $B$ and $C$ be sets. Use Theorem 22 to prove that $\overline{\overline{A}\cup (\overline{B}\cap C)} = (A\cap B)\cup (A-C)$.
+		\begin{proof}
+			Let's use Theorem 22 to prove that $\overline{\overline{A}\cup (\overline{B}\cap C)} = (A\cap B)\cup (A-C)$.
+			\begin{align*}
+				\overline{\overline{A}\cup (\overline{B}\cap C)} &= A\cap \overline{(\overline{B}\cap C)} 
+					&\text{By De Morgan's Laws (Theorem 22 (4))}&\\
+				&= A\cap (B\cup \overline{C}) &\text{By De Morgan's Laws (Theorem 22(4))}&\\
+				&= (A\cap B)\cup (A\cap \overline{C}) &\text{By Distributive law (Theorem 22(3))}&\\
+				&= (A\cap B)\cup (A-C) &&
+			\end{align*}
+		As desired.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{58}
+		Let $A$, $B$ and $C$ be sets. Prove that $A\cap \overline{(B\cap \overline{C})} = \overline{(\overline{A}\cup B)\cap (\overline{A}\cup \overline{C})}$
+		\begin{proof}
+			We show with Theorem 4.22 that $\overline{(\overline{A}\cup B)\cap (\overline{A}\cup \overline{C})} = A\cap (\overline{B}\cup C)$.
+			\begin{align*}
+				\overline{(\overline{A}\cup B)\cap (\overline{A}\cup \overline{C})} &= \overline{(\overline{A}\cup B)}\cup \overline{(\overline{A}\cup \overline{C})}\\
+				&=  (\overline{\overline{A}}\cap \overline{B})\cup (\overline{\overline{A}}\cap \overline{\overline{C}}) = (A\cap \overline{B})\cup (A\cap C)\\
+				&= A\cap (\overline{B}\cup C) = A\cap \overline{(B\cap \overline{C})}
+			\end{align*}
+		As desired.
+		\end{proof}
+	\end{problem}
+
+
+
+
+\end{document}

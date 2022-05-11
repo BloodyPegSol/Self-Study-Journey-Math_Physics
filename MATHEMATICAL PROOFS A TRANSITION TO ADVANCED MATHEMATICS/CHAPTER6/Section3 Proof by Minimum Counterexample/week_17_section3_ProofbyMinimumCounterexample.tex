@@ -1,0 +1,255 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz} 
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+	\newenvironment{result}[2][Result]{\begin{trivlist}
+			\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week ??}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 3: Proof by Minimum Counterexample}
+	\date{January 18, 2022}
+	\maketitle
+	
+	With the aid of \textbf{Theorem 7}, we were able to describe a more general principle of mathematical induction that can prove the 
+	quantified statement $\forall n\in S, P(n)$, where $S = \{n\in \Z: n\geq m\}$ for some integer $m$. However, there would be times
+	where applying induction directly would not be so readily feasable. Therefore, one can use a Proof by Minimum Counterexample, which involves
+	both techniques of proof by Mathematical Induction and proof by contradiction. \\ 
+	
+	In a proof by Minimum Counterexample, one assumes for the statement $\forall n\in S, P(n)$ that there is some nonempty set $A\subseteq S$ such that $\forall x \in A, \sim P(x)$. Since $S$ is well ordered, it follows that $A$ has some lowest term $m$. Then, with the aid of mathematical induction we show that $P(n)$ is true for all integers $n \geq m$, which leads to a contradiction.
+	
+	\begin{problem}{33}
+		Use proof by minimum counterexample to prove that $6\mid 7n\left(n^{2}-1\right)$ for every positive integer $n$.
+		\begin{proof}
+			Assume, to the contrary, that there are positive integers $n$ for which $6\nmid 7n\left(n^{2}-1\right)$. By the Well-ordering principle, there must be a lowest counterexample $m$. Therefore, $6\mid 7n\left(n^{2}-1\right)$ for all positive integers $n<m$. Since $6\mid 7\left(1^{2}-1\right)$ and $6\mid 7\cdot 2\left(2^{2}-1\right)$, it follows that the result is true for $n=1,2$ and so $m\geq 3$. Thus, $m=k+2$ for some integer $1\leq k <m$.\\
+			
+			Note that 
+			\begin{align*} 
+				7m\left(m^{2}-1\right) &= 7(k+2)\left((k+2)^{2}-1\right)\\
+				&= 7(k+2)\left(k^{2}+4k+4-1\right)\\
+				&= 7k(k^{2}-1) + 7k(4k+4)+ 7\cdot 2\left(k^{2}+4k+3\right)\\
+				&= 7k(k^{2}-1) + 7\left(6k^{2}+12k+6\right)\\
+				&= 7k(k^{2}-1) +7\cdot 6\left(k^{2}+2k+1\right)
+			\end{align*}
+		Since $k<m$, it follows that $6 \mid 7k(k^{2}-1)$ and so $7k(k^{2}-1) = 6c$ for some integer $c$. Thus,
+		\begin{align*}
+			7m\left(m^{2}-1\right) 
+			&= 6c + 7\cdot 6\left(k^{2}+2k+1\right)\\
+			&= 6\left(c+ 7\left(k^{2}+2k+1\right)\right)
+		\end{align*}
+	Because $\left(c+ 7\left(k^{2}+2k+1\right)\right) \in \Z$, it follows that $6\mid 7m\left(m^{2}-1\right)$ which leads to a contradiction.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{34}
+		Use the method of minimum counterexample to prove that $3\mid \left(2^{2n}-1\right)$ for every positive integer $n$.
+		\begin{proof}
+			Assume, to the contrary, that there are $n\in \N$ such that $3\nmid \left(2^{2n}-1\right)$. By the Well-ordering principle, the nonempty set of counterexamples must have a minimum which can be denoted as $m$. Since $3\mid (3)$ and $3\mid (15)$, it follows that the result is true for $n=1$ and $n=2$. Thus, $m\geq 3$ and so it can be expressed as $m=k+2$ for $1\leq k < m$. Because the positive integer $k<m$, it follows that $3\mid \left(2^{2k}-1\right)$ and so $2^{2k}-1 = 3x$ for some integer $x$.\\
+			
+			Observe that
+			\begin{align*}
+					2^{2m}-1 &= 2^{2(k+2)}-1 \\
+				&= 2^{2k}\left(2^{4}\right) -1\\
+				&= 2^{2k}\left(15+1\right)-1\\
+				&= 2^{2k}-1+15\cdot2^{2k}\\
+				&= 3x + 15\cdot2^{2k}\\
+				&= 3\left(x+5\cdot2^{2k}\right)
+			\end{align*}
+		Since $(x+5\cdot2^{2k}) \in \Z$, it follows that $3\mid \left(2^{2m}-1\right)$, which leads to a contradiction.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{35}
+		Give a proof by minimum counterexample that $1+3+5+\cdots+(2n-1) = n^{2}$ for every positive integer $n$.
+		\begin{proof}
+			Assume, to the contrary, that there are positive integers $n$ such that $1+3+5+\cdots+(2n-1) \neq n^{2}$. Let $m$ be the smallest such integer. Since $2(1) -1 = 1^{2}$, it follows that $m\geq 2$. Thus, the integer $m$ can be expressed as $m=k+1$ for $1\leq k < m$. Therefore, $1+3+5+\cdots + (2k-1) = k^{2}$. \\
+			
+			Observe that
+			\begin{align*}
+				1+3+5+\cdots+(2m-1) &= 1+3+5+\cdots+(2(k+1)-1)\\
+				&= \left[1+3+5+\cdots+(2k-1)\right] + (2(k+1)-1)\\
+				&= k^{2} +2k+1 = (k+1)^{2} = m^{2}\\
+			\end{align*}
+		This clearly leads to a contradiction.
+		\end{proof}
+	\end{problem}
+
+\begin{problem}{36}
+	Prove that $5\mid (n^{5}-n)$ for every integer $n$. 
+	\begin{proof}
+		 Since $5\mid (0^{5}-0)$, we consider the positive and negative integers. Suppose, to the contrary, that there are positive integers $n$ such that $5\nmid (n^{5}-n)$. Let $m$ be the smallest such positive integer. Because $5\mid (1^{5}-1)$, it follows that $m\geq 2$ and so it can be expressed as $m=k+1$, where $1\leq k<m$. Thus, $5\mid (k^{5}-k)$ and so $k^{5}-k = 5c$ for some $c\in \Z$. \\
+		 Therefore,
+		 \begin{align*}
+		 	m^{5}-m &= (k+1)^{5}-(k+1)\\
+		 	&= k^{5} + 5k^{4} +10k^{3} + 10k^{2}+5k+1-(k+1)\\
+		 	&= (k^{5}-k) + 5\left(k^{4}+2k^{3}+2k^{2}+k\right)\\
+		 	&= 5\left(c + k^{4}+2k^{3}+2k^{2}+k\right)
+		 \end{align*}
+	 Since $\left(c + k^{4}+2k^{3}+2k^{2}+k\right) \in \Z$, it follows that $5\mid (m^{5}-m)$, which leads to a contradiction.\\
+	 
+	  We know that the set of negative integers can be expressed as $\Z_{-} = \{-x:x\in \N\}$. Now, note that if  $5\mid \left(k^{5}-k\right)$ for some $k\in \N$, then $k^{5} - k = 5x$, where $x\in \Z$, and so
+	 \begin{align*}
+	 	(-k)^{5} - (-k) &= -k^{5} - (-k)\\
+	 	&= - \left(k^{5}-k\right)\\
+	 	&= -5x = 5(-x).
+	 \end{align*}
+ Since $-x\in \Z$, it follows that $5\mid \left[(-k)^{5}-(-k)\right]$. \\
+ 
+ Because we have proven that $5\mid \left(n^{5} - n\right)$ for every $n\in \N$, it follows that the result is also true for all negative integers.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{37}
+	Use proof by minimum counterexample to prove that $3\mid \left(2^{n}+2^{n+1}\right)$ for every nonnegative integer $n$.
+	\begin{proof}
+		Assume, to the contrary, that there is some nonnegative integer $n$ such that $3\nmid \left(2^{n}+2^{n+1}\right)$. By \textbf{Theorem 7}, there must be a smallest nonnegative integer $m$ such that $3\nmid \left(2^{m}+2^{m+1}\right)$. Since $3\mid \left(2^{0}+2^{0+1}\right)$, it follows that $m\geq 1$ and so $m = k+1$, where $0\leq k < m$. Therefore, $3\mid \left(2^{k}+2^{k+1}\right)$ and so $2^{k}+2^{k+1} = 3c$ for some $c\in \Z$. Note that
+		\begin{align*}
+			2^{m} + 2^{m+1} &= 2^{k+1}+2^{(k+1)+1}\\
+			&= 2\cdot 2^{k} + 2\cdot 2^{k+1}\\
+			&= 2\left(2^{k}+2^{k+1}\right) = 2(3c) = 3(2c)
+		\end{align*} 
+	Because $2c \in \Z$, it follows that $3\mid \left(2^{m}+2^{m+1}\right)$. This leads to a contradiciton.
+	\end{proof}
+\end{problem} 
+
+\begin{problem}{38}
+	Give a proof by minimum counterexample that $2^{n} > n^{2}$ for every integer $n\geq 5$.
+	\begin{proof}
+		Assume, to the contrary, that there are integers $n\geq 5$ such that $2^{n} \leq n^{2}$. By the Well-ordering principle, there is a smallest integer $m\geq 5$ such that $2^{m} \leq m^{2}$. Since $2^{5} = 32 > 25 = (5)^{2}$, it follows that the statement is true for $n=5$. Therefore, $m \geq 6$ and so it can be expressed as $m=k+1$, where $5\leq k < m$. Thus, $2^{k} > k^{2}$. Note that
+		\begin{align*}
+			2^{m} &= 2^{k+1}\\
+			&= 2\cdot 2^{k}\\
+			&> 2\cdot k^{2} = k^{2} + k^{2}\\
+			&\geq k^{2} + 5k = k^{2} + 2k + 3k\\
+			&\geq k^{2} + 2k + 15 \\
+			&> k^{2} +2k +1 = (k+1)^{2}.
+		\end{align*}  
+	Therefore, $ 2^{k+1} = 2^{m} > m^{2} = (k+1)^{2}$, which leads to a contradiction.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{39}
+	Prove that $12\mid \left(n^{4}-n^{2}\right)$ for every positive integer $n$.
+	\begin{proof} 
+		Suppose, to the contrary, that there are $n\in \N$ such that $12\nmid \left(n^{4}-n^{2}\right)$. Let $m$ be the smallest such integer. Because $1^{4}-1^{2} = 0$, $2^{4}-2^{2} = 12$, and $3^{4}-3^{2} = 72 = 12(6)$ it follows that $m\geq 4$. Hence, $m$ can be expressed as $m=k+3$ for $1\leq k < m$. Therefore, $12\mid \left(k^{4}-k^{2}\right)$ and so $k^{4}-k^{2} = 12c$, where $c\in \Z$. Observe that
+		\begin{align*} 
+			m^{4} - m^{2} &= \left(k+3\right)^{4} - \left(k+3\right)^{2}\\
+			&= k^{4}+3\cdot4k^{3}+3^{2}6k^{2}+3^{3}4k + 3^{4} -k^{2}-6k-9\\
+			&= \left(k^{4}-k^{2}\right)+6\cdot 2k^{3} + 6\cdot 3^{2} k^{2} + 6(18-1)k+72\\
+			&= 12c + 6\left(2k^{3}+3^{2}k^{2}+17k+12\right)\\
+			&= 12c +6\left[2\left(k^{3}+6\right)+k\left(9(k+1)+8\right)\right].
+		\end{align*}
+	We now show that $k\left(9(k+1)+8\right)$ is even. If $k$ is even, then we are set (\textbf{Theorem 3.17}). On the other hand, if $k$ is odd, then $k+1$ is even and so $9(k+1)+8$ is even since it is the sum of two even integers (\textbf{Theorem 3.16}). Thus, $k\left(9(k+1)+8\right)$ is even (\textbf{Theorem 3.17}). Therefore, $k\left(9(k+1)+8\right) = 2y$ for some $y\in \Z$ and so
+	\begin{align*}
+		m^{4} - m^{2} &= 12c +6\left[2\left(k^{3}+6\right)+k\left(9(k+1)+8\right)\right]\\
+		&= 12c + 6\left[2\left(k^{3}+6\right)+2y\right]\\
+		&= 12c + 12\left(k^{3}+y+6\right) = 12\left(k^{3}+c+y+6\right).
+	\end{align*}
+Since $k^{3}+c+y+6 \in \Z$, it follows that $12\mid (m^{4} - m^{2})$, which leads to a contradiction. 
+	\end{proof}
+\end{problem}
+
+\begin{problem}{40}
+	First we prove a lemma.
+	\begin{lemma}{1}
+		Let $t\in \N$. Then 
+		\begin{equation*}
+			2^{t} = 2^{0}+2^{1}+\ldots+2^{t-1} + 1
+		\end{equation*}
+	\begin{proof}
+		We procedd by induction. Since $2^{1} = 2 = 2^{0}+1$, it follows that the lemma is true for $t=1$. Assume that
+		\begin{equation*}
+			2^{k} = 2^{0}+2^{1}+\ldots+2^{k-1}+1.
+		\end{equation*}
+		We prove that 
+		\begin{equation*}
+			2^{k+1} = 2^{0}+2^{1}+\ldots +2^{k}+1.
+		\end{equation*}
+		Note that
+		\begin{align*}
+			2^{k+1} &= 2\cdot 2^{k}\\
+			&= 2\left(2^{0}+2^{1}+\ldots+2^{k-1}+1\right)\\
+			&= 2^{1}+2^{2}+\ldots+2^{k}+2 = 2^{1}+2^{2}+\ldots+2^{k}+\left(1+2^{0}\right)\\
+			&= 2^{0}+2^{1}+2^{2}+\ldots+2^{k}+1.
+		\end{align*}
+	By the Principle of Mathematical Induction, this result is true.
+	\end{proof}
+	\end{lemma}
+
+	We now proceed to prove the result\\
+	
+	\begin{result}{40}
+	Let $S=\{2^{r}:r\in \Z, r\geq 0\}$. Use proof by minimum counterexample to prove that for every $n\in \N$, there exists a subset $S_{n}$ of $S$ such that $\sum_{i\in S_{n}}i=n$.
+	\begin{proof}
+		Assume, to the contrary, that there is some $n\in \N$ such that $\sum_{i\in S_{n}}i\neq n$ for all possible subsets $S_{n}$ of $S$. Let $m$ be the smallest such positive integer. \\
+		Since $2^{0} = 1$ and $\{2^{0}\}\subseteq S$, it follows that $m \geq 2$. Hence, $m=k+1$ for $1\leq k <m$. Therefore, there is some subset $S_{k}$ of $S$ such that $\sum_{i\in S_{k}}i = k$. Note that
+		\begin{align*}
+			m &= k+1 = \sum_{i\in S_{k}}i +1. 
+		\end{align*}
+	If $2^{0} \notin S_{k}$, then $S_{m} = S_{k}\cup \{2^{0}\}$. Therefore, $S_{m} \subseteq S$ and $\sum_{i\in S_{m}}i = m$, which leads to a contradiction. \\
+	
+	On the other hand, if $2^{0}\in S_{k}$, then define $A = \{t:t\geq 1, t\in \Z, 2^{t}\notin S_{k}\}$. By the Well-ordering principle, there is a smallest element $t\in A$. Observe that, by \textbf{Lemma 1}, 
+	\begin{equation*}
+		2^{t} = 2^{0} + 2^{1} + \ldots +2^{t-1} + 1.
+	\end{equation*}
+Therefore, let $B=\{2^{0},2^{1},\ldots,2^{t-1}\} $. Then, $S_{m} = (S_{k}-B) \cup \{2^{t}\}$ 
+and so
+\begin{align*}
+	\sum_{i\in S_{m}} i &= \sum_{i\in (S_{k}-B)} i + 2^{0} + 2^{1} + \ldots +2^{t-1} + 1\\
+	&=\sum_{i\in (S_{k}-B)} i + \sum_{i\in B} i + 1\\
+	&= \sum_{i\in S_{k}} i +1 = k+1 = m,
+\end{align*}
+which leads to a contradiction.
+	\end{proof}
+\end{result}
+\end{problem}
+
+
+Theorems used:
+\begin{theorem}{3.16}
+	Let $x,y \in \Z$. Then $x$ and $y$ are of the same parity if and only if $x+y$ is even.
+\end{theorem}
+
+\begin{theorem}{3.17}
+	Let $a$ and $b$ be integers. Then $ab$ is even if and only if $a$ is even or $b$ is even.
+\end{theorem}
+\end{document}

@@ -1,0 +1,519 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 5}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 10: Quantified Statements}
+	\date{August 18, 2021}
+	\maketitle
+
+\begin{problem}{65}
+	Let $S$ denote the set of odd integers and let
+	\begin{equation*}
+		P(x): x^{2}+1 \text{ is even.  and  } Q(x):x^{2} \text{ is even.}
+	\end{equation*}
+	be open sentences over the domain $S$. State $\forall x \in S,P(x)$ and $\exists x \in S,Q(x)$ in words.
+	
+	\begin{solution}{}
+		Quantified statements stated in words:\\
+		$\forall x \in S, P(x):$ For every odd integer $x$, $x^{2} + 1$ is even.\\
+		$\exists x \in S,Q(x):$ There exists an odd integer $x$ such that $x^{2}$ is even.
+		\end{solution}
+\end{problem}
+
+\begin{problem}{66}
+	Define an open sentence $R(x)$ over some domain $S$ and then state $\forall x \in S,R(x)$ and $\exists x \in S, R(x)$ in words.
+	\begin{solution}{}
+		Let $S$ be the set of positive integers and consider the following open sentence over the domain $S$:
+		\begin{equation*}
+			R(x): x - 1 \text{ is not a positive integer.}
+		\end{equation*}
+	Quantified statements stated in words:\\
+	$\forall x \in S, R(x):$ For every positive integer $x$, $x-1$ is not a positive integer.\\
+	$\exists x \in S, R(x):$ There exists a positive integer $x$ such that $x-1$ is not a positive integer.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{67}
+	State the negations of the following quantified statements, where all sets are subsets of some universal set $U$:\\
+	(a) For every set $A$, $A\cap \overline{A} = \emptyset$
+	 \begin{solution}{a}
+	 	There exists a set $A$ such that $A \cap \overline{A} \neq \emptyset$ 
+	 \end{solution}
+ 	(b) There exists a set $A$ such that $\overline{A} \subseteq A$.
+ 	\begin{solution}{b}
+ 		For every set $A$, we have $\overline{A} \nsubseteq A$.
+ 	\end{solution}
+\end{problem}
+
+\begin{problem}{68}
+	State the negations of the following quantified statements:\\
+	(a) For every rational number $r$, the number $1/r$ is rational.
+	\begin{solution}{a}
+		There exists a rational number $r$ such that $1/r$ is irrational.
+	\end{solution}
+	(b) There exists a rational number $r$ such that $r^{2} = 2$.
+	\begin{solution}{b}
+		For every rational number $r$, the number $r^{2} \neq 2$.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{69}
+	Let $P(n): (5n-6)/3$ is an integer. be an open sentence over the domain $\Z$. Determine, with explanations, whether the following statements are true:\\
+	(a) $\forall n \in \Z, P(n)$
+	\begin{solution}{a}
+		For this quantified statement to be true, all possible integers $5n - 6$ from all $n$ must be divisible by 3. However, this is not possible. As an example, consider $(5(1)-6) = -1$ which is not divisible by 3. Therefore, this quantified statement is false.
+	\end{solution}
+	(b) $\exists n \in \Z, P(n)$
+	\begin{solution}{b}
+		A way to find one integer $n$, for which $5n -6$ is divisible by 3, is by solving for $n$ in the following equation $5n-6=9$ (the number 9 was chosen because $9+6=15$ is a multiple of 3 and 5). In this case, we get that $n = 3$ and $P(3)$ is true. Thus, this quantified statement is true. \\
+		Consider the equation $5n + 6 = b$. The number $5n$ must be a multiple of 3 so that the sum $5n + 6$ is a multiple of 3. This means that the integer $n$ must be a multiple of 3 in order for $b$ to be a multiple of 3. Thus, $P(n)$ is true for all integers $n$ that are multiples of 3.
+	\end{solution} 
+\end{problem}
+
+\begin{problem}{70}
+	Determine the truth value of each of the following statements.\\
+	
+	(a) $\exists x \in \mathbb{R}, \; x^{2}-x=0.$  \\
+	\begin{solution}{a}
+	This statement basically says that there is at least one root of the equation $x^{2}-x=0$. This is true, since $x=1$ is a root of the aformentioned equation ($(1)^{2}-(1)=0$).\\
+	\end{solution}
+	
+	(b) $\forall n \in \N, \; n+1 \geq 2.$\\
+	\begin{solution}{b}
+	The inequality $n+1 \geq 2$ is true for the number 1 ($2\geq2$). Since the number 1 is the element with the lowest value in the set $\N$, if $n\in \N$ and $n\neq 1$, then $n > 1$. By adding one to both sides we obtain $n + 1 > 2$ for all $n \neq 1$. The inequality $n+1 \geq 2$ is true for 1 and all other $n \in \N$ different to 1. This quantified statement is true.\\
+	\end{solution}
+	
+	(c) $\forall x \in \mathbb{R}, \; \sqrt{x^{2}}=x.$\\
+	\begin{solution}{c}
+	The equation $\sqrt{x^{2}} = x$ holds for all $x \in \mathbb{R^{+}}$ and 0. However, it does not hold for every $x \in \mathbb{R^{-}}$ (e.g., $\sqrt{(-1)^{2}} = 1 \neq -1$). This quantified statement is false.\\
+	\end{solution}
+	
+	(d) $\exists x \in \mathbb{Q}, \; 3x^{2}-27 =0$.\\
+	\begin{solution}{d}
+	We can try to solve for $x$ in the equation $3x^{2} -27 =0$.
+	\begin{align*}
+		3x^{2} -27 &= 0\\
+		3x^{2} &= 27\\
+		x^{2} &= 9\\
+		\sqrt{x^{2}} &= \sqrt{9}\\
+		|x| &= 3
+	\end{align*} 
+Both 3 and $-3$ are rational numbers ($\{3,-3\} \subset \mathbb{Q}$) and are roots of the equation $3x^{2} -27 = 0$. Thus, there are two rational numbers for which the aforementioned equation holds and this quantified statement is true.\\
+\end{solution}
+(e) $\exists x \in \mathbb{R}, \exists y \in \mathbb{R}, \; x+y+3=8.$\\
+\begin{solution}{e}
+The equation of the open sentence in this quantified statement can be expresed as the linear equation $y = -x +5$. Thus, there is an infinity of ordered pairs $(x,y) \in \mathbb{R}\times \mathbb{R}$ that satisfy the linear equation (e.g., $(3,2)$, and more generally $(x, -x+5)$). The quantified statement is true.\\
+\end{solution}
+(f) $\forall x,y \in \mathbb{R}, \; x + y + 3 = 8.$\\
+\begin{solution}{f}
+Since the ordered pairs that satisfy the linear equation $x + y +3 =8$ are limited to the general format $(x, -x +5)$, there will be numbers $x,y \in R$ that does not satisfy it (e.g., $(3,10)$ does not satisfy the linear equation). Although there is an infinity of ordered pairs $(x,y) \in \mathbb{R}\times \mathbb{R}$ which satisfy the linear equation, not every ordered pair $(x,y) \in \mathbb{R}\times \mathbb{R}$ will satisfy it. Therefore, this quantified statement is false.\\
+\end{solution}
+(g) $\exists x, y \in \mathbb{R}, \; x^{2} + y^{2}=9.$\\
+\begin{solution}{g}
+There exists an ordered pair $(x,y)\in \mathbb{R}\times \mathbb{R}$ that satisfies the equation of the circle $x^{2} + y^{2} =9$, this ordered pair is $(0,3)$. Therefore, this quantified statement is true.\\
+\end{solution}
+(h) $\forall x \in \mathbb{R}, \forall y \in \mathbb{R}, \; x^{2} + y^{2} =9.$\\
+\begin{solution}{h} 
+A counterexample to this quantified statement is the ordered pair $(10,0)$ which belongs to the set $\mathbb{R}\times \mathbb{R}$, but does not satisfy the equation of the circle $x^{2} + y^{2} = 9$. Thus, this quantified statement is false.
+\end{solution}
+\end{problem}
+
+\begin{problem}{71}
+	The statement
+	\begin{equation*}
+		\text{For every integer } m \text{, either } m\leq 1 \text{ or } m^{2} \geq 4. 
+	\end{equation*}
+	can be expresed using a quantifier as:
+	\begin{equation*}
+		\forall m \in \Z,m\leq 1 \text{ or } m^{2} \geq 4.
+	\end{equation*}
+Do this for the following two statements.\\
+
+(a) There exist integers $a$ and $b$ such that both $ab < 0$ and $a+b>0.$
+\begin{solution}{a}
+	$\exists a,b \in \Z, ab<0 \text{ and } a+b>0.$
+\end{solution}
+
+(b) For all real numbers $x$ and $y$, $x\neq y$ implies that $x^{2} + y^{2} > 0$.
+\begin{solution}{b}
+	$\forall x,y \in \mathbb{R}, x\neq y \text{ implies that } x^{2} + y^{2} >0.$
+\end{solution}
+
+(c) Express in words the negation of the statements in (a) and  (b). 
+\begin{solution}{c}
+	(a) For every integer $a$ and $b$ either $ab \geq 0$ or $a+b \leq 0.$\\
+	(b) There exist real numbers $x$ and $y$ such that $x \neq y$ and $x^{2} + y^{2} \leq 0.$
+\end{solution}
+
+(d) Using quantifiers, express in symbols the negations of the statements in both (a) and (b).
+\begin{solution}{d}
+	(a) $\forall a,b \in \Z, ab \geq 0$ or $a+b\leq 0.$\\
+	(b) $\exists x,y \in \mathbb{R}, x\neq y$ and $x^{2}+y^{2} \leq 0.$
+\end{solution}
+\end{problem}
+
+\begin{problem}{72}
+	Let $P(x)$ and $Q(x)$ be open sentences where the domain of the variable $x$ is $S$. Which of the following implies that $(\sim P(x))\Rightarrow Q(x)$ is false for some $x \in S$?\\
+	We must check whether the next statements imply the falseness of $(\sim P(x)) \Rightarrow Q(x)$ for some $x \in S$, which is the same as saying that it implies the truthness of $\sim((\sim P(x)) \Rightarrow Q(x))$ for some $x \in S$:
+	\begin{align*}
+		\text{Theorem 17}\\
+		\sim((\sim P(x)) \Rightarrow Q(x)) &= \; \sim(\sim(\sim P(x))\vee  Q(x))\\
+		\text{Double Negation}\\
+		&= \; \sim(P(x)\vee  Q(x))\\
+		\text{De Morgan's Laws}\\
+		& = (\sim P(x)) \wedge (\sim Q(x))
+	\end{align*}
+The quantified statement $(\sim P(x))\Rightarrow Q(x)$ is false for some $x \in S$. can be stated symbolically as:
+\begin{equation*}
+	\exists x\in S, (\sim P(x))\wedge (\sim Q(x))
+\end{equation*}
+(a) $P(x)\wedge Q(x)$ is false for all $x\in S$.
+\begin{solution}{a}
+	By using the \textit{De Morgan's Laws} on the open sentence $P(x)\wedge Q(x)$ (the quantified statement declares that it is false for all $x \in S$) we derive the following implication to be checked:
+	\begin{equation*}
+			(\forall x \in S, (\sim P(x)) \vee (\sim Q(x))) \Rightarrow (\exists x\in S, (\sim P(x))\wedge (\sim Q(x)))
+	\end{equation*}
+	The quantified statement $\forall x \in S, (\sim P(x))\vee (\sim Q(x))$ can be implied by multiple quantified statements. Some of them are the following 3:
+	\begin{enumerate}
+		\item $\forall x \in S, (\sim P(x))\wedge (Q(x)).$
+		\item $\forall x \in S, (P(x))\wedge (\sim Q(x)).$
+		\item $\forall x \in S, (\sim P(x))\wedge (\sim Q(x)).$
+	\end{enumerate}
+Not all of the aforementioned quantified statements implies the quantified statement $\exists x\in S, (\sim P(x))\wedge (\sim Q(x))$ (syllogism). Therefore, the quantified statement $\forall x \in S, (\sim P(x)) \vee (\sim Q(x))$ being true does not mean that $\exists x\in S, (\sim P(x))\wedge (\sim Q(x))$ will be true. The quantified statement $\forall x \in S, (\sim P(x)) \vee (\sim Q(x))$ does not imply $\exists x\in S, (\sim P(x))\wedge (\sim Q(x))$.
+\end{solution}
+
+(b) $P(x)$ is true for all $x \in S$.
+\begin{solution}{b}
+	The following implication
+	\begin{equation*}
+		(\forall x \in S, P(x)) \Rightarrow (\exists x\in S, (\sim P(x))\wedge (\sim Q(x)))
+	\end{equation*}
+is not true, because $P(x)$ being true for all $x \in S$ means that $(\sim P(x))\wedge (\sim Q(x))$ will be false for all $x \in S$. This is so since $\sim P(x)$ will be false for all $x \in S$.
+\end{solution}
+
+(c) $Q(x)$ is true for all $x \in S.$
+\begin{solution}{c}
+	The implication 
+	\begin{equation*}
+		(\forall x\in S, Q(x))\Rightarrow (\exists x\in S, (\sim P(x))\wedge (\sim Q(x)))
+	\end{equation*}
+is false since $Q(x)$ being true for all $x \in S$ means that the conjunction  $(\sim P(x))\wedge (\sim Q(x))$ will be false for all $x \in S$. This is so, because $\sim Q(x)$ will be false for all $x \in S$.
+\end{solution}
+
+(d) $P(x)\vee Q(x)$ is false for some $x \in S.$
+\begin{solution}{d}
+	By applying \textit{De Morgan's Laws} on the open sentence $P(x)\vee Q(x)$ we derive this implication:
+	\begin{equation*}
+		(\exists x \in S, (\sim P(x)) \wedge (\sim Q(x))) \Rightarrow (\exists x\in S, (\sim P(x))\wedge (\sim Q(x)))
+	\end{equation*}
+The premise and conclusion contain exactly the same quantified statement. Thus, this implication is true.
+\end{solution}
+
+(e) $P(x) \wedge (\sim Q(x))$ is false for all $x \in S$.
+\begin{solution}{e}
+	After obtaining the negation of $P(x) \wedge (\sim Q(x))$ with the aid of \textit{De Morgan's Laws} we formulate the following implication:
+	\begin{equation*}
+		(\forall x \in S, (\sim P(x))\vee (Q(x))) \Rightarrow (\exists x\in S, (\sim P(x))\wedge (\sim Q(x)))
+	\end{equation*}
+The premise $\forall x \in S, (\sim P(x))\vee (Q(x))$ can be implied by multiple quantified statements. We show 3 of them:
+\begin{enumerate}
+	\item $\forall x \in S, (\sim P(x))\wedge (\sim Q(x))$
+	\item $\forall x \in S, (P(x))\wedge (Q(x))$
+	\item $\forall x \in S, (\sim P(x)) \wedge (Q(x))$
+\end{enumerate}
+Not all of them imply the quantified statement $\exists x\in S, (\sim P(x))\wedge (\sim Q(x))$ (syllogism). Therefore, the truthness of the quantified statement $\forall x \in S, (\sim P(x))\vee (Q(x))$ does not imply the quantified statement $\exists x\in S, (\sim P(x))\wedge (\sim Q(x))$. 
+\end{solution}
+\end{problem}
+
+\begin{problem}{73}
+	Let $P(x)$ and $Q(x)$ be open sentences where the domain of the variable $x$ is $T$. Which of the following implies that $P(x)\Rightarrow Q(x)$ is true for all $x \in T$?\\
+	The statement $P(x)\Rightarrow Q(x)$ is true for all $x \in T$. can be expressed in symbols with the aid of Theorem 17:
+	\begin{equation*}
+		\forall x \in T, (\sim P(x))\vee Q(x)
+	\end{equation*}
+	(a) $P(x)\wedge Q(x)$ is false for all $x\in T$.
+	\begin{solution}{a}
+		After applying \textit{De Morgan's Laws} to obtain the negation of $P(x)\wedge Q(x)$ (the quantified statement declares it is false for all $x\in T$) we formulate the implication
+		\begin{equation*}
+			(\forall x \in T, (\sim P(x))\vee (\sim Q(x)))\Rightarrow (\forall x \in T, (\sim P(x))\vee Q(x))
+		\end{equation*}
+	The premise $\forall x \in T, (\sim P(x))\vee (\sim Q(x))$ can be implied by multiple quantified statements. We show 3 of them:
+	\begin{enumerate}
+		\item $\forall x\in T, (\sim P(x)) \wedge Q(x)$
+		\item $\forall x \in T, P(x) \wedge (\sim Q(x))$
+		\item $\forall x \in T, (\sim P(x))\wedge (\sim Q(x))$
+	\end{enumerate}
+	Not all of the aforementioned statements implies $\forall x \in T, (\sim P(x))\vee Q(x)$. Therefore, $\forall x \in T, (\sim P(x))\vee (\sim Q(x))$ does not imply $\forall x \in T, (\sim P(x))\vee Q(x)$.
+	\end{solution}
+
+(b) $Q(x)$ is true for all $x \in T.$
+\begin{solution}{b}
+	The implication
+	\begin{equation*}
+		(\forall x \in T, Q(x)) \Rightarrow (\forall x \in T, (\sim P(x))\vee Q(x))
+	\end{equation*}
+	is true since the statement $Q(x)$ being true for all $x \in T$ means that the disjunction $(\sim P(x))\vee Q(x)$ will be true for all $x \in T$.
+\end{solution}
+
+(c) $P(x)$ is false for all $x \in T$.
+\begin{solution}{c}
+	The implication
+	\begin{equation*}
+		(\forall x \in T, \sim P(x))\Rightarrow (\forall x \in T, (\sim P(x))\vee Q(x))
+	\end{equation*}
+is true, because the disjunction $(\sim P(x))\vee Q(x)$ is true for all $x \in T$. This is so since $\sim P$ is true for all $x \in T$.
+\end{solution}
+
+(d) $P(x)\wedge (\sim Q(x))$ is true for some $x\in T.$
+\begin{solution}{d}
+	The following implication
+	\begin{equation*}
+		(\exists x \in T, P(x)\wedge (\sim Q(x))) \Rightarrow (\forall x \in T, (\sim P(x))\vee Q(x))
+	\end{equation*}
+is false. The premise states that for some $x \in T$ the negation of $(\sim P(x))\vee Q(x)$ will be true, which means that $(\sim P(x))\vee Q(x)$ will not be true for all $x \in T$.
+\end{solution}
+
+(e) $P(x)$ is true for all $x \in T.$
+\begin{solution}{e}
+	The implication
+	\begin{equation*}
+		(\forall x \in T, P(x)) \Rightarrow (\forall x \in T, (\sim P(x))\vee Q(x))
+	\end{equation*}
+	is false. Some quantified statements imply $\forall x \in T, P(x)$. We show 2 of them:
+	\begin{enumerate}
+		\item $\forall x\in T, P(x)\wedge Q(x)$
+		\item $\forall x\in T, P(x)\wedge (\sim Q(x))$
+	\end{enumerate} 
+Not all of them imply $\forall x \in T, (\sim P(x))\vee Q(x)$ (syllogism). 
+\end{solution}
+
+(f) $(\sim P(x))\wedge (\sim Q(x))$ is false for all $x \in T.$
+\begin{solution}{f}
+	After applying \textit{De Morgan's Laws} to obtain an open sentence logically equivalent to the negation of $(\sim P(x))\wedge (\sim Q(x))$, we formulate the following implication
+	\begin{equation*}
+		(\forall x \in T, P(x)\vee Q(x))\Rightarrow (\forall x \in T, (\sim P(x))\vee Q(x))
+	\end{equation*}
+The premise $\forall x \in T, P(x)\vee Q(x)$ can be implied by multiple quantified statements. Some of them are the following 3:
+\begin{enumerate}
+	\item $\forall x \in T, (\sim P(x))\wedge Q(x)$
+	\item $\forall x \in T, P(x) \wedge (\sim Q(x))$
+	\item $\forall x \in T, P(x)\wedge Q(x)$
+\end{enumerate}
+Not all of the aforementioned quantified statements imply $\forall x \in T, (\sim P(x))\vee Q(x)$ (syllogism). Therefore, the quantified statement $\forall x \in T, P(x)\vee Q(x)$ does not imply $\forall x \in T, (\sim P(x))\vee Q(x)$.
+\end{solution}
+\end{problem}
+
+\begin{problem}{74}
+	Consider the open sentence
+	\begin{equation*}
+		P(x,y,z):(x-1)^{2} + (y-2)^{2} + (z-2)^{2} > 0.
+	\end{equation*}
+	where the domain of each of the variables $x,y$ and $z$ is $\mathbb{R}$.\\
+	
+	(a) Express the quantified statement $\forall x \in \mathbb{R}, \forall y \in \mathbb{R}, \forall z \in \mathbb{R}, P(x,y,z)$ in words.
+	\begin{solution}{a}
+		For all real numbers $x,y$ and $z$, $(x-1)^{2} + (y-2)^{2} + (z-2)^{2}>0.$
+	\end{solution}
+
+	(b) Is the quantified statement in (a) true or false? Explain.
+	\begin{solution}{b}
+		It is false. One counterexample to this quantified statement is $(x,y,z) = (1,2,2)\in \mathbb{R}\times\mathbb{R}\times\mathbb{R}$. The inequality $(x-1)^{2} + (y-2)^{2}+(z-2)^{2} > 0$ does not hold for all ordered triples $(x,y,z) \in \mathbb{R}\times\mathbb{R}\times\mathbb{R}$.
+	\end{solution}
+
+	(c) Express the negation of the quantified statement in (a) in symbols.
+	\begin{solution}{c}
+		The negation of the quantified statement in (a) is
+		\begin{align*}
+			\sim (\forall x \in \mathbb{R}, \forall y \in \mathbb{R}, \forall z \in \mathbb{R}, P(x,y,z)) &\equiv \exists x \in \mathbb{R},\sim(\forall y \in \mathbb{R}, \forall z \in \mathbb{R}, P(x,y,z))\\
+			&\equiv \exists x \in \mathbb{R}, \exists y \in \mathbb{R}, \sim( \forall z \in \mathbb{R}, P(x,y,z))\\
+			&\equiv \exists x \in \mathbb{R}, \exists y \in \mathbb{R}, \exists z \in \mathbb{R}, \sim P(x,y,z).
+		\end{align*}
+	\end{solution}
+
+	(d) Express the negation of the quantified statement in (a) in words.
+	\begin{solution}{d}
+		There exist real numbers $x,y$ and $z$ such that $(x-1)^{2} + (y-2)^{2} + (z-2)^{2}\leq 0$.
+	\end{solution}
+
+	(e) Is the negation of the quantified statement in (a) true or false? Explain.
+	\begin{solution}{e}
+		The negation of the quantified statement in (a) is true since we've already found a counterexample for the quantified statemetn in (a). The inequality $(x-1)^{2} + (y-2)^{2} + (z-2)^{2}\leq 0$ is true for the ordered  triple $(x,y,z) = (1,2,2) \in \mathbb{R}\times \mathbb{R}\times \mathbb{R}$.
+	\end{solution}
+\end{problem}
+\begin{problem}{75}
+	Consider the quantified statement
+	\begin{equation*}
+		\text{For every }s\in S \text{ and } t\in S,st-2 \text{ is prime.}
+	\end{equation*}
+	where the domain of the variables $s$ and $t$ is $S=\{3,5,11\}.$\\
+	
+	(a) Express this quantified statement in symbols.
+	\begin{solution}{a} 
+		Let $P(s,t) : st-2$ is prime.\\
+		The quantified statement in (a) expressed in symbols is\\
+		$\forall s,t \in S, P(s,t)$.
+	\end{solution}
+	
+	(b) Is the quantified statement in (a) true or false? Explain.
+	\begin{solution}{b}
+		Due to the commutative properties of multiplication and the fact that $s$ and $t$ can have the same value since they have the same domain $S$ there will be \cite{Kombinatorik} 
+		\begin{equation*}
+			\binom{n+r-1}{r}=\frac{(n+r-1)!}{r!(n-1)!} = \frac{(3+2-1)!}{2!(3-1)!} = 6
+		\end{equation*} different results from the multiplication $st$ for all possible combinations of values for $s$ and $t$. If we susbtrac 2 from all of these 6 results we then obtain the following statements:
+	\begin{enumerate}
+		\item $(3)(3) -2 = 7$ is prime. 
+		\item $(3)(5)-2=13$ is prime.
+		\item $(3)(11)-2=31$ is prime.
+		\item $(5)(5)-2=23$ is prime.
+		\item $(5)(11)-2 = 53$ is prime.
+		\item $(11)(11)-2=119$ is prime.  
+	\end{enumerate}
+	The statement $P(11,11):$ 119 is prime. is false since 119 is a composite number. The ordered pair $(s,t)=(11,11)$ represent a counterexample to the quantified statement in (a). Thus, the quantified statement $\forall s,t \in S, P(s,t)$. is false.
+	\end{solution}
+
+	(c) Express the negation of the quantified statement in (a) in symbols.
+	\begin{solution}{c}
+		The negation of the quantified statement in (a) is
+		\begin{align*}
+			\sim(\forall x\in S, \forall t\in S, P(s,t)). & \equiv \exists s \in S, \sim(\forall t\in S, P(s,t)).\\
+			& \equiv \exists s \in S, \exists t \in S, \sim P(s,t).\\
+			& \equiv \exists s,t\in S, \sim P(s,t).
+		\end{align*}
+	\end{solution}
+	
+	(d) Express the negation of the quantified statement in (a) in words.
+	\begin{solution}{d}
+		There exist $s\in S$ and $t\in S$ such that $st-2$ is not prime.
+	\end{solution}
+	
+	(e) Is the negation of the quantified statement in (a) true or false? Explain.
+	\begin{solution}{e}
+		It is true since the original quantified statement in (a) is false. Not all numbers $st-2$ for all combinations of values of $s$ and $t$ will be prime.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{76}
+	Let $A$ be the set of circles in the plane with center $(0,0)$ and let $B$ be the set of circles in the plane with center $(1,1).$ Furthermore, let
+	\begin{equation*}
+		P(C_1,C_2):C_1 \text{ and } C_2 \text{ have exactly two points in common.}
+	\end{equation*}
+	be an open sentence where the domain of $C_1$ is $A$ and the domain of $C_2$ is $B$.\\
+	
+	(a) Express the following quantified statement in words:
+	\begin{equation}
+		\label{circles}
+		\forall C_1 \in A, \exists C_2 \in B, P(C_1,C_2)
+	\end{equation}
+	\begin{solution}{a}
+		For every circle $C_1 \in A$, there exists a circle $C_2\in B$ such that $C_1$ and $C_2$ have exactly two points in common.
+	\end{solution}
+
+	(b) Express the negation of the quantified statement in \textbf{(\ref{circles})} in symbols.
+	\begin{solution}{b}
+		The negation of \textbf{(\ref{circles})} is
+		\begin{align*}
+			\sim (\forall C_1 \in A, \exists C_2 \in B, P(C_1,C_2)) & \equiv \exists C_1 \in A, \sim(\exists C_2 \in B, P(C_1,C_2)).\\
+			&\equiv \exists C_1\in A, \forall C_2 \in B, \sim P(C_1,C_2).
+		\end{align*}
+	\end{solution}
+
+	(c) Express the negation of the quantified statement in \textbf{(\ref{circles})} in words.
+	\begin{solution}{c}
+		There exists a circle $C_1 \in A$ such that for every circle $C_2 \in B$, $C_1$ and $C_2$ don't have exactly two points in common.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{77}
+	For a triangle $T$, let $r(T)$ denote the ratio of the length of the longest side of $T$ to the length of the smallest side of $T$. Let $A$ denote the set of all triangles and let
+	\begin{equation*}
+		P(T_1,T_2) : r(T_2)\geq r(T_1).
+	\end{equation*}
+	be an open sentence where the domain of both $T_1$ and $T_2$ is $A$.\\
+	
+	(a) Express the following quantified statement in words
+	\begin{equation}
+		\label{triangles}
+		\exists T_1\in A, \forall T_2 \in A, P(T_1,T_2).
+	\end{equation}
+	\begin{solution}{a}
+		There exists a triangle $T_1 \in A$ such that for every triangle $T_2 \in A$, $r(T_2) \geq r(T_1).$
+	\end{solution}
+
+	(b) Express the negation of the quantified statement in \textbf{(\ref{triangles})} in symbols.
+	\begin{solution}{b}
+		The negation of \textbf{(\ref{triangles})} is
+		\begin{align*}
+			\sim(\exists T_1\in A, \forall T_2 \in A, P(T_1,T_2)) &\equiv \forall T_1\in A, \sim(\forall T_2 \in A, P(T_1,T_2))\\
+			& \equiv \forall T_1 \in A, \exists T_2 \in A, \sim P(T_1,T_2).
+		\end{align*}
+	\end{solution}
+
+	(c) Express the negation of the quantified statement in \textbf{(\ref{triangles})} in words.
+	\begin{solution}{c}
+		For every triangle $T_1 \in A$, there exists a triangle $T_2 \in A$ such that $r(T_2) < r(T_1)$
+	\end{solution}
+\end{problem}
+
+\begin{problem}{78}
+	Consider the open sentence $P(a,b):a/b < 1.$ where the domain of $a$ is $A = \{2,3,5\}$ and the domain of $b$ is $B = \{2,4,6\}$.\\
+	
+	(a) State the quantified statement $\forall a \in A, \exists b \in B, P(a,b).$ in words.
+	\begin{solution}{a}
+		For every $a \in A$, there exists $b \in B$ such that $a/b < 1$.
+	\end{solution}
+
+	(b) Show the quantified statement in (a) is true.
+	\begin{solution}{b}
+		For the inequality $a/b < 1$ to hold, $a < b$ must be true. The integer $b$ with the greatest value in $B$ is greater than the integer $a$ with the greatest value in $A$. Thus, every integer $a\in A$ can be divided by the integer $b$ with the greatest value in $B$ yielding an integer lower that 1 in all cases. The quantified statement in (a) is true.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{79}
+	Consider the open sentence $Q(a,b):a-b<0.$ where the domain of $a$ is $A = \{3,5,8\}$ and the domain of $b$ is $B = \{3,6,10\}$.\\
+	
+	(a) State the quantified statement $\exists b \in B, \forall a \in A, Q(a,b)$ in words.
+	\begin{solution}{a}
+	There exists $b \in B$ such that for every $a \in A$, $a-b < 0$.
+	\end{solution}  
+
+	(b) Show the quantified statement in (a) is true.
+	\begin{solution}{b}
+		For the inequality $a-b < 0.$ to hold, $a<b$ must be true. The integer $b$ with the greatest value in $B$ is greater than the integer $a$ with the greatest value in $A$. Therefore, substracting the integer $b$ with the greatest value in $B$ from every integer $a \in A$   yields an integer lower than 0 in all cases. The quantified statement in (a) is true.
+	\end{solution}
+\end{problem}
+\begin{thebibliography}{3}
+	\bibitem{Kombinatorik}
+	J. Roirdan, 
+	\textit{An Introduction to Combinatorial Analysis}, John Wiley \& Sons, INC., 1967.
+\end{thebibliography}
+\end{document}

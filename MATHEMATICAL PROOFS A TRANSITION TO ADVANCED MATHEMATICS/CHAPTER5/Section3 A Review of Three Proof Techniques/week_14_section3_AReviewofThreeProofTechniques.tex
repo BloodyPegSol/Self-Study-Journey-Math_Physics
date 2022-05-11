@@ -1,0 +1,166 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 14}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 3: A Review of Three Proof Techniques}
+	\date{November 09, 2021}
+	\maketitle
+
+	\begin{problem}{34}
+		Prove that if $n$ is an odd integer, then $7n-5$ is even by\\
+		
+		(a) Direct Proof
+		\begin{solution}{a}
+			Let $n$ be an odd integer. Then $n=2c+1$ for some $c\in \Z$. Therefore, $7n -5 = 7(2c+1)-5 = 14c+2 = 2(7c+1)$. Since $7c+1 \in \Z$, it follows that $7n-5$ is even. Note that $7n$ is odd (odd integer times an odd integer) and $-5$ is also odd; so their sum must be an even integer.
+		\end{solution}
+	
+		(b) Proof by Contrapositive
+		\begin{solution}{b}
+			Let $7n-5$ be an odd integer. Then $7n-5 = 2c +1$, where $c\in \Z$. Note that
+			\begin{equation*}
+				n = (7n-5) + (-6n+5) = 2c+1-6n+5 = 2(c-3n+3)
+			\end{equation*}
+		Since $c-3n+3 \in \Z$, it follows that $n$ is even.\\
+		
+		\textbf{ALTERNATE SOLUTION}\\
+		
+		Let $7n-5$ be an odd integer. Then $7n-5 = 2c+1$, where $c\in \Z$. Note that $7n = 2c+1+5 = 2(c+3)$. Since $c+3\in \Z$, it follows that $7n$ is even. By theorem, either $7$ or $n$ are even. Then $2\mid n$ since $2\nmid 7$.
+		\end{solution}
+	
+		(c) Proof by Contradiction
+		\begin{solution}{c}
+			Assume, to the contrary, that there is an odd integer $n$ such that $7n-5$ is odd. Then $n=2c+1$ for some integer $c$. Therefore, $7n-5 = 7(2c+1)-5 = 14c+7-5 = 14c+2 = 2(7c+1)$. Since $7c+1$ is an integer, $7n-5$ is even. This contradicts our initial assumption. 
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{35}
+		Let $x$ be a positive real number. Prove that if $x-\frac{2}{x}>1$, then $x>2$ by\\
+		
+		(a) Direct Proof
+		\begin{proof}
+			Let $x$ be a positive real number such that $x-\frac{2}{x}>1$. Since $x>0$, we can multiply both sides of the inequality $x-\frac{2}{x}>1$ by $x$. Therefore, $x^{2} -2 >x$ and so $x^{2}-x-2>0$. Factorizing we find that $(x+1)(x-2)>0$. Since $x+1>0$, it follows, by dividing both sides by $x+1$, that  $x-2>0$. Therefore, $x>2$.
+		\end{proof} 
+	
+		(b) Proof by Contrapositive
+		\begin{proof}
+			Let $x$ be a positive real number such that $x\leq 2$. Then $x-2\leq 0$. Since $x>0$, it follows that $x+1$ is a positive number. Multiplying both sides of the inequality $x-2 \leq 0$ by the positive number $x+1$ yields $(x+1)(x-2)\leq 0$. Note that
+			\begin{align*}
+				(x+1)(x-2)&\leq 0\\
+				x^{2} -x -2 &\leq 0\\
+				x^{2}-2 &\leq x
+			\end{align*}
+		Since $x$ is positive, it follows, by dividing both sides by $x$, that $x - \frac{2}{x} \leq 1$.
+		\end{proof}
+	
+		(c) Proof by Contradiction
+		\begin{proof}
+			Assume, to the contrary, that there is a positive real number $x$ such that $x-\frac{2}{x}>1$ and $x\leq 2$. Since $x\leq 2$, it follows that $x-2\leq 0$ and by multiplying both sides by the positive number $x+1$ we get that $(x+1)(x-2) = x^{2} -x-2\leq 0$. Dividing by the positive real number $x$ yields $x-\frac{2}{x} -1\leq 0$ and so $x-\frac{2}{x}\leq 1$. This clearly leads to a contradiction.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{36}
+		Let $a,b\in \R$. Prove that if $ab\neq 0$, then $a\neq 0$ by using as many of the three proof techniques as posible.\\
+		
+		(a) Proof by Contrapositive
+		\begin{proof}
+			Assume that $a = 0$. Then $ab = 0b = 0$. Therefore, $ab = 0$.
+		\end{proof}
+	
+		(b) Proof by Contradiction
+		\begin{proof}
+			Assume, to the contrary, that there exist some real numbers $a$ and $b$ such that $ab\neq 0$ and $a=0$. Then, $ab = 0b = 0$, which contradicts our initial assumption.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{37}
+		Let $x,y \in \R^{+}$. Prove that if $x\leq y$, then $x^{2}\leq y^{2}$ by\\
+		
+		(a) Direct Proof
+		
+	\begin{proof}
+		Let $x,y \in \R^{+}$. Assume that $x \leq y$. Multiplying both sides by the positive real numbers $x$ and $y$, respectively, we get that $x^{2} \leq xy$ and $xy \leq y^{2}$. Therefore, $x^{2} \leq xy \leq y^{2}$ and so $x^{2} \leq y^{2}$.\\
+	\end{proof}
+
+	(b) Proof by Contrapositive
+	\begin{proof}
+		Let $x,y \in \R^{+}$. Assume that $x^{2} > y^{2}$. Then $x^{2} - y^{2} > 0$ and so $(x+y)(x-y) >0$. Since $x+y>0$, we can divide both sides by $x+y$. Therefore, $x-y>0$ and so $x>y$.
+	\end{proof}
+
+	(c) Proof by Contradiction
+	\begin{proof}
+		Assume, to the contrary, that there exist two positive real numbers $x$ and $y$ such that $x\leq y$ and $x^{2} > y^{2}$. Multiplying both sides of $x \leq y$ by the positive $x$ we get that $x^{2} \leq xy$. Then, multiplying $x\leq y$ by the positive real number $y$ we get that $xy \leq y^{2}$. Thus, $x^{2} \leq xy \leq y^{2}$ and so $x^{2} \leq y^{2}$, which leads to a contradiction.\\
+	\end{proof}
+	\end{problem}
+
+	\begin{problem}{38}
+		Prove the following statement using more than one method of proof.\\
+		Let $a,b\in \Z$. If $a$ is odd and $a+b$ is even, then $b$ is odd and $ab$ is odd.\\
+		
+		(a) Direct Proof
+		\begin{proof}
+			Let $a,b \in \Z$ such that $a$ is odd and $a+b$ is even. Since $a+b$ is even, it follows, by \textit{Theorem 3.16}, that $a$ and $b$ are of the same parity and so $b$ is odd. Therefore, $a = 2n+1$ and $b = 2m+1$ where $n,m\in \Z$. Then, $ab = (2n+1)(2m+1) = 4nm+2n+2m+1 = 2(2nm+n+m)+1$. Since $2nm+n+m \in \Z$, it follows that $ab$ is odd.
+		\end{proof}
+	
+		(b) Proof by Contradiction
+		\begin{proof}
+			Assume, to the contrary, that there exist two integers $a$ and $b$ such that $a$ is odd and $a+b$ is even, and either $b$ or $ab$ are even. Since $a+b$ is even, it follows, by \textit{Theorem 3.16}, that $a$ and $b$ are of the same parity and so $b$ is odd. Therefore, $a = 2n+1$ and $b = 2m+1$ where $n,m\in \Z$. Then, $ab = (2n+1)(2m+1) = 4nm+2n+2m+1 = 2(2nm+n+m)+1$. Since $2nm+n+m \in \Z$, it follows that $ab$ is odd. Because $b$ and $ab$ are odd, this leads to a contradiction
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{39}
+		Prove the following statement using more than one method of proof.\\
+		For every three integers $a,b$ and $c$, exactly two of the integers $ab$, $ac$ and $bc$ cannot be odd.\\
+		
+		(a) Direct Proof
+		\begin{proof} 
+			Let $a,b$ and $c$ be integers. We have to show that exactly two of the integers $ab$, $ac$ and $bc$ cannot be odd. If the all of $a,b,c$ are odd, then the three integers $ab$, $ac$ and $cb$ are odd. If one of them is even, say $b$, then $ab$ and $cb$ are even. Therefore, exactly two of the integers $ab$, $ac$ and $bc$ can not be odd.
+		\end{proof}
+	  
+		(a) Proof by Contradiction
+		\begin{proof}
+			 Assume, to the contrary, that there are 3 integers $a,b$ and $c$ such that exactly two of the integers $ab$, $ac$ and $bc$ are odd. Note that for every possible pair of the integers $ab$, $ac$ and $bc$, an integer of $a$, $b$ and $c$ will be multiplied by the other two, respectively (i.e., $ab$ and $ac$). Since two of them are odd, this implies that the three integers $a,b$ and $c$ must be odd by the previous reason. However the three integers $ab$, $ac$ and $bc$ end up being odd, leading to a contradiction.
+		\end{proof}
+	\end{problem}
+\end{document}

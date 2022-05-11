@@ -1,0 +1,173 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+	
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+	
+\title{Week 2}
+\author{Juan Patricio Carrizales Torres \\
+Section 5: More on Implication}
+
+\maketitle
+
+\begin{problem}{30}
+	Consider the open sentences $P(n): 5n + 3 \text{ is prime.}$ and $Q(n): 7n + 1 \text{ is prime.}$, both over the domain $\mathbb{N}$.\\
+	
+	(A) State $P(n) \implies Q(n)$ in words.
+\begin{solution}{a}
+	$P(n) \implies Q(n):$ If $5n +3$ is prime, then $7n + 1$ is prime.
+\end{solution}
+
+	(B) State $P(2) \implies Q(2)$ in words. Is this statement true or false?
+\begin{solution}{b}
+	$P(2) \implies Q(2):$ If 13 is prime, then 15 is prime. This statement is false because the hypothesis $P(2)$ is true and the conclusion $Q(2)$ is false.
+\end{solution}
+
+	(C) State $P(6) \implies Q(6)$ in words. Is this statement true or false?
+\begin{solution}{c}
+	$P(6) \implies Q(6):$ If 33 is prime, then 43 is prime. This statement is true, because $P(6)$ is false and $Q(6)$ is true.
+\end{solution}
+\end{problem}
+
+\begin{problem}{31}
+	In each of the following, two open sentences $P(x)$ and $Q(x)$ over a domain $S$ are given. Determine the truth value of $P(x) \implies Q(x)$ for each $x \in S$.\\
+	
+	(A) $P(x): \vert{x}\vert = 4; \; Q(x):x=4; \; S= \{-4, -3, 1, 4, 5\}.$
+	\begin{solution}{a}
+		$P(-4) \implies Q(-4) :$ if $4 = 4$, then $-4 = 4$. $P(-4)$ is true and $Q(-4)$ is false. This implication is false.\\
+		$P(-3) \implies Q(-3):$ if $3 = 4$, then $-3 = 4$. Both $P(-3)$ and $Q(-3)$ are false. This implication is true.\\
+		$P(1) \implies Q(1):$ if $1 = 4$, then $1 = 4$. Both $P(1)$ and $Q(1)$ are false. This implication is true.\\
+		$P(4) \implies Q(4):$ if $4 = 4$, then $4 = 4$. Both $P(4)$ and $Q(4)$ are true. This statement is true. \\
+		$P(5) \implies Q(5):$ if $5 = 4$, then $5 = 4$. Both $P(5)$ and $Q(5)$ are false. This statement is true.\\
+	\end{solution}
+	
+	(B) $P(x): x^{2} = 16; \; Q(x):\vert{x}\vert = 4; \; S=\{-6, -4, 0, 3, 4, 8\}.$
+	\begin{solution}{b}
+		$P(-6) \implies Q(-6):$ if $36 = 16$, then $6 = 4$. Both the hypothesis and conclusion are false. This statement is true.\\
+		$P(-4) \implies Q(-4):$ if $16 = 16$, then $4 = 4$. Both the hypothesis and conclusion are true. This statement is true.\\
+		$P(0) \implies Q(0):$ if $0 = 16$, then $0 = 4$. Both the hypothesis and conclusion are false. This statement is true.\\
+		$P(3) \implies Q(3):$ if $9 = 16$ then $3 = 4$. Both the hypothesis and conclusion are false. This implication is true.\\
+		$P(4) \implies Q(4):$ if $16 = 16$, then $4 = 4$. Both the hypothesis and conclusion are true. This implication is true.\\
+		$P(8) \implies Q(8):$ if $64 = 16$, then $8 = 4$. Both the hypothesis and conclusion are false. This implication is true.\\
+		$P(x) \implies Q(x)$ is true for all $x \in S$.\\
+	\end{solution}
+
+	(C) $P(x): x > 3; \; Q(x): 4x -1 > 12; \; S=\{0, 2, 3, 4, 6\}.$ 
+	\begin{solution}{c}
+		$P(0) \implies Q(0):$ if $0 > 3$, then $-1 > 12$. Both the hypothesis and conclusion are false. This statement is true.\\
+		$P(2) \implies Q(2):$ if $2 > 3$, then $7 > 12$. Both the hypothesis and conclusion are false. This statement is true.\\
+		$P(3) \implies Q(3):$ if $3 > 3$, then $11 > 12$. Both the hypothesis and conclusion are false. This statement is true.\\
+		$P(4) \implies Q(4):$ if $4 > 3$, then $15 > 12$. Both the hypothesis and conclusion are true. This statement is true.\\
+		$P(6) \implies Q(6):$ if $6 > 3$, then $23 > 12$. Both the hypothesis and conclusion are true. This statement is true.\\
+		$P(x) \implies Q(x)$ is true for all $x \in S$.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{32}
+	In each of the following, two open sentences $P(x)$ and $Q(x)$ over a domain $S$ are given. Determine all $x \in S$ for which $P(x) \implies Q(x)$ is a true statement.\\
+	
+	(A) $P(x): x-3=4; \; Q(x): x \geq 8; \; S = \mathbb{R}$.
+	\begin{solution}{a}
+		We must find a subset $M$ of $S$ for whose elements the implication $P(x) \implies Q(x)$ is true, which is the same as saying that for all $x \in M$ the open sentence $(\sim P(x))\vee Q(x)$ is true. $(\sim P(x)) \vee Q(x):  x - 3 \neq 4$ or $x \geq 8$, and by simplifying  $\sim P(x)$ we get $(\sim P(x)) \vee Q(x):  x \neq 7$ or $x \geq 8$. Thus, the subset M is as follows: $M = \{x \in \mathbb{R}: x \geq 8 \text{ or } x \neq 7\}$. Since the elements $x$ must satisfy a disjunction and  all real numbers except the number 7 make either the statement $Q(x)$ or $\sim P(x)$ true, the subset $M$ contains all $x \in \mathbb{R}$ except the 7. \\ 
+	\end{solution}
+
+	(B) $P(x): x^{2} \geq 1; \; Q(x): x \geq 1; \; S = \mathbb{R}$.
+	\begin{solution}{b}
+		For all elements in the subset $M$ of $S$ the open sentence $(\sim P(x)) \vee Q(x)$ must be true so that they also make the implication $P(x) \implies Q(x)$ true. $(\sim P(x)) \vee Q(x): x^2 < 1 \text{ or } x \geq 1$, and after solving for $x$ in $P(x)$ the disjunction becomes $(\sim P(x)) \vee Q(x): -1 < x < 1 \text{ or } x \geq 1$. The subset $M$ would be the following: $M = \{x \in \mathbb{R}: -1 < x < 1 \text{ or } x \geq 1\}$, which means that $M = (-1, \infty)$.\\
+	\end{solution}
+
+	(C) $P(x): x^{2} \geq 1; \; Q(x): x\geq 1; \; S = \N$.
+	\begin{solution}{c}
+		The two open sentences $P(x)$ and $Q(x)$ are the same as the ones from the section (B), but now $S = \N$. The disjunction for every $x \in M$ to fullfil is $(\sim P(x)) \vee Q(x): -1 < x < 1 \text{ or } x \geq 1$. However, since $M$ is a subset of $S$ and there are no negative integers in $\N$, for every $x \in M$ the disjunction  $0 \leq x < 1 \text{ or } x \geq 1$ must be true.  Thus, $M = \{x \in \N: x\geq 0\}$, which is the same as $M = \{0, 1, 2, 3, \dots \}$.
+	\end{solution}
+	
+	(D) $P(x): x \in [-1,2]; \; Q(x): x^{2} \leq 2; \; S=[-1,1]$.
+	\begin{solution}{d}
+		Every element in the subset $M$ of $S$ must make the disjunction $(\sim P(x)) \vee Q(x): x \notin [-1,2] \text{ or } x^{2} \leq 2$ true. It's important to remark that $S \subset [-1,2]$, thus for every $x \in S$ the open sentence $\sim P(x)$ will be false. Aditionally, every element of $S$ makes the open sentence $Q(x)$ true, this means that $M = S$.
+	\end{solution}
+\end{problem}
+\begin{problem}{33}
+	In each of the following, two open sentences $P(x,y)$ and $Q(x,y)$ are given, where the domain of both $x$ and $y$ is $\Z$. Determine the truth value of $P(x,y) \implies Q(x,y)$ for the given values of $x$ and $y$.\\
+	
+	(A) $P(x,y): x^{2} - y^{2} = 0.$ and $Q(x,y): x = y.$\\
+		$\quad (x,y) \in \{(1,-1),(3,4),(5,5)\}$. 
+		\begin{solution}{a}
+			$P(1,-1) \implies Q(1,-1):$ if $0 = 0$, then $1 = -1$. This implication is false, because the hypothesis is true and the conclusion is false.\\
+			$P(3,4) \implies Q(3,4):$ if $-7 = 0$, then $3 = 4$. The implication is true, because both the premise and conclusion are false.\\
+			$P(5,5) \implies Q(5,5):$ if $0 = 0$, then $5 = 5$. This implication is true, because both the premise and conclusion are true.
+		\end{solution}
+	(B) $P(x,y): \vert{x}\vert = \vert{y}\vert.$ and $Q(x,y): x= y$. \\
+	$(x,y) \in \{(1,2), (2,-2), (6,6)\}$.
+	\begin{solution}{b}
+		$P(1,2) \implies Q(1,2):$ if $1 = 2$, then $1 = 2$. This implication is true, because both the premise and conclusion are false.\\
+		$P(2,-2) \implies Q(2,-2):$ if $2 = 2$, then $2 = -2$. This implication is false, because the premise is true and the conclusion is false.\\
+		$P(6,6) \implies Q(6,6):$ if $6 = 6$, then $6 = 6$. This implication is true, since both the premise and conclusion are true.
+	\end{solution}
+	(C) $P(x,y): x^{2} + y^{2} = 1.$ and $Q(x,y): x + y = 1$.\\
+	$(x,y) \in \{(1,-1), (-3,4), (0,-1), (1,0)\}$
+	\begin{solution}{c}
+		$P(1,-1) \implies Q(1,-1): $ if $2 = 1$, then $0 = 1$. The implication is true, since both the premise and conclusion are false.\\
+		$P(-3,4) \implies Q(-3,4): $ if $25 = 1$, then $1 = 1$. This implication is true, because the premise is false and the conclusion is true.\\
+		$P(0,-1) \implies Q(0,-1):$ if $1 = 1$, then $-1 = 1$. The implication is false, because the premise is true and the conclusion is false true.\\
+		$P(1,0) \implies Q(1,0):$ if $1 = 1$, then $1 = 1$. Both the premise and conclusion are true, which means that the implication is true.
+	\end{solution}
+\end{problem}
+\begin{problem}{34}
+	Each of the following describes an implication. Write the implication in the form "if, then."\\
+	
+	(A) Any point on the straight line with equation $2y + x -3 = 0$ whose $x$-coordinate is an integer also has an integer for its $y$-coordinate.
+	\begin{solution}{a}
+		If the $x$-coordinate of a point on the straight line with equation $2y + x -3 = 0$ is an integer, then its $y$-coordinate is an integer.
+	\end{solution}
+
+	(B) The square of every odd integer is odd.
+	\begin{solution}{b}
+		If $x$ is odd, then $x^{2}$ is odd.
+	\end{solution}
+
+	(C) Let $n \in \Z$. Whenever $3n + 7$ is even, $n$ is odd.
+	\begin{solution}{c}
+		If $3n+7$ is even, then $n$ is odd.
+	\end{solution}
+
+	(D) The derivative of the function $f(x) = \cos{x}$ is $f'(x) = -\sin{x}$.
+	\begin{solution}{d}
+		If $f(x) = \cos{x}$, then $f'(x) = -\sin{x}$.
+	\end{solution}
+
+	(E) Let $C$ be a circle of circumference $4\pi$. Then the area of $C$ is also $4\pi$.
+	\begin{solution}{e}
+		If $C$ is a circle and $C$ has a circumference of $4\pi$, then the area of $C$ is $4\pi$.
+	\end{solution}
+	
+	(F) The integer $n^{3}$ is even only if $n$ is even.
+	\begin{solution}{f}
+		If $n^{3}$ is even, then $n$ is even.
+	\end{solution}
+\end{problem}
+\end{document}

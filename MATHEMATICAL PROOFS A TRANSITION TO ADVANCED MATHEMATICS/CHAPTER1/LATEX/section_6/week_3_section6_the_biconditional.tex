@@ -1,0 +1,307 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+	
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+\title{Week 3}
+\author{Juan Patricio Carrizales Torres \\
+Section 6: The Biconditional}
+
+\maketitle
+
+\begin{problem}{35}
+	Let $P:$ 18 is odd. and $Q: $ 15 is even. State $P \Leftrightarrow Q$ in words. Is $P \Leftrightarrow Q$ true or false?
+	\begin{solution}{}
+		$P \Leftrightarrow Q:$ The integer 18 is odd if and only if 15 is even.\\
+		This biconditional is true since both statements are false.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{36}
+	Let $P(x): x$ is odd. and $Q(x): x^{2}$ is odd. be open sentences over the domain $\Z$. State $P(x) \Leftrightarrow Q(x)$ in two ways: (1) using "If and only if" and (2) using "necessary and sufficient".
+	\begin{solution}{}
+		$P(x) \Leftrightarrow Q(x): $ The integer $x$ is odd if and only if $x^{2}$ is odd.
+		
+		$P(x) \Leftrightarrow Q(x):$ The condition $x$ is odd is necessary and sufficient for $x^{2}$ is odd. 
+	\end{solution}
+\end{problem}
+
+\begin{problem}{37}
+	For the open sentences $P(x): \vert{x-3}\vert < 1.$ and $Q(x): x \in (2,4).$ over the domain $\mathbb{R}$, state the biconditional $P(x) \Leftrightarrow Q(x)$ in two different ways.
+	\begin{solution}{}
+		$P(x) \Leftrightarrow Q(x): $ The real number $\vert{x-3}\vert < 1$ is equivalent to $x \in (2,4)$.\\
+		$P(x) \Leftrightarrow Q(x): $ The condition $\vert{x-3}\vert < 1$ is necessary and sufficient for $x \in (2,4).$
+	\end{solution}
+\end{problem}
+
+\begin{problem}{38}
+	Consider the open sentences:
+	\begin{quote}
+		\centering
+		$P(x): x = -2. \text{ and } Q(x): x^{2} = 4.$
+	\end{quote}
+	over the domain $S = \{-2, 0, 2\}.$ State each of the following in words and determine all values of $x \in S$ for which the resulting statements are true.\\
+	
+	(A) $\sim P(x): $ The integer $x \neq -2$.\\ 
+	$\sim P(0)$ and $\sim P(2)$ are true statements, while $\sim P(-2)$ is false.\\
+	
+	(B) $P(x) \vee Q(x): $ Either $x = -2$ or $x^{2} = 4.$\\
+	$P(-2)\vee Q(-2)$ and $P(2)\vee Q(-2)$ are true, while $P(0)\vee Q(0)$ is false.\\
+	
+	(C) $P(x)\wedge Q(x):$ The integer $x = -2$ and $x^{2} = 4.$\\ 
+	Just $P(-2)\wedge Q(-2)$ is true, while $P(0)\wedge Q(0)$ and $P(2)\wedge Q(2)$ are false.\\
+	
+	(D) $P(x) \Rightarrow Q(x): $ If $x = -2$, then $x^{2} = 4$.\\
+	The implication is true for all $x \in S$.\\
+	
+	(E) $Q(x) \Rightarrow P(x):$ If $x^{2} = 4$, then $x = -2$.\\
+	The implications $Q(-2) \Rightarrow P(-2)$ (both premise and conclusion true) and $Q(0) \Rightarrow P(0)$ (both premise and conclusion false) are true, while $Q(2) \Rightarrow P(2)$ (premise true and conclusion false) is false.\\
+	
+	(F) $P(x) \Leftrightarrow Q(x): $ The integer $x = -2$ if and only if $x^{2} = 4.$\\
+	Both $(P(-2)\Rightarrow Q(-2))\wedge (Q(-2)\Rightarrow P(-2))$ and $(P(0)\Rightarrow Q(0))\wedge (Q(0)\Rightarrow P(0))$ are true, while $(P(2)\Rightarrow Q(2))\wedge (Q(2)\Rightarrow P(2))$ is false since $Q(2)\Rightarrow P(2)$ is false. Therefore, $P(-2) \Leftrightarrow Q(-2)$ and $P(0) \Leftrightarrow Q(0)$ are true, while $P(2) \Leftrightarrow Q(2) $ is false.
+	
+\end{problem}
+
+\begin{problem}{39}
+	For the following open sentences $P(x)$ and $Q(x)$ over a domain $S$, determine all values of $x \in S$ for which the biconditional $P(x) \Leftrightarrow Q(x)$ is true.\\
+	
+	Before we start with the excercises, it is important to remark that $P(x) \Leftrightarrow Q(x)$ is true only for those values that make both open statements $P(x)$ and $Q(x)$ have the same truth value.\\
+	
+	(A) $P(x): \vert{x}\vert = 4; \; Q(x) : x = 4; \; S = \{-4, -3, 1, 4, 5\}.$	
+	\begin{solution}{a}
+		The statement $P(-4)$ is true, while $Q(-4)$ is false. Therefore, $P(-4) \Leftrightarrow Q(-4)$ is false.\\
+		Both $P(-3)$ and $Q(-3)$ are false. Thus, $P(-3) \Leftrightarrow Q(-3)$ is true.\\
+		Both $P(1)$ and $Q(1)$ are false. The biconditional $P(1) \Leftrightarrow Q(1)$ is true.\\
+		Since $P(4)$  and $Q(4)$ are true, $P(4) \Leftrightarrow Q(4)$ is true.\\
+		Both $P(5)$ and $Q(5)$ are false. Therefore, $P(5) \Leftrightarrow Q(5)$ is true.\\
+		The biconditional $P(x) \Leftrightarrow Q(x)$ is true for all $x \in S$ except $-4$.
+	\end{solution}
+
+	(B) $P(x):x \geq 3; \; Q(x): 4x - 1 > 12; \; S=\{0,2,3,4,6\}$.
+	\begin{solution}{b}
+		Both $P(0)$ and $Q(0)$ are false, which means that $P(0) \Leftrightarrow Q(0)$ is true. \\
+		Both $P(2)$ and $Q(2)$ are false. Therefore, $P(2) \Leftrightarrow Q(2)$ is true.\\
+		The statement $P(3)$ is true, but $Q(3)$ is false. Thus, $P(3) \Leftrightarrow Q(3)$ is false.\\
+		Since $P(4)$ and $Q(4)$ are true, $P(4) \Leftrightarrow Q(4)$ is true.\\
+		Both $P(6)$ and $Q(6)$ are true. Thus, $P(6) \Leftrightarrow Q(6)$ is true.\\
+		The biconditional $P(x) \Leftrightarrow Q(x)$ is true for all $x \in S$ except 3.
+	\end{solution}
+
+	(C) $P(x): x^{2} = 16; \; Q(x): x^{2} - 4x = 0; \; S = \{-6, -4, 0, 3, 4, 8\}$.
+	\begin{solution}{c}
+		Since $P(-6)$ and $Q(-6)$ are false, $P(-6) \Leftrightarrow Q(-6)$ is true.\\
+		The statement $P(-4)$ is true, but $Q(-4)$ is false. Therefore, $P(-4) \Leftrightarrow Q(-4)$ is false.\\
+		The statement $P(0)$ is false, while $Q(0)$ is true. Thus, $P(0) \Leftrightarrow Q(0)$ is false.\\
+		Both $P(3)$ and $Q(3)$ are false, which means that $P(3) \Leftrightarrow Q(3)$ is true.\\
+		Both $P(4)$ and $Q(4)$ are true. Therefore, $P(4) \Leftrightarrow Q(4)$ is true.
+		Since $P(8)$ and $Q(8)$ are false, $P(8) \Leftrightarrow Q(8)$ is false.\\
+		The biconditional $P(x) \Leftrightarrow Q(x)$ is true just for all $x \in S$ except $-4$ and 0.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{40}
+	In each of the following, two open sentences $P(x,y)$ and $Q(x,y)$ are given, where the domain of both $x$ and $y$ is $\Z$. Determine the truth value of $P(x,y) \Leftrightarrow Q(x,y)$ for the given values of $x$ and $y$.\\
+	
+(A) $P(x,y):x^{2}-y^{2} = 0$ and; $Q(x,y): x=y.$\\
+\indent $(x,y) \in \{(1,-1),(3,4),(5,5)\}$.
+\begin{solution}{a}
+	For $(x,y) = (1,-1)$, $P(1,-1): 0=0; \; Q(1,-1):1 = -1.$\\
+	The statement $P(1,-1)$ is true, but $Q(1, -1)$ is false. Since both have different truth values, $P(1,-1) \Leftrightarrow Q(1,-1)$ is false.\\
+	
+	\noindent For $(x,y) = (3,4)$, $P(3,4): -7 = 0; \; Q(3,4) : 3 = 4.$\\
+	Both $P(3,4)$ and $Q(3,4)$ are false. The biconditional $P(3,4) \Leftrightarrow Q(3,4)$ is therefore true.\\
+	
+	\noindent For $(x,y) = (5,5)$, $P(5,5): 0 = 0; \; Q(5,5): 5=5.$\\
+	Since $P(5,5)$ and $Q(5,5)$ are true, $P(5,5) \Leftrightarrow Q(5,5)$ is true.\\ 
+\end{solution}
+
+(B) $P(x,y): \vert{x}\vert = \vert{y}\vert$ and; $Q(x,y): x = y$.\\
+\indent $(x,y)\in \{(1,2),(2,-2),(6,6)\}$.
+\begin{solution}{b}
+	For $(x,y) = (1,2)$, $P(1,2) : 1 = 2; \; Q(1,2) : 1 = 2.$\\
+	Both $P(1,2)$ and $Q(1,2)$ are false. Thus, $P(1,2) \Leftrightarrow Q(1,2)$ is true.\\
+	
+	\noindent For $(x,y) = (2,-2)$, $P(2,-2):2 = 2; \; Q(2,-2): 2 = -2.$\\
+	Since $P(2,-2)$ is true and $Q(2,-2)$ is false, $P(2,-2) \Leftrightarrow Q(2,-2)$ is false.\\ 
+	
+	\noindent For $(x,y) = (6,6)$, $P(6,6) : 6 = 6; \; Q(6,6) : 6 = 6.$\\
+	The statements $P(6,6)$ and $Q(6,6)$ are true, which means that $P(6,6) \Leftrightarrow Q(6,6)$ is true.\\
+\end{solution}
+
+(C) $P(x,y): x^{2} + y^{2} = 1$ and; $Q(x,y) : x + y =1.$\\
+\indent $(x,y) \in \{(1,-1),(-3,4),(0,-1),(1,0)\}$.
+\begin{solution}{c}
+	For $(x,y) = (1,-1)$, $P(1,-1):2=1; \; Q(1,-1):0=1.$\\
+	Both $P(1,-1)$ and $Q(1,-1)$ are false. The biconditional $P(1,-1) \Leftrightarrow Q(1,-1)$ is therefore true.\\ 
+	
+	\noindent For $(x,y) = (-3, 4)$, $P(-3,4): 25 = 1; \; Q(-3,4): 1 = 1.$\\
+	The statements have different truth values, because $P(-3,4)$ is false and $Q(-3,4)$ is true. This means that $P(-3,4) \Leftrightarrow Q(-3,4)$ is false.\\
+	
+	\noindent For $(x,y) = (0,-1)$, $P(0,-1):1=1; \; Q(0,-1): -1 = 1.$\\
+	The statement $P(0,-1)$ is true, but $Q(0,-1)$ is false. Therefore, $P(0,-1) \Leftrightarrow Q(0,-1)$ is false.\\
+	
+	\noindent For $(x,y) = (1,0)$, $P(1,0):1=1; \; Q(1,0):1=1.$\\
+	Since $P(1,0)$ and $Q(1,0)$ are true, $P(1,0) \Leftrightarrow Q(1,0)$ is true.\\
+\end{solution}
+
+\end{problem}
+\begin{problem}{41}
+	Determine all values of $n$ in the domain $S = \{1,2,3\}$ for which the following is a true statement:\\
+	A necessary and sufficient condition for $\frac{n^{3} + n}{2}$ to be even is that $\frac{n^{2}+n}{2}$ is odd.
+	
+	\begin{solution}{}
+	This open sentence is the biconditional $P(n) \Leftrightarrow Q(n)$ of these two open sentences:
+	\begin{quote}
+		\centering
+		$P(n) : \frac{n^{2}+n}{2} \text{ is odd.} \quad Q(n) : \frac{n^{3} + n}{2} \text{ is even.}$
+	\end{quote}
+	We are now ready to start with the excercise.\\
+	
+	For $n = 1$. $P(1): 1$ is odd; $Q(1): 1$ is even.\\
+	The statement $P(1)$ is true and $Q(1)$ is false. Therefore, $P(1) \Leftrightarrow Q(1)$ is false.\\
+	
+	For $n = 2$. $P(2): 3$ is odd; $Q(2): 5$ is even.\\
+	The statement $P(2)$ is true, but $Q(2)$ is false. The biconditional $P(2) \Leftrightarrow Q(2)$ is false.\\
+	
+	For $n = 3$. $P(3): 6$ is odd; $Q(3): 15$ is even.\\
+	Since $P(3)$ and $Q(3)$ are false, $P(3) \Leftrightarrow Q(3)$ is true.\\
+	Of all $n \in S$, only for $n = 3$ the biconditional $P(x) \Leftrightarrow Q(x)$ is true.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{42}
+	Determine all values of $n$ in the domain $S = \{2,3,4\}$ for which the following is a true statement:\\
+	 The integer $\frac{n(n-1)}{2}$ is odd if and only if $\frac{n(n+1)}{2}$ is even.
+	 \begin{solution}{}
+	 This biconditional $P(n) \Leftrightarrow Q(n)$ is composed of the two open statements:
+	 \begin{quote}
+	 	\centering
+	 	$P(n):\frac{n(n-1)}{2} \text{ is odd.} \quad Q(n):\frac{n(n+1)}{2} \text{ is even.}$
+	 \end{quote}
+ 	
+ 	\noindent For $n = 2$, $P(2): 1$ is odd; $Q(2): 3$ is even.\\
+ 	The statement $P(2)$ is true, while $Q(2)$ is false. The biconditional $P(2) \Leftrightarrow Q(2)$ is therefore false.\\
+ 	
+ 	\noindent For $n = 3$, $P(3):3$ is odd; $Q(3):6$ is even.\\
+ 	Both $P(3)$ and $Q(3)$ are true. Since they have the same truth value, $P(3) \Leftrightarrow Q(3)$ is true.\\
+ 	
+ 	\noindent For $n = 4$, $P(4):6$ is odd, $Q(4):10$ is even.\\
+ 	Both statements have different truth values, because $P(4)$ is false and $Q(4)$ is true. The biconditional $P(4) \Leftrightarrow Q(4)$ is false.\\
+ 	From the values of $n \in S$, the biconditional $P(n) \Leftrightarrow Q(n)$ is true for $n = 3$.
+ 	\end{solution}
+\end{problem}
+
+\begin{problem}{43}
+	Let $S = \{1,2,3\}.$ Consider the following open sentences over the domain $S$:
+	\begin{quote}
+		\centering
+		$P(n): \frac{(n+4)(n+5)}{2} \text{ is odd.} \quad$ 
+		$Q(n): 2^{n-2} +3^{n-2} + 6^{n-2}> (2.5)^{n-1}.$
+	\end{quote}
+	Determine three distinct elements $a, b, c$ in $S$ such that $P(a) \Rightarrow Q(a)$ is false, $Q(b) \Rightarrow P(b)$ is false, and $P(c) \Leftrightarrow Q(c)$ is true.
+	\begin{solution}{}
+		For $n = 1$, $P(1):15$ is odd; $Q(1): 1 > 1.$\\
+		The statement $P(1)$ is true, while $Q(1)$ is false. Therefore, the implication $P(1) \Rightarrow Q(1)$ is false.\\
+		
+		\noindent For $n = 2$, $P(2):21$ is odd; $Q(2): 3 > 2.5$.\\
+		Both $P(2)$ and $Q(2)$ are true. Since these two statements have the same truth value, $P(2) \Leftrightarrow Q(2)$ is true.\\
+		
+		\noindent For $n = 3$, $P(3):28$ is odd; $Q(3):11 > 6.25$.\\
+		Since $P(3)$ is false and $Q(3)$ is true, the implication $Q(3) \Rightarrow P(3)$ is false.\\
+		The integer $a = 1$, $b = 3$ and $c = 2$.
+	\end{solution}
+\end{problem}
+
+\begin{problem}{44}
+	Let $S = \{1,2,3,4\}$. Consider the following open sentences over the domain $S$:
+	\begin{align*}
+		P(n): \frac{n(n-1)}{2} \text{ is even}.\\
+		Q(n): 2^{n-2} - (-2)^{n-2} \text{ is even}.\\
+		R(n): 5^{n-1} + 2^{n} \text{ is prime.}
+	\end{align*}
+	Determine four distinct elements $a,b,c,d$ in $S$ such that\\
+	(i) $P(a) \Rightarrow Q(a)$ is false.\\
+	(ii) $Q(b) \Rightarrow P(b)$ is true.\\
+	(iii) $P(c) \Leftrightarrow R(c)$ is true.\\
+	(iv) $Q(d) \Leftrightarrow R(d)$ is false.
+	
+	\begin{solution}{}
+		For $n = 1$, $P(1):0$ is even; $Q(1): 1$ is even; $R(1): 3$ is prime.\\
+		The statements $P(1)$ and $R(1)$ are true, while $Q(1)$ is false. Since the statements have these specific truth values, the following statements and their respective truth values resemble the ones we are looking for:\\
+		$P(1)\Rightarrow Q(1)$ is false.\\
+		$Q(1) \Rightarrow P(1)$ is true.\\
+		$P(1) \Leftrightarrow R(1)$ is true.\\
+		$Q(1) \Leftrightarrow R(1)$ is false.\\ 
+		
+		\noindent For $n = 2$, $P(2):1$ is even; $Q(2):0$ is even; $R(2):9$ is prime.\\
+		The statements $P(2)$ and $R(2)$ are false, while $Q(2)$ is true. Therefore:\\
+		$P(2) \Leftrightarrow R(2)$ is true.\\
+		$Q(2) \Leftrightarrow R(2)$ is false.\\
+		
+		\noindent For $n = 3$, $P(3): 3$ is even; $Q(3): 4$ is even; $R(3): 33$ is prime.\\
+		The statements $P(3)$ and $R(3)$ are false, while $Q(3)$ is true. Therefore:\\
+		$P(3) \Leftrightarrow R(3)$ is true.\\
+		$Q(3) \Leftrightarrow R(3)$ is false.\\
+		
+		\noindent For $n = 4$, $P(4):6$ is even; $Q(4):0$ is even; $R(4):141$ is prime.\\
+		The statements $P(4)$ and $Q(4)$ are true, while $R(4)$ is false. Therefore:\\
+		$Q(4) \Rightarrow P(4)$ is true.\\
+		$Q(4) \Leftrightarrow R(4)$ is false.\\
+		There are two posible solutions.
+		Either $a = 1, b= 4, c = 2, d = 3$ or\\
+		$a = 1, b = 4, c = 3, d = 2.$
+	\end{solution}
+\end{problem}
+
+\begin{problem}{45}
+	Let $P(n):2^{n}-1$ is a prime. and $Q(n):n$ is a prime. be open sentences over the domain $S = \{2,3,4,5,6,11\}$. Determine all values of $n \in S$ for which $P(n) \Leftrightarrow Q(n)$ is a true statement.
+	\begin{solution}{}
+		For $n=2$, $P(2):3$ is a prime; $Q(2):2$ is a prime.\\
+		Both $P(2)$ and $Q(2)$ are true. Therefore, $P(2) \Leftrightarrow Q(2)$ is true.\\
+		
+		\noindent For $n = 3$, $P(3):7$ is a prime; $Q(3):3$ is a prime.\\
+		The statements $P(3)$ and $Q(3)$ are true. Thus, $P(3) \Leftrightarrow Q(3)$ is true.\\
+		
+		\noindent For $n = 4$, $P(4):15$ is a prime; $Q(4):4$ is a prime.\\
+		Both $P(4)$ and $Q(4)$ are false. Therefore, $P(4) \Leftrightarrow Q(4)$ is true.\\
+		
+		\noindent For $n = 5$, $P(5):31$ is a prime; $Q(5):5$ is a prime.\\
+		Since $P(5)$ and $Q(5)$ are true, $P(5) \Leftrightarrow Q(5)$ is true.\\
+		
+		\noindent For $n = 6$, $P(6):63$ is a prime; $Q(6):6$ is a prime.\\
+		Both $P(6)$ and $Q(6)$ are false. Therefore, $P(6) \Leftrightarrow Q(6)$ is true.\\
+		
+		\noindent For $n = 11$, $P(11):2047$ is a prime; $Q(11):11$ is a prime.\\
+		The statement $P(11)$ is false, while $Q(11)$ is true. The biconditional $P(11) \Leftrightarrow Q(11)$ is false.\\ 
+		The biconditional $P(n) \Leftrightarrow Q(n)$ is true for all $n \in S - \{11\}$.\\
+	\end{solution}
+\end{problem}
+
+\end{document}

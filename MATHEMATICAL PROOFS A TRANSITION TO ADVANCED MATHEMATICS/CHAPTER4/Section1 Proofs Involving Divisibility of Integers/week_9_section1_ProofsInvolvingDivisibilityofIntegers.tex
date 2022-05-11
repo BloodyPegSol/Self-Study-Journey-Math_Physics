@@ -1,0 +1,202 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem} 
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 10}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 1: Proof involving divisibility of integers}
+	\date{September 26, 2021}
+	\maketitle
+	
+	\textbf{Definition} Let $a,b\in \Z$. We say that $a$ \textbf{divides} b if there is some integer $c$ such that $b=ca$. We express this as $a\mid b$. Also, if $a\mid b$, we say that $a$ is \textbf{divisor} of $b$ and that $b$ is a \textbf{multiple} of $a$.\\
+	Note that if $b\neq 0$ and $a=0$, then $a\mid b$ would lead to a contradiction, namely, $b=0\cdot c= 0$ for all integers $c$.
+	
+	\begin{problem}{1}
+		Let $a$ and $b$ be integers, where $a\neq 0$. Prove that if $a\mid b$, then $a^{2}\mid b^{2}$.
+	\begin{proof}
+		Assume that $a\mid b$. Then $b=ax$ for some $x\in \Z$. Therefore,
+		\begin{equation*}
+			b^{2} = (ax)^{2}=a^{2}x^{2}
+		\end{equation*}
+		Since $x^{2}$ is an integer, it follows that $a^{2}\mid b^{2}$.
+	\end{proof}
+	\end{problem}
+
+	\begin{problem}{2}
+		Let $a,b \in \Z$, where $a\neq 0$ and $b\neq 0$. Prove that if $a \mid b$ and $b \mid a$, then $a=b$ or $a=-b$.
+		\begin{proof}
+			Assume $a \mid b$ and $b \mid a$. Then $b=ca$ and $a=xb$ for some $x,c\in \Z$. Thus,
+			\begin{equation*}
+				a = x(ca) = a(xc)
+			\end{equation*}
+		Therefore, $xc = 1$ and so $x=c=\pm 1$. Thus, $a=\pm b$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{3}
+		Let $m\in \Z$.\\
+		
+		(a) Give a direct proof of the following: If $3 \mid m$, then $3\mid m^{2}$.
+		\begin{proof}
+			Assume $3 \mid m$. Then $m=3c$ for some $c\in \Z$. Therefore,
+			\begin{equation*}
+				m^{2} = 3^{2}c^{2} = 3(3c^{2})
+			\end{equation*}
+		Because $3c^{2}$ is an integer, $3\mid m^{2}$.
+		\end{proof}
+	
+		(b) State the contrapositive of the implication in (a)
+		\begin{solution}{b}
+			Let $m\in \Z$. If $3\nmid m^{2}$, then $3\nmid m$
+		\end{solution}
+	
+		(c) Give a direct proof of the following: If $3\nmid m$, then $3\nmid m^{2}$.
+		\begin{solution}{c}
+			Assume $3\nmid m$. Then either $m=3q+1$ or $m=3q+2$ for some $q\in \Z$. We consider these two cases.\\ \textit{Case 1.} $m=3q+1$ for some integer $q$. Then
+			\begin{equation*}
+				m^{2} = (3q+1)^{2} = 9q^{2} +6q+1= 3(3q^{2}+2q)+1
+			\end{equation*}
+			Since $3q^{2}+2q\in \Z$, $3\nmid m^{2}$.\\
+			\textit{Case 2.} $m=3q+2$ for some integer $q$. Then
+			\begin{equation*}
+				m^{2} = (3q+2)^{2} = 9q^{2}+12q+4 = 3(3q^{2}+4q+1)+1
+			\end{equation*}
+		Because $3q^{2}+4q+1\in \Z$, $3\nmid m^{2}$.
+		\end{solution}
+	
+		(d) State the contrapositive of the implication in (c).
+		\begin{solution}{d}
+			Let $m\in \Z$. If $3\mid m^{2}$, then $3\mid m$.
+		\end{solution}
+	
+		(e) State the conjunction of the implications in (a) and (c) using "if and only if."
+		\begin{solution}{e}
+			Let $m\in \Z$. $3\mid m$ if and only if $3\mid m^{2}$.
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{4}
+		Let $x,y \in \Z$. Prove that if $3 \nmid x$ and $3 \nmid y$, then $3 \mid (x^{2}-y^{2})$.
+		\begin{proof}
+			Assume $3 \nmid x$ and $3 \nmid y$. Then, by Result 6, $x^{2}-1 = 3q$ and $y^{2}-1 = 3c$ for some $q,c \in \Z$. Then,
+			\begin{align*}
+				x^{2} &= 3q+1\\
+				y^{2} &= 3c+1\\
+				x^{2}-y^{2} &= 3q+1-3c-1=3(q-c)
+			\end{align*}
+			Since $q-c\in \Z$, $3 \mid (x^{2}-y^{2})$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{5}
+		Let $a,b,c \in \Z$, where $a\neq 0$. Prove that if $a \nmid bc$, then $a\nmid b$ and $a \nmid c$.
+		\begin{proof}
+			Assume $a\mid b$ or $a \mid c$. Without loss of generality, let $a\mid b$ and so $b=ax$ for some $x\in \Z$. Therefore,
+				$bc = (ax)c = a(xc)$. Since $xc \in \Z$, $a \mid bc$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{6}
+		Let $a\in \Z$. Prove that if $3\mid 2a$, then $3\mid a$.
+		\begin{proof}
+			Assume $3\nmid a$. Then, either $a=3q+1$ or $a=3q+2$ for some $q\in \Z$. We consider these two cases.\\
+			\textit{Case 1.} Let $a=3q+1$ for some $q \in \Z$. Then, $2(3q+1)=6q+2=3(2q)+2$. Because $2q$ is an integer, $3\nmid 2a$.\\
+			\textit{Case 2.} Let $a=3q+2$ for some $q \in \Z$. Then, $2(3q+2)=6q+3+1=3(2q+1)+1$. Because $2q+1\in \Z$, $3\nmid 2a$.
+		\end{proof}
+	\end{problem}
+	
+	\begin{problem}{7}
+		Let $n\in \Z$. Prove that $3\mid (2n^{2}+1)$ if and only if $3\nmid n$.
+		\begin{proof}
+			Let $3\mid n$. Then $n=3q$ for some $q \in\Z$.Therefore,
+			\begin{equation*}
+				2(3q)^{2}+1=18q^{2}+1=3(6q^{2}) +1
+			\end{equation*}
+			Because $6q^{2}\in \Z$, $3\nmid (2n^{2}+1)$.\\
+			
+			For the converse, assume $3\nmid n$. Then, either $n=3c+1$ or $n=3c+2$ for some integer c. We consider these two cases.\\
+			\textit{Case 1.} $n=3c+1$. So, 
+			\begin{equation*}
+				2(3c+1)^{2}+1 = 2(9c^{2}+6c+1)+1=18c^{2}+12c+3 = 3(6c^{2}+4c+1)
+			\end{equation*}
+		Since $6c^{2}+4c+1$ is an integer, $3\mid (2n^{2}+1)$.\\
+			\textit{Case 1.} $n=3c+2$. So, 
+			\begin{equation*}
+				2(3c+2)^{2}+1 = 2(9c^{2}+12c+4)+1=18c^{2}+24c+9= 3(6c^{2}+8c+3)
+			\end{equation*}
+		Because $6c^{2}+8c+3\in \Z$, $3\mid (2n^{2}+1)$.
+		\end{proof} 
+	\end{problem}
+
+	\begin{problem}{9}
+		(a) Let $x\in \Z$. Prove that if $2 \mid (x^{2}-5)$, then $4\mid (x^{2}-5)$.
+		\begin{solution}{a}
+			Assume $2 \mid (x^{2}-5)$. Then $x^{2}-5=2c$, where $c\in \Z$, and so $x^{2} = 2c+5 = 2c+4+1=2(c+2)+1$. Since $c+2\in \Z$, $x^{2}$ is odd and by Theorem 3.12 $x$ is odd. Therefore, $x=2y+1$ for some $y\in \Z$. Then
+			\begin{equation*}
+				x^{2}-5 = (2y+1)^{2}-5 = 4y^{2}+4y +1 -5 = 4y^{2}+4y-4= 4(y^{2}+y-1)
+			\end{equation*}
+		Since $y^{2}+y-1$ is an integer, $4\mid (x^{2}-5)$.
+		\end{solution}
+		(b) Give an example of an integer $x$ such that $2\mid (x^{2}-5)$ but $8\nmid (x^{2}-5)$.
+		\begin{solution}{b}
+			One such example is $x=5$.
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{10}
+		Let $n\in \Z$. Prove that $2\mid (n^{4}-3)$ if and only if $4\mid (n^{2}+3)$.
+		\begin{proof}
+			Assume $2\mid (n^{4}-3)$. Then $n^{4} -3=2c$, where $c\in \Z$. The integer $n^{4}=2c+3=2(c+1)+1$ is odd since $c+1\in \Z$. By Theorem 3.12, $n^{2}$ is odd and so $n$ is odd. Therefore, $n=2m+1$ for some integer $m$. Then,
+			\begin{equation*}
+				n^{2}+3 = (2m+1)^{2}+3 = 4m^{2}+4m+4 = 4(m^{2}+m+1)
+			\end{equation*}
+			Because $m^{2}+m+1\in \Z$, $4\mid (n^{2}+3)$. \\
+			For the converse, let $2 \nmid (n^{4}-3)$. Then $n^{4}-3 = 2c+1$ for some integer $c$ and so $n^{4} = 2c+4= 2(c+2)$. Since $c+2\in \Z$, $n^4$ is an even integer. By Theorem 3.12, $n^{2}$ is even and so $n$ is even. Then, $n=2k$ for some integer $k$. Therefore,
+			\begin{equation*}
+				n^{2}+3 = 4k^{2}+3
+			\end{equation*}
+			Since $k^{2}\in \Z$, it follows that $4\nmid (n^{2}+3)$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{13}
+		Prove that if $a,b,c\in \Z$ and $a^{2}+b^{2}=c^{2}$, then $3\mid ab$.
+		\begin{proof}
+			Assume $3\nmid ab$. By Result 5, $3 \nmid a$ and $3 \nmid b$. Then
+		\end{proof}
+	\end{problem}
+\end{document}

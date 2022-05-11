@@ -1,0 +1,462 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week ??}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 2: A More General Principle of Mathematical Induction}
+	\date{December 06, 2021}
+	\maketitle
+
+Previously, we were able to prove statements of the form $\forall n\in \N, P(n)$ thanks to the Well-ordering Principle and Principle of Mathematical Induction, both concerning the set $\N$. However, consider the case where we want to prove that some open sentence $P(n)$ is true for all $n\in S$, where $S = \{i\in \Z : i\geq m\in \Z\}$ (note that $m$ is some \textbf{fixed} integer). Luckily, we can show that this arbitrary $S$ is well-ordered (It will be shown in \textbf{Problem 17}). This fact will be usefull to prove the following general Pinciple of Mathematical Induction
+
+\begin{theorem}{1}
+	Let $S = \{i\in \Z : i\geq m\}$ where $m$ is some fixed integer. Also, let $P(n)$ be some open sentence over $S$. If
+		\begin{enumerate}
+			\item $P(m)$ and
+			\item $\forall k\in S, P(k) \implies P(k+1)$,
+		\end{enumerate}
+	then $\forall n\in S, P(n)$.
+	
+	\begin{proof}
+		Let $P(n)$ be an open sentence over $S$, where $S = \{i\in \Z:i\geq m\}$ for some fixed integer $m$. Then, assume, to the contrary, that there is some nonempty set $T\subseteq S$ of contradictions for the statement $\forall n \in S, P(n)$ and that both $P(m)$ and $\forall k\in S, P(k) \implies P(k+1)$ are true. Then, there is at least some $x\in T$ and $x>m$  since $P(m)$ is true and $m$ is the lowest element of $S$. Since $T\subseteq S$ and $S$ is well-ordered, it follows that $T$ has some lowest element $y$. Because $y$ is the lowest element in $T$, the integer $y-1 \not\in T$ and so $y-1 \geq m$. Therefore, $y-1\in S$ and so $P(y-1)$ is true. However, $P(y)$ must also be true since $\forall k\in S, P(k) \implies P(k+1)$ is true. This contradicts our initial assumption that $y$ was the lowset element of $T$.
+	\end{proof}
+\end{theorem}
+
+Of course, if $m = 1$, then $S = \N$ and we have our loved \textbf{Principle of Mathematical Induction} for the positive integers.
+
+\begin{problem}{17}
+	Prove Theorem 7: For each integer $m$, the set $S = \{i\in \Z: i\geq m\}$ is well-ordered.
+	\begin{proof}
+		Let $S = \{i\in \Z: i\geq m\}$ for some fixed integer $m$. Let's consider some nonempty subset $T$ of $S$. We must show that every nonempty subset of $S$ has a least element. If $T\subseteq \N$, then $T$ has a least element since $\N$ is well-ordered. On the other hand, we may assume that $T\not\subseteq \N$. Thus, $T-\N$ is a finite nonempty set and so it has a least element $t$. Therefore, $t\leq 0$ and so $x\geq t$ for every $x\in T$; so $t$ is the least element of $T$. We may conclude that any nonempty subset $T$ of $S$ has a least element and so $S$ is well-ordered.
+	\end{proof}
+\end{problem} 
+
+\begin{problem}{18}
+	Prove that $2^{n}>n^{3}$ for every integer $n\geq 10$.
+	\begin{proof}
+		We proceed by induction. Note that $2^{10} = 2^{3}\cdot (2^{7}) = 2^{3}\cdot(128) > 2^{3}\cdot (125) = 2^{3}\cdot 5^{3} = 10^{3}$. Therefore, the statement is true for $n=10$. Assume that $2^{k}>k^{3}$ for some integer $k\geq 10$. We now show that $2^{k+1}>(k+1)^{3}$. Note that 
+		\begin{align*}
+			2^{k+1} &= 2^{k}\cdot 2\\
+			&> k^{3}\cdot 2 = k^{3}+k^{3}\\
+			&\geq k^{3}+10k^{2} = k^{3}+3k^{2}+7k^{2}\\
+			&\geq k^{3}+3k^{2}+70k = k^{3}+3k^{2}+3k + 67\\
+			&\geq k^{3}+3k^{2}+3k+1 = (k+1)^{3}
+		\end{align*}
+	By the principle of mathematical induction, $2^{n}>n^{3}$ for every integer $n\geq 10$.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{19}
+	Prove the following implication for every integer $n\geq 2$: If $x_{1},x_{2},\ldots,x_{n}$ are any $n$ real numbers such that $x_{1}\cdot x_{2}\cdot \ldots \cdot x_{n} = 0$, then at least one of the numbers $x_{1},x_{2},\ldots,x_{n}$ is 0. (Use the fact that if the product of two real numbers is 0, then at least one of the numbers is 0).
+	
+	\begin{proof}
+		We use induction. Consider two arbitrary real numbers $m,n$ such that $m\cdot n = 0$. By \textbf{Theorem 4.13}, either $m=0$ or $n = 0$ and so the statement is true for $2$ real numbers. Let $k\geq 2$ be some integer. Assume that if $a_{1}, a_{2}, \ldots, a_{k}$ are some $k$ arbitrary real numbers such that $a_{1}\cdot a_{2}\cdot \ldots \cdot a_{k} = 0$, then at least one of them is 0. We show that if $b_{1}\cdot b_{2}\cdot \ldots \cdot b_{k+1} = 0$ for some arbitrary real numbers $b_{1}, b_{2}, \ldots, b_{k+1}$, then at least one of the $k+1$ real numbers is 0. \\
+		
+		First, let $b_{1}, b_{2}, \ldots, b_{k+1}$ be some arbitrary $k+1$ real numbers such that $b_{1}\cdot b_{2}\cdot \ldots \cdot b_{k+1} = 0$. Note that
+		\begin{align*}
+			b_{1}\cdot b_{2}\cdot \ldots \cdot b_{k+1} &= [b_{1}\cdot b_{2}\cdot \ldots \cdot b_{k}] \cdot b_{k+1} = 0
+		\end{align*}
+	By \textbf{Theorem 4.13}, either $b_{1}\cdot b_{2}\cdot \ldots \cdot b_{k} = 0$ or $b_{k+1} = 0$. If $b_{k+1} = 0$, then at least one the $k+1$ real numbers is 0. On the other hand, if $b_{1}\cdot b_{2}\cdot \ldots \cdot b_{k} = 0$, then, by our inductive hypothesis, at least one of the $k$ real numbers is 0 and so at least one of the $k+1$ real numbers is 0.\\
+	
+	By the principle of mathematical induction, this result is true.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{20}
+	Use mathematical induction to prove that every finite nonempty set of real numbers has a largest element.
+	\begin{proof}
+		We proceed by induction. Let $A=\{a\}$ for some $a\in \R$. Then $a\geq x$ for all $x\in A$ and so $a$ is the largest element of $A$. Thus, the result is true for some set $A$ of real numbers with cardinality 1. \\
+		Now, assume that every set $B$ of real numbers with cardinality $k$, where the integer $k\geq 1$, has some element $b$ such that $b\geq x$ for all $x\in B$. We show that the set $C$ of real numbers with cardinality $k+1$ has a largest element.\\
+		Let $C$ be a set of real numbers with cardinality $k+1$. Consider the subset $D = (C-\{m\})$ for some $m\in C$. Since $|D| = k$, it follows, by the inductive hypothesis, that there is some $c\in D$ such that $c\geq x$ for all $x\in D$. If $c\geq m$, then $c$ is the largest element of $C$. On the other hand, if $m>c$, then $m$ is the largest element of $C$. Therefore, the set $C$ has a largest element in both cases.\\
+		By the principle of mathematical induction, every finite nonempty set of real numbers has a largest element.
+	\end{proof}
+
+(b) Use (a) to prove that every finite nonempty set of real numbers has a smallest element.
+\begin{proof}
+	Let $A$ be a set of real numbers with cardinality $k$ $(k\in \N)$. Consider the set $B=\{a:-a\in A\}$. Since $B$ is a finite nonempty set of real numbers, it follows, by the previous result, that there is some $m\in B$ such that $m\geq x$ for every $x\in B$. Then $-m\in A$ and so $-m\leq -x$ for all $-x\in A$. Thus, the number $-m$ is the smallest element of $A$.
+\end{proof}
+\end{problem}
+
+\begin{problem}{21}
+	Prove that $4\mid (5^{n}-1)$ for every nonnegative integer $n$.
+	\begin{proof}
+		We proceed by induction. Since $5^{0}-1 = 0 = 4\cdot 0$, it follows that $4\mid(5^{0}-1)$ and so the statement is true for $n=0$.\\
+		Assume that $4\mid (5^{k}-1)$ for some integer $k\geq 0$. Thus, $5^{k}-1 = 4c$, where $c\in \Z$, and so $5^{k} = 4c +1$. We then show that $4\mid (5^{k+1}-1)$. Note that
+		\begin{align*}
+			5^{k+1}-1 &= 5^{k}\cdot 5-1\\
+			&= (4c+1)\cdot 5-1 = 20c+5-1\\
+			&= 4(5c+1)			
+		\end{align*}
+	Since $(5c+1)\in \Z$, it follows that $4\mid (5^{k+1}-1)$. 
+	\\
+	The result follows by the Principle of Mathematical Induction.
+	\end{proof}
+\end{problem}
+ 
+\begin{problem}{22}
+	Prove that $3^{n}>n^{2}$ for every positive integer $n$.
+	\begin{proof}
+		We use induction. Since $3^{1} = 3>1=1^{2}$, the result is true for $n=1$. Assume that $3^{k} > k^{2}$ where $k\in \N$. We then show that $3^{k+1}>(k+1)^{2}$. If $k=1$, then $3^{k+1} = 9 > 4 = (k+1)^{2}$. Therefore, we may assume that $k\geq 2$. Observe that 
+		\begin{align*}
+			3^{k+1} &= 3^{k}\cdot 3\\
+			&> k^{2}\cdot 3 = k^{2} + 2k^{2}\\
+			&\geq k^{2} + 4k = k^{2}+2k+2k \geq  k^{2}+2k+4\\
+			&> k^{2}+2k+1 = (k+1)^{2}
+		\end{align*}
+	The result follows by the Principle of Mathematical Induction.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{23}
+	Prove that $7 \mid (3^{2n}-2^{n})$ for every nonnegative integer $n$.
+	\begin{proof}
+		We proceed by induction. Since $3^{2\cdot 0}-2^{0} = 0 = 7\cdot 0$, it follows that $7 \mid (3^{2n}-2^{n})$ for $n=0$.\\
+		Assume that $7 \mid (3^{2k}-2^{k})$ where $k$ is a nonnegative integer. Thus, $3^{2k} - 2^{k} = 7c$ for some integer $c$ and so $3^{2k} = 7c + 2^{k}$. We then show that $7 \mid (3^{2(k+1)} - 2^{k+1})$. Observe that
+		\begin{align*}
+			3^{2(k+1)}-2^{k+1} &= 3^{2k}\cdot3^{2} - 2^{k+1}\\
+			&= 3^{2}(7c + 2^{k}) - 2^{k}\cdot 2\\
+			&= 3^{2}\cdot 7c + 3^{2}\cdot 2^{k} -2^{k}\cdot 2\\
+			&= 3^{2}\cdot 7c + 2^{k}(3^{2}-2) = 3^{2}\cdot 7c +2^{k}\cdot 7\\
+			&= 7(3^{2}c + 2^{k})
+		\end{align*} 
+	Because $(3^{2}c + 2^{k})\in \Z$, it follows that $7\mid (3^{2(k+1)} - 2^{k+1})$. By the Principle of Mathematical Induction, $7 \mid (3^{2n}-2^{n})$ for any nonnegative integer $n$.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{24}
+	Prove Bernoulli's Identity: For every real number $x>-1$ and every positive integer $n$,
+	\begin{equation*}
+		(1+x)^{n} \geq 1+nx.
+	\end{equation*}
+\begin{proof}
+	We proceed by induction. Let $x>-1$ be some real number. Since $(1+x)^{1} = 1 + x \geq 1+1x$, it follows that the statement is true for $n=1$. Assume that $(1+x)^{k} \geq 1+kx$ for some $k\in \N$. We then prove that $(1+x)^{k+1} \geq 1+(k+1)x$. Observe that
+	\begin{equation*}
+		(1+x)^{k+1} = (1+x)^{k} (1+x).
+	\end{equation*}
+Because $x+1>0$, it follows that
+\begin{align*}
+	(1+x)^{k}(1+x) &\geq (1+kx)(1+x)\\
+	&= 1+kx+x+kx^{2} = 1+ (k+1)x + kx^{2}.
+\end{align*}
+Note that $x^{2}\geq 0$ and so $kx^{2} \geq 0$. Therefore, 
+\begin{equation*}
+	(1+x)^{k+1} \geq 1+ (k+1)x + kx^{2} \geq 1+(k+1)x.
+\end{equation*}
+By the principle of mathematical induction, the Bernoulli's Identity holds.  
+\end{proof}
+\end{problem}
+ 
+\begin{problem}{25}
+	Prove that $n! > 2^{n}$ for every integer $n\geq 4$.
+\begin{proof}
+	We use induction to prove this. Observe that $4! = 24 > 16 = 2^{4}$ and so $n! > 2^{n}$ for $n = 4$. Suppose that $k! > 2^{k}$ for some integer $k\geq 4$. We then show that
+	\begin{equation*}
+		(k+1)! > 2^{k+1}.
+	\end{equation*}
+Note that
+\begin{align*}
+	(k+1)! &= (k+1)k!\\  
+	&> 2^{k}(k+1)
+\end{align*}
+since $k+1 > 0$. Because $k+1 \geq 5$, it follows that
+\begin{align*}
+	(k+1)! &> 2^{k}(k+1) \\
+	&\geq 2^{k}\cdot 5 \\
+	&> 2^{k}\cdot 2 = 2^{k+1}
+\end{align*}
+By the principle of mathematical induction, $n!> 2^{n}$ holds for any integer $n\geq 4$.
+\end{proof}
+\end{problem}
+
+\begin{problem}{26}
+	Prove that $81\mid (10^{n+1}-9n-10)$ for every nonnegative integer $n$.
+	\begin{proof}
+		We use induction to prove this statement. Since $10^{0+1}-9\cdot 0 -10 = 0 = 0\cdot 81$, it follows that $81\mid (10^{0+1}-9\cdot 0 -1)$ and so the statement holds for $n=0$. We then assume that $81\mid (10^{k+1}-9k-10)$ for any nonnegative integer $k$. Thus, $10^{k+1}-9k-10 = 81c$, where $c\in \Z$, and so $10^{k+1} = 81c+9k+10$. We proceed to show that $81\mid (10^{(k+1)+1}-9(k+1)-10)$. Note that 
+		\begin{align*}
+			10^{(k+1)+1}-9(k+1)-10 &= 10^{k+1}\cdot 10-9k- 9-10\\
+			&= 10(81c+9k+10)-9k-19\\
+			&= 81(10c) +90k-9k+100-19\\
+			&= 81(10c) +81k +81\\
+			&= 81(10c+k+1)
+		\end{align*}
+	Because $(10c+k+1)\in \Z$, it follows that $81\mid (10^{(k+1)+1}-9(k+1)-10)$.\\
+	By the principle of mathematical induction, $81\mid (10^{n+1}-9n-10)$ for every nonnegative integer $n$.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{27}
+	Prove that $1+\frac{1}{4}+\frac{1}{9}+\ldots + \frac{1}{n^{2}}\leq 2-\frac{1}{n}$ for every positive integer $n$.
+	\begin{proof}
+		We proceed by induction. Since $1\leq 1 = 2-1$, the inequality holds for $n=1$. We assume that
+		\begin{equation*}
+		 1+\frac{1}{4}+\frac{1}{9}+\ldots + \frac{1}{k^{2}}\leq 2-\frac{1}{k}
+	 \end{equation*}
+ 		for any $k\in \N$. We then show that 
+ 		\begin{equation*}
+ 			1+\frac{1}{4}+\frac{1}{9}+\ldots + \frac{1}{(k+1)^{2}}\leq 2-\frac{1}{k+1}.
+ 		\end{equation*}
+ 		Observe that
+ 		\begin{align*}
+ 			1+\frac{1}{4}+\frac{1}{9}+\ldots + \frac{1}{(k+1)^{2}} &= 1+\frac{1}{4}+\frac{1}{9}+\ldots + \frac{1}{k^{2}} +\frac{1}{(k+1)^{2}}\\
+ 			&\leq 2-\frac{1}{k} +\frac{1}{(k+1)^{2}}\\
+ 			&= 2- \frac{(k+1)^{2}-k}{k(k+1)^{2}}\\
+ 			&= 2-\frac{k^{2}+2k+1-k}{k(k+1)^{2}}\\
+ 			&= 2-\frac{k^{2}+k+1}{k(k+1)^{2}} = 2-\frac{k(k+1)+1}{k(k+1)^{2}}\\
+ 			&= 2-\frac{1}{k+1}-\frac{1}{k(k+1)^{2}}\\
+ 			&< 2-\frac{1}{k+1}
+ 		\end{align*}
+ 	since $\frac{1}{k(k+1)^{2}}>0$. Therefore,
+ 	\begin{equation*}
+ 		1+\frac{1}{4}+\frac{1}{9}+\ldots + \frac{1}{(k+1)^{2}} \leq 2-\frac{1}{k+1}.
+ 	\end{equation*}
+ By the principle of mathematical induction, $1+\frac{1}{4}+\frac{1}{9}+\ldots + \frac{1}{n^{2}}\leq 2-\frac{1}{n}$ for every  $n\in \N$.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{28}
+	Assume that if $3\mid 2a$, where $a\in \Z$, then $3\mid a$ is true. Prove the following generalization: Let $a\in \Z$. For every positive integer $n$, if $3\mid 2^{n}a$, then $3\mid a$.
+	\begin{proof}
+		We proceed by induction. Let $P(n):3\mid 2^{n}a\implies 3\mid a$. By the assumption given in the problem, the statement is true for $n=1$. Let $k\in \N$ and suppose that $P(k)$ is true. We show that $P(k+1)$ is true. Assume that $3\mid (2^{k+1}a)$. Then, $2^{k+1}a = 3m$ for some $m\in \Z$. Observe that
+		\begin{equation*}
+			2^{k+1}a = 2(2^{k}a) = 3m.
+		\end{equation*}
+		Therefore, $3 \mid (2(2^{k}a))$. Since $2^{k}a\in \Z$, it follows, by the assumption from the problem, that $3\mid (2^{k}a)$. By the induction hypothesis, it follows that $3\mid a$. Thus, $P(k+1):3\mid (2^{k+1}a)\implies 3\mid a$ is true.
+	By the Principle of Mathematical Induction, $P(n)$ is true for any $n\in \N$
+	\end{proof}
+\end{problem}
+
+\begin{problem}{29}
+	Prove that if $A_{1}, A_{2}, \ldots, A_{n}$ are any $n\geq 2$ sets, then
+	\begin{equation*}
+		\overline{A_{1}\cap A_{2}\cap \ldots \cap A_{n}} = \overline{A_{1}}\cup \overline{A_{2}}\cup \ldots \cup \overline{A_{n}}
+	\end{equation*}
+	\begin{proof}
+		We proceed by induction. Let $A_{1},A_{2}$ be arbitrary sets. By the Morgan's Laws, $\overline{A_{1}\cap A_{2}} = \overline{A_{1}}\cup \overline{A_{2}}$ and so the statement is true for $n=2$. Assume that if $B_{1}, B_{2}, \ldots, B_{k}$ are $k\geq 2$ arbitrary sets, then 
+		\begin{equation*}
+			\overline{B_{1}\cap B_{2}\cap \ldots \cap B_{k}} = \overline{B_{1}}\cup \overline{B_{2}}\cup \ldots \cup \overline{B_{k}}.
+		\end{equation*}  
+		We show that for the arbitrary sets $C_{1}, C_{2}, \ldots, C_{k+1}$, the equality
+			\begin{equation*}
+			\overline{C_{1}\cap C_{2}\cap \ldots \cap C_{k+1}} = \overline{C_{1}}\cup \overline{C_{2}}\cup \ldots \cup \overline{C_{k+1}}
+		\end{equation*} 
+	holds. Note that
+	\begin{align*}
+		\overline{C_{1}\cap C_{2}\cap \ldots \cap C_{k+1}} &= \overline{ C_{1}\cap C_{2}\cap \ldots \cap C_{k} \cap C_{k+1}}\\
+		&= \overline{\bigcap_{x=1}^{k}C_{x}\cap C_{k+1}}.
+	\end{align*}
+By the Morgan's Laws,
+\begin{align*}
+	\overline{\bigcap_{x=1}^{k}C_{x}\cap C_{k+1}} &=  \overline{\bigcap_{x=1}^{k}C_{x}}\cup \overline{C_{k+1}}\\
+	&= \overline{C_{1}\cap C_{2}\cap \ldots \cap C_{k}}\cup \overline{C_{k+1}}\\
+	&= \overline{C_{1}}\cup \overline{C_{2}}\cup \ldots \cup \overline{C_{k}} \cup \overline{C_{k+1}}.
+\end{align*}
+By the principle of mathematical induction, this result is true.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{30}
+	Recall... 
+	\begin{lemma}{1}
+		For integers $n\geq 2,a,b,c,d,$ if $a\equiv b \Mod{n}$ and $c\equiv d \Mod{n}$, then both $a+c \equiv b+d \Mod{n}$ and $ac \equiv bd \Mod{n}$
+	\end{lemma}
+	Use this lemma and mathematical induction to prove the following: For any $2m$ integers $a_{1},a_{2},\ldots,a_{m}$ and $b_{1},b_{2},\ldots,b_{m}$ for which $a_{i}\equiv b_{i} \Mod{n}$ for $1\leq i \leq m$,
+	\begin{enumerate}
+		\item $a_{1}+a_{2}+\ldots+a_{m} \equiv b_{1}+b_{2}+\ldots+b_{m} \Mod{n}$ and
+		\begin{proof}
+			We proceed by induction. Let $x_{1},x_{2},y_{1},y_{2},n \in \Z$ such that $n\geq 2$ and $x_{i} \equiv y_{i} \Mod{n}$ for $1\leq i \leq 2$. By \textbf{Lemma 1}, $x_{1}+x_{2}\equiv y_{1}+y_{2} \Mod{n}$ and so the result  is true for $m=2$. Now, for any $2k$ integers, where $k\geq 2$, $a_{1},a_{2},\ldots,a_{k}$ and $b_{1},b_{2},\ldots,b_{k}$ for which $a_{i}\equiv b_{i} \Mod{n}$ for $1\leq i \leq k$, assume that 
+			\begin{equation*}
+				a_{1}+a_{2}+\ldots+a_{k} \equiv b_{1}+b_{2}+\ldots+b_{k} \Mod{n}.
+			\end{equation*}
+		We show that for any $2(k+1)$ integers $c_{1},c_{2},\ldots, c_{k+1}$ and $d_{1},d_{2}, \ldots, d_{k+1}$ for which $c_{i} \equiv d_{i} \Mod{n}$ for $1\leq i \leq k+1$, the equality
+		\begin{equation*}
+			c_{1}+c_{2}+\ldots+c_{k+1} \equiv d_{1}+d_{2}+\ldots+d_{k+1} \Mod{n} 
+		\end{equation*}
+		holds. By the inductive hypothesis, 
+		\begin{equation*}
+					c_{1}+c_{2}+\ldots+c_{k} \equiv d_{1}+d_{2}+\ldots+d_{k} \Mod{n}.
+		\end{equation*}
+		Also, we know that 
+		\begin{equation*}
+		c_{k+1} \equiv d_{k+1} \Mod{n}.
+		\end{equation*} 
+		Since both $\sum_{x=1}^{k}c_{x}$ and $\sum_{x=1}^{k}d_{x}$ are also integers, it follows, by \textbf{Lemma 1}, that
+		\begin{align*}
+			\sum_{x=1}^{k}c_{x} + c_{k+1} &\equiv \sum_{x=1}^{k}d_{x} + d_{k+1} \Mod{n} \text{   and so}\\
+			c_{1}+c_{2}+\ldots+c_{k+1} &\equiv d_{1}+d_{2}+\ldots+d_{k+1} \Mod{n}.
+		\end{align*}
+	By the principle of mathematical induction, this result is true.
+		\end{proof}
+		\item $a_{1}a_{2}\cdots a_{m} \equiv b_{1}b_{2}\cdots b_{m} \Mod{n}$.
+		\begin{proof}
+			We proceed by induction. Let $x_{1},x_{2},y_{1},y_{2},n\in \Z$ such that $n\geq 2$ and $x_{i} \equiv y_{i} \Mod{n}$ for $1\leq i \leq 2$. By \textbf{Lemma 1}, $x_{1}x_{2} \equiv y_{1}y_{2} \Mod{n}$ and so the result is true for $m=2$. Now, for any $2k$ integers, where $k\geq 2$, $a_{1},a_{2}\ldots,a_{k}$ and $b_{1},b_{2},\ldots,b_{k}$ for which $a_{i} \equiv b_{i} \Mod{n}$ for $1\leq i \leq k$, assume that 
+			\begin{equation*}
+				a_{1}a_{2}\cdots a_{k} \equiv b_{1}b_{2}\cdots b_{k} \Mod{n}.
+			\end{equation*} 
+			 We show that for any $2(k+1)$ integers $c_{1},c_{2},\ldots,c_{k+1}$ and $d_{1},d_{2},\ldots,d_{k+1}$ for which $c_{i} \equiv d_{i} \Mod{n}$ for $1\leq i \leq k+1$, the equality
+			\begin{equation*}
+					c_{1}c_{2}\cdots c_{k+1} \equiv d_{1}d_{2}\cdots d_{k+1} \Mod{n}.
+			\end{equation*}
+		holds. By the inductive hypothesis, 
+		\begin{equation*}
+			c_{1}c_{2}\cdots c_{k} \equiv d_{1}d_{2}\cdots d_{k} \Mod{n}.
+		\end{equation*}
+	Also we know that 
+	\begin{equation*}
+		c_{k+1} \equiv d_{k+1} \Mod{n}.
+	\end{equation*}
+	By \textbf{Lemma 1}, 
+	\begin{align*}
+		\left(\prod_{x=1}^{k}c_{x}\right) c_{k+1} &\equiv \left(\prod_{x=1}^{k}d_{x}\right)d_{k+1} \Mod{n} \text{ and so}\\
+		c_{1}c_{2}\cdots c_{k+1} &\equiv d_{1}d_{2}\cdots d_{k+1} \Mod{n}.
+	\end{align*}
+The result follows by the Principle of Mathematical Induction.
+		\end{proof}
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}{31}
+
+	\begin{lemma}{2}
+		Let $x$ and $y$ be positive real numbers. Then, 
+		\begin{equation*}
+			\frac{x}{y} + \frac{y}{x} \geq 2
+		\end{equation*}
+	\begin{proof}
+		Let $x$ and $y$ be positive real numbers. We consider two cases.\\
+		\textit{Case 1.} $x=y$. Therefore, $\frac{x}{y} + \frac{y}{x} = 1 + 1 =2$.\\
+		\textit{Case 2.} Either $x>y$ or $y>x$. Without loss of generality, assume the later. Then, $y = x+c$, where $c$ is a positive real number. Therefore,
+		\begin{align*}
+			\frac{x}{y} + \frac{y}{x} &= \frac{x}{x+c} + \frac{x+c}{x}\\
+			&= \frac{x}{x+c} + \frac{x}{x} +\frac{c}{x}\\
+			&= 1+\frac{x^{2} + c(x+c)}{x(x+c)}\\
+			&= 1+ \frac{x^{2}+xc + c^{2}}{x^{2} + xc} > 2
+		\end{align*}
+	since 
+	\begin{equation*}
+	\frac{x^{2}+xc+c^{2}}{x^{2}+xc}>1.
+    \end{equation*} 
+	Therefore, the result is true.
+	\end{proof}
+	\end{lemma}
+\begin{result}{31}
+Prove for every $n\geq 1$ positive real numbers $a_{1},a_{2},\ldots,a_{n}$ that
+\begin{equation*}
+	\left(\sum_{i=1}^{n}a_{i}\right)\left(\sum_{i=1}^{n}\frac{1}{a_{i}}\right)\geq n^{2}.
+\end{equation*}
+	\begin{proof}
+		We use induction. Let $x$ be some positive real number. Because $\frac{x}{x} = 1 \geq 1^{2}$, the statement is true for $n=1$. Suppose for every $k\geq 1$ positive real numbers $a_{1},a_{2},\ldots,a_{k}$ that 
+		\begin{equation*}
+				\left(\sum_{i=1}^{k}a_{i}\right)\left(\sum_{i=1}^{k}\frac{1}{a_{i}}\right)\geq k^{2}.
+		\end{equation*}
+	We prove for any $k+1$ positive real numbers $b_{1},b_{2},\ldots, b_{k+1}$ that 
+	\begin{equation*}
+		\left(\sum_{i=1}^{k+1}b_{i}\right)\left(\sum_{i=1}^{k+1}\frac{1}{b_{i}}\right)\geq (k+1)^{2}.
+	\end{equation*} 
+	Note that
+	\begin{align*}
+		\left(\sum_{i=1}^{k+1}b_{i}\right)\left(\sum_{i=1}^{k+1}\frac{1}{b_{i}}\right) &= b_{1}\left(\sum_{i=1}^{k+1}\frac{1}{b_{i}}\right) + b_{2}\left(\sum_{i=1}^{k+1}\frac{1}{b_{i}}\right) + \ldots + b_{k+1}\left(\sum_{i=1}^{k+1}\frac{1}{b_{i}}\right)\\
+		&= \left(\sum_{i=1}^{k}b_{i}\right)\left(\sum_{i=1}^{k+1}\frac{1}{b_{i}}\right) + b_{k+1}\left(\sum_{i=1}^{k+1}\frac{1}{b_{i}}\right)\\
+		&= \frac{1}{b_{1}}\left(\sum_{i=1}^{k}b_{i}\right) + \frac{1}{b_{2}}\left(\sum_{i=1}^{k}b_{i}\right) + \ldots + \frac{1}{b_{k+1}}\left(\sum_{i=1}^{k}b_{i}\right) + b_{k+1}\left(\sum_{i=1}^{k+1}\frac{1}{b_{i}}\right)\\
+		&= 	\left(\sum_{i=1}^{k}b_{i}\right)\left(\sum_{i=1}^{k}\frac{1}{b_{i}}\right) + \frac{1}{b_{k+1}}\left(\sum_{i=1}^{k}b_{i}\right) + b_{k+1}\left(\sum_{i=1}^{k+1}\frac{1}{b_{i}}\right)\\
+		&\geq k^{2} + \frac{1}{b_{k+1}}\left(\sum_{i=1}^{k}b_{i}\right) + b_{k+1}\left(\sum_{i=1}^{k+1}\frac{1}{b_{i}}\right)\\
+		&= k^{2} + \frac{1}{b_{k+1}}\left(\sum_{i=1}^{k}b_{i}\right) + b_{k+1}\left(\sum_{i=1}^{k}\frac{1}{b_{i}}\right) + \frac{b_{k+1}}{b_{k+1}}\\
+		&= k^{2} + \sum_{i=1}^{k}\left(\frac{b_{i}}{b_{k+1}}+\frac{b_{k+1}}{b_{i}}\right) + 1\\.
+	\end{align*}
+		By \textbf{Lemma 2}, $\frac{b_{i}}{b_{k+1}}+\frac{b_{k+1}}{b_{i}} \geq 2$ for $1\leq i \leq k$ and so
+		\begin{align*}
+			\left(\sum_{i=1}^{k+1}b_{i}\right)\left(\sum_{i=1}^{k+1}\frac{1}{b_{i}}\right) &\geq k^{2} + \sum_{i=1}^{k}\left(\frac{b_{i}}{b_{k+1}}+\frac{b_{k+1}}{b_{i}}\right) + 1\\
+			&\geq k^{2} + 2k +1 = (k+1)^{2} 
+		\end{align*}
+	Therefore, the result follows by the Principle of Mathematical Induction.
+	\end{proof}
+\end{result}
+\end{problem}
+
+\begin{problem}{32}
+	Prove for every $n\geq 2$ positive real numbers $a_{1}, a_{2}, \ldots, a_{n}$ that 
+	\begin{equation*}
+		(n-1)\sum_{i=1}^{n}a_{i}^{2} \geq 2 \sum_{1\leq i < j \leq n} a_{i}a_{j}.
+	\end{equation*}
+\begin{proof}
+	We proceed by induction. Let $x$ and $y$ be two positive real numbers. Note that, according to the result, 
+	\begin{align*}
+		(2-1)(x^{2}+y^{2}) &= x^{2}+y^{2}\\
+		&\geq 2xy 
+	\end{align*}
+	and so
+	\begin{align*}
+		x^{2}-2xy+y^{2} &= (x-y)^{2}\\
+		&\geq 0.
+	\end{align*}
+	Thus, the result is true for $n=2$. Assume for $k\geq 2$ positive real numbers $a_{1},a_{2},\ldots,a_{k}$ that
+	\begin{equation*}
+			(k-1)\sum_{i=1}^{k}a_{i}^{2} \geq 2 \sum_{1\leq i < j \leq k} a_{i}a_{j}.
+	\end{equation*}
+	We now show for $k+1$ positive real numbers $b_{1}, b_{2}, \ldots, b_{k+1}$ that
+	\begin{equation*}
+		((k+1)-1)\sum_{i=1}^{k+1}b_{i}^{2} \geq 2 \sum_{1\leq i < j \leq k+1} b_{i}b_{j}.
+	\end{equation*}
+	Observe that
+	\begin{align*}
+		((k+1)-1)\sum_{i=1}^{k+1}b_{i}^{2} &= (k-1)\sum_{i=1}^{k}b_{i}^{2} + (k-1)b_{k+1}^{2}+\sum_{i=1}^{k+1}b_{i}^{2}\\
+		&= (k-1)\sum_{i=1}^{k}b_{i}^{2} + \sum_{i=1}^{k}b_{i}^{2} + kb^{2}_{k+1}\\ 
+		&\geq 2 \sum_{1\leq i < j \leq k} b_{i}b_{j}  + \sum_{i=1}^{k}b_{i}^{2} + kb^{2}_{k+1}\\
+		&= 2 \sum_{1\leq i < j \leq k} b_{i}b_{j}  + \sum_{i=1}^{k}(b_{i}^{2}+b^{2}_{k+1}).
+	\end{align*}
+Since   
+\begin{align*}
+b_{i}^{2}+b^{2}_{k+1} &= (b_{i}-b_{k+1})^{2} + 2b_{i}b_{k+1}\\ &\geq 2b_{i}b_{k+1}
+\end{align*}
+for $1\leq i \leq k$, it follows that
+	\begin{align*}
+			((k+1)-1)\sum_{i=1}^{k+1}b_{i}^{2} &\geq 2 \sum_{1\leq i < j \leq k} b_{i}b_{j}  + \sum_{i=1}^{k}(b_{i}^{2}+b^{2}_{k+1})\\
+			&\geq 2 \sum_{1\leq i < j \leq k} b_{i}b_{j}  + 2\sum_{i=1}^{k}b_{i}b_{k+1} \\
+			&= 2 \sum_{1\leq i < j \leq k+1} b_{i}b_{j}.
+	\end{align*}
+By the Principle of Mathematical Induction, the result is true.
+\end{proof}
+\end{problem}
+\end{document}

@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+	
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+	
+\title{Week 1}
+\author{Juan Patricio Carrizales Torres \\
+Section 4: The Implication}
+
+\maketitle
+\epigraph{``At times, the desire becomes almost overpowering, in its intensity. It is not mere curiosity, that prompts me; but more as though some unexplained influence were at work``}{--- \textup{William Hope Hodgson}, The House on the Borderland}
+
+\begin{problem}{19}
+	Consider the statements \emph{P: 17 is even.} and \emph{Q: 19 is prime}. Write each of the following statements in words and indicate whether it is true or false.\\
+
+(A) $\sim P$ \textbf{TRUE}
+\begin{proof}
+The real integer 17 is odd, thus the statement $P$ is false. The negation of this statement will have the opposite truth value, \emph{true}.
+\end{proof}
+(B) $P \vee Q$ \textbf{TRUE}
+\begin{proof}
+The real integer 19 is prime, thus $Q$ is true. Because this statement is the disjunction of $P$ and $Q$, it is only needed for one of them to be true for the statement to be true. 
+\end{proof}
+(C) $P \wedge Q$ \textbf{FALSE}
+\begin{proof}
+	We already know that the statement $Q$ is true and $P$ is false. This statement is a conjunction of both $Q$ and $P$, and since one of them is false, the statement is false.
+\end{proof}
+(D) $P \implies Q$ \textbf{TRUE}
+\begin{proof}
+	Acording to this statement $P$ implies $Q$, so the only way for it to be false is when $P$ is true and $Q$ is false. We know that $P$ is false, which means that the statement is true, because it tells nothing about what would happen when $P$ is false. 
+\end{proof}
+\end{problem}
+\begin{problem}{20}
+For statements $P$ and $Q$, construct a truth table for $(P\implies Q)\implies (\sim P)$ 
+\begin{tabular}{c c c c c}
+	$P$ & $Q$ & $P \implies Q$ & $\sim P$ & $(P \implies Q) \implies (\sim P)$
+\end{tabular}
+\end{problem}
+
+\end{document}

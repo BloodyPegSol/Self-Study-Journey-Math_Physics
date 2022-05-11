@@ -1,0 +1,166 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newbool{\Q}{\mathbb{Q}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 6}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 2: Subsets}
+	\date{August 30, 2021}
+	\maketitle
+
+\begin{problem}{10}
+	Give examples of three sets $A$, $B$ and $C$ such that\\
+	
+	(a) $A \subseteq B \subset C$
+	\begin{solution}{a} All $x \in A$ belong to $B$ since $A\subseteq B$. Because $B \subset C$, it follows that every $x \in C$. Thus, $A \subseteq C$. Also, the set $B\neq C$ considering that there is a $y\in C$ that doesn't belong to $B$. Since $A \subseteq B$, the element $y \notin A$. Thus, $A \neq C$ and $A \subset C$.\\
+		$A=\{1\}$\\ $B=\{1,2\}$\\ $C=\{1,2,3\}$
+	\end{solution}
+	(b) $A \in B$, $B \in C$ and $A \notin C$
+	\begin{solution}{b}
+		Let's start with a simple set $A=\{a\}$. Because $A \in B$, it follows that $B=\{\{a\}\}$. Also, $B\in C$, which means that $C=\{\{\{a\}\}\}$. Since $\{\{a\}\} \neq \{a\}$, the set $A \notin C$.\\
+		$A=\{1\}$\\
+		$B=\{\{1\}\}$\\
+		$C=\{\{\{1\}\}\}$
+	\end{solution}
+	(c) $A\in B$ and $A\subset C$
+	\begin{solution}{c}
+		Let's begin with a simple set $A=\{a\}$. Since $A\in B$, the set $B=\{\{a\}\}$. The set $C=\{a,b\}$ since $A\subseteq C$ and $A\neq C$.\\
+		$A=\{1\}$\\
+		$B=\{\{1\}\}$\\
+		$C=\{1,2\}$
+	\end{solution}
+\end{problem}
+
+\begin{problem}{17}
+	Find $\mathcal{P}(A)$ and $|\mathcal{P}(A)|$ for $A=\{0,\emptyset,\{\emptyset\}\}$.
+	\begin{solution}{}
+		The set $\mathcal{P}(A)$ is the power set of $A$ and it contains all subsets of $A$.
+		\begin{align*}
+			\mathcal{P}(A)&=\{\emptyset,\{0\},\{\emptyset\},\{\{\emptyset\}\},\{0,\emptyset\},\{0,\{\emptyset\}\},\{\emptyset,\{\emptyset\}\},\{0,\emptyset,\{\emptyset\}\}\}\\
+			|\mathcal{P}(A)|&=2^{|A|}=2^{3}=8
+		\end{align*}
+	\end{solution}
+\end{problem}
+
+\begin{problem}{18}
+	For $A=\{x:x=0 \text{ or } x \in \mathcal{P}(\{0\})\}$, determine $\mathcal{P}(A)$.
+	\begin{solution}{}
+		First we determine the power set $\mathcal{P}(\{0\})$, which only has 2 elements.
+		\begin{equation*}
+			\mathcal{P}(\{0\})=\{\emptyset,\{0\}\}
+		\end{equation*}
+		The set $A$ has 3 elements since $0\notin \mathcal{P}(\{0\})$ and every $x\in \mathcal{P}(\{0\})$ belongs to $A$, namely $\mathcal{P}(\{0\})\subseteq A$.
+		\begin{equation*}
+			A=\{\emptyset,0,\{0\}\}
+		\end{equation*}
+	Thus, the power set $\mathcal{P}(A)$ is
+	\begin{align*}
+		\mathcal{P}(A)&=\{\emptyset,\{\emptyset\},\{0\},\{\{0\}\},\{\emptyset,0\},\{\emptyset,\{0\}\},\{0,\{0\}\},A\}\\
+		|\mathcal{P}(A)|&=2^{|A|}=2^{3}=8
+	\end{align*}
+	\end{solution}
+\end{problem}
+\begin{problem}{20}
+Determine whether the following statements are true or false.\\
+
+(a) If $\{1\}\in \mathcal{P}(A)$, then $1\in A$ but $\{1\}\notin A.$
+\begin{solution}{a}
+	This statement is false. Let $A=\{1,\{1\}\}$. Because the set $\{1\}\subseteq A$, it follows that $\{1\}\in \mathcal{P}(A)$. However, $\{1\}\in A$. A set can contain a subset of itself (i.e., the empty set $\emptyset \in \mathcal{P}(A)$ and $\emptyset \subseteq \mathcal{P}(A)$ since the empty set $\emptyset$ is a subset of every set).
+\end{solution}
+(b) If $A$, $B$ and $C$ are sets such that $A\subset \mathcal{P}(B)\subset C$ and $|A|=2$, then $|C|$ can be 5 but $|C|$ cannot be 4.
+\begin{solution}{b}
+	This statement is true. Because $A\subset \mathcal{P}(B)$, it follows that there is at least an element $y\in \mathcal{P}(B)$ such that $y\notin A$. Therefore, $|\mathcal{P}(B)|>2$. However, the cardinality of the power set $\mathcal{P}(B)$ is an even number since it can be expressed with the general formula $\mathcal{P}(B)=2^{|B|}$. The cardinality $|\mathcal{P}(B)|\geq 4$ because 4 is the lowest even integer higher than 2. We also know that $\mathcal{P}(B)\subset C$, which means that $|C|>|\mathcal{P}(B)|\geq 4$. The cardinality $|C|$ can not be equal to 4 since it is the lowest number of elements that $\mathcal{P}(B)$ can have. On the other hand, if $|C|=5$, then $|\mathcal{P}(B)|=4$.
+\end{solution}
+(c) If a set $B$ has one more element than a set $A$, then $\mathcal{P}(B)$ has at least two more elements than $\mathcal{P}(A)$.
+\begin{solution}{c}
+	This statement is false. Let $A=\emptyset$ and $B=\{1\}$ (the set $B$ has one more element than $A$). Then $|\mathcal{P}(A)|=2^{0}=1$ and $|\mathcal{P}(B)|=2^{1}=2$. The set $\mathcal{P}(B)$ has one more element than $\mathcal{P}(A)$. \\
+	For a more general case. Let $B$ and $A$ be sets such that $|A|=n$ and $|B|=n+1$. Then $|\mathcal{P}(A)|=2^{n}$ and  $|\mathcal{P}(B)|=2^{n+1}=2(2^{n})$ (properties of exponents). Since $|\mathcal{P}(A)|=2^{n}$, it follows that $|\mathcal{P}(B)|= 2(|\mathcal{P}(A)|)$. Therefore, if $B$ had one more element than $A$, then the quantity of elements in $\mathcal{P}(B)$ would be the double of the quantity of elements in $\mathcal{P}(A)$. 
+\end{solution}
+(d) If four sets $A$, $B$, $C$ and $D$ are subsets of $\{1,2,3\}$ such that $|A|=|B|=|C|=|D|=2$, then at least two of these sets are equal.
+\begin{solution}{d}
+	This statement is true. Let's get all possible combinations of two numbers from the set $\{1,2,3\}$. Repetition ($\{3\}=\{3,3,\}$) is not considered and order ($\{3,1\}=\{1,3\}$) does not matter.
+	\begin{center}
+		\begin{tabular}{c c c}
+			\begin{forest}
+				scshape/.style={font=\scshape},
+				nice empty nodes,
+				for tree={
+					calign angle=50,
+				}
+				[1
+				[$\cancel{1}$][2][3]
+				]
+			\end{forest} & 
+			\begin{forest}
+				scshape/.style={font=\scshape},
+				nice empty nodes,
+				for tree={
+					calign angle=50,
+				}
+				[2
+				[$\cancel{1}$][$\cancel{2}$][3]
+				]
+			\end{forest}&
+			\begin{forest}
+				scshape/.style={font=\scshape},
+				nice empty nodes,
+				for tree={
+					calign angle=50,
+				}
+				[3
+				[$\cancel{1}$][$\cancel{2}$][$\cancel{3}$]
+				]
+			\end{forest}
+		\end{tabular} 
+	\end{center}
+There will be 3 different combinations where the order does not matter and repetition is not considered. This means that there are only 3 different subsets of $\{1,2,3\}$ with 2 elements. Thus, a fourth one must be equal to one of these 3.
+\end{solution} 
+\end{problem}
+\begin{problem}{21}
+	Three subsets $A$, $B$ and $C$ of $\{1,2,3,4,5\}$ have the same cardinality. Furthermore, \\
+	(a) 1 belongs to $A$ and $B$ but not to $C$.\\
+	(b) 2 belongs to $A$ and $C$ but not to $B$.\\
+	(c) 3 belongs to $A$ and exactly one of $B$ and $C$.\\
+	(d) 4 belongs to an even number of $A$, $B$ and $C$.\\
+	(e) 5 belongs to an odd number of $A$, $B$ and $C$.\\
+	(f) The sums of the elements in two of the sets $A$, $B$ and $C$ differ by 1.\\
+	
+	What is $B$? 
+	\begin{solution}{}
+		From (a) to (c) it is understood that $A$ has at least 3 elements. Also, numbers $1\in B$, but $1\notin C$, and $2\in C$, but $2\notin B$. The number $3$ belongs to one of $B$ and $C$ but not both. This means that at this point of the exercise one of the sets $C$ and $B$ has two elements and the other has only one. There are just two elements left, namely 4 and 5, and they could belong to the three sets. However, the maximum cardinality the set with one element at this stage (from (a)-(c)) can achieve is three. Thus, $|A|=|B|=|C|=3.$\\
+		At this point I got stuck. I don't seem to get what the author means by "belongs to an even number of". It just does not seem to make sense to me. But according to the book, the answer is: $B=\{1,4,5\}$, which in fact confirms our conclusion that the cardinality of the three sets must be 3.
+	\end{solution}
+\end{problem}
+\end{document}

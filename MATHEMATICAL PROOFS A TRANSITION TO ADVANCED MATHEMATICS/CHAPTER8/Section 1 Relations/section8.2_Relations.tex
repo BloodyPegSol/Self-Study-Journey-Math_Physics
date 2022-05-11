@@ -1,0 +1,199 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label*=\arabic*.}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document} 
+	
+	\title{Section 8.1: Equivalence Relations}
+	\author{Juan Patricio Carrizales Torres}
+	\date{May 9, 2022}
+	\maketitle
+	
+	Consider two sets $A$ and $B$. A \textbf{relation $R$ from} $A$ \textbf{to} $B$ is a subset of the cartesian product $A\times B$. Therefore, $(a,b)\in R$ means that $a\in A$ is related to $b\in B$ by $R$, namely, $a \, R \, b$. On the other hand, if $(a,b)\not\in R$, then $a\in A$ is not related to $b\in B$ by $R$, namely, $a \, \cancel R \, b$.\\
+	
+	 Also, if $|A\times B| = n$ for some positive integer $n$, then there are $2^{n}$ possible relations from $A$ to $B$. Note that $R$ can be seen as a function with some domain and range. Hence
+	\begin{equation*}
+		\text{dom}(R) = \{a\in A: (a,b)\in R \text{ for some } b\in B\}
+	\end{equation*} 
+	and
+	\begin{equation*}
+		\text{range}(R) = \{b\in B: (a,b)\in R \text{ for some } a\in B\}.
+	\end{equation*}
+	The relation $R$ has too some type of inverse called the \textbf{inverse relation} $R^{-1}$, which is defined as
+	\begin{equation*}
+		R^{-1} =\{(b,a):(a,b)\in R\}.
+	\end{equation*}
+	However, functions are just a subset of relations. All functions are relations, but not all relations are functions.
+	Finally, a \textbf{relation on a set} $A$ is just a relation from $A$ to $A$. Therefore, it is a subset of $A\times A$.
+	
+	\begin{problem}{1}
+		Let $A=\{a,b,c\}$ and $B=\{r,s,t,u\}$. Furthermore, let $R=\{(a,s),(a,t),(b,t)\}$ be a relation from $A$ to $B$. Determine dom$(R)$ and range$(R)$.
+		\begin{solution}{1}
+			The domain and range of the relation $R$ are as follows:
+			\begin{align*}
+				\text{dom}(R) &= \{a,b\} \quad \text{and}\\
+				\text{range}(R) &= \{s,t\}
+			\end{align*}
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{2}
+		Let $A$ be a nonempty set and $B\subseteq \mathcal{P}(A)$. Define a relation $R$ from $A$ to $B$ by $x \, R \, Y$ if $x\in Y$. Give an example of two sets $A$ and $B$ that illustrate this. What is $R$ for these two sets?
+		\begin{solution}{2}
+			Let $A=\{a,b,3,4\}$ and $B=\{\{a,b\},\{3,4\},\emptyset\}$, and so $B\subseteq \mathcal{P}(A)$. Hence,
+			\begin{align*}
+			 R&=\{(x,Y):x\in Y\}\\
+			 &=\{(a,\{a,b\}),(b,\{a,b\}), (3,\{3,4\}), (4,\{3,4\}) \}
+		 	\end{align*}
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{3}
+		Let $A=\{0,1\}$. Determine all the relations on $A$.
+		\begin{solution}{3}
+			Since $|A\times A|=4$, it follows that there are $|\mathcal{P}(A\times A)|=2^{4} = 16$ possible relations on $A$.  These are the following
+			\begin{align*}
+				R_{1} &= \emptyset\\
+				R_{2} &= \{(0,0)\}\\
+				R_{3} &= \{(0,1)\}\\
+				R_{4} &= \{(0,0),(0,1)\}\\
+				R_{5} &= \{(1,0)\}\\
+				R_{6} &= \{(1,1)\}\\
+				R_{7} &= \{(1,0),(1,1)\}\\
+				R_{8} &= \{(0,0),(1,0)\}\\
+				R_{9} &= \{(0,0),(1,1)\}\\
+				R_{10} &= \{(0,1),(1,0)\}\\
+				R_{11} &= \{(0,1),(1,1)\}\\
+				R_{12} &= \{(0,0),(0,1), (1,0)\}\\
+				R_{13} &= \{(0,0),(0,1),(1,1)\}\\
+				R_{14} &= \{(1,0),(1,1),(0,0)\}\\
+				R_{15} &= \{(1,0),(1,1),(0,1)\}\\
+				R^{16} &= A\times A
+			\end{align*}
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{6}
+		A relation $R$ is defined on $\N$ by $a \; R \; b$ if $a/b \in \N$. For $c,d\in \N$, under what conditions is $c \; R^{-1} \; d?$ 
+		\begin{solution}{6}
+			Note that $d/c\in \N \iff d\; R\;c$. Also, we know that $d \; R \; c \iff c \; R^{-1} \; d$. Hence, $d/c \in \N \iff c \; R^{-1} \; d$. 
+		\end{solution}
+	\end{problem} 
+
+	From this colloraly we can derived some interesting and useful theorem:
+	\begin{theorem}{inverse}
+		Let $R$ be a relation with condition $P()$. Then, the condition for $R^{-1}$ is also $P()$.
+		\begin{proof}
+			We know that $P(x,y)\iff (x,y)\in R$ and $(x,y)\in R\iff (y,x) \in R^{-1}$. Therefore, $P(x,y) \iff (y,x)\in R^{-1}$.
+		\end{proof}
+	\end{theorem}
+
+	\begin{problem}{7}
+		For the relation $R=\{(x,y):x+4y \text{ is odd}\}$ defined on $\N$, what is $R^{-1}$?
+		\begin{solution}{7}
+			Note that $4y = 2(2y)$ is even for all $y\in \N$. Therefore, $x$ must be an odd integer in order for $x+4y$ to be odd. Using \textbf{theorem inverse}, 
+			\begin{align*}
+				R^{-1} &= \{(y,x):x+4y \text{ is odd}\} \\
+				&= \{(y,x):x \text{ is odd}\}\\
+				&= \N \times \mathbb{I},
+			\end{align*}
+		where $\mathbb{I}$ is the set of odd positive integers.
+		\end{solution}
+	\end{problem}
+ 
+	\begin{problem}{8}
+		For the relation $R=\{(x,y):x\leq y\}$ defined on $\N$, what is $R^{-1}$?
+		\begin{solution}{8}
+			Using \textbf{theorem inverse}.
+			\begin{align*}
+				R^{-1} &= \{(y,x):x\leq y\}\\
+			\end{align*}
+		We can even change variables:
+		\begin{align*}
+			R^{-1} &= \{(a,b):b\leq a\}
+		\end{align*}
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{9}
+		Let $A$ and $B$ be sets such that $|A|=|B|=4$.
+		\begin{enumerate}[label=(\alph*)]
+			\item Prove or disprove: If $R$ is a relation from $A$ to $B$ where $|R| = 9$ and $R=R^{-1}$, then $A=B$.
+			\begin{solution}{9}
+				This statement is false. Note that $|R|=9=3!$. Let's give a counterexmaple. Let $A=\{2,4,6,9\}$ and $B=\{2,4,6,11\}$. Consider some relation $R$ from $A$ to $B$ such that 
+				\begin{align*}
+				 R &= \{(a,b):a\text{ and }b \text{ are even}\}\\
+				 &=\{(2,2),(2,4),(2,6),(4,2),(4,4),(4,6),(6,2),(6,4),(6,6)\}
+				\end{align*}
+				and so
+				\begin{align*}
+				R^{-1} &= \{(2,2),(4,2),(6,2),(2,4),(4,4),(6,4),(2,6),(4,6),(6,6)\}.
+				\end{align*}
+				Hence, $|R|=9$ and $R=R^{-1}$. However, $A\neq B$.
+			\end{solution}
+			\item Show that by making a small change in the statement in (a), a different a different response to the resulting statement can be obtained.
+			\begin{solution}{b}
+				\begin{lemma}{9.b.l}
+					Let $A$ and $B$ be two nonempty sets. Then, $A\times B = B\times A$ is a necessary and sufficient condition for $A=B$. 
+					\begin{proof}
+						Let $A=B$. Then $A\times B = A\times A = B\times A$. \\
+						For the converse, assume that $A\neq B$. Then, either $A\not\subseteq B$ or $B\not\subseteq A$. Without loss of generality, let $A\not\subseteq B$ and so there is some $x\in A$ such that $x\not\in B$. Then, there is some $(x,b) \in A\times B$. Since $x\not\in B$, $(x,b) \not\in B\times A$. Hence, $A\times B \neq B\times A$.
+					\end{proof}
+				\end{lemma}
+				\begin{theorem}{9.b}
+					If $R$ is a relation from $A$ to $B$ where $|R| = 16$ and $R=R^{-1}$, then $A=B$.
+					\begin{proof}
+						Consider some sets $A$ and $B$ with $|A|=|B|=4$. Sine $|R| = 16$ and $|A\times B| = 4\cdot 4 = 16$, it follows, by definition of $R\subseteq A\times B$, that $R= A\times B$. Hence, $R^{-1}= \{(b,a):(a,b)\in R=A\times B\}=B\times A$. However, we assumed that $R = R^{-1}$, which implies that $A\times B = B\times A$. By \textbf{Lemma 9.b.l}, $A=B$.
+					\end{proof}
+				\end{theorem}
+			
+				However, we are interested in the minimum amount of $|R|$ to imply $A=B$. Since $3!=9$, adding another element would need for a fourth element of $A$ and $B$ to be equal.
+			\end{solution}
+		\end{enumerate} 
+	\end{problem}
+\end{document}

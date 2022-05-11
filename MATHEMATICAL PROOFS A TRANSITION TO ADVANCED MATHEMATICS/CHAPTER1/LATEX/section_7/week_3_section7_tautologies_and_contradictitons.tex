@@ -1,0 +1,291 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 3}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 7: Tautologies and Contradictions}
+	
+	\maketitle
+
+The following logical equivalences and properties of logical equivalence will be used for the proofs without truth tables \cite{mathproofs} \cite{logicalequiv}:
+\begin{enumerate}
+	\item \emph{Logical equivalence for implication} \\
+	$P \Rightarrow Q \equiv (\sim P) \vee Q$
+	\item \emph{Double negation Law}\\
+	$\sim (\sim P) \equiv P$
+	\item \emph{Commutative Laws}
+	\begin{enumerate}[label = \alph*]
+		\item $P \wedge Q \equiv Q \wedge P$
+		\item $P \vee Q \equiv Q \vee P$
+	\end{enumerate}
+	\item \emph{Distributative Laws}
+	\begin{enumerate}[label = \alph*]
+		\item $P \vee (Q \wedge R) \equiv (P \vee Q) \wedge (P \vee R)$
+		\item $P \wedge (Q \vee R) \equiv (P \wedge Q) \vee (P \wedge R)$
+	\end{enumerate}
+	\item \emph{Associative Laws}
+	\begin{enumerate}[label = \alph*]
+		\item $P \vee (Q \vee R) \equiv (P \vee Q)\vee R$
+		\item $P \wedge (Q \wedge R) \equiv (P \wedge Q) \wedge R$
+	\end{enumerate}
+	\item \emph{De Morgan's Laws}
+	\begin{enumerate}[label = \alph*]
+		\item $\sim (P \vee Q) \equiv (\sim P) \wedge (\sim Q)$
+		\item $\sim (P \wedge Q) \equiv (\sim P) \vee (\sim Q)$
+	\end{enumerate}
+	\item \emph{Identity Laws}
+	\begin{enumerate}[label = \alph*]
+		\item $P \wedge T \equiv P$
+		\item $P \vee F \equiv P$
+	\end{enumerate}
+	\item \emph{Domination Laws}
+	\begin{enumerate}[label = \alph*]
+		\item $P \wedge F \equiv F$
+		\item $P \vee T \equiv T$
+	\end{enumerate}
+	\item \emph{Negation Laws}
+	\begin{enumerate}[label = \alph*]
+		\item $P \wedge (\sim P) \equiv F$
+		\item $P \vee (\sim P) \equiv T$
+	\end{enumerate}
+\end{enumerate}
+\noindent Due to the commutative property of the conjunctions and disjunctions, the \textit{Identitiy Laws}, \textit{Dominant Laws} and \textit{Negation Laws} are commutative (e.g., $P \wedge F \equiv F \wedge P \equiv F$)
+\begin{problem}{46}
+	For statements $P$ and $Q$, show that $P \Rightarrow (P\vee Q)$ is a tautology.
+	\begin{solution}{}
+		The implication $P \Rightarrow (P\vee Q)$ can only be false when the premise is true and the conclusion is false. In this case, if $P$ is true, then $P\vee Q$ is true. Thus, $P \Rightarrow (P\vee Q)$ is a tautology, because this compound statement is true for all combinations of truth values of its component statements. This can be seen in the following truth table:
+		\begin{center}
+			\begin{tabular}{c c c c}
+				$P$ & $Q$ & $P \vee Q$ & $P \Rightarrow (P \vee Q)$\\
+				\hline
+				T & T & T & T\\
+				T & F & T & T\\
+				F & T & T & T\\
+				F & F & F & T\\
+				\hline
+	
+			\end{tabular}
+		\end{center}
+ \noindent Proving that $P \Rightarrow (P\vee Q)$ is a tautology without a truth table:\\
+ \begin{proof}
+ 	\begin{align*}
+ 		\textit{Logical equivalence for implication.}\\
+ 		P \Rightarrow (P \vee Q) & \equiv (\sim P) \vee (P \vee Q)\\
+ 		\textit{Associative Laws}\\
+ 		& \equiv ((\sim P) \vee P)\vee Q\\
+ 		\textit{Negation Laws}\\
+ 		& \equiv T \vee Q\\
+ 		\textit{Dominant Laws}\\
+ 		& \equiv T 
+ 	\end{align*}
+ \end{proof}
+	\end{solution}
+\end{problem}
+
+\begin{problem}{47}
+	For statements $P$ and $Q$, show that $(P\wedge (\sim Q)) \wedge (P \wedge Q)$ is a contradiciton. 
+	\begin{solution}{}
+		The compound statement $(P\wedge (\sim Q)) \wedge (P \wedge Q)$, which is a conjunction, can only be true when both conjunctions $P\wedge (\sim Q)$ and $P \wedge Q$ are true. In the case where $P$ is true, both conjunctions $P\wedge (\sim Q)$ and $P \wedge Q$ have opposite truth values because they contain $(\sim Q)$ and $Q$ respectively. Thus, the compound statement $(P\wedge (\sim Q)) \wedge (P \wedge Q)$ is a contradiction because it is false for all the combinations of truth values of $P$ and $Q$.
+		This can be seen in the following table
+		\begin{center}
+			\begin{tabular}{c c c c c c}
+				$P$ & $Q$ & $\sim Q$ & $P \wedge Q$ & $P \wedge (\sim Q)$ & $(P\wedge (\sim Q)) \wedge (P \wedge Q)$\\
+				\hline
+				T & T & F & T & F& F \\
+				T & F & T & F& T& F\\
+				F & T & F & F& F& F\\
+				F & F & T & F& F& F\\
+				\hline
+				
+			\end{tabular}
+		\end{center}
+	 \noindent Proving that $(P\wedge (\sim Q)) \wedge (P \wedge Q)$ is a contradicition without a truth table:\\
+	\begin{proof}
+		\begin{align*}
+			\textit{Associative Laws}\\
+			(P\wedge (\sim Q)) \wedge (P \wedge Q) & \equiv P \wedge ((\sim Q)\wedge (P \wedge Q))\\
+			\textit{Commutative Laws}\\
+			& \equiv P \wedge ((\sim Q)\wedge (Q \wedge P))\\
+			\textit{Associative Laws}\\
+			& \equiv P \wedge (((\sim Q) \wedge Q) \wedge P)\\
+			\textit{Negation Laws}\\
+			& \equiv P \wedge (F \wedge P)\\
+			\textit{Dominant Laws}\\
+			& \equiv P \wedge F\\
+			& \equiv F
+		\end{align*}
+	\end{proof}
+	\end{solution}
+\end{problem}
+
+\begin{problem}{48}
+	For statements $P$ and $Q$, show that $(P \wedge (P \Rightarrow Q)) \Rightarrow Q$ is a tautology. Then state $(P \wedge (P \Rightarrow Q)) \Rightarrow Q$ in words. (This is an important logical argument form, called \textbf{modus ponens}.)
+	\begin{solution}{}
+		The compound statement $(P \wedge (P \Rightarrow Q)) \Rightarrow Q$ is a tautology because it is true for all combinations of truth values of the component statements $P$ and $Q$. This is shown in the following truth table:
+		 \begin{center}
+		 	\begin{tabular}{c c c c c }
+		 		$P$ & $Q$ & $P \Rightarrow Q$ & $P \wedge (P \Rightarrow Q)$ & $(P \wedge (P \Rightarrow Q)) \Rightarrow Q$ \\
+		 		\hline
+		 		T & T & T & T & T \\
+		 		T & F & F & F& T\\
+		 		F & T & T & F& T\\
+		 		F & F & T & F& T\\
+		 		\hline
+		 		
+		 	\end{tabular}
+		 \end{center}
+	 The compound statement in words:\\
+	 $(P \wedge (P \Rightarrow Q)) \Rightarrow Q: $ If $P$ and $P$ implies $Q$, then $Q$.\\
+	 
+	 \noindent Proving that $(P \wedge (P \Rightarrow Q)) \Rightarrow Q$ is a tautology without a truth table:\\
+	 \begin{proof}
+	 	\begin{align*}
+	 		\textit{Logical equivalence for implication}\\
+	 		(P \wedge (P \Rightarrow Q)) \Rightarrow Q & \equiv  (P \wedge ((\sim P)\vee Q)) \Rightarrow Q\\
+	 		& \equiv (\sim (P \wedge ((\sim P)\vee Q)))\vee Q\\
+	 		\textit{De Morgan's Laws}\\
+	 		&\equiv ((\sim P) \vee (\sim((\sim P)\vee Q)))\vee Q\\
+	 		&\equiv ((\sim P)\vee ((\sim (\sim P))\wedge (\sim Q))) \vee Q\\
+	 		\textit{Double Negation}\\
+	 		& \equiv ((\sim P) \vee (P \wedge (\sim Q))) \vee Q\\
+	 		\textit{Distributative Laws}\\
+	 		&\equiv (((\sim P)\vee P) \wedge ((\sim P)\vee (\sim Q))) \vee Q\\
+	 		\textit{Negation Laws}\\
+	 		&\equiv (T \wedge ((\sim P) \vee (\sim Q))) \vee Q\\
+	 		\textit{Identity Laws}\\
+	 		& \equiv ((\sim P) \vee (\sim Q)) \vee Q\\
+	 		\textit{Associative Laws}\\
+	 		& \equiv (\sim P) \vee ((\sim Q) \vee Q)\\
+	 		\textit{Negation Laws}\\
+	 		& \equiv (\sim P) \vee T\\
+	 		\textit{Domination Laws}\\
+	 		& \equiv T\\
+	 	\end{align*}
+	 \end{proof}
+	\end{solution}
+\end{problem}
+
+\begin{problem}{49}
+	For statements $P$, $Q$ and $R$, show that $((P \Rightarrow Q)\wedge (Q \Rightarrow R)) \Rightarrow (P \Rightarrow R)$ is a tautology. Then state this compound statement in words. (This is another important logical argument form, called \textbf{syllogism.})
+	
+	\begin{solution}{}
+		The compound statement $((P \Rightarrow Q)\wedge (Q \Rightarrow R)) \Rightarrow (P \Rightarrow R)$ is a tautology because it is true for all combinations of truth values of its component statements $P$, $Q$ and $R$. This can be seen in the following truth table:
+		
+	\begin{center}
+		\begin{tabular}{|c |c |c |c |c |c |c |c|}
+			
+			$P$ & $Q$ & $R$ & $P \Rightarrow Q$ & $Q \Rightarrow R$ & $(P \Rightarrow Q) \wedge (Q \Rightarrow R)$ & $P \Rightarrow R$ & $((P \Rightarrow Q) \wedge (Q \Rightarrow R)) \Rightarrow (P \Rightarrow R)$ \\
+			\hline
+			T & T & T & T & T & T & T & T\\
+			T & T & F & T & F & F & F & T\\
+			T & F & T & F & T & F & T & T\\
+			T & F & F & F & T & F & F & T\\
+			F & T & T & T & T & T & T & T\\
+			F & T & F & T & F & F & T & T\\
+			F & F & T & T & T & T & T & T\\
+			F & F & F & T & T & T & T & T\\
+			\hline
+		\end{tabular}
+	\end{center}
+The compound statement in words:\\
+$((P \Rightarrow Q) \wedge (Q \Rightarrow R)) \Rightarrow (P \Rightarrow R):$ If $P$ implies $Q$ and $Q$ implies $R$, then $P$ implies $R$.\\
+
+\noindent Proving that $((P \Rightarrow Q) \wedge (Q \Rightarrow R)) \Rightarrow (P \Rightarrow R)$ is a tautology without a truth table:\\
+
+\begin{proof}
+	\begin{align*}
+		\text{\emph{Logical equivalence for implication}}\\
+		((P\Rightarrow Q)\wedge (Q \Rightarrow R))\Rightarrow (P \Rightarrow R) &\equiv (((\sim P) \vee Q)\wedge ((\sim Q)\vee R)) \Rightarrow ((\sim P) \vee R)\\
+		&\equiv (\sim (((\sim P) \vee Q)\wedge ((\sim Q)\vee R))) \vee ((\sim P) \vee R)\\
+		\text{\emph{De Morgan's Laws}}\\
+		&\equiv ((\sim((\sim P) \vee Q)) \vee (\sim((\sim Q) \vee R))) \vee ((\sim P) \vee R)\\
+		&\equiv (((\sim(\sim P)) \wedge (\sim Q)) \vee ((\sim(\sim Q)) \wedge (\sim R))) \vee ((\sim P)\vee R)\\
+		\textit{Double negation Law}\\
+		&\equiv ((P \wedge (\sim Q)) \vee (Q \wedge (\sim R))) \vee ((\sim P)\vee R)\\
+		\textit{Distributative Laws}\\
+		&\equiv (((P \wedge (\sim Q))\vee Q)\wedge ((P \wedge (\sim Q))\vee (\sim R))) \vee ((\sim P)\vee R)\\
+		\textit{Commutative Laws}\\
+		&\equiv ((Q \vee (P \wedge (\sim Q))) \wedge ((P \wedge (\sim Q)) \vee (\sim R) )) \vee ((\sim P)\vee R)\\
+		\textit{Distributative Laws}\\
+		&\equiv (((Q\vee P) \wedge (Q \vee (\sim Q))) \wedge ((P \wedge (\sim Q)) \vee (\sim R) )) \vee ((\sim P)\vee R)\\
+		\textit{Negation Laws}\\
+			&\equiv (((Q\vee P) \wedge T) \wedge ((P \wedge (\sim Q)) \vee (\sim R) )) \vee ((\sim P)\vee R)\\
+		\textit{Identity Laws}\\
+			&\equiv ((Q\vee P) \wedge ((P \wedge (\sim Q)) \vee (\sim R) )) \vee ((\sim P)\vee R)\\
+		\textit{Commutative Laws}\\
+			& \equiv ((\sim P)\vee R) \vee ((Q\vee P) \wedge ((P \wedge (\sim Q)) \vee (\sim R) ))\\
+		\textit{Distributative Laws}\\
+			& \equiv (((\sim P)\vee R) \vee (Q\vee P)) \wedge (((\sim P)\vee R) \vee((P \wedge (\sim Q)) \vee (\sim R)) )\\
+		\textit{Commutative Laws}\\
+			& \equiv ((R\vee (\sim P)) \vee (P\vee Q)) \wedge (((\sim P)\vee R) \vee( (\sim R) \vee (P \wedge (\sim Q))) )\\
+		\textit{Associative Laws}\\
+			& \equiv (((R\vee (\sim P)) \vee P)\vee Q) \wedge ((((\sim P)\vee R) \vee (\sim R)) \vee (P \wedge (\sim Q) ))\\
+			& \equiv ((R\vee ((\sim P) \vee P))\vee Q) \wedge (((\sim P)\vee (R \vee (\sim R))) \vee (P \wedge (\sim Q) ))\\
+		\textit{Negation Laws}\\
+			& \equiv ((R\vee T)\vee Q) \wedge (((\sim P)\vee T) \vee (P \wedge (\sim Q) ))\\
+		\textit{Domination Laws}\\
+			& \equiv (T\vee Q) \wedge (T \vee (P \wedge (\sim Q)) )\\
+			& \equiv T\wedge T \\
+			& \equiv T \\
+	\end{align*}
+\end{proof}
+	\end{solution}
+\end{problem}
+
+\begin{problem}{50}
+	Let $R$ and $S$ be compound statements involving the same component statements. If $R$ is a tautology and $S$ is a contradiciton, then what can be said of the following?\\
+	
+	(A) $R \vee S$
+	\begin{solution}{a}
+		For all combinations of component statements, the compound statement $R$ is true, while $S$ is false. Thus, this disjunction is a tautology since one of its compound statements is true for all combinations of component statements.
+	\end{solution}
+	(B) $R \wedge S$
+	\begin{solution}{b}
+		Since the compound statement $S$ is a contradiction, both compound statements of this conjunction are not  true for all the combinations of component statements. This conjunction is a contradiction.
+	\end{solution}
+	(C) $R \Rightarrow S$
+	\begin{solution}{c}
+		The compound statement $R$ is a tautology and $S$ is a contradiction. For all combinations of the component statements, the premise and conclusion are therefore  true and false, respectively. This implication is a contradiction.
+	\end{solution}
+	(D) $S \Rightarrow R$
+	\begin{solution}{d}
+		For all combinations of the component statements, the premise and conclusion are false and true, respectively. This is because $S$ is a contradiction and $R$ is a tautology. This implication is a tautology.
+	\end{solution}
+\end{problem}
+\begin{thebibliography}{3}
+	\bibitem{mathproofs}
+	G. Chartrand,  A. Polimeni, P. Zhang, 
+	\textit{Mathematical Proofs: A Transition to Advanced Mathematics}, Pearson, 2014.
+	\bibitem{logicalequiv}
+	GeeksforGeeks, \textit{Mathematics Propositional Equivalences}, Apr 02, 2019. Retrieved Aug 04, 2021.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,116 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem} 
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel}  
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 9}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 2: Direct Proofs}
+	\date{September 17, 2021}
+	\maketitle
+	 
+	Let $P(x)$ and $Q(x)$ be open sentences over a domain $S$ such that they have some "connection".
+	If one wants to prove that $P(x)\Rightarrow Q(x)$ is true for all $x \in S$, one may assume that $P(x)$ is true for an arbitrary $x\in S$ and show that $Q(x)$ is true for that same $x$. This is known as a direct proof and it uses the fact that an implication statement can only be false when the hypothesis is true and the conclusion is false. 
+	
+	\begin{problem}{8}
+		Prove that if $x$ is an odd integer, then $9x+5$ is even.
+		\begin{proof}
+			Assume that $x$ is an odd integer. Then $x=2k+1$ for some $k \in \Z$. Hence,
+			\begin{equation*}
+				9(2k+1)+5 = 18x+14 = 2(9x+7)
+			\end{equation*}
+		Since $9x+7$ is an integer, it follows that $9x+5$ is even.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{9}
+		Prove that if $x$ is an even integer, then $5x-3$ is an odd integer.
+		\begin{proof}
+			Since $x$ is an even integer, we can write $x=2k$ for some $k\in \Z$. Therefore,
+			\begin{equation*}
+				5(2k)-3 = 2(5k) -4+1 = 2(5k-2)+1
+			\end{equation*}
+			Because $5k-2$ is an integer, $5x-3$ is odd.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{10}
+		Prove that if $a$ and $c$ are odd integers, then $ab+bc$ is even for every integer $b$.
+		\begin{proof}
+			Let $a$ and $c$ be odd integers. Then $a=2m+1$ and $c=2n+1$ for some $m,n\in \Z$. Therefore,
+			\begin{equation}
+				(2m+1)b+b(2n+1)= b(2m+2n+2)=2b(m+n+1)
+			\end{equation}
+			Since $b(m+n+1)$ is an integer, $ab+bc$ is even
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{11}
+		Let $n\in \Z$. Prove that if $1-n^{2}>0$, then $3n-2$ is an even integer.
+		\begin{proof}
+			Let $1-n^{2}>0$. Then $0\leq n^{2}<1$ and so $n=0$. Hence, $3(0)-2=-2=2(-1)$. Thus, $3n-2$ is even.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{12}
+		Let $x\in \Z$. Prove that  if $2^{2x}$ is an odd integer, then $2^{-2x}$ is an odd integer.
+		\begin{proof}
+			Let $2^{2x}$ be an odd integer. If $x<0$ then $2^{2x}$ is not an integer; while if $x>0$, then $2^{2x}$ is even (2 multiplies itself $2x$ times). Since $2^{2(0)}=1$, it follows that $x=0$. Therefore, $2^{-2(0)}=1$ is odd.
+			
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{13}
+		Let $S=\{0,1,2\}$ and let $n \in S$. Prove that if $(n+1)^{2}(n+2)^{2}/4$ is even, then $(n+2)^{2}(n+3)^{2}/4$ is even.
+		\begin{proof}
+			Let $n\in S$ such that $(n+1)^{2}(n+2)^{2}/4$ is even. Since $(n+1)^{2}(n+2)^{2}/4=1$ when $n=0$, $(n+1)^{2}(n+2)^{2}/4=9$ when $n=1$, and $(n+1)^{2}(n+2)^{2}/4=36$ when $n=2$, it follows that $n=2$. Therefore, when $n=2$,  $(n+2)^{2}(n+3)^{2}/4=100$, which is even.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{14}
+		Let $S=\{1,5,9\}$. Prove that if $n \in S$ and $\frac{n^{2}+n-6}{2}$ is odd, then $\frac{2n^{3}+3n^{2}+n}{6}$ is even.
+		\begin{proof}
+			Note that for all $n\in S$, $\frac{n^{2}+n-6}{2}$ is even. Therefore, this implication is true vacuously.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{15}
+		Let $A=\{n\in \Z: n>2 \text{ and }n\text{ is odd}\}$ and $B=\{n\in \Z:n<11\}$. Prove that if $n\in A\cap B$, then $n^{2}-2$ is prime.
+		\begin{proof}
+			Assume that $n\in A\cap B$. Then $2<n<11$ and $n$ is odd, and so $n\in \{3,5,7,9\}=A\cap B$. Note that $3^{2}-2=7$, $5^{2}-2=23$, $7^{2}-2=47$ and $9^{2}-2=79$ are all prime numbers. Thus, this implication is true.
+		\end{proof}
+	\end{problem}
+\end{document}

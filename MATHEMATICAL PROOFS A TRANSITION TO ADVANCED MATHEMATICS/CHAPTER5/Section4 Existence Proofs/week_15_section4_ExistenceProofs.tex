@@ -1,0 +1,137 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 15}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 4: Existence Proofs}
+	\date{November 11, 2021}
+	\maketitle
+
+	During the last sections we have been working with proofs  mainly regarding implications with universal quantifiers, namely, $\forall x\in S, R(x)$. Now, its time to check how one can prove an implication with an existence quantifier, which can be known as \textbf{Existence theorems}. If one wants to prove the statement $\exists x\in S, R(x)$, then it suffices to come up with some $x\in S$ with the desired property $R(x)$ (An $x\in S$ such that $R(x)$ is true). However, there will be cases where we can not come up with an specific $x$ but be certain and able to show that there exists such $x$, as David Hilbert said in one of his lectures "That we shall never know; but of his existence we can be absolutely certain.".\\
+	
+	Therefore, an \textbf{existence proof} may consist of just displaying or constructing an specific $x$ with such property, or showing that such $x$ must exist without the necessity of producing it. All of this with the aid of Results and Theorems.
+	
+	\begin{problem}{40}
+		Show that there exist a rational number $a$ and irrational number $b$ such that $a^{b}$ is rational.
+		\begin{proof}
+			An easy example, let $a = 1,0$ and $b = \sqrt{2}$. Then $a^{b} = 1^{\sqrt{2}}, 0^{\sqrt{2}} = 1, 0$.
+		\end{proof}
+	\end{problem} 
+
+	\begin{problem}{41}
+		Show that there exist a rational number $a$ and an irrational number $b$ such that $a^{b}$ is irrational.
+		\begin{proof}
+			Let $a = 2$ and $b = \frac{1}{2}\sqrt{2}$. Then $a^{b} = 2^{\frac{1}{2}\sqrt{2}} = \left(2^{\frac{1}{2}}\right)^{\sqrt{2}} = \sqrt{2}^{\sqrt{2}}$. Remember that it has been proven that $\sqrt{2}^{\sqrt{2}}$ is irrational. 
+		\end{proof}
+	\end{problem}
+	
+	\begin{problem}{42}
+		Show that there exist two distinct irrational numbers $a$ and $b$ such that $a^{b}$ is rational.
+		\begin{proof}
+			Let $a = \sqrt{2}$ and $b = 2\sqrt{2}$, both are clearly distinct and irrational. Then $a^{b} = \sqrt{2}^{2\sqrt{2}}$ can either be rational or irrational.\\
+			\textit{Case 1.} $a^{b} = \sqrt{2}^{2\sqrt{2}}$ is rational. Then we are set.\\
+			\textit{Case 2.} $a^{b} = \sqrt{2}^{2\sqrt{2}}$ is irrational. Then we change our irrational numbers so that $a = \sqrt{2}^{2\sqrt{2}}$ and $b = \frac{1}{\sqrt{2}}$. Thus, $a^{b} = \left(\sqrt{2}^{2\sqrt{2}}\right)^{\frac{1}{\sqrt{2}}} = (\sqrt{2})^{2\frac{\sqrt{2}}{\sqrt{2}}} = (\sqrt{2})^{2} = 2$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{43}
+		Show that there exist no nonzero real numbers $a$ and $b$ such that $\sqrt{a^{2}+b^{2}} = \sqrt[3]{a^{3}+b^{3}}$.
+		\begin{proof}
+			Assume, to the contrary, that there exist two nonzero real numbers $a$ and $b$ such that $\sqrt{a^{2}+b^{2}} = \sqrt[3]{a^{3}+b^{3}}$. Then, 
+			\begin{align*}
+				\sqrt{a^{2}+b^{2}} &= \sqrt[3]{a^{3}+b^{3}}\\
+				(\sqrt{a^{2}+b^{2}})^{6} &= (\sqrt[3]{a^{3}+b^{3}})^{6}\\
+				(a^{2}+b^{2})^{3} &= (a^{3}+b^{3})^{2}\\
+				a^{6} + 3a^{4}b^{2} + 3a^{2}b^{4} + b^{6} &= a^{6}+2a^{3}b^{3}+b^{6}\\
+				3a^{4}b^{2} + 3a^{2}b^{4} &= 2a^{3}b^{3}\\
+				3a^{4}b^{2} - 2a^{3}b^{3} + 3a^{2}b^{4} &= 0\\
+				a^{2}b^{2}(3a^{2}-2ab+3b^{2}) &= 0\\
+				3a^{2}-2ab+3b^{2} &= 0   &\text{Since }a,b\neq 0
+			\end{align*}
+		Therefore,
+		\begin{equation}
+			3a^{2}-2ab+3b^{2} = a^{2} -2ab +b^{2} +2a^{2}+2b^{2} = (a-b)^{2} +2a^{2}+2b^{2} =0
+		\end{equation}
+	However, since $a,b\neq 0$, ti follows that $(a-b)^{2} +2a^{2}+2b^{2} > 0$, which leads to a contradiciton.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{44}
+		Prove that there exists a unique real number solution to the equation $x^{3}+x^{2}-1=0$ between $x=2/3$ and $x=1$.
+		\begin{proof}
+			Let $f(x) = x^{3}+x^{2}-1$. Since $f(x)$ is a polynomial, it follows that it is continuos on $\R$. Note that $f(2/3) = -7/27$ and $f(1) = 1$. Therefore, $f(2/3) = -7/27 < 0 < 1 = f(1)$ and so, by the \textit{Intermediate Value Theorem of Calculus}, there exists some $a\in (2/3,1)$ such that $f(a)=0$.\\
+			Then, assume that there are two real numbers $a$ and $b$ such that  $a,b\in (2/3, 1)$ and $f(a)=f(b)=0$. Thus, $a^{3}+a^{2}-1 = b^{3}+b^{2}-1 = 0$ implying that $a^{3}+a^{2} = b^{3}+b^{2}$. Therefore,
+			\begin{align*}
+				a^{3}-b^{3}+a^{2}-b^{2} &= 0\\
+				&= (a-b)(a^{2}+ab+b^{2}) + (a-b)(a+b)\\
+				&= (a-b)(a^{2}+ab+b^{2} +a+b) = 0
+			\end{align*}
+		Since $a,b>0$, it follows that $a^{2}+ab+b^{2} +a+b>0$ and so $a-b=0$. Therefore, $a=b$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{45}
+		Let $R(x)$ be an open sentence over a domain $S$. Suppose that $\forall x \in S, R(x)$ is a false statement and that the set $T$ of counterexamples is a proper subset of $S$. Show that there exists a subset $W$ of $S$ such that $\forall x \in W, R(x)$ is true.
+		\begin{proof} 
+			Let $T\subset S$ such that $T=\{x\in S| \sim R(x)\}$, namely, the set of counterexamples of the statement $\forall x \in S, R(x)$. Since $T\subset S$, it follows that there is some $x\in S$ such that $x\not\in T$. Let $W$ be some set such that $W=S-T$ and so $W\subseteq S$ and $x\in W$. Because $x\not\in T$, it follows that $R(x)$ is true and so $\forall x\in W, R(x)$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{46}
+		Prove that there exist four distinct positive integers such that each integer divides the sum of the remaining ones.
+		\begin{proof}
+			Consider the integers $1,2,3$ and $6$.
+		\end{proof}
+		(b) The previos exercise should suggest another problem to you. State and solve such problem.\\
+		
+		Note that $1+2+3+6 =12$ and $1\mid (12)$, $2\mid(12)$, $3\mid (12)$ and $6\mid(12)$. Therefore, $1,2,3,6,12$ are five distinct positive integers such that each integer divides the sum of the remaining ones. In a more general manner, if we have $n$ positive integers such that each divides the sum of the others, we can have $n+1$ positive integers with the same property dy adding the integer $a$ that represents the sum of all the other $n$ integers. 
+	\end{problem} 
+
+	\begin{problem}{48}
+		Prove the equation $cos^{2}(x)-4x+\pi = 0$ has a real number solution in the interval $[0,4]$. (You may assume that $cos^{2}(x)$ is continuous on $[0,4]$)
+		\begin{proof}
+			Let $f(x)=cos^{2}(x)-4x+\pi$. The function $f(x)$ is a sum of a polynomial and $cos^{2}(x)$ both continous on $[0,4]$ and so $f(x)$ is continuous on $[0,4]$. Note that, $f(0) = 1+\pi$ and $f(\pi/2) = -\pi$. Since $f(\pi/2)=-\pi <0<1+\pi=f(0)$, it follows that, by the \textit{Theorem of Intermediate Value of Calulus}, that there is some $c\in (0,\pi/2)$ such that $f(c)=0$. Because $(0,\pi/2)\subset [0,4]$, it follows that $c\in (0,4)$. 
+		\end{proof}
+	\end{problem}
+\end{document}
