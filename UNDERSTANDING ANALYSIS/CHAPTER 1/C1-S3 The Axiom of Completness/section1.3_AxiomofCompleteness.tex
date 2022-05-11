@@ -68,10 +68,46 @@
 			\end{solution}
 			\item Now, state and prove a version of Lemma $1.3.8$ for greatest lower bounds. 
 			\begin{solution}{b}
-				Assume $s$ is some lower bound of $A\subseteq \R$. Then, $\sup(A) = s$ if and only if for any $\varepsilon > 0$, it is true that $a> s-\varepsilon$ for some $a\in A$.
+				Assume $s$ is some lower bound of $A\subseteq \R$. Then, $\inf(A) = s$ if and only if for any $\varepsilon > 0$, it is true that $a< s+\varepsilon$ for some $a\in A$.
+				\begin{proof}
+					Assume that $\inf(A) = s$. Then, $s$ is the $greatest \; lower \; bound$ of $A$ and so $s+\varepsilon > s$, where $\varepsilon>0$, is not a lower bound of $A$. Hence, $s+\varepsilon > a$ for some $a\in A$.
+					 
+					For the converse, let $s$ be a lower bound for $A$ and suposse for any $\varepsilon>0$ that $a< s+\varepsilon$ for some $a \in A$. Since $s+\varepsilon > s$, it follows that any real number greater than $s$ will not be an upper bound. Hence, any lower bound $b$ of $A$ will be lower or equal to $s$, and so $s = \inf A$.
+				\end{proof}
 			\end{solution}
 		\end{enumerate}
 	\end{problem}
-	
+
+		\begin{problem}{1.3.2}
+				Give an example of each of the following, or state that the request is impossible.
+			\begin{enumerate}[label=(\alph*)]
+				\item A set $B$ with $\inf B \geq \sup B$.
+				\begin{solution}{(a)}
+					This is not possible, since $\inf B \geq \sup B$ implies that $\inf B$ is an upper bound of $A$ and so $\inf A \geq a$ for all $a\in A$. This contradicts the fact that $\inf A \leq a$ for all $a\in A$.
+				\end{solution}
+				\item A finite set that contains its infimum but not its supremum.
+				\begin{solution}{(b)}
+					This is not possible, since real numbers are ordered, a finite set will contain a greatest element $x$. Then $x\geq a$ for all $a\in A$ and at the same time $x\in A$, which implies that $x=\sup A$.
+				\end{solution}
+				\item A bounded subset of $\Q$ that contains its supremum but not its infimum. 
+				\begin{solution}{(c)}
+					This is possible. Let $A=\{x\in \Q: 2<x\leq 4\}$. Then $A\subseteq \Q$. Note that $\inf A=2\not\in A$ and $\sup A = 4\in A$. 
+				\end{solution}
+			\end{enumerate}
+		\end{problem}
+		
+		\begin{problem}{1.3.3}
+			\begin{enumerate}[label=(\alph*)]
+			\item Let $A$ be nonempty and bounded below, and define $B=\{b\in \R:b \text{ is a lower bound for }A\}$. Show that $\sup B = \inf A$.
+			\begin{proof}
+				Since $B$ is the set of all lower bounds for $A$, it follows that $a\geq b$ for every $a\in A$ and $b\in B$, and so $B$ is bounded above. By the Axiom of Completeness, there exists some $\sup B = s$. Note that all elements of $A$ are upper bounds of $B$ and so $s\leq a$ for every $a\in A$ since $s=\sup B$. Hence, $s$ is a lower bound for $A$. Also, $s\geq b$ for all $b\in B$. Therefore, $s=\sup B = \inf A$.
+			\end{proof}
+			\item Use (a) to explain why there is no need to assert that greatest lower bounds exist as part of the Axiom of Completeness.
+			\begin{solution}{b}
+				Note that for any set $A$ that is bounded below, one can obtain the $supremum$ of the set of all lower bounds of $A$, which we previously showed that is the $infimum$ of $A$. Hence, one can derive the theorem of $greatest \; lower \; bound$ from the axiom of completeness.
+			\end{solution}
+			
+			\end{enumerate}
+		\end{problem}
 
 \end{document}
