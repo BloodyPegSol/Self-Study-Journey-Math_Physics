@@ -196,4 +196,17 @@
 			\end{solution}
 		\end{enumerate}  
 	\end{problem}
+
+	\begin{problem}{10}
+	Let $A$ be a set with $|A|=4$. What is the maximum number of elements that a relation $R$ on $A$ can contain so that $R\cap R^{-1}=\emptyset$.
+	\begin{solution}{10}
+		In order for $R\cap R^{-1} = \emptyset$, it must be true that $(x,y)\in R\implies (y,x)\not\in R$, namely, $x$ is related to $y$ but not viceversa for $x,y \in A$. We can see this as some type of combination where the there is no repetition of elements and the order does not matter. Hence, we are interested in how many subsets of 2 elements can we build up from the set $A$ with $|A|=4$. Let's consider some arbitrary set $A=\{a,b,c,d\}$, then the possible combinations are the following
+		\begin{align*}
+			(a,b), (a,c), (a,d)\\
+			(b,c), (b,d)\\
+			(c,d)
+		\end{align*}
+		Hence, the maximum number of elements that a relation $R$ on $A$ can contain so that $R\cap R^{-1}=\emptyset$ is 6.
+	\end{solution} 
+	\end{problem}
 \end{document}
