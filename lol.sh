@@ -1,4 +1,0 @@
-Hello
-bitch
-worldxd
-lol
