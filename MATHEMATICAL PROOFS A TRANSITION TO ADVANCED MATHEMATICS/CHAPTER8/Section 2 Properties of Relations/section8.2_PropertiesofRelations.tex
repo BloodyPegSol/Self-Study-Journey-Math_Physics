@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label*=\arabic*.}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document} 
+	
+	\title{Section 8.2: Properties of relations}
+	\author{Juan Patricio Carrizales Torres}
+	\date{May 13, 2022}
+	\maketitle
+
+	This chapter mentioned three properties of interested for some relation $R$ on a single set $A$. Since most of these properties involve implications with universal quantifiers, the easiest way to check wether a relation has certain property is by looking for specific examples for which the implication in question is false.
+	\begin{enumerate}[label=(\alph*)]
+		\item \textbf{Reflexive Property:} if $x\in A$, then $(x,x)\in R$. ($x$ is related to itself)
+		\item \textbf{Symmetric Property:} $\forall x,y\in A$, if $x\; R \; y$, then $y\; R \; x$ ($x$ is related to $y$ and viceversa). Note that for the relation $R$ to not be symmetric, it must be true that $x \; R \; y$ and $y \; \cancel R \; x$. For this to happen, it is necessary that $x\neq y$. 
+		\item \textbf{Transitive Property:} $\forall x,y,z\in A$, if $x\; R \; y$ and  $y \; R \; z$, then $x\; R \;z$. Note that for the relation $R$ to not be symmetric, it must be true that $x \; R \; y$, $y \; R \; z$ and $x \; \cancel R \; z$. For this to happen, it is necessary that $x\neq y$ and $z\neq y$.
+	\end{enumerate} 
+ 
+\end{document}
