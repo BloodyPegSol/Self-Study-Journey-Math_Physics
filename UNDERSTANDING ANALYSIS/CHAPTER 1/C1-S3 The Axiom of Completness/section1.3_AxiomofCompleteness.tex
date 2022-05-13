@@ -109,5 +109,75 @@
 			
 			\end{enumerate}
 		\end{problem}
+	
+		\begin{problem}{1.3.4}
+			Let $A_{1},A_{2},A_{3},\ldots$ be a collection of nonempty sets, each of which is bounded above.
+			\begin{enumerate}[label=(\alph*)]
+				\item Find a formula for $\sup(A_{1}\cup A_{2})$. Extend this to $\sup\left(\bigcup_{k=1}^{n}A_{k}\right)$.
+				\begin{solution}{(a)}
+				First we show the following result:
+				\begin{lemma}{1}
+				Let $A_{1}$ and $A_{2}$ be nonempty sets of real numbers such that both are bounded above. Then $\sup (A_{1}\cup A_{2}) = \sup\{\sup A_{1}, \sup A_{2}\}$.
+				\begin{proof}
+				 Since $A_{1}$ and $A_{2}$ are bounded above, it follows that $\sup A_{1}$ and $\sup A_{2}$ exist. Since real numbers are ordered, it follows that $\max\{\sup A_{1},\sup A_{2}\} = s$ exists. By definition, $s$ is greater than or equal to all elements of $A_{1}$ and $A_{2}$ and so it is considered and upper bound for $A_{1}\cup A_{2}$, this also implies that $A_{1}\cup A_{2}$ is bounded above. Note that if $b$ is an upper bound for $A_{1}\cup A_{2}$, then $b$ is an upper bound for $A_{1}$ and $A_{2}$ and so $b\geq s$. Therefore, $\max\{\sup A_{1},\sup A_{2}\} = \sup \left\{\sup A_{1},\sup A_{2}\right\} = \sup (A_{1}\cup A_{2})$.
+				 \end{proof}
+				 \end{lemma}
+					
+					We can expand this to a finite quantity of set, namely:
+					
+					\begin{theorem}{1}
+						Let $A_{1},A_{2},A_{3},\ldots, A_{n}$ be collection of $n\geq 2$ nonempty sets, each of which is bounded above. Then, $\sup\left(\bigcup_{i=1}^{n} A_{k}\right) = \sup\{\sup A_{1},\sup A_{2}, \sup A_{3}, \ldots, \sup A_{n}\}$.
+						\begin{proof}
+							We proceed by induction. Since, by \textbf{Lemma 1}, $\sup (A_{1}\cup A_{2}) = \sup\{\sup A_{1}, \sup A_{2}\}$ is true, it follows that the result is true for $n=2$. Assume for a collection of $k\geq 2$ nonempty sets $B_{1},B_{2},B_{3},\ldots,B_{k}$, each of them being bounded above, that
+							\begin{equation*}
+								\sup\left(\bigcup_{i=1}^{k} B_{i}\right) = \sup\{\sup B_{1},\sup B_{2}, \sup B_{3}, \ldots,\sup B_{k}\}.
+							\end{equation*} 
+						We show for a collection of $k+1$ nonempty sets $C_{1},C_{2},C_{3},\ldots,C_{k+1}$, each of them being bounded above, that
+						\begin{equation*}
+							\sup\left(\bigcup_{i=1}^{k+1} C_{i}\right) = \sup\{\sup C_{1},\sup C_{2}, \sup C_{3}, \ldots,\sup C_{k+1}\}.
+						\end{equation*} 
+						Note that
+						\begin{align*}
+							\sup\left(\bigcup_{i=1}^{k+1} C_{i}\right) &= \sup\left(\left(\bigcup_{i=1}^{k} C_{i}\right) \cup C_{k+1}\right)\\
+							&= \sup\left\{\sup\left(\bigcup_{i=1}^{k} C_{i}\right),\sup C_{k+1}\right\} \; (\textbf{Lemma 1})\\
+							&= \sup\left\{\sup\{\sup C_{1},\sup C_{2}, \sup C_{3}, \ldots,\sup C_{k}\},\sup C_{k+1}\right\} \; (\textbf{Inductive Hypothesis}).\\
+							&= \sup\left\{\sup C_{1},\sup C_{2}, \sup C_{3}, \ldots,\sup C_{k+1}\right\}
+						\end{align*}
+					Since we are taking the $supremum$ of a finite set of real numbers, namely, the $maximum$ for this specific case.
+						\end{proof}
+					\end{theorem}
+				\end{solution}
+				\item Consider $\sup\left(\bigcup_{k=1}^{\infty} A_{k}\right)$. Does the formula in $(a)$ extend to the infinite case?
+				\begin{solution}{(b)}
+					In order for our result to extend for a general infinite case, the $supremum$ of the $supremums$ of the sets must exist. However, the set of $supremums$ of the sets can be an inifinite set of real numbers not bounded above. This could be a counterexample. 
+				\end{solution}
+			\end{enumerate}
+			
+		\end{problem}
+	
+		\begin{problem}{1.3.5}
+			As in \textbf{Example 1.3.7}, let $A\subseteq \R$ be nonempty and bounded above, and let $c\in \R$. This time define the set $cA = \{ca:a\in A\}$.
+			\begin{enumerate}[label=(\alph*)]
+				\item If $c\geq 0$, show that $\sup(cA) = c\sup A$.
+				\begin{proof}
+					Consider some real number $c\geq 0$. If $c=0$, then $cA = \{0\}$ and so $\sup (cA) = 0 = c\sup A$. Hence, we may assume that $c>0$.\\
+					Since $A$ is bounded above, it follows that $\sup A$ exists. Now, consider the set $cA = \{ca:a\in A\}$. Note that $a\leq \sup A$ for every $a\in A$ and so $ca \leq c\sup A$ for every $a\in A$. Therefore, $cA$ is bounded above by $c\sup A$. \\
+					
+					Consider some upper bound $b$ for $cA$, then $ca \leq b$ for all $a\in A$. Then, $a\leq b/c$ (recall that $c>0$). Therefore, $b/c$ is an upper bound for $A$ and so $\sup A \leq b/c$. This implies that $c\sup A \leq b$. However, recall that $c\sup A$ is an upper bound for $cA$.
+					Thus, $\sup (cA) = c\sup A$.
+				\end{proof}
+				\item Postulate a similar type of statement for $\sup(cA)$ for the case $c<0$.
+				\begin{solution}{b}
+					For this, we need to further assume that $A$ is boundedd below. To illustrate this take for example the set $A=(-\infty, 0]$, which is bounded above and let $c=-1$. However, $cA = [0,\infty)$ is not bounded above and so $\sup (cA)$ does not exist. \\
+					
+					If $c<0$, then $\sup(cA) = c\inf
+					. A$.
+					\begin{proof}
+						Let $c<0$. Since $A$ is bounded belowe, it follows that  $\inf A$ exists and so $a\geq \inf A$ for every $a\in A$. Note that $ca\leq c\inf A$ since $c<0$, which implies that $c\inf A$ is an upper bound for $cA$.\\
+						Now, consider some upper bound $b$ for $cA$. Then, $b\geq ca$ for every $a\in A$. Thus, $b/c \leq a$ since $1/c < 0$, and so $b/c$ is a lower bound for $A$. Thus, $b/c \leq \inf A$ and so $b \geq c\inf A$. Thus, $c\inf A = \sup (cA)$. 
+					\end{proof}
+				\end{solution}
+			\end{enumerate}
+		\end{problem}
 
 \end{document}
