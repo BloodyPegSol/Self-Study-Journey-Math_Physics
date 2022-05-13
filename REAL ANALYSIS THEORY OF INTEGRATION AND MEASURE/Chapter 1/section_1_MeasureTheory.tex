@@ -1,0 +1,611 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label*=\arabic*.}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+	\newenvironment{result}[2][Result]{\begin{trivlist}
+			\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document}
+	
+	\title{Week 1}
+	\author{Juan Patricio Carrizales Torres \\
+		Section 1.1: Limits of sequences of sets}
+	\date{February 04, 2022}
+	\maketitle
+	
+	Note that the author uses $\subset$ as a synonym of $\subseteq$. Therefore, this same notation will be used in this document. Also is important to review deeply the definitions of limsup and liminf.
+Let $X$ be some nonemtpy set and $\left(A_{n}:n\in \mathbb{N}\right)$ be some sequence of subsets of $X$. First, let's consider the definition of liminf, namely,
+
+$$\liminf_{n\to \infty}A_{n} = \left\{x \in X:x \in A_{n} \text{ for all but finitely many } n \in \mathbb{N}\right\}$$. 
+
+Note that the argument \textbf{$x\in A_{n}$ for all but finitely many $n \in \mathbb{N}$} is the same as saying \textbf{$x\in A_{n}$ for cofinitely many $n \in \mathbb{N}$}. Basically, this means that there is some infinite set $B \subset \mathbb{N}$ such that its complement is finite and $x\in \bigcap_{n\in B} A_{n}$. For example, if 
+$$x\in \bigcap_{n \text{ is an odd positive integer}} A_{n},$$ then this does not mean that $x\in \liminf_{n \to \infty} A_{n}$ (However it does not discard the posibility) since the set of the positive even integers is infinite. 
+ 
+On the other hand, considering the previous example, the fact that $$x\in \bigcap_{n \text{ is an odd positive integer}} A_{n}$$ implies that 
+
+$$x\in \left\{x \in X:x \in A_{n} \text{ for infinitely many } n \in \mathbb{N}\right\}$$. 
+
+since the set of the odd positive integers is inifinite. Therefore, $x\in \limsup_{n\to \infty} A_{n}$.\\
+	\begin{problem}{1}
+		Given two sequences of subsets $\left(E_{n}:n\in \N\right)$ and $\left(F_{n}: n\in \N\right)$ of a set $X$.
+		
+		\begin{enumerate}[label=(\alph*)]
+			\item Show that
+			\begin{align*}
+				\liminf_{n\to \infty} E_{n} \cup \liminf_{n\to \infty}F_{n} &\subset \liminf_{n\to \infty}\left(E_{u}\cup F_{u}\right) \subset \liminf_{n\to \infty} E_{u} \cup \limsup F_{n} \\
+				&\subset \limsup_{n\to \infty}\left(E_{n}\cup F_{n}\right) \subset \limsup_{n\to \infty}E_{n}\cup \limsup_{n\to \infty} F_{n}.
+			\end{align*}
+		To show this, let $\left(E_{n}:n\in \N\right)$ and $\left(F_{n}: n\in \N\right)$ be sequences of subsets of some set $X$. We prove the whole result in individual sections.
+			\begin{enumerate}[label=\textbf{\arabic*.}]
+				\item We show that 
+				\begin{equation*}
+					\liminf_{n\to \infty} E_{n} \cup \liminf_{n\to \infty}F_{n} \subset \liminf_{n\to \infty}\left(E_{u}\cup F_{u}\right)
+				\end{equation*}
+			\begin{proof}
+			 Suppose that 
+				\begin{equation*}
+				x\in \liminf_{n\to \infty} E_{n} \cup \liminf_{n\to \infty}F_{n}.
+			     \end{equation*}
+		     Then either $x\in \liminf_{n\to \infty} E_{n}$ or $x\in \liminf_{n\to \infty} F_{n}$. In the case of the former, it follows that $x\in \bigcup_{n\in \N}\bigcap_{k\geq n}E_{k}$. Therefore, there is some $n_{0}\in \N$ such that 
+		     \begin{equation*}
+		     x \in \bigcap_{k\geq n_{0}} E_{k} \subset \bigcap_{k\geq n_{0}} \left(E_{k}\cup F_{k}\right). 		      	
+	         \end{equation*}
+         	Hence, $x\in \bigcup_{n\in \N} \bigcap_{k\geq n} (E_{k} \cup F_{k}) = \liminf_{n\to \infty}\left(E_{u}\cup F_{u}\right)$. In the latter case, the same procedure can be applied and thus it is omitted. Therefore, 
+         	\begin{equation*}
+         		\liminf_{n\to \infty} E_{n} \cup \liminf_{n\to \infty}F_{n} \subset \liminf_{n\to \infty}\left(E_{n}\cup F_{n}\right).
+         	\end{equation*}
+        \end{proof}
+         
+         \item We Prove that 
+         	\begin{equation*}
+         	 \liminf_{n\to \infty}\left(E_{u}\cup F_{u}\right) \subset \liminf_{n\to \infty} E_{n} \cup  \limsup_{n\to \infty} F_{n}
+         \end{equation*}
+         \begin{proof}
+         	Let $x\in \liminf_{n\to \infty}\left(E_{n}\cup F_{n}\right)$ and so $x\in \left(E_{n}\cup F_{n}\right)$ for all but finitely many $n\in \N$. Note that $x\in F_{n}$ for either finitely or infinitely many $n\in \N$.\\
+         	
+         	 Suppose that $x\in F_{n}$ for infinitely many $n\in \N$, then $x\in \limsup_{n\to \infty} F_{n}$. On the other hand, if $x\in F_{n}$ for finitely many $n\in \N$, then $x\in E_{n}$ for all but finitely many $n\in \N$, since $x\in \liminf_{n\to \infty}\left(E_{n}\cup F_{n}\right)$. Hence $x\in \liminf_{n\to \infty} E_{n}$. Therefore, either $x\in \limsup_{n\to \infty} F_{n}$ or $x \in \liminf_{n\to \infty} E_{n}$ and so 
+         	 \begin{equation*}
+         	 	\liminf_{n\to \infty}\left(E_{n}\cup F_{n}\right) \subset \liminf_{n\to \infty} E_{n} \cup  \limsup_{n\to \infty} F_{n}
+         	 \end{equation*}
+			\end{proof}
+		
+		\item Here will be proved that 
+		\begin{equation*}
+			\liminf_{n\to \infty} E_{n} \cup  \limsup_{n\to \infty} F_{n} \subset \limsup_{n\to \infty} \left(E_{n} \cup F_{n}\right)
+		\end{equation*}
+		\begin{proof}
+			Let $x\in \liminf_{n\to \infty} E_{n} \cup  \limsup_{n\to \infty} EF_{n}$. Then, either $x\in F_{n}$ for infinitely many $n\in \N$ or $x\in E_{n}$ for all but finitely many $n\in \N$. Suppose the former, then $x\in \limsup_{n\to \infty} (E_{n}\cup F_{n})$ since
+			\begin{equation*}
+				\limsup_{n\to \infty} F_{n} \subset \limsup_{n\to \infty} (E_{n}\cup F_{n}).
+			\end{equation*} 
+		This is so because $F_{n} \subset E_{n}\cup F_{n}$ for infinitely many $n\in \N$.
+		Now, assume the latter. Therefore, $x\in \limsup_{n\to \infty} (E_{n}\cup F_{n})$ since
+		\begin{equation*}
+			\liminf_{n\to \infty} E_{n} \subset \limsup_{n\to \infty} E_{n} \subset \limsup_{n\to \infty} \left(E_{n}\cup F_{n}\right). 
+		\end{equation*}
+	Therefore,
+	\begin{equation*}
+		\liminf_{n\to \infty} E_{n} \cup  \limsup_{n\to \infty} F_{n} \subset \limsup_{n\to \infty} \left(E_{n} \cup F_{n}\right)
+	\end{equation*}  
+		\end{proof}
+	
+	\item Lastly, we show that
+	\begin{equation*}
+		\liminf_{n\to \infty} E_{n} \cup  \limsup_{n\to \infty} F_{n} \subset \limsup_{n\to \infty} \left(E_{n} \cup F_{n}\right)
+	\end{equation*}
+	\begin{proof}
+		Let some $x\in \limsup_{n\to \infty} \left(E_{n}\cup F_{n}\right)$. Then $x\in E_{n} \cup F_{n}$ for infinitely many $n\in \N$. Recall that
+		\begin{align*}
+			\limsup_{n\to \infty}E_{n} \subset \limsup_{n\to \infty} \left(E_{n} \cup F_{n}\right) \text{ and}\\
+			\limsup_{n\to \infty} F_{n} \subset \limsup_{n\to \infty} \left(E_{n} \cup F_{n}\right). 
+		\end{align*} 
+	If $x\in E_{n}$ for infinitely many $n\in \N$, then $x\in \limsup_{n\to \infty} E_{n}$. On the other hand, if $x\in E_{n}$ for finitely many $n\in \N$, then $x\in F_{n}$ for infinitely many $n\in \N$ since $x\in E_{n}\cup F_{n}$ for infinitely many $n\in \N$. Therefore, $x\in \limsup_{n\to \infty} E_{n} \cup \limsup_{n\to \infty} F_{n}$ and so
+		\begin{equation*}
+			\limsup_{n\to \infty} \left(E_{n}\cup F_{n}\right) \subset \limsup_{n\to \infty}E_{n}\cup \limsup_{n\to \infty}F_{n}
+		\end{equation*}
+	\end{proof}
+	\end{enumerate}
+
+	\item Show that
+	\begin{align*}
+		\liminf_{n\to \infty} E_{n} \cap \liminf_{n\to \infty} F_{n} &\subset \liminf_{n\to \infty} \left(E_{n} \cap F_{n}\right) \subset \liminf_{n\to \infty} E_{n} \cap \limsup_{n\to \infty} F_{n}\\
+		& \subset \limsup_{n\to \infty} \left(E_{n} \cap F_{n}\right) \subset \limsup_{n\to \infty}  E_{n} \cap \limsup_{n\to \infty} F_{n}.
+	\end{align*}
+	To prove this, let $\left(E_{n} : n\in \N\right)$ and $\left(F_{n} : n\in \N\right)$ be sequences of subsets of some set $X$. We proceed by sections.\\
+	\begin{enumerate}[label=\textbf{\arabic*.}]
+		\item We prove that
+		\begin{equation*}
+			\liminf_{n\to \infty} E_{n} \cap \liminf_{n\to \infty} F_{n} \subset \liminf_{n\to \infty} \left(E_{n} \cap F_{n}\right)
+		\end{equation*}
+		\begin{proof}
+			Let some $x\in 	\liminf_{n\to \infty} E_{n} \cap \liminf_{n\to \infty} F_{n}$. Then $x\in E_{n}$ for all but finitely many $n\in \N$ and $x\in F_{n}$ for all but finitely many $n\in \N$. Therefore, there exists two numbers $n_{0},n_{1} \in \N$ such that 
+			\begin{align*}
+				x &\in \left(\bigcap_{k\geq n_{0}} E_{k}\right) \cap \left(\bigcap_{k\geq n_{1}} F_{k}\right).
+			\end{align*}
+		There are three posible exclusive cases: $n_{0}> n_{1}$, $n_{0} < n_{1}$ and $n_{0} = n_{1}$. In the first one, note that 
+		\begin{align*}
+			\left(\bigcap_{k\geq n_{0}} E_{k}\right) \cap \left(\bigcap_{k\geq n_{1}} F_{k}\right) &= \left(\bigcap_{k\geq n_{0}} E_{k}\cap F_{k}\right) \cap \left(\bigcap_{n_{1 }\leq k< n_{0} } F_{k}\right).
+		\end{align*}
+	Hence, $x\in E_{k}\cap F_{k}$ for all $k\geq n_{0}$  and so $x\in \liminf_{n\to \infty} \left(E_{n} \cap F_{n}\right)$. In the second case we arrive at a same conclusion (just swap the places of $n_{0}$ and $n_{1}$). In the last case, it clearly follows that $x\in E_{k} \cap F_{k}$ for all but finitely many $k\in \N$.
+	Therefore,
+	\begin{equation*}
+			\liminf_{n\to \infty} E_{n} \cap \liminf_{n\to \infty} F_{n} \subset \liminf_{n\to \infty} \left(E_{n} \cap F_{n}\right)
+	\end{equation*}
+		\end{proof}
+	
+	\item We prove that
+	\begin{equation*}
+		\liminf_{n\to \infty} \left(E_{n}\cap F_{n}\right) \subset \liminf_{n\to \infty} E_{n} \cap \limsup_{n\to \infty}F_{n} 
+	\end{equation*}
+	\begin{proof}
+		Assume that there is some $x\in \liminf_{n\to \infty} \left(E_{n}\cap F_{n}\right)$, then $x\in E_{n}\cap F_{n}$ for all but finitely many $n\in \N$. Hence, $x\in E_{n}$ for all but finitely many $n\in \N$ such that $x\in \liminf_{n\to \infty} E_{n}$ and $x\in \liminf_{n\to \infty} F_{n}$, and so 
+		\begin{equation*}
+		x\in \liminf_{n\to \infty} E_{n} \cap \liminf_{n\to \infty} F_{n} \subset \liminf_{n\to \infty} E_{n} \cap \limsup_{n\to \infty} F_{n}. 
+		\end{equation*}
+		Therefore,
+		\begin{equation*}
+			\liminf_{n\to \infty} \left(E_{n}\cap F_{n}\right) \subset \liminf_{n\to \infty} E_{n} \cap \limsup_{n\to \infty}F_{n}
+		\end{equation*}
+	\end{proof}
+
+	\item We prove that
+	\begin{equation*}
+		\liminf_{n\to \infty} E_{n} \cap \limsup_{n\to \infty} F_{n} \subset \limsup_{n\to \infty} \left(E_{n} \cap F_{n}\right)
+	\end{equation*}
+	\begin{proof}
+		Let $x\in \liminf_{n\to \infty} E_{n} \cap \limsup_{n\to \infty} F_{n}$. Then, $x\in E_{n}$ for all but finitely many $n\in \N$ and $x\in F_{n}$ for infinitely many $n\in \N$. Therefore, $x\in E_{n}\cap F_{n}$ for infinitely many $n$ and so 
+		\begin{equation*}
+			\liminf_{n\to \infty} E_{n} \cap \limsup_{n\to \infty} F_{n} \subset \limsup_{n\to \infty} \left(E_{n} \cap F_{n}\right).
+		\end{equation*}
+	\end{proof}
+
+	\item We show that  
+	\begin{equation*}
+		\limsup_{n\to \infty} \left(E_{n}\cap F_{n}\right) \subset \limsup_{n\to \infty}E_{n} \cap \limsup_{n\to \infty} F_{n}
+	\end{equation*}
+	\begin{proof}
+		Assume that there is some $x\in \limsup_{n\to \infty} \left(E_{n}\cap F_{n}\right)$. Then $x\in E_{n}\cap F_{n}$ for infinitely many $n\in \N$. Therefore, $x\in E_{n}$ for infinitely many $n\in \N$ and $x\in F_{n}$ for infinitely many $n\in \N$.
+	\end{proof}
+	\end{enumerate}
+
+	\item Show that if $\lim_{n\to \infty} E_{n}$ and $\lim_{n\to \infty} F_{n}$ exist, then $\lim_{n\to \infty} \left(E_{n} \cup F_{n}\right)$ and $\lim_{n\to \infty} \left(E_{n}\cap F_{n}\right)$ exist and moreover
+		\begin{enumerate}[label=\textbf{\arabic*.}]
+		\item  
+		\begin{equation*}
+			\lim_{n\to \infty} \left(E_{n}\cup F_{n}\right) = \lim_{n\to \infty} E_{n} \cup \lim_{n\to \infty} F_{n}.
+		\end{equation*}
+		
+		\item 
+		\begin{equation*}
+			\lim_{n\to \infty} \left(E_{n} \cap F_{n}\right) = \lim_{n\to \infty} E_{n} \cap \lim_{n\to \infty} F_{n}
+		\end{equation*}
+	\end{enumerate}
+	
+	\begin{proof}
+		Suppose that both $\lim_{n\to \infty} E_{n}$ and $\lim_{n\to \infty}F_{n}$ exist. Then, by definition, it is true that
+		\begin{align*}
+			\lim_{n\to \infty} E_{n} &= \liminf_{n\to \infty} E_{n} = \limsup_{n\to \infty} E_{n} \text{ and}\\
+			\lim_{n\to \infty} F_{n} &= \liminf_{n\to \infty} F_{n} = \limsup_{n\to \infty} F_{n}.
+		\end{align*}
+		Note that
+		\begin{align*}
+		 \lim_{n\to \infty} F_{n}\cup \lim_{n\to \infty} E_{n} &=	\liminf_{n\to \infty} F_{n} \cup \liminf_{n\to \infty} E_{n}  \subset \liminf_{n\to \infty} \left(F_{n}\cup E_{n}\right)\\
+			&\subset \limsup_{n\to \infty} \left(F_{n} \cup E_{n}\right) \subset \limsup_{n\to \infty} F_{n} \cup \limsup_{n\to \infty} E_{n} =\lim_{n\to \infty} F_{n}\cup \lim_{n\to \infty} E_{n} .
+		\end{align*}  
+	Therefore, $\liminf_{n\to \infty} \left(F_{n} \cup E_{n}\right) = \limsup_{n\to \infty} \left(F_{n} \cup E_{n}\right)$ and so $\lim_{n\to \infty} \left(F_{n} \cup E_{n}\right)$ exists and it is equal to $\lim_{n\to \infty} F_{n} \cup \lim_{n\to \infty} E_{n}$. Also, if you change all union symbols for intersections, you'll get a valid proof for the existence of $\lim_{n\to \infty} \left(F_{n} \cap E_{n}\right) = \lim_{n\to \infty} F_{n} \cap \lim_{n\to \infty} E_{n}$.
+	\end{proof}
+		\end{enumerate}
+	\end{problem}
+
+\begin{problem}{1.2}
+	\begin{enumerate}[label=\textbf{(\alph*)}]
+		\item Let $\left(A_{n}:n\in \N\right)$ be a sequence of subsets of a set $X$. Let $\left(B_{n}:n\in \N\right)$ be a sequence obtained by dropping finitely many entries in the sequence $\left(A_{n}:n \in \N\right)$. Show that $\liminf_{n\to \infty} B_{n} = \liminf_{n\to \infty} A_{n}$ and $\limsup_{n\to \infty} B_{n} = \limsup_{n\to \infty} A_{n}$. Show that $\lim_{n\to \infty} B_{n}$ exists if and only if $\lim_{n\to \infty} A_{n}$ exists and when they exist they are equal.
+		\begin{proof}
+			Let $\left(A_{n}:n\in \N\right)$ be a sequence of subsets of some set $X$. Also, let $\left(B_{n}:n\in \N\right)$ be a sequence of subsets generated by dropping finitely many entires in $\left(A_{n}:n\in \N\right)$.
+		 Recall that both $\left(\bigcap_{k\geq n} B_{n} : n\in \N\right)$ and $\left(\bigcap_{k\geq n} A_{n} : n\in \N\right)$ are increasing sequences and so for any $n_{0}\in \N$ there is some integer $n_{1} > n_{0}$ such that $\bigcap_{k\geq n_{0}} B_{k} \subset \bigcap_{k\geq n_{1}} A_{k}$. Note that the same can be said for $\bigcap_{k\geq n_{0}} A_{k} \subset \bigcap_{k\geq n_{1}} B_{k}$. Therefore, $\liminf_{n\to \infty} A_{n} = \liminf_{n\to \infty} B_{n}$.\\
+		 
+		 Also, note that both $\left(\bigcup_{k\geq n} B_{n} : n\in \N\right)$ and $\left(\bigcup_{k\geq n} A_{n} : n\in \N\right)$ are decreasing sequences and so for any $n_{0} \in \N$ there is some integer $n_{1} > n_{0}$ such that $\bigcup_{k\geq n_{1}} A_{k} \subset \bigcup_{k\geq n_{0}} B_{k}$. The same applies for $\bigcup_{k\geq n_{1}} B_{k} \subset \bigcup_{k\geq n_{0}} A_{k}$. Therefore, $x\in \bigcap_{n\in \N}\bigcup_{k\geq n} B_{n}$ is a necessary and sufficent condition for $x\in \bigcap_{n\in \N}\bigcup_{k\geq n} A_{n}$. Hence, $\limsup_{n\to \infty} A_{n} = \limsup_{n\to \infty} B_{n}$. \\
+		 
+		 We now prove that $\lim_{n\to \infty} B_{n}$ exists if and only if $\lim_{n\to \infty} A_{n}$. First, assume that $\lim_{n\to \infty} B_{n}$ exists. Then, $\liminf_{n\to \infty} A_{n} = \liminf_{n\to \infty} B_{n} = \limsup_{n\to \infty} B_{n} = \limsup_{n\to \infty} A_{n}$ and so $\lim_{n\to \infty} A_{n}$ exists and $\lim_{n \to \infty} A_{n} = \lim_{n \to \infty} B_{n}$. The same argument can be used to prove the converse.
+		\end{proof}
+	
+		\item Let $\left(A_{n}: n\in \N\right)$ and $\left(B_{n}: n \in \N\right)$ be two sequences of subsets of a set $X$ such that $A_{n} = B_{n}$ for all but finitely many $n\in \N$. Show that $\liminf_{n\to \infty} B_{n} = \liminf_{n\to \infty} A_{n}$ and $\limsup_{n\to \infty} B_{n} = \limsup_{n\to \infty} A_{n}$. Show that $\lim_{n\to \infty} B_{n}$ exists if and only if $\lim_{n\to \infty} A_{n}$ exists and when they exist they are equal. 
+		\begin{proof}
+			Let $N$ be the greatest $n\in \N$ such that $B_{n} \neq A_{n}$ and so the set of the first $N$ positive integers is finite. Let $ \left(x\in A'_{n}:n\in \N\right)$ be the sequence created by dropping the  first $N$ entries in $ \left(x\in A_{n}:n\in \N\right)$ and, similarly, let $\left(x\in B'_{n}:n\in \N\right)$ be the sequence created by dropping the first $N$ entries in $\left(x \in B_{n}: n \in \N\right)$ and so $A'_{n} = B'_{n}$ for all $n\in \N$. By the previous proof, 
+			\begin{align*}
+				\liminf_{n\to \infty} A'_{n} &= \liminf_{n\to \infty} A_{n},\\
+				\limsup_{n\to \infty} A'_{n} &= \limsup_{n\to \infty} A_{n},\\
+				\text{ and }\\
+				\liminf_{n\to \infty} B'_{n} &= \liminf_{n\to \infty} B_{n},\\
+				\limsup_{n\to \infty} B'_{n} &= \limsup_{n\to \infty} B_{n}.
+			\end{align*}
+			 However, 
+			 \begin{align*}
+			 	\liminf_{n\to \infty} A'_{n} &= \liminf_{n\to \infty} B'_{n} \text{ and}\\
+			 	\limsup_{n\to \infty} A'_{n} &= \limsup_{n\to \infty} B'_{n}
+			 \end{align*}.
+		 Therefore, $\liminf_{n\to \infty} A_{n} = \liminf_{n\to \infty} B_{n}$ and $\limsup_{n\to \infty}A_{n} = \limsup_{n\to \infty} B_{n}$.\\
+		 
+			By the result shown in the previous proof, the existence of $\lim_{n \to \infty} B_{n}$ is a necessary and sufficient condition for $\lim_{n \to \infty} A_{n}$ to exist, and $\lim_{n\to \infty} A_{n} = \lim_{n \to \infty} B_{n}$.  
+		\end{proof}
+	\end{enumerate}
+\end{problem} 
+
+\begin{problem}{1.3}
+	Let $\left(E_{n}: n\in \N\right)$ be a disjoint sequence of subsets of a set $X$. Show that $\lim_{n \to \infty} E_{n}$ exists and $\lim_{n \to \infty} E_{n} = \emptyset$
+	\begin{proof}
+		Since $\left(E_{n}: n\in \N\right)$ is a disjoint sequence of subsets, it follows that there is not some infinite set $S$ such that $x\in \bigcap_{n\in S}E_{n}$ and so $ \limsup_{n\to \infty} E_{n} = \emptyset$. Also, $\liminf_{n \to \infty} E_{n} = \emptyset$ since $\liminf_{n\to \infty} E_{n} \subset \limsup_{n\to \infty} E_{n}$. Hence, $\lim_{n \to \infty} E_{n} = \liminf_{n\to \infty} E_{n} = \limsup_{n\to \infty} E_{n} = \emptyset$. 
+	\end{proof}
+\end{problem}
+
+\begin{problem}{1.4}
+	Let $a\in \R$ and let $\left(x_{n}: n\in \N\right)$ be a sequence of points in $\R$, all distinct from $a$, such that $\lim_{n\to \infty} x_{n} = a$. Show that $\lim_{n \to \infty} \{x_{n}\}$ exists and $\lim_{n \to \infty}\{x_{n}\} = \emptyset$ and thus $\lim_{n \to \infty}\{x_{n}\} \neq a$.
+	\begin{proof}
+		Note that, according to the given description of the sequence of real points $\left(x_{n}: n\in \N\right)$, it is evident that $\left(\{x_{n}\}:n\in \N\right)$ is a disjoint sequence of subsets of $X = \{x_{n}:n\in \N\}$. By the previous problem, it follows that $\lim_{n \to \infty} = \liminf_{n\to \infty} = \limsup_{n\to \infty} = \emptyset \neq a$.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{1.5}
+	For $E\subset \R$ and $t\in \R$, let us write $E+t = \{x+t\in \R: x\in E\}$ and call it the translate of $E$ by $t$. Let $\left(t_{n}:n\in \N\right)$ be a strictly decreasing sequence in $\R$ such that $\lim_{n\to \infty} t_{n} = 0$ and let $E_{n} = E + t_{n}$ for $n\in \N$. Let us investigate the existence of $\lim_{n \to \infty} E_{n}$.
+	\begin{enumerate}[label=\textbf{(\alph*)}]
+		\item Let $E=\left(-\infty, 0\right)$. Show that $\lim_{n \to \infty} E_{n} = \left( -\infty, 0\right]$.
+		\begin{proof}
+			Since $\left(E_{n}: n\in \N\right) = \left((-\infty, t_{n}):n\in \N\right)$ and $(t_{n}:n\in \N)$ is a strictly decreasing sequence of real numbers, it follows that $(-\infty, t_{n}) \supset (-\infty, t_{n+1})$ for all $n\in \N$ and so $\left(E_{n}:n\in \N\right)$ is a decreasing sequence of subsets of $\R$. Therefore,
+			\begin{align*}
+				\lim_{n\to \infty} E_{n} &= \bigcap_{n\in \N} E_{n} \\
+				&= (-\infty, 0]
+			\end{align*}
+		since $\lim_{n \to \infty} t_{n} = 0$.
+		\end{proof}
+	
+	\item  Let $E=\{a\}$ where $a\in \R$. Show that $\lim_{n \to \infty} E_{n} = \emptyset$
+	\begin{proof}
+		Note that $\left(E_{n} : n\in \N\right) = \left(\{a+t_{n}\}: n\in \N\right)$. Therefore, $\left(E_{n}: n\in \N\right)$ is a disjoint collection of subsets and so $\lim_{n\to \infty} E_{n} = \emptyset$ (recall \textbf{problem 1.3}).
+	\end{proof}
+
+	\item  Let $E=[a,b]$ where $a,b \in \R$ and $a<b$. Show that $\lim_{n \to \infty} E_{n} = \left(a,b\right]$
+	\begin{proof}
+		We know that $\left( E_{n} : n\in \N\right) = \left([a+t_{n}, b+t_{n}]: n\in \N\right)$. Because $t_{n} \downarrow 0$, it follows that $a + t_{n} \downarrow a$ and $b+t_{n}\downarrow b$ and so $\left(a,b\right] \subset E_{n}$ for all but finitely many $n\in \N$. Therefore, 
+		\begin{equation*} 
+			\left(a,b\right] \subset \liminf_{n \to \infty} E_{n} \subset \limsup_{n\to \infty} E_{n}
+		\end{equation*}
+		since $\lim_{n \to \infty} t_{n} = 0$.\\
+		
+		Now consider $\left(-\infty ,a\right]$. Note that $a < a+t_{n}$ for all $n\in \N$ since $t_{n}\downarrow 0$. Therefore,  $\left(-\infty ,a\right] \cap E_{n} = \emptyset$ for all $n\in \N$ and so
+		\begin{align*}
+			\left(-\infty ,a\right] \cap \limsup_{n\to \infty} E_{n} = \emptyset.
+		\end{align*}
+	Hence,
+	\begin{equation*}
+			\left(-\infty ,a\right] \cap \liminf_{n \to \infty} E_{n} = \emptyset
+	\end{equation*}
+	since $\liminf_{n \to \infty} E_{n} \subset \limsup_{n\to \infty} E_{n}$. Consider $\left(b, \infty\right)$. We know that $b+t_{n}\downarrow b$ and so $[a+t_{n}, b+t_{n}] = E_{n}$ for finitely many $n\in \N$ (the distance between $b$ and the upper bound of $E_{n}$ gets smaller and smaller but never reaches $b$). Therefore,
+	\begin{equation*}
+		\left(b, \infty\right) \cap \limsup_{n\to \infty} E_{n} = \emptyset,
+	\end{equation*}
+	 which implies that 
+	 \begin{equation*}
+	 	\left(b, \infty\right) \cap \liminf_{n\to \infty} E_{n} = \emptyset.
+	 \end{equation*}
+ Hence, $\liminf_{n \to \infty} E_{n} = \limsup_{n\to \infty} E_{n} = \left(a,b\right]$.
+	\end{proof} 
+
+	\item  Let $E = \left(a,b\right)$. Show that $\lim_{n\to \infty} E_{n} = \left(a,b\right]$.
+	\begin{proof}
+		Consider $x\in (a,b]$. Since $\left(a+t_{n}, b+t_{n}\right) = E_{n}$ and, $a+t_{n}\downarrow a$ and $b+t_{n} \downarrow b$, it follows that $x\in E_{n}$ for all but finitely many $n\in \N$. Therefore,
+		\begin{equation*}
+			x\in \liminf_{n \to \infty} E_{n} \subset \limsup_{n\to \infty} E_{n}.
+		\end{equation*} 
+		Consider $x\in (-\infty, a]$. It is clear that $x\not\in E_{n}$ for every $n\in \N$ and so $x\not\in \limsup_{n\to \infty} E_{n}$. Now let's take a look at $x\in (b,\infty)$. Hence, $x\in E_{n}$ for finitely many $n\in \N$ and so $x\not\in \limsup_{n\to \infty} E_{n}$. Therefore,
+		\begin{equation*}
+			\liminf_{n \to \infty} E_{n} = \limsup_{n\to \infty} E_{n} = (a,b] = \lim_{n\to \infty} E_{n}.
+		\end{equation*}
+	\end{proof}
+
+	\item Let $E=\Q$, the set of all rational numbers. Assume that $\left(t_{n}:n \in \N\right)$ satisfies the aditional condition that $t_{n}$ is a rational number for all but finitely many $n\in \N$. Show that $\lim_{n \to \infty} E_{n} = E$. 
+	\begin{proof}
+		Note that $E_{n} = \left(x + t_{n} : x\in \Q \right) = \Q$ for all but finitely $n\in \N$ since $t_{n}$ is a rational number for all but finitely many $n\in \N$. Hence
+		\begin{equation*}
+			\Q \subset \liminf_{n \to \infty} E_{n} \subset \limsup_{n\to \infty} E_{n}.
+		\end{equation*} 
+		Since $t_{n}$ is an irrational number for finitely many $n\in \N$, it follows that $E_{n} = \left(x + t_{n} : x\in \Q \right) \subset \mathbb{I}$, the set of all irrational numbers, for finitely many $n\in \N$ and so $ \limsup_{n\to \infty} E_{n} \not\subset \mathbb{I}$. Therefore,
+		\begin{equation*}
+			 \liminf_{n \to \infty} E_{n} = \limsup_{n\to \infty} E_{n} = \Q = E = \lim_{n \to \infty} E_{n}
+		\end{equation*}
+	since $\R = \Q \cup \mathbb{I}$.
+	\end{proof}
+
+
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{1.6}
+	The characteristic function $\textbf{1}_{A}$ of a subset $A$ of a set $X$ is a function on $X$ defined by 
+	\begin{equation*}
+		\textbf{1}_{A} = \begin{cases}
+			1 & \text{for }x\in A,\\
+			0 & \text{for }x\in A^{c}.
+		\end{cases}
+	\end{equation*}
+	Let $\left(A_{n}: n \in \N \right)$ be a sequence of subsets of $X$ and $A$ be a subset of $X$.
+	\begin{enumerate}[label= \textbf{(\alph*)}]
+		\item Show that if $\lim_{n \to \infty} A_{n} = A$ then $\lim_{n \to \infty} \textbf{1}_{A_{n}} = \textbf{1}_{A}$ on $X$.
+		\begin{proof}
+			Let $\lim_{n \to \infty} A_{n} = A$. Then, it is true that 
+			\begin{equation*}
+				\liminf_{n \to \infty} A_{n} = \limsup_{n\to \infty} A_{n} = \lim_{n \to \infty} A_{n} = A.
+			\end{equation*}
+			Note that if $x\in X$, then either $x\in A$ or $x\in A^{c}$. Consider $x\in A$. Then $\textbf{1}_{A} (x) = 1$. Since $\liminf_{n\to \infty} A_{n} = A$, it follows that $x\in A_{n}$ for all but finitely many $n\in \N$ and so $\textbf{1}_{A_{n}} (x) = 1$ for all but finitely many $n\in \N$. Therefore, $ \lim_{n \to \infty} \textbf{1}_{A_{n}}  (x) = 1$.
+			
+			 Now consider $y\in A^{c}$. Then $\textbf{1}_{A} (y) = 0$. Since $\left(\limsup_{n\to \infty} A_{n}\right)^{c} = A^{c}$, it follows that $y\not\in \limsup_{n\to \infty} A_{n}$. Therefore, $y\in A_{n}$ for finitely many $n\in \N$ and so $\textbf{1}_{A_{n}} (y) = 0$ for all but finitely many $n\in \N$. Hence, $\lim_{n\to \infty} \textbf{1}_{A_{n}} (y) = 0$ and so $\lim_{n \to \infty} \textbf{1}_{A_{n}} (x) = \textbf{1}_{A} (x)$ for any $x\in X$.\\
+			 
+			 \textbf{PROOF ANALYSIS}
+			 
+			 This proof seems like an algorithm for any $x\in X$ (like a function). Note that we only needed the fact that $x\in A_{n}$ for all but finitely many $n\in \N$ to show that $\lim_{n \to \infty} \textbf{1}_{A_{n}} (x) = 1$  for any $x\in X$ since all elements of the limit inferior exist in the limit superior. Also we needed the fact that $y\not\in A_{n}$ for infinitely many $n\in \N$ to show that $\lim_{n \to \infty} \textbf{1}_{A_{n}} (y) = 0$ since $\lim_{n \to \infty} A_{n}$ contains elements that belong to $A_{n}$ for $n\in S$, where $S\subset \N$ is a set that is not finite (this includes cofinite sets).
+		\end{proof}
+	
+		\item Show that if $\lim_{n\to \infty} \textbf{1}_{A_{n}} = \textbf{1}_{A}$ on $X$ then $\lim_{n \to \infty} A_{n} = A$.
+		\begin{proof}
+			Suppose that $\lim_{n \to \infty} \textbf{1}_{A_{n}} = \textbf{1}_{A}$ on $X$. Note that if $x\in X$, then either $x\in A$ or $x\in A^{c}$. Consider $x\in A$. Then $x\in A_{n}$  for all but finitely many $n\in \N$. Therefore, 
+			\begin{align*}
+				x\in \liminf_{n\to \infty} A_{n} &\subset \limsup_{n\to \infty} A_{n} \text{, which implies that}\\
+				A&\subset \liminf_{n\to \infty} A_{n} \subset \limsup_{n\to \infty} A_{n}.
+			\end{align*}
+		Now consider $y\in A^{c}$. Since $\lim_{n \to \infty} \textbf{1}_{A_{n}} (y) = \textbf{1}_{A} (y) = 0$, it follows that $y\in A_{n}$ for only finitely many $n\in \N$. Hence, $y \not \in \limsup_{n\to \infty} A_{n}$ and so
+		\begin{equation*}
+			A= \liminf_{n \to \infty} A_{n} = \limsup_{n\to \infty} A_{n} = \lim_{n \to \infty} A_{n}.
+		\end{equation*}
+		\end{proof}
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}{1.7}
+	Let $\mathfrak{A}$ be a $\sigma$-algebra of subsets of a set $X$ and let $Y$ be an arbitrary subset of $X$. Let $\mathfrak{B} = \{A\cap Y : A\in \mathfrak{A}\}$. Show that $\mathfrak{B}$ is a $\sigma$-algebra of subsets of $Y$.
+	\begin{proof}
+	
+		To prove that $\mathfrak{B}$ is a $\sigma$-algebra of subsets of $Y$, we will show that it suffices the conditions $1^{o}$ and $3^{o}$ of \textbf{Definition 1.1} and $4^{o}$ of \textbf{Definition 1.3} with respect to set $Y$.
+		\begin{enumerate}
+		\item We show that $Y\in \mathfrak{B}$.
+		
+		 First, note that $X\cap Y = Y$ and so $\mathfrak{B}$ fulfills condition $1^{o}$.\\
+		
+		\item We prove that $B\in \mathfrak{B} \implies B^{c} \in \mathfrak{B}$.
+		
+		Consider some $A\in \mathfrak{A}$. Then, by definition, $A^{c} \in \mathfrak{A}$. Therefore, 
+		\begin{equation*}
+		(A\cap Y), (A^{c}\cap Y) \in \mathfrak{B}.
+		\end{equation*}
+		 Note that 
+		 \begin{align*}
+		 	Y\backslash (A\cap Y)
+		 	&= (X\cap Y)\backslash (A\cap Y)\\
+		 	&= (X\backslash A)\cap Y = A^{c}\cap Y.
+		 \end{align*} 
+		 It follows that condition $3^{o}$ is fullfiled. 
+		
+		\item We show that $ (B_{n} : n\in \N)\subset \mathfrak{B} \implies \bigcup_{n\in \N} B_{n} \in \mathfrak{B}$.
+		 
+		Let $(A_{n}:n\in \N) \subset \mathfrak{A}$. Then, by definition, $\bigcup_{n\in \N} A_{n} \in \mathfrak{A}$. Hence,
+		\begin{align*}
+			(A_{n} \cap Y : n\in \N) &= (B_{n} : n\in \N) \subset \mathfrak{B} \text{ and}\\
+			\left(\bigcup_{n\in \N} A_{n}\right) \cap Y &= \bigcup_{n\in \N} (A_{n} \cap Y) = \bigcup_{n\in \N} B_{n} \in \mathfrak{B}
+		\end{align*}
+	Therefore, the condition $4^{o}$ is fullfiled and so $\mathfrak{B}$ is a $\sigma$-algebra on $Y$.
+	\end{enumerate}
+	\end{proof} 
+	
+	\textbf{PROOF ANALYSIS}\\
+	
+	One could have proven each implication by a simple method of direct proof, namely, for some implication $A \implies B$, you start by assuming $A$ and then conclude $B$. Some type of unilinear view ofunderstanding the correlation between the statements which could make us think in some type of causality mindframe, namely, the truth of $A$ (pre-existence) is sufficient for $B$ to be true. However, during this process, one uses some set of statements $S$ held to be true in order to conclude $B$ from $A$.\\
+	
+	Does this imply that $\left(\forall x\in S\right)\implies \left(A\implies B\right)$, which looks like some type of regression problem if we say that other set of assumptions is sufficient for the set $S$ to be true, and so on. If so, then
+	\begin{equation*}
+		\left(\forall x\in S\right)\implies \left(\sim A\wedge B\right)
+	\end{equation*}
+However, if $\forall x\in S \implies A$, then it suffices to show that $\left(\forall x\in S\right)\implies B$. Something we used for this proof, since, in my opinion, it yielded a more intuitive proof.
+\end{problem}
+
+\begin{problem}{1.8}
+	Let $\mathfrak{A}$ be a collection of subsets of a set $X$ with the following properties:
+	\begin{enumerate}
+		\item $X\in \mathfrak{A}$,
+		\item $A,B \in \mathfrak{A} \implies A\backslash B = A\cap B^{c} \in \mathfrak{A}$.
+	\end{enumerate}
+	Show that $\mathfrak{A}$ is an algebra of subsets of a set $X$.
+	\begin{proof}
+		We show that $\mathfrak{A}$ has the following properties:
+		\begin{enumerate}
+			\item $X\in \mathfrak{A}$,
+			\item $A \in \mathfrak{A} \implies A^{c} \in \mathfrak{A}$,
+			\item $A,B \in \mathfrak{A} \implies (A\cup B)\in \mathfrak{A}$.
+		\end{enumerate}
+		We prove them in separate sections.
+		\begin{enumerate}
+		\item Note that $X\in \mathfrak{A}$, by the already given characteristics of the set $\mathfrak{A}$. 
+		
+		\item Consider some $A\in \mathfrak{A}$. Since we know that $X\in \mathfrak{A}$, it follows, by the properties of the set $\mathfrak{A}$, that $X\backslash A = A^{c} \in \mathfrak{A}$.  
+		
+		\item Suppose that some sets $A,B\in \mathfrak{A}$. Since $X\in \mathfrak{A}$, it follows that $X\backslash A = A^{c} \in \mathfrak{A}$. Then, by definition, $A^{c}\backslash B = A^{c} \cap B^{c} \in \mathfrak{A}$. Hence, $X\backslash \left(A^{c} \cap B^{c}\right) \in \mathfrak{A}$. Note that
+		\begin{align*}
+			X\backslash \left(A^{c} \cap B^{c}\right) &= \left(A^{c} \cap B^{c}\right)^{c}\\
+			&= A\cup B.
+		\end{align*}
+	Therefore, $A\cup B \in \mathfrak{A}$.
+		\end{enumerate}
+	\end{proof}
+\end{problem}
+
+\begin{problem}{1.9}
+	Let $\mathfrak{A}$ be an algebra of subsets of a set $X$. Suppose $\mathfrak{A}$ has the property that for every increasing sequence $\left(A_{n}:n\in \N\right)$ in $\mathfrak{A}$, we have $\bigcup_{n\in \N} A_{n} \in \mathfrak{A}$. Show that $\mathfrak{A}$ is a $\sigma$-algebra of subsets of the set $X$.
+	\begin{proof}
+		Since $\mathfrak{A}$ is an algebra of $X$, we just need to show that for some sequence $(A_{n}:n\in \N)$ of subsets of $X$, we have that
+		\begin{equation*}
+			(A_{n}:n\in \N) \subset \mathfrak{A} \implies \bigcup_{n\in \N} A_{n} \in \mathfrak{A}.
+		\end{equation*}
+	Let $(A_{n}:n\in \N) \subset \mathfrak{A}$. We prove that we can construct some increasing sequence from the elements of $(A_{n}:n\in \N)$. Because $\mathfrak{A}$ is an algebra of $X$, it follows for some $k\in \N$ that
+	\begin{equation*}
+		\bigcup_{n=1}^{k} A_{n} \in \mathfrak{A}.
+	\end{equation*}
+ Let $\bigcup_{n=1}^{k} A_{n} = B_{k}$. Hence, 
+	\begin{equation*}
+		\left(B_{k} : k\in \N\right) \subset \mathfrak{A}.
+	\end{equation*}
+Note that $\left(B_{k} : k\in \N\right)$ is an increasing sequence and so, by the characteristics of $\mathfrak{A}$,
+\begin{equation*}
+	\bigcup_{k\in \N} B_{k} \in \mathfrak{A}.
+\end{equation*} 
+However, note that 
+\begin{align*}
+	\bigcup_{k\in \N} B_{k} &= \bigcup_{k\in \N} \bigcup_{n=1}^{k} A_{n} = A_{1}\cup \bigcup_{k\geq 2} \bigcup_{n=1}^{k}A_{n}\\
+	&= A_{1}\cup \bigcup_{k\geq 2} \left(\bigcup_{n=1}^{k-1}A_{n}\cup A_{k}\right)\\
+	&= A_{1}\cup \bigcup_{k\geq 2} \bigcup_{n=1}^{k-1}A_{n} \cup \bigcup_{k\geq 2} A_{k}\\
+	&= \left(\bigcup_{n\in \N} A_{n}\right) \cup \left(\bigcup_{k\geq 2} \bigcup_{n=1}^{k-1}A_{n}\right)\\
+	&= \bigcup_{n\in \N} A_{n}
+\end{align*}
+since $\bigcup_{k\geq 2} \bigcup_{n=1}^{k-1}A_{n} \subset \bigcup_{n\in \N} A_{n}$. Therefore,
+\begin{equation*}
+	\bigcup_{n\in \N} A_{n} \in \mathfrak{A},
+\end{equation*}
+and so $\mathfrak{A}$ is a $\sigma$-algebra on $X$.
+	\end{proof}
+\end{problem}
+
+\begin{problem}{1.10}
+	Let $\left(X,\mathfrak{A}\right)$ be a measurable space and let $\left(E_{n}:n\in \N\right)$ be an increasing sequence in $\mathfrak{A}$ such that $\bigcup_{n\in \N} E_{n} = X$.
+	\begin{enumerate}[label=\textbf{(\alph*)}]
+		\item Let $\mathfrak{A}_{n} = \mathfrak{A}\cap E_{n}$, that is, $\mathfrak{A} = \left\{A\cap E_{n}: A\in \mathfrak{A}\right\}$. Show that $\mathfrak{A}_{n}$ is a $\sigma$-algebra of subsets of $E_{n}$ for each $n\in \N$.
+		\begin{proof}
+	  	Since $(X,\mathfrak{A})$ is a measurable space, it follows that $\mathfrak{A}$ is a $\sigma$-algebra of subsets of $X$. Consider some $E_{n} \in \left(E_{n} : n\in \N\right)$. Note that $E_{n}\subset X$ and $\mathfrak{A}_{n} = \left\{A\cap E_{n}: A\in \mathfrak{A_{n}}\right\}$. Hence, by the result proven in \textbf{Problem 1.7}, $\mathfrak{A}_{n}$ is a $\sigma$-algebra of subsets of $E_{n}$.
+		\end{proof}
+		\item Does $\bigcup_{n\in \N} \mathfrak{A}_{n} = \mathfrak{A}$ hold?
+		\begin{proof} 
+			 Since $\left(E_{n}:n\in \N\right)$ is an increasing sequence, it follows that $\lim_{n \to \infty} E_{n} = \bigcup_{n\in \N} E_{n} = X$. Hence, $X\subset E_{n}$ for all but finitely many $n\in \N$. Note that $E_{n} \subset X$ for every $n\in \N$ and so $E_{n} = X$ for all but finitely many $n\in \N$. 
+			 
+			 Consider some $A\in \mathfrak{A}$. Then,
+			 \begin{align*}
+			 	A\cap E_{n} = A\cap X = A \in \mathfrak{A}_{n}
+			 \end{align*}
+		 		for all but finitely many $n\in\N$ and so
+		 		\begin{align*}
+		 			 \mathfrak{A} \subset \mathfrak{A}_{n} = \left\{A\cap E_{n}: A\in \mathfrak{A}\right\} 
+		 		\end{align*}
+	 		for all but finitely many $n\in \N$ (This implies that $\mathfrak{A} \not\subset \mathfrak{A}_{n}$ for finitely many $n\in \N$). Note that, $\mathfrak{A}_{n} \subset \mathfrak{A}$ for every $n\in \N$. Therefore, 
+	 		\begin{equation*}
+	 			\mathfrak{A}_{n} = \mathfrak{A}
+	 		\end{equation*}
+ 		for all but finitely many $n\in \N$ and so 
+ 		\begin{equation*}
+ 			\bigcup_{n\in \N} \mathfrak{A}_{n} = \mathfrak{A}.
+ 		\end{equation*}
+ 	Does this imply that $\left(\mathfrak{A}_{n}:n\in \N\right)$ is an increasing sequence?
+		\end{proof}
+	\item \textbf{EXTRA:} Show that $\left(\mathfrak{A}_{n}:n\in \N\right)$ is an increasing sequence.
+	\begin{proof}
+		We just need to show for some $k\in \N$ that $\mathfrak{A}_{k} \subset \mathfrak{A}_{k+1}$. Let $\left(E_{n}:n\in \N\right)$ be some increasing sequence of subsets in $\mathfrak{A}$. Also, let $B\in \mathfrak{A}_{k}$, then there is some $A\in \mathfrak{A}$ such that $A\cap E_{k} = B$. Since $\mathfrak{A}$ is a $\sigma$-algebra of subsets of $X$ and $A,E_{k} \in \mathfrak{A}$, it follows that 
+		\begin{equation*}
+			A\cap E_{k} \in \mathfrak{A}
+		\end{equation*}
+	and so  
+	\begin{equation*}
+		(A\cap E_{k})\cap E_{k+1} = \mathfrak{A}_{k+1} .
+	\end{equation*}
+	Note that 
+	\begin{align*}
+		(A\cap E_{k})\cap E_{k+1} &= A\cap (E_{k}\cap E_{k+1})\\
+		&= A\cap E_{k}
+	\end{align*}
+	since $E_{k} \subset E_{k+1}$. Thus, $A\cap E_{k} \in \mathfrak{A}_{k+1}$ and so $\mathfrak{A}_{k} \subset \mathfrak{A}_{k+1}$.
+	\end{proof}
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}{1.11}
+	\begin{enumerate}[label=\textbf{(\alph*)}]
+		\item Show that if $\left(\mathfrak{A}_{n}:n\in \N\right)$ is an increasing sequence of algebras of subsets of a set $X$, then $\bigcup_{n\in \N} \mathfrak{A}_{n}$ is an algebra of subsets of $X$.
+		\begin{proof}
+			We will show that $\bigcup_{n\in \N} \mathfrak{A}_{n}$ fulfills the following conditions:
+			\begin{enumerate}[label=\textbf{\arabic*}]
+				\item $X\in \bigcup_{n\in \N} \mathfrak{A}_{n}$.
+				\item $A\in \bigcup_{n\in \N} \mathfrak{A}_{n} \implies A^{c} \in \bigcup_{n\in \N} \mathfrak{A}_{n}$.
+				\item $A,B \in \bigcup_{n\in \N} \mathfrak{A}_{n} \implies A\cup B \in \bigcup_{n\in \N} \mathfrak{A}_{n}$.
+			\end{enumerate}
+		We proceed to show each individually:
+		\begin{enumerate}[label=\textbf{\arabic*}]
+			\item Since each element of $\left(\mathfrak{A}_{n}:n\in \N\right)$ is an  algebra of $X$, it follows that each of them contains $X$. Hence, $X\in \bigcup_{n\in \N} \mathfrak{A}_{n}$.
+			
+			\item Consider some $A\in \bigcup_{n\in \N} \mathfrak{A}_{n}$. Then there is some $k\in \N$ such that $A\in \mathfrak{A}_{k}$ and so $A^{c} \in \mathfrak{A}_{k}$, which implies that $A^{c} \in \bigcup_{n\in \N} \mathfrak{A}_{n}$.
+			
+			\item Consider two subsets $A$ and $B$ in $\bigcup_{n\in \N} \mathfrak{A}_{n}$. Then,  $A\in \mathfrak{A}_{a}$ and $B\in \mathfrak{A}_{b}$ for $a,b\in \N$. If $a=b$, then $A\cup B \in \mathfrak{A}_{a}$. On the other hand, WLOG let $a>b$, then $A,B\in \mathfrak{A}_{a}$ since $\mathfrak{A}_{b}\subset \mathfrak{A}_{a}$. Hence, $A\cup B \in \mathfrak{A}_{a}$. Note that both cases imply $A\cup B\in \bigcup_{n\in \N} \mathfrak{A}_{n}$.
+		\end{enumerate} 
+		\end{proof}
+		\item Show that if $\left(\mathfrak{A}_{n}:n\in \N\right)$ is a decreasing sequence of algebras of subsets of a set $X$, then $\bigcap_{n\in \N} \mathfrak{A}_{n}$ is an algebra of subsets of $X$.
+		\begin{proof}
+			We will show that $\bigcap_{n\in \N} \mathfrak{A}_{n}$ fulfills the following conditions:
+			\begin{enumerate}[label=\textbf{\arabic*}]
+				\item $X\in \bigcap_{n\in \N} \mathfrak{A}_{n}$.
+				\item $A\in \bigcap_{n\in \N} \mathfrak{A}_{n} \implies A^{c} \in \bigcap_{n\in \N} \mathfrak{A}_{n}$.
+				\item $A,B \in \bigcap_{n\in \N} \mathfrak{A}_{n} \implies A\cup B \in \bigcap_{n\in \N} \mathfrak{A}_{n}$.
+			\end{enumerate}
+			First, note that $X\in \mathfrak{A}_{n}$ for all $n\in \N$. Hence $X\in \bigcap_{n\in \N}\mathfrak{A}_{n}$.\\
+			
+			Now consider some $A\in \bigcap_{n\in \N} \mathfrak{A}_{n}$. Then, $A\in \mathfrak{A}_{n}$ for every $n\in \N$ and so $A^{c}\in \mathfrak{A}_{n}$ for all $n\in \N$. Hence, $A^{c} \in \bigcap_{n\in \N}\mathfrak{A}_{n}$. \\
+			
+			Let some $A,B\in \bigcap_{n\in \N}\mathfrak{A}_{n}$. Then, $A,B\in \mathfrak{A}_{n}$ for every $n\in \N$ and so $A\cup B\in \mathfrak{A}_{n}$ for every $n\in \N$. Thus, $A\cup B \in \bigcap_{n\in \N}\mathfrak{A}_{n}$. Note that we did not use the fact that $(\mathfrak{A}_{n}:n\in \N)$ is a decreasing sequence. This implies for any  sequence of algebras that their intersection is an algebra. Remember \textbf{Lemma 1.10}, where the intersection of any arbitrary collection of algebras is and algebra.
+			\end{proof} 
+
+	\item \textbf{EXTRA:} Show that there exist some sequence of algebras of subsets of a set $X$ with limit inferior and superior. 
+	\begin{proof}
+		Let $P$ be the power set of $X$ and $\left(\mathfrak{A}_{n}:n\in \N\right)$ be a sequence of algebras of subsets of $X$. Since, by definition, $P$ is the largest algebra of $X$, it follows that $\mathfrak{A}_{n} \subset P$ for every $n\in \N$. Therefore, $\left(\mathfrak{A}_{n}:n\in \N\right)$ is a sequence of subsets of the set $P$ and, by definition, it can have a limit superior and inferior.
+	\end{proof}
+		\end{enumerate}
+\end{problem}
+
+\begin{problem}{1.12}
+	Let $(X,\mathfrak{A})$ be a measurable space. Let us call an $\mathfrak{A}$-measurable subset $E$ of $X$ an atom in the measurable space $(X,\mathfrak{A})$ if $E\neq \emptyset$ and $\emptyset$ and $E$ are the only $\mathfrak{A}$-measurable subsets of $E$. Show that if $E_{1}$ and $E_{2}$ are two distinct atoms in $(X,\mathfrak{A})$ then they are disjoint.
+	\begin{proof}
+		 
+	\end{proof}
+\end{problem}
+\end{document}

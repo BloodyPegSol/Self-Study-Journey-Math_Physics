@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2022.4.30)  12 MAY 2022 19:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.6.20)  21 MAR 2022 11:20
 entering extended mode
-**./section1.3_AxiomofCompleteness.tex
-(section1.3_AxiomofCompleteness.tex
+**./section_1_MeasureTheory.tex
+(section_1_MeasureTheory.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-06-03>
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\article.cls"
@@ -715,8 +715,8 @@ File: pgflibrarypatterns.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \c@legalix=\count330
 \c@legalx=\count331
 \enitdp@legal=\count332
- (section1.3_AxiomofCompleteness.aux)
-\openout1 = `section1.3_AxiomofCompleteness.aux'.
+ (section_1_MeasureTheory.aux)
+\openout1 = `section_1_MeasureTheory.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
 LaTeX Font Info:    ... okay on input line 50.
@@ -786,90 +786,144 @@ Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 55.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 56.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 55.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 56.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
 
  []
 
 [1
 
 {C:/Users/juanp/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (7.97803pt too wide) in paragraph at lines 129--131
-\OT1/cmr/m/n/12 which is bounded above. Then, $[] [] = []\OMS/cmsy/m/n/12 f[] \
-OML/cmm/m/it/12 A[]; [] A[]; [] A[]; [] ; [] A[]\OMS/cmsy/m/n/12 g$\OT1/cmr/m/n
-/12 . 
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
+
  []
 
 [2]
-Overfull \hbox (15.30309pt too wide) in paragraph at lines 131--132
-[]\OT1/cmr/m/n/12 We pro-ceed by in-duc-tion. Since, by \OT1/cmr/bx/n/12 Lemma 
-1\OT1/cmr/m/n/12 , $[](\OML/cmm/m/it/12 A[] \OMS/cmsy/m/n/12 [ \OML/cmm/m/it/12
- A[]\OT1/cmr/m/n/12 ) = []\OMS/cmsy/m/n/12 f[] \OML/cmm/m/it/12 A[]; [] A[]\OMS
-/cmsy/m/n/12 g$
- []
-
-
-Overfull \hbox (66.06717pt too wide) detected at line 145
-[]
- []
-
-
-Overfull \hbox (1.05132pt too wide) in paragraph at lines 145--147
-\OT1/cmr/m/n/12 Since we are tak-ing the $\OML/cmm/m/it/12 supremum$ \OT1/cmr/m
-/n/12 of a fi-nite set of real num-bers, namely, the $\OML/cmm/m/it/12 maximum$
-
- []
-
-
-Overfull \hbox (7.44702pt too wide) in paragraph at lines 152--153
-[]\OT1/cmr/m/n/12 In or-der for our re-sult to ex-tend for a gen-eral in-fi-nit
-e case, the $\OML/cmm/m/it/12 supremum$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 163--165
+Underfull \hbox (badness 10000) in paragraph at lines 155--157
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Overfull \hbox (21.04901pt too wide) in paragraph at lines 213--214
+[]\OT1/cmr/m/n/12 Show that if $[][] \OML/cmm/m/it/12 E[]$ \OT1/cmr/m/n/12 and 
+$[][] \OML/cmm/m/it/12 F[]$ \OT1/cmr/m/n/12 ex-ist, then $[][] []$ and $[][] []
+$
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 246--248
 
  []
 
-[4] (section1.3_AxiomofCompleteness.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--250
+
+ []
+
+
+Overfull \hbox (28.50822pt too wide) in paragraph at lines 251--252
+[][] \OML/cmm/m/it/12 B[]$ \OT1/cmr/m/n/12 ex-ists. Then, $[][] \OML/cmm/m/it/1
+2 A[] \OT1/cmr/m/n/12 = [][] \OML/cmm/m/it/12 B[] \OT1/cmr/m/n/12 = [][] \OML/c
+mm/m/it/12 B[] \OT1/cmr/m/n/12 = [][] \OML/cmm/m/it/12 A[]$
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 268--270
+
+ []
+
+
+Overfull \hbox (4.57822pt too wide) in paragraph at lines 286--287
+[]\OT1/cmr/m/n/12 Note that, ac-cord-ing to the given de-scrip-tion of the se-q
+uence of real points $[]$,
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 313--315
+
+ []
+
+[7]
+Overfull \hbox (2.08205pt too wide) in paragraph at lines 340--342
+\OT1/cmr/m/n/12 Consider $\OML/cmm/m/it/12 x \OMS/cmsy/m/n/12 2 \OT1/cmr/m/n/12
+ (\OMS/cmsy/m/n/12  1\OML/cmm/m/it/12 ; a\OT1/cmr/m/n/12 ]$. It is clear that $
+\OML/cmm/m/it/12 x \OMS/cmsy/m/n/12 62 \OML/cmm/m/it/12 E[]$ \OT1/cmr/m/n/12 fo
+r ev-ery $\OML/cmm/m/it/12 n \OMS/cmsy/m/n/12 2 \U/msb/m/n/12 N$ \OT1/cmr/m/n/1
+2 and so $\OML/cmm/m/it/12 x \OMS/cmsy/m/n/12 62 [][] \OML/cmm/m/it/12 E[]$\OT1
+/cmr/m/n/12 .
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 382--383
+
+ []
+
+LaTeX Font Info:    Trying to load font information for U+euf on input line 405
+.
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\ueuf.fd"
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) [9]
+Underfull \hbox (badness 10000) in paragraph at lines 412--413
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 439--440
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
+
+ []
+
+[10] [11] [12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 591--592
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 593--594
+
+ []
+
+[14] (section_1_MeasureTheory.aux) ) 
 Here is how much of TeX's memory you used:
- 26465 strings out of 480763
- 646913 string characters out of 2904059
- 931336 words of memory out of 3000000
- 42111 multiletter control sequences out of 15000+200000
- 541156 words of font info for 58 fonts, out of 3000000 for 9000
+ 26478 strings out of 480763
+ 647050 string characters out of 2904059
+ 932315 words of memory out of 3000000
+ 42119 multiletter control sequences out of 15000+200000
+ 541864 words of font info for 61 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,10n,71p,1633b,530s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/symbols/msbm10.pfb>
-Output written on section1.3_AxiomofCompleteness.pdf (4 pages, 128750 bytes).
+ 60i,10n,71p,1626b,477s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eufm10
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pf
+b>
+Output written on section_1_MeasureTheory.pdf (14 pages, 185177 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
+ 107 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
