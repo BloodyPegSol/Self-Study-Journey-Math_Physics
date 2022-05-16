@@ -179,5 +179,127 @@
 				\end{solution}
 			\end{enumerate}
 		\end{problem}
-
+		
+		\begin{problem}{1.3.6}
+			Given sets $A$ and $B$, define $A+B = \{a+b:a\in A \text{ and } b\in B\}$. Follow these steps to prove that if $A$ and $B$ are nonempty and bounded above then $\sup(A+B) = \sup A + \sup B$.
+			\begin{enumerate}[label=(\alph*)]
+				\item Let $s=\sup A$ and  $t=\sup B$. Show $s+t$ is an upper bound for $A+B$.
+				\begin{proof}
+					Consider some $a\in A$ and $b\in B$. We know that $a\leq s$ and $b\leq t$. Hence,
+					\begin{equation*}
+						a+b\leq s+b \leq s+t
+					\end{equation*}
+				and so $a+b\leq s+t$. Since $a+b\in A+B$, it follows that $s+t$ is an upper bound for $A+B$.
+				\end{proof}
+				\item Now let $u$ be an arbitrary upper bound for $A+B$, and temporarily fix $a\in A$. Show $t\leq u-a$.
+				\begin{proof}
+					Since $u$ is an upper bound for $A+B$, it follows that $a+b\leq u$ for any $a\in A$ and $b\in B$. Then, $b \leq u-a$ which implies that $u-a$, where $a$ is any element of $A$, is an upper bound for $B$. Thus, $t\leq u-a$ for all $a\in A$. 
+				\end{proof}
+				\item Finally, show $\sup(A+B)=s+t$.
+				\begin{proof}
+					According to (a), the number $s+t$ is an upper bound for $A+B$. Now we just need to prove that if $u$ is an upper bound for $A+B$, then $s+t\leq u$.\\
+					According to (b), $t\leq u-a$ for any $a\in A$ and upper bound $u$ for $A+B$. Then, $a\leq u-t$ which implies that $u-t$ is an upper bound for $A$. Hence, $s\leq u-t$ and so $s+t\leq u$ for any upper bound $u$ of $A+B$. Thus, $\sup(A+B) = s+t = \sup A + \sup B$.
+				\end{proof}
+				\item Construct another proof of this same fact using Lemma $1.3.8$.
+				\begin{proof}
+					By \textbf{Lemma 1.3.8}, for some real number $\varepsilon > 0$, it is true that $a>s-\varepsilon/2$ for some $a\in A$ and $b>t-\varepsilon/2$ for some $b\in B$ since $\varepsilon/2 > 0$. Note that $a+b\in A+B$ and 
+					\begin{align*}
+						a+b &> (s-\varepsilon/2) +b > (s-\varepsilon/2) + (t-\varepsilon/2)\\
+						&= (t+s)-\varepsilon.
+					\end{align*}
+				By \textbf{Lemma 1.3.8}, $s+t = \sup (A+B)$.
+				\end{proof}
+			\end{enumerate}
+		\end{problem}
+		It's kind of interesting how $\sup()$ is multiplicative for nonnegative real numbers ($\sup(cA) = c\sup A$) and it is additive ($\sup(A+B) = \sup A + \sup B$). This implies that 
+		\begin{equation*} 
+		\sup(cA+dB) = c\sup A + d\sup B
+		\end{equation*}
+		 for nonnegative real numbers $c$ and $d$, and sets $A,B\subseteq \R$ that are bounded above.
+		\begin{problem}{1.3.7}
+			Prove that if $a$ is an upper bound for $A$, and if $a$ is also an element of $A$, then it must be that $a=\sup A$.
+			\begin{proof}
+				Let some $c\in A$ be an upper bound for $A$. Consider some upper bound $b$ for $A$, then, by definition, $c\leq b$ since $c\in A$. Hence, $\sup A = c$.
+			\end{proof}
+		\end{problem}
+		Before working with \textbf{problem 1.3.8}, we first prove the following lemma.
+		\begin{lemma}{1.3.8}
+			Let $A=\{x\in \R: a<x<b\}$ for some $a,b\in \R$. Then, $\sup A = b$ and $\inf A = a$.
+			\begin{proof}
+				Since $b> x$ and $a< x$ for every $x\in A$, it follows that $b$ and $a$ are an upper bound and lower bound for $A$, respectively. Consider some real number $\varepsilon > 0$, then, by the denisty of real numbers in $\R$, there are $x,y\in \Q$ such that
+				\begin{align*}
+					a<x<a+\varepsilon,\\
+					b-\varepsilon<y<b
+				\end{align*}
+			and $a<x,y<b$. Therefore, $\inf A = a$ and $\sup A = b$.
+			\end{proof}
+		\end{lemma}
+		\begin{problem}{1.3.8}
+			Compute, without proofs, the suprema and infima (if they exist) of the following sets:
+			\begin{enumerate}[label=(\alph*)]
+				\item $A=\{m/n:m,n\in \N\ \text{ with }m<n\}$
+				\begin{solution}{(a)}
+					Since $m,n\in \N$, it follows that $m/n \in \Q$. Note that $m<n$ implies that $m/n < 1$, and $0<m,n$ implies that $0< m/n$.  Hence, $A=\{x\in \Q: 0<x<1\}$ and so $0$ and $1$ are a lower and upper bound for $A$, respectively. Consider any $\varepsilon>0$, by the density of rational numbers, there are some $x,y\in \Q$ such that 
+					\begin{align*}
+						0&<x<0+\varepsilon,\\ 1-\varepsilon&<y<1.
+					\end{align*}
+					and $0<x,y<1$. Hence, $\inf A= 0$ and $\sup A = 1$
+				\end{solution}
+				\item $B=\{(-1)^{m/n}:m,n\in \N\}$
+				\begin{solution}{(b)}
+				 Note that $(-1)^{m/n} = \left[(-1)^{1/n}\right]^{m}$. Recall that $(-1)^{1/n} \in \R$ if $n$ is odd. Thus, $(-1)^{1/n} = -1$ for every odd integer $n$ and so $(-1)^{m} \in \{-1,1\}$ since $m\in \N$. \\
+					Therefore, $B=\{-1,1\}$ is a finite set and so $\inf B = -1$ and $\sup B = 1$.
+				\end{solution}
+				\item $C=\{n/(3n+1):n\in \N\}$
+				\begin{solution}{(c)}
+				 For any $n\in \N$ we have that
+					\begin{align*}
+						\frac{n}{3n+1} &= \frac{n}{n\left(3+\frac{1}{n}\right)}\\
+						&= \frac{1}{3+\frac{1}{n}}.
+					\end{align*}
+				Hence, for two positive integers $m$ and $n$, if $n<m$, then $3+\frac{1}{m}<3+\frac{1}{n}$ and so 
+				\begin{equation*}
+					\frac{1}{3+\frac{1}{n}}<	\frac{1}{3+\frac{1}{m}}.
+				\end{equation*}
+			Hence, all elements of $C$ can be seen as some type of strictly increasing sequence, where $\frac{1}{3+1} = \frac{1}{4}$ is the lowest element of $A$. Hence, $\inf A = \frac{1}{4}$.\\
+			
+			Let $n\in \N$, then $n/(3n+1) < n/3n = 1/3$ and so $1/3$ is an upper limit for $C$. We show that it is the $supremum$ of $C$. Consider some real number $\varepsilon > 0$. Note that 
+			\begin{equation*}
+				\varepsilon = \frac{1}{\frac{1}{\varepsilon}}
+			\end{equation*}
+			By the Archimedean Property, there exists some $x\in \N$ such that $\frac{1}{\varepsilon} < x$ and so $0<\frac{1}{\varepsilon} < 3(3x+1)$. Thus,
+		\begin{equation*}
+		 \frac{1}{3(3x+1)} < \frac{1}{\frac{1}{\varepsilon}}=\varepsilon
+		\end{equation*}
+		Hence, 
+		\begin{equation*}
+			\frac{1}{3}-\frac{1}{3(3x+1)} > \frac{1}{3}-\varepsilon.
+		\end{equation*}
+	Note that
+		\begin{align*}
+			\frac{1}{3}-\frac{1}{3(3x+1)} &= \frac{3x+1-1}{3(3x+1)}\\
+			&= \frac{3x}{3(3x+1)} = \frac{x}{3x+1}\\
+			&> \frac{1}{3}-\varepsilon.
+		\end{align*}
+	Since $\frac{x}{3x+1} \in C$, it follows that $\sup C = \frac{1}{3}$. 
+				\end{solution} 
+		\item $\{m/(m+n):m,n\in \N\}$
+		\begin{solution}{d}
+			contenidos... 
+		\end{solution}
+			\end{enumerate}
+		\end{problem}
+	
+		\begin{problem}{1.3.9}
+			\begin{enumerate}[label=(\alph*)]
+				\item If $\sup A < \sup B$, show that there exists an element $b\in B$ that is an upper bound for $A$.
+				\begin{proof}
+				 Since $\sup A < \sup B$, it follows that $\sup B-\sup A > 0$. By \textbf{Lemma 1.3.8}, there exists some $b\in B$ such that $b>\sup B - (\sup B- \sup A) = \sup A$. Thus, $b$ is an upper bound for $A$.
+				\end{proof}
+				\item Give an example to show that this is not always the case if we only assume $\sup A \leq \sup B$.
+				\begin{solution}{b}
+					Let $A=[0,1]$ and $B=[0,1)$. Then, $\sup A \leq \sup B$ since $\sup A = \sup B = 1$.  However, since $\sup B\not\in B$ and $\sup B \geq b$ for all $b\in B$, it follows that $\sup B = \sup A > b$ for every $b\in B$ which implies that no element of $b$ is an upper bound for $A$ (recall that $\sup A$ is the lowest upper bound). 
+				\end{solution}
+			\end{enumerate}
+		\end{problem}
 \end{document}

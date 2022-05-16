@@ -61,4 +61,43 @@
 		\item \textbf{Transitive Property:} $\forall x,y,z\in A$, if $x\; R \; y$ and  $y \; R \; z$, then $x\; R \;z$. Note that for the relation $R$ to not be symmetric, it must be true that $x \; R \; y$, $y \; R \; z$ and $x \; \cancel R \; z$. For this to happen, it is necessary that $x\neq y$ and $z\neq y$.
 	\end{enumerate} 
  
+ 	\begin{problem}{11}
+ 		Let $A=\{a,b,c,d\}$ and let 	
+ 		\begin{equation*}
+ 			R=\{(a,a),(a,b),(a,c),(a,d),(b,b),(b,c),(b,d),(c,c),(c,d),(d,d)\}
+ 		\end{equation*}
+ 		
+ 		be a relation on $A$. Which of the properties reflexive, symmetric and transitive does the relation $R$ possess? Justify your answers.
+ 		\begin{solution}{11}
+ 			The relation is reflexive since $\{(a,a),(b,b),(c,c),(d,d)\}\subset R$. Also, it is transitive since $(x,y),(y,z)\in R \implies (x,z)\in R$ for any $x,y,z\in A$ is fulfilled. However, the relation is not symmetric since $(a,b)\in R$ and $(b,a)\not\in R$.
+ 		\end{solution}
+ 	\end{problem}
+ 
+ 	\begin{problem}{13}
+ 		Let $S=\{a,b,c\}$. Then $R=\{(a,b)\}$ is a relation on $S$. Which of the properties reflexive, symmetric and transitive does the relation $R$ possess? Justify your answers.
+ 		\begin{solution}{13}
+ 			The relation $S$ is transitive since the implication $(x,y),(y,z)\in R \implies (x,z)\in R$ for any $x,y,z\in S$ is fulfilled vacuously. However, it is neither reflexive because $(a,a)\not\in R$ nor symmetrice since $(a,b)\in R$ but $(b,a)\not\in R$.
+ 		\end{solution}
+ 	\end{problem}
+ 
+ 	\begin{problem}{14}
+ 		Let $A=\{a,b,c,d\}$. Give an example (with justification) of a relation $R$ on $A$ that has none of the following properties: reflexive, symmetric, transitive.
+ 		\begin{solution}{14}
+ 			Let $R=\{(a,b),(b,c)\}$. The relation $R$ is not reflexive since $(a,a)\not\in R$, it is not symmetric because $(a,b) \in R$ and $(b,a)\not\in R$ and it is not transitive since $(a,b),(b,c)\in R$ but $(a,c)\not\in R$.
+ 		\end{solution}
+ 	\end{problem}
+ 
+ 	\begin{problem}{15}
+ 		A relation $R$ is defined on $\Z$ by $a \; R \; b$ if $|a-b|\leq 2$. Which of the properties reflexive, symmetric and transitive does the relation $R$ possess? Justify your answers.
+ 		\begin{solution}{15}
+ 			The relation $R$ is reflexive since $|a-a| = 0\leq 2$ for any $a\in \Z$ and so $a \; R \; a$. It is symmetric since for any $a,b\in \Z$, if $|a-b| \leq 2$, then $|b-a|=|a-b|\leq 2$. However, it is not transitive since $|3-1|=2$ and $|1-0|=1$ but $|3-0| = 3>2$.
+ 		\end{solution}
+ 	\end{problem} 
+ 
+ 	\begin{problem}{16}
+ 		Let $A=\{a,b,c,d\}$. How many relations defined on $A$ are reflexive, symmetric and transitive and contain the ordered pairs $(a,b),(b,c),(c,d)$?
+ 		\begin{solution}{16}
+ 			contenidos...
+ 		\end{solution}
+ 	\end{problem}
 \end{document}
