@@ -10,7 +10,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
-\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)} 
 
 
 
@@ -283,12 +283,35 @@
 		\end{align*}
 	Since $\frac{x}{3x+1} \in C$, it follows that $\sup C = \frac{1}{3}$. 
 				\end{solution} 
-		\item $\{m/(m+n):m,n\in \N\}$
+		\item $D=\{m/(m+n):m,n\in \N\}$
 		\begin{solution}{d}
-			contenidos... 
+			Note that 
+			\begin{equation*}
+				\frac{m}{m+n} = \frac{m}{m(1+\frac{n}{m})} = \frac{1}{1+\frac{n}{m}}.
+			\end{equation*}
+		Since $n,m\in \N$, it follows that $n/m\in \Q$ and $n/m > 0$. Hence, $D=\left\{\frac{1}{1+x}:x\in \Q \text{ and } x>0\right\}$. Note that for any rational number $x>0$, it is true that $1+x>1$ and so $\frac{1}{1+x} < 1$. Thus, $1$ is an upper bound for $D$ and we proceed to show that it is the suprema of $D$. Consider any $\varepsilon>0$ and so
+		
+		 \[\varepsilon = \frac{1}{\frac{1}{\varepsilon}}\].
+		 Due to the density of rational numbers, we know there exists some $\frac{1}{x} > \frac{1}{\varepsilon}>0$ for some $x\in \Q$ ($\varepsilon < x$). Therefore, $1+\frac{1}{x} > \frac{1}{\varepsilon}$ and so 
+		 \begin{equation*}
+		 	\frac{1}{\frac{1}{\varepsilon}} > \frac{1}{1+\frac{1}{x}}.
+		 \end{equation*}
+	 Note that 
+	 \begin{align*}
+	 	1-\frac{1}{1+\frac{1}{x}} &= \frac{1+\frac{1}{x}-1}{1+\frac{1}{x}}\\
+	 	&= \frac{\frac{1}{x}}{1+\frac{1}{x}} = \frac{\frac{1}{x}}{\frac{1}{x}(x+1)}\\
+	 	&= \frac{1}{1+x}> 1-\frac{1}{\frac{1}{\varepsilon}}\\
+	 	&= 1-\varepsilon.
+	 \end{align*}
+ 	Thus, $\frac{1}{1+x}\in D$ and so $\sup D = 1$. Since $1/(1+x) >0$ for any positive rational number $x$, it follows that $0$ is a lower bound for $D$. We show that it is the infima of $D$. Consider any $\varepsilon>0$. By the density of rational numbers, there exists some positive rational number $x$ such that $\varepsilon > \frac{1}{1+x} > 0$. Hence, 
+ 	\begin{align*}
+ 		\varepsilon + 0>\frac{1}{1+x}+0
+ 	\end{align*}
+ 	and so $\inf D = 0$ since $\frac{1}{1+x}\in D$.
 		\end{solution}
 			\end{enumerate}
 		\end{problem}
+	The last two solutions are a little bit too laborious. Is there an easy way to solve them?. Namely, another perspective for suprema and infima of sets of real numbers rather than the one given by $\varepsilon >0$. 
 	
 		\begin{problem}{1.3.9}
 			\begin{enumerate}[label=(\alph*)]
