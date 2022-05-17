@@ -2,7 +2,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
 \usepackage{tikz}
-\usetikzlibrary{datavisualization}
+\usetikzlibrary{datavisualization} 
 \usepackage[makeroom]{cancel} 
 \usepackage[linguistics]{forest}
 \usetikzlibrary{patterns}
@@ -97,7 +97,76 @@
  	\begin{problem}{16}
  		Let $A=\{a,b,c,d\}$. How many relations defined on $A$ are reflexive, symmetric and transitive and contain the ordered pairs $(a,b),(b,c),(c,d)$?
  		\begin{solution}{16}
+ 			In order for a relation $R$ on $A$ to be reflexive it must be true that \\$\{(a,a),(b,b),(c,c),(d,d)\}\subseteq R$. Since $(a,b),(b,c),(c,d)\in R$, it follows that $(b,a),(c,b),(d,c)\in R$ so that $R$ is symmetric. Because, so far
+ 			\begin{equation*}
+ 				\{(a,a),(b,b),(c,c),(d,d),(a,b),(b,c),(c,d),(b,a),(c,b),(d,c)\}\subseteq R
+ 			\end{equation*}
+ 		, it follows that $(a,c),(c,a), (b,d)\in R$ for $R$ to be transitive. Since $(b,d)\in R$, it follows that $(d,b)\in R$ so that the symmetric property is mantained. However, $(d,b),(b,a)\in R$ and so $(d,a)\in R$ so that it is transitive. This implies $(a,d)\in R$ since $R$ must be symmetric.
+ 		Hence, 
+ 		\begin{align*}
+ 			R &= \{(a,a),(b,b),(c,c),(d,d),(a,b),(b,c),(c,d),(b,a),(c,b),(d,c),(a,c),(c,a), (b,d), (d,b), (d,a), (a,d)\}\\
+ 			&= A\times A
+ 		\end{align*}
+ 		Since $R\subseteq A\times A$, it follows that there is only one possible relation $R$ on $A$ that fulfills the conditions.
+ 		\end{solution}
+ 	\end{problem}
+ 
+ 	\begin{problem}{18}
+ 		Let $A=\{1,2,3,4\}$. Give an example of a relation on $A$ that is:
+ 		\begin{enumerate}[label=(\alph*)]
+ 			\item reflexive and symmetric but not transitive.
+ 			\begin{solution}{(a)}
+ 				contenidos...
+ 			\end{solution}
+ 			\item reflexive and transitive but not symmetric.
+ 			\begin{solution}{(b)}
+ 				contenidos...
+ 			\end{solution}
+ 			\item symmetric and transitive but not reflexive.
+ 			\begin{solution}{(c)}
+ 				contenidos...
+ 			\end{solution}
+ 			\item reflexive but neither symmetric nor transitive.
+ 			\begin{solution}{(d)}
+ 				contenidos...
+ 			\end{solution}
+ 			\item symmetric but neither reflexive nor transitive.
+ 			\begin{solution}{(e)}
+ 				contenidos...
+ 			\end{solution}
+ 			\item transitive but neither reflexive nor symmetric.
+ 			\begin{solution}{(f)}
+ 				contenidos...
+ 			\end{solution}
+ 		\end{enumerate}
+ 	\end{problem}
+ 
+ 	\begin{problem}{19}
+ 		A relation $R$ is defined on $\Z$ by $x\; R \; y$ if $x\cdot y \geq 0$. Prove or disprove the following:
+ 		\begin{enumerate}[label=(\alph*)]
+ 			\item $R$ is reflexive.
+ 			\item $R$ is symmetric.
+ 			\item $R$ is transitive.
+ 		\end{enumerate}
+ 	\end{problem}
+ 
+ 	\begin{problem}{20}
+ 		Determine the maximum number of elements in a relation $R$ on a $3-element$ set such that $R$ has none of the properties reflexive, symmetric and transitive.
+ 		\begin{solution}{20}
+ 			Let $R$ be a relation on a 3-element set $B$ that has none of the properties reflexive, symmetric and transitive. Let's check the maximum number of elements $R$ can contain. Since $R\subseteq B\times B$, it follows that $|R|\leq 9$. However, since $R$ is not reflexive, it follows that $(b,b)\not\in R$ for some $b\in B$ and so $|R|\leq 8$. \\
+ 			 
+ 			Because $R$ is not symmetric, it follows that $(b,a)\in R$ and $(a,b)\not\in R$ for some different $a,b\in B$ and so $|R|\leq 7$. Also, since $R$ is not transitive, it follows that $(a,b),(b,c)\in R$ and $(a,c)\not\in R$ for some $a,b,c\in B$ such that $a\neq b$ and $b\neq c$. Thus, either $c\neq a$ or $c=a$, however note that we already got rid of those two such ordered pairs and so the maximum number of elements in $R$ is $7$.
+ 		\end{solution}
+ 	\end{problem}
+ 
+ 	\begin{problem}{21}
+ 		Let $S$ be the set of all polynomials of degree at most 3. An element $s(x)$ of $S$ can then be expressed as $s(x) = ax^{3} + bx^{2} +cx +d$, where $a,b,c,d\in \R$. A relation
+ 		\begin{solution}{21}
  			contenidos...
  		\end{solution}
+ 	\end{problem}
+ 
+ 	\begin{problem}{22}
+ 		A relation $R$ is defined on $\N$ by $a\; R \; b$ if either $a\mid b$ or $b\mid a$. Determine which of the properties reflexive, symmetric and transitive are possessed by $R$.
  	\end{problem}
 \end{document}
