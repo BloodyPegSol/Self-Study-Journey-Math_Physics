@@ -10,7 +10,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
-\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)} 
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}  
 
 
 
@@ -323,6 +323,24 @@
 				\begin{solution}{b}
 					Let $A=[0,1]$ and $B=[0,1)$. Then, $\sup A \leq \sup B$ since $\sup A = \sup B = 1$.  However, since $\sup B\not\in B$ and $\sup B \geq b$ for all $b\in B$, it follows that $\sup B = \sup A > b$ for every $b\in B$ which implies that no element of $b$ is an upper bound for $A$ (recall that $\sup A$ is the lowest upper bound). 
 				\end{solution}
+			\end{enumerate}
+		\end{problem}
+	
+		\begin{problem}{1.3.10}
+			\textbf{(Cut Property).} The \textit{Cut Property} of the real numbers is the following:\\
+			If $A$ and $B$ are nonempty, disjoint sets such that $A\cup B =\R$ and $a<b$ for all $a\in A$ and $b\in B$, then there exists $c\in \R$ such that $x\leq c$ whenever $x\in A$ and $x\geq c$ whenever $x\in B$.
+			\begin{enumerate}[label=(\alph*)]
+				\item Use the Axiom of Completeness to prove the Cut Property.
+				\begin{proof}
+					Since $a<b$ for all $a\in A$ and $b\in B$, it follows that every $b\in B$ is an upper bound of $A$ and so $A$ is bounded above. By the \textbf{Axiom of Completeness}, there is some real number $c$ that is the least upper bound of $A$. Hence, $c\leq x$ for every $x\in B$ and $c$ is an upper bound of $A$, namely,  $c\geq x$ for every $x\in A$.
+				\end{proof}
+				\item Show that the implication goes the other way; that is, assume $\R$ possesses the Cut Property and let $E$ be a nonempty set that is bounded above. Prove $\sup E$ exists.
+				\begin{proof}
+					Let $E$ be a nonempty set of real numbers that is bounded above. Let $B = \{x\in \R: \forall e\in E, x \geq e\}$ and $A=B^{c} = \{x\in \R:\exists e\in E, x < e \}$. Then $A$ and $B$ are disjoint sets such that $A\cup B = \R$ and $a<b$ whenever $a\in A$ and $b\in B$. By the \textbf{Cut Property}, there exists some $c\in \R$ such that $c\geq x$ for every $x\in A$ and $x\geq c$ for every $x\in B$. \\
+					
+					Note that either $c\in A$ or $c\in B$. If $c\in A$, then there is some $y\in E$ such that $c<y$. However, by the density of rational numbers, there is some rational number $q$ such that $c<q<y$. Hence, $q\in A$, but this contradicts the fact that $c$ is greater or equal to every element in $A$. Therefore, $c\in B$ and so $c\geq e$  whenever $e\in E$ which implies that $c$ is an upper bound. Also, note that every element of $B$ is an upper bound of $E$ and $c\leq b$ whenever $b\in B$. Therefore, $c$ is the lowest upper bound of $E$. 
+				\end{proof}
+				\item The punchline of parts (a) and (b) is that the Cute Property could be used in place of the Zxiom of Completeness as the fundamental axiom that distinguishes the real numbers from the rational numbers. To drive this point home, give a concrete example showing that the Cut Property is not a valid estatement when $\R$ is replaced by $\Q$.
 			\end{enumerate}
 		\end{problem}
 \end{document}
