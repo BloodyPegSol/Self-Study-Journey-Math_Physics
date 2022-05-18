@@ -116,28 +116,30 @@
  		\begin{enumerate}[label=(\alph*)]
  			\item reflexive and symmetric but not transitive.
  			\begin{solution}{(a)}
- 				contenidos...
+ 				$R=\{(1,1),(2,2),(3,3),(4,4),(2,3),(3,2),(3,1),(1,3)\}$
  			\end{solution}
  			\item reflexive and transitive but not symmetric.
  			\begin{solution}{(b)}
- 				contenidos...
+ 				$R=\{(a,a),(b,b),(c,c),(d,d),(b,c)\}$
  			\end{solution}
  			\item symmetric and transitive but not reflexive.
  			\begin{solution}{(c)}
- 				contenidos...
+ 				$R=\emptyset$ (the symmetric and transitive logical implications are vacuously true)
  			\end{solution}
  			\item reflexive but neither symmetric nor transitive.
  			\begin{solution}{(d)}
- 				contenidos...
+ 				$R=\{(a,a),(b,b),(c,c),(d,d),(a,b),(b,c)\}$
  			\end{solution}
  			\item symmetric but neither reflexive nor transitive.
  			\begin{solution}{(e)}
- 				contenidos...
+ 				$R=\{(a,b),(b,a)\}$
  			\end{solution}
  			\item transitive but neither reflexive nor symmetric.
  			\begin{solution}{(f)}
- 				contenidos...
+ 				$R=\{(a,b)\}$ (The transitive implication follows vacuously)
  			\end{solution}
+ 		
+ 		All of these are counterexamples to the statement that one property implies the other for any relation $R$ on some nonempty set $A$.
  		\end{enumerate}
  	\end{problem}
  
@@ -145,8 +147,17 @@
  		A relation $R$ is defined on $\Z$ by $x\; R \; y$ if $x\cdot y \geq 0$. Prove or disprove the following:
  		\begin{enumerate}[label=(\alph*)]
  			\item $R$ is reflexive.
+ 			\begin{proof}
+ 				Consider some $x\in \Z$, then $x^{2} \geq 0$ and so $x \; R \; x$. The relation $R$ is reflexive.
+ 			\end{proof}
  			\item $R$ is symmetric.
+ 			\begin{proof}
+ 				Consider some $x,y\in \Z$. Assume that $x\; R \; y$ which implies that $x\cdot y \geq 0$. Since multiplication on real numbers is commutative, it follows that $y\cdot x = x\cdot y \geq 0$ and so $y \; R \; x$. The relation $R$ is symmetric.
+ 			\end{proof}
  			\item $R$ is transitive.
+ 			\begin{solution}{c}
+ 				The relation $R$ on $\Z$ is not transitive. Note that $-3 \; R \; 0$ and $0 \; R \; 1$, but $-3 \cdot 1 =-3 < 0$ and so $-3 \; \cancel R \; 1$. 
+ 			\end{solution}
  		\end{enumerate}
  	\end{problem}
  
@@ -159,14 +170,26 @@
  		\end{solution}
  	\end{problem}
  
- 	\begin{problem}{21}
- 		Let $S$ be the set of all polynomials of degree at most 3. An element $s(x)$ of $S$ can then be expressed as $s(x) = ax^{3} + bx^{2} +cx +d$, where $a,b,c,d\in \R$. A relation
- 		\begin{solution}{21}
- 			contenidos...
- 		\end{solution}
+ 	\begin{problem}{22}
+ 		Let $S$ be the set of all polynomials of degree at most 3. An element $s(x)$ of $S$ can then be expressed as $s(x) = ax^{3} + bx^{2} +cx +d$, where $a,b,c,d\in \R$. A relation $R$ is defined on $S$ by $p(x) \; R \; q(x)$ if $p(x)$ and $q(x)$ have a real root in common. (For example, $p(x) = (x-1)^{2}$ and $q(x) = x^{2}-1$ have the root 1 in common so that $p \; R \; q$.) Determine which of the properties reflexive, symmetric, and transitive are possessed by $R$.
+ 		\begin{enumerate}
+ 			\item The relation $R$ is reflexive.
+ 			\begin{solution}{(a)}
+ 				The relation $R$ on $S$ is not reflexive. Consider $p(x) = x^{2}+1$. Therefore, $p(x)\in S$ but $p(x) \; \cancel R \; p(x)$ since $p(x)$ has no real root.
+ 			\end{solution}
+ 			\item The relation $R$ is symmetric.
+ 			\begin{proof}
+ 				Consider some $p(x),q(x)\in S$. Assume that $p(x) \; R \; q(x)$ and so $p(x)$ and $q(x)$ share some real root $c$. Therefore, $q(x)$ and $p(x)$ share the real root $c$ which implies that $q(x)\; R \; p(x)$.
+ 			\end{proof}
+ 			\item The relation $R$ is transitive.
+ 			\begin{solution}{(c)}
+ 				The relation $R$ is not transitive.
+ 				Let $p(x)=x^{2}-1$, $q(x)=(x-1)^{2}$ and $r(x) = (x+1)^{2}$. Hence, $p(x),q(x),r(x)\in S$. Note that $p(x)$ has real roots $-1$ and $1$, $q(x)$ has only the real root $1$ and $r(x)$ only has the real root $-1$. Then, $r(x) \; R \; p(x)$ and $p(x) \; R \; q(x)$. However, $r(x)$ and $q(x)$ do not have some real root in common and so $r(x)\; \cancel R \; q(x)$.
+ 			\end{solution}
+ 		\end{enumerate}
  	\end{problem}
  
- 	\begin{problem}{22}
+ 	\begin{problem}{23}
  		A relation $R$ is defined on $\N$ by $a\; R \; b$ if either $a\mid b$ or $b\mid a$. Determine which of the properties reflexive, symmetric and transitive are possessed by $R$.
  	\end{problem}
 \end{document}
