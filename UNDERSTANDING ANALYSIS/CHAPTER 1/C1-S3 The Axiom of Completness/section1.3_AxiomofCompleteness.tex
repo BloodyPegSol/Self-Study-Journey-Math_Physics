@@ -343,4 +343,30 @@
 				\item The punchline of parts (a) and (b) is that the Cute Property could be used in place of the Zxiom of Completeness as the fundamental axiom that distinguishes the real numbers from the rational numbers. To drive this point home, give a concrete example showing that the Cut Property is not a valid estatement when $\R$ is replaced by $\Q$.
 			\end{enumerate}
 		\end{problem}
+	
+		\begin{problem}{1.3.11}
+			Decide if the following statements about suprema and infima are true or false. Give a short proof for those that are true. For any that are false, supply an example where the claim in question does not appear to hold.
+			\begin{enumerate}[label=(\alph*)]
+				\item If $A$ and $B$ are nonempty, bounded, and satisfy $A\subseteq B$, then $\sup A \leq \sup B$.
+				\item If $\sup A < \inf B$ for sets $A$ and $B$, then there exists a $c\in \R$ satisfying $a<c<b$ for all $a\in A$ and $b\in B$.
+				\begin{proof}
+					Lets $A$ and $B$ be nonempty bounded sets such that $\sup A<\inf B$. By the density of rational numbers on $\R$, there is some rational $c$ such that $\sup A < c < \inf B$. Therefore, $c\in \R$ and 
+					\begin{equation*}
+						a \leq \sup A < c < \inf B \leq b
+					\end{equation*} 
+				whenever $a\in A$ and $b\in B$.
+				\end{proof}
+				\item If there exists a $c\in \R$ satisfying $a<c<b$ for all $a\in A$ and $b\in B$, then $\sup A < \inf B$.
+				\begin{solution}{(c)}
+					This is false. Consider the following sets
+					\begin{align*}
+						A&=\{x\in \R: x<c\} \; \text{ and}\\
+						B&=\{x\in \R: c<x\}.
+					\end{align*} 
+				for some $c\in \R$. Then, $\sup A = c = \inf B$. Also, $a<\sup A = c = \inf B<b$ whenever $a\in A$ and $b\in B$. Hence, $a<c<b$ for every $a\in A$ and $b\in B$, and $\sup A = \inf B$
+				
+				\end{solution}
+			 
+			\end{enumerate}
+		\end{problem}
 \end{document}

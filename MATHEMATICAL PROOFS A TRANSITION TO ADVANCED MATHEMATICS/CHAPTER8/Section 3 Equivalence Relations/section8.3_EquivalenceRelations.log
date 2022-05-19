@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2022.4.30)  19 MAY 2022 11:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2022.4.30)  19 MAY 2022 14:34
 entering extended mode
-**./section1.3_AxiomofCompleteness.tex
-(section1.3_AxiomofCompleteness.tex
+**./section8.3_EquivalenceRelations.tex
+(section8.3_EquivalenceRelations.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-06-03>
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\article.cls"
@@ -715,8 +715,8 @@ File: pgflibrarypatterns.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \c@legalix=\count330
 \c@legalx=\count331
 \enitdp@legal=\count332
- (section1.3_AxiomofCompleteness.aux)
-\openout1 = `section1.3_AxiomofCompleteness.aux'.
+ (section8.3_EquivalenceRelations.aux)
+\openout1 = `section8.3_EquivalenceRelations.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
 LaTeX Font Info:    ... okay on input line 50.
@@ -797,97 +797,26 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 55.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
-
- []
-
-[1
+) [1
 
 {C:/Users/juanp/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (7.97803pt too wide) in paragraph at lines 129--131
-\OT1/cmr/m/n/12 which is bounded above. Then, $[] [] = []\OMS/cmsy/m/n/12 f[] \
-OML/cmm/m/it/12 A[]; [] A[]; [] A[]; [] ; [] A[]\OMS/cmsy/m/n/12 g$\OT1/cmr/m/n
-/12 . 
- []
-
-[2]
-Overfull \hbox (15.30309pt too wide) in paragraph at lines 131--132
-[]\OT1/cmr/m/n/12 We pro-ceed by in-duc-tion. Since, by \OT1/cmr/bx/n/12 Lemma 
-1\OT1/cmr/m/n/12 , $[](\OML/cmm/m/it/12 A[] \OMS/cmsy/m/n/12 [ \OML/cmm/m/it/12
- A[]\OT1/cmr/m/n/12 ) = []\OMS/cmsy/m/n/12 f[] \OML/cmm/m/it/12 A[]; [] A[]\OMS
-/cmsy/m/n/12 g$
- []
-
-
-Overfull \hbox (66.06717pt too wide) detected at line 145
-[]
- []
-
-
-Overfull \hbox (1.05132pt too wide) in paragraph at lines 145--147
-\OT1/cmr/m/n/12 Since we are tak-ing the $\OML/cmm/m/it/12 supremum$ \OT1/cmr/m
-/n/12 of a fi-nite set of real num-bers, namely, the $\OML/cmm/m/it/12 maximum$
-
- []
-
-
-Overfull \hbox (7.44702pt too wide) in paragraph at lines 152--153
-[]\OT1/cmr/m/n/12 In or-der for our re-sult to ex-tend for a gen-eral in-fi-nit
-e case, the $\OML/cmm/m/it/12 supremum$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 163--165
-
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
-
- []
-
-[4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 263--265
-
- []
-
-[6]
-Overfull \hbox (31.16978pt too wide) in paragraph at lines 291--293
-\OT1/cmr/m/n/12 Since $\OML/cmm/m/it/12 n; m \OMS/cmsy/m/n/12 2 \U/msb/m/n/12 N
-$\OT1/cmr/m/n/12 , it fol-lows that $\OML/cmm/m/it/12 n=m \OMS/cmsy/m/n/12 2 \U
-/msb/m/n/12 Q$ \OT1/cmr/m/n/12 and $\OML/cmm/m/it/12 n=m > \OT1/cmr/m/n/12 0$. 
-Hence, $\OML/cmm/m/it/12 D \OT1/cmr/m/n/12 = []$.
- []
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 339--340
-
- []
-
-[8] [9] (section1.3_AxiomofCompleteness.aux) ) 
+(section8.3_EquivalenceRelations.aux) ) 
 Here is how much of TeX's memory you used:
- 26465 strings out of 480763
- 646913 string characters out of 2904059
- 932336 words of memory out of 3000000
- 42111 multiletter control sequences out of 15000+200000
- 541156 words of font info for 58 fonts, out of 3000000 for 9000
+ 26456 strings out of 480763
+ 646927 string characters out of 2904059
+ 923339 words of memory out of 3000000
+ 42105 multiletter control sequences out of 15000+200000
+ 540188 words of font info for 55 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,10n,71p,1633b,530s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/symbols/msbm10.pfb>
-Output written on section1.3_AxiomofCompleteness.pdf (9 pages, 155082 bytes).
+ 60i,6n,71p,1634b,204s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on section8.3_EquivalenceRelations.pdf (1 page, 58966 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
+ 29 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
