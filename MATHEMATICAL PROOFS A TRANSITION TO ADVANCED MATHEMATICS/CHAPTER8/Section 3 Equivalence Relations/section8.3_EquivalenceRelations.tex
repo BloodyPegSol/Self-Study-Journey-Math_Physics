@@ -60,5 +60,101 @@
 	\end{equation*}
 	Note that if $b\in [a]$ ($b$ is related to $a$), then $b$ and $a$ are "equivalent". Note that $a\in[b]$ and $[b]=[a]$ due to the symmetric and transitive properties of $R$. Quite interesting!!!  
 	
+	\begin{lemma}{8.3.1}
+		Let $R$ be an equivalence relation on an nonempty set $A$. Then, $a\; R \; b$ for some $a,b\in A$ is a necessary and sufficiente condition for $[a]=[b]$.
+		\begin{proof}
+			Because $R$ is reflexive, $a\in [a]$ and $b\in [b]$ and so they are nonempty. Consider some $x\in [a]$, then $x\; R \; a$. Note that $a\; R \; b$ and so, by the transtitive property of $R$, $x\; R \; b$. Hence, $x\in [b]$ which implies that $[a]\subseteq [b]$.
+			
+			Now consider some $y\in [b]$ and so $y\; R\; b$. Since $R$ is symmetric and $a\; R \; b$, it follows that $b\; R \;a$. Thus, by the transitive property, $y\; R\; a$ and so $y\in [a]$. Therefore, $[b]\subseteq [a]$ and so $[a]=[b]$.\\
+			
+			For the converse, assume that $[a]=[b]$. Since $R$ is reflexive, it follows that $a\in [a]$ and so $a\in [b]$. Hence, $a\; R \; b$.
+		\end{proof}
+	\end{lemma}
+		Note that this implies that the union of all equivalence classes of $A$ is $A$ itself!!!
+		
+	\begin{corollary}{8.3.1}
+		Let $R$ be an equivalence relation on an nonempty set $A$ and consider some $a,b\in A$. Then, $[a] = [b]$ if and only if $a,b\in [a]$.
+		\begin{proof}
+			Assume that $[a]=[b]$. By \textbf{Lemma 8.3.1} and the symmetric property of $R$, $a\; R\; b$ and $b\; R\; a$. Therefore, $a\in [b]$ and $b\in [a]$, and so $a,b\in [a]=[b]$.
+			
+			For the converse, suppose that $a,b \in [a]$. Then, $a\; R\; b$. By \textbf{Lemma 8.3.1}, $[a]=[b]$.
+		\end{proof}
+	\end{corollary}
+		
+	\begin{lemma}{8.3.2}
+		Let $R$ be an equivalence relation on an nonempty set $A$ such that \\$\{[a]_{i}:i\leq n\}$ is the set of all equivalence classes for some $n\in \N$ (finite quantity of equivalence classes). Then, 
+		\begin{equation*}
+			\bigcup_{i=1}^{n} [a_{i}] = A
+		\end{equation*}
+		\begin{proof}
+			Suppose, to the contrary, that 
+			\begin{align*}
+				\bigcup_{i=1}^{n} [a_{i}] \neq A.
+			\end{align*}
+		Hence, either 
+		\begin{equation*}
+			\bigcup_{i=1}^{n} [a_{i}] \not\subseteq A \quad \text{or} \quad \bigcup_{i=1}^{n} [a_{i}] \not\supseteq A.
+		\end{equation*}
+	 Suppose the first. Then, there exists some $x\in \bigcup_{i=1}^{n} [a_{i}]$ such that $x\not\in A$. This implies that $x\in [a_{k}]$ for some positive integer $k$. However, $x\not\in A$ and this contradicts the fact that $[a_{k}] = \{x\in A: x\; R \;a_{k}\}$. \\
+	 
+	 Thus, we can assume that $\bigcup_{i=1}^{n} [a_{i}] \not\supseteq A$. Then, there is some $y\in A$ such that $y\not\in \bigcup_{i=1}^{n} [a_{i}]$. Because $\{[a]_{i}:i\leq n\}$ is the set of all equivalence classes by $R$, it follows that $y \; \cancel R \; a$ for any $a\in A$. Hence $(y,y) \not\in R$. However, this contradicts the fact that $R$ is reflexive.\\
+	 
+	 Thus, 
+	 \begin{equation*}
+	 	\bigcup_{i=1}^{n} [a_{i}] = A.
+	 \end{equation*} 
+		\end{proof}
+	\end{lemma}
+	\begin{problem}{24}
+		Let $R$ be an equivalence relation on $A=\{a,b,c,d,e,f,g\}$ such that $a\; R \; c$, $c\; R \; d$, $d\; R \; g$ and $b\; R \;f$. If there are three distinct equivalence classes resulting from $R$, then determine these equivalence classes and determine all elements of $R$.
+		\begin{solution}{24}
+			By repetitive use of \textbf{Lemma 8.3.1}, we conclude that $[a]=[c]=[d]=[g]$ and $[b]=[f]$. Also, since $e$ is not related to any element of $A$, it follows that the remaining equivalence class is $[e]$. Note that the reflexive property of $R$ implies that $g\; R \; g$ and $f\; R\; f$. Therefore, by the transitive property,
+			\begin{align*}
+				[g] &= \{a,g,d,c\} = [a] = [c]= [d]\\
+				[f] &= \{b,f\} =[b]\\
+				[e] &= \{e\} 
+			\end{align*}
+		Therefore, 
+		\begin{align*}
+			R = \{&(a,a),(g,a),(d,a),(c,a),(a,c),(g,c),(d,c),\\
+			&(c,c),(a,d),(g,d),(d,d),(c,d),(a,g),(g,g),\\
+			&(d,g),(c,g),(b,b),(f,b),(b,f),(f,f),(e,e)\}.
+		\end{align*}
+		
+		This is a taste of how useful equivalence classes can be. Wow!!!
+		\end{solution}
+	\end{problem}
+	
+	\begin{problem}{25}
+		Let $A = \{1,2,3,4,5,6\}$. The relation
+		\begin{align*}
+			R=\{(1,1),(1,5),(2,2),(2,3),(2,6),(3,2),(3,3),\\
+			(3,6), (4,4),(5,1),(5,5),(6,2),(6,3),(6,6)\}
+		\end{align*}
+		is an equivalence relation on $A$. Determine the distinct equivalence classes.
+		\begin{solution}{25}
+			Since $R$ is an equivalence relation on $A$, then we can use \textbf{Lemma 1.8.3} to determine the equivalence classes. Note that $(1,1),(5,1),(2,2),(6,2),(3,2),(4,4)\in R$. Hence,
+			\begin{align*}
+				[1] &= \{1,5\} = [5]\\
+				[2] &= \{2,6,3\} = [3] = [6]\\
+				[4] &= \{4\} 
+			\end{align*}
+		\end{solution}
+	\end{problem}
 
+	\begin{problem}{26}
+		Let $A=\{1,2,3,4,5,6\}$. The distinct equivalence classes resulting from an equivalence relation $R$ on $A$ are $\{1,4,5\}, \{2,6\}$ and $\{3\}$. What is $R$?
+		\begin{solution}{26}
+			We now that
+			\begin{align*}
+				 \{1,4,5\} &= [1] = [4] = [5]
+				 \{2,6\} &= [2] = [6]
+				 \{3\} &= [3]
+			\end{align*}
+			The relation
+			\begin{align*}
+				R=\{(1,1),(4,1),(5,1),(1,4),(4,4),(5,4)\}
+			\end{align*}
+		\end{solution}
+	\end{problem}
 \end{document}
