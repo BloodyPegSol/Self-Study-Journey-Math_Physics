@@ -340,7 +340,14 @@
 					
 					Note that either $c\in A$ or $c\in B$. If $c\in A$, then there is some $y\in E$ such that $c<y$. However, by the density of rational numbers, there is some rational number $q$ such that $c<q<y$. Hence, $q\in A$, but this contradicts the fact that $c$ is greater or equal to every element in $A$. Therefore, $c\in B$ and so $c\geq e$  whenever $e\in E$ which implies that $c$ is an upper bound. Also, note that every element of $B$ is an upper bound of $E$ and $c\leq b$ whenever $b\in B$. Therefore, $c$ is the lowest upper bound of $E$. 
 				\end{proof}
-				\item The punchline of parts (a) and (b) is that the Cute Property could be used in place of the Zxiom of Completeness as the fundamental axiom that distinguishes the real numbers from the rational numbers. To drive this point home, give a concrete example showing that the Cut Property is not a valid estatement when $\R$ is replaced by $\Q$.
+				\item The punchline of parts (a) and (b) is that the Cute Property could be used in place of the Axiom of Completeness as the fundamental axiom that distinguishes the real numbers from the rational numbers. To drive this point home, give a concrete example showing that the Cut Property is not a valid estatement when $\R$ is replaced by $\Q$.
+				\begin{solution}{c}
+					The most famous counterexample is the following. Let
+					\begin{equation*}
+						A=\{x\in \Q: x < \sqrt{2}\} \quad \text{and} \quad B=\{x\in \Q:x \geq \sqrt{2}\}.
+					\end{equation*}
+					Then $A$ and $B$ are disjoint sets such that $A\cup B = \Q$. Note that $a\leq \sqrt{2} \leq b$ whenever $a\in A$ and $b\in B$. However, we know that $\sqrt{2} \not\in \Q$. (This has to do with the density property of $\Q$ in the real numbers. If we changed $\Q$ for $\Z$, then $c = 1\in \Z$ or $c=2\in \Z$, namely, the cut property is true for that example).
+				\end{solution} 
 			\end{enumerate}
 		\end{problem}
 	
@@ -348,6 +355,9 @@
 			Decide if the following statements about suprema and infima are true or false. Give a short proof for those that are true. For any that are false, supply an example where the claim in question does not appear to hold.
 			\begin{enumerate}[label=(\alph*)]
 				\item If $A$ and $B$ are nonempty, bounded, and satisfy $A\subseteq B$, then $\sup A \leq \sup B$.
+				\begin{proof}
+					Let $A$ and $B$ be nonempty bounded sets such that $A\subseteq B$. Then, there are two mutually exclusive cases, either $b\leq \sup A$ whenever $b\in B$ or there exists some $x\in B$ such that $\sup A <x$. In the first case, $\sup A = \sup B$. In the cas of the latter, $\sup A < \sup B$. Then, either $\sup A = \sup B$ or $\sup A < \sup B$, namely, $\sup A \leq \sup B$.
+				\end{proof}
 				\item If $\sup A < \inf B$ for sets $A$ and $B$, then there exists a $c\in \R$ satisfying $a<c<b$ for all $a\in A$ and $b\in B$.
 				\begin{proof}
 					Lets $A$ and $B$ be nonempty bounded sets such that $\sup A<\inf B$. By the density of rational numbers on $\R$, there is some rational $c$ such that $\sup A < c < \inf B$. Therefore, $c\in \R$ and 
@@ -363,7 +373,7 @@
 						A&=\{x\in \R: x<c\} \; \text{ and}\\
 						B&=\{x\in \R: c<x\}.
 					\end{align*} 
-				for some $c\in \R$. Then, $\sup A = c = \inf B$. Also, $a<\sup A = c = \inf B<b$ whenever $a\in A$ and $b\in B$. Hence, $a<c<b$ for every $a\in A$ and $b\in B$, and $\sup A = \inf B$
+				for some $c\in \R$. Then, $\sup A = c = \inf B$. Also, $a<\sup A = c = \inf B<b$ whenever $a\in A$ and $b\in B$. Hence, $a<c<b$ for every $a\in A$ and $b\in B$, and $\sup A = \inf B$.
 				
 				\end{solution}
 			 
