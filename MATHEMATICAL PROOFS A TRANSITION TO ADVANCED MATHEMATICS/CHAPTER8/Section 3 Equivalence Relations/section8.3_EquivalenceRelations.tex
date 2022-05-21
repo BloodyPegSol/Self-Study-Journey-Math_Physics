@@ -73,16 +73,23 @@
 		Note that this implies that the union of all equivalence classes of $A$ is $A$ itself!!!
 		
 	\begin{corollary}{8.3.1}
-		Let $R$ be an equivalence relation on an nonempty set $A$ and consider some $a,b\in A$. Then, $[a] = [b]$ if and only if $a,b\in [a]$.
+		Let $R$ be an equivalence relation on an nonempty set $A$ and consider some $a,b\in A$. Then, $[b] = [a]$ if and only if $b\in [a]$.
 		\begin{proof}
-			Assume that $[a]=[b]$. By \textbf{Lemma 8.3.1} and the symmetric property of $R$, $a\; R\; b$ and $b\; R\; a$. Therefore, $a\in [b]$ and $b\in [a]$, and so $a,b\in [a]=[b]$.
+			Assume that $[b]=[a]$. By \textbf{Lemma 8.3.1},  $b\; R\; a$. Therefore, $b\in [a]$.
 			
-			For the converse, suppose that $a,b \in [a]$. Then, $a\; R\; b$. By \textbf{Lemma 8.3.1}, $[a]=[b]$.
+			For the converse, suppose that $b \in [a]$. Then, $b\; R\; a$. By \textbf{Lemma 8.3.1}, $[b]=[a]$.
 		\end{proof}
 	\end{corollary}
-		
+	
+	\begin{corollary}{8.3.2}
+		Let $R$ be an equivalence relation on $A$ with a total of $n\in \N$ different equivalence classes $[a_{1}],[a_{2}],[a_{3}]\ldots, [a_{n}]$. Then, the equivalence classes are disjoint.
+		\begin{proof}
+			Suppose, to the contrary, that $[a_{i}]\cap [a_{j}]\neq \emptyset$ for some positive integers $i,j\leq n$ such that $i\neq j$. Then, there is at least some $x\in [a_{i}]\cap [a_{j}]$ and so $x\in [a_{i}]$ and $x\in [a_{j}]$. By \textbf{Corollary 8.3.1}, $[a_{i}] = [x] = [a_{j}]$. However, this contradicts the assumption that $[a_{i}] \neq [a_{j}]$.
+		\end{proof}
+	\end{corollary}
+
 	\begin{lemma}{8.3.2}
-		Let $R$ be an equivalence relation on an nonempty set $A$ such that \\$\{[a]_{i}:i\leq n\}$ is the set of all equivalence classes for some $n\in \N$ (finite quantity of equivalence classes). Then, 
+		Let $R$ be an equivalence relation on $A$ with a total of $n\in \N$ different equivalence classes $[a_{1}],[a_{2}],[a_{3}]\ldots, [a_{n}]$. Then, 
 		\begin{equation*}
 			\bigcup_{i=1}^{n} [a_{i}] = A
 		\end{equation*}
@@ -97,7 +104,7 @@
 		\end{equation*}
 	 Suppose the first. Then, there exists some $x\in \bigcup_{i=1}^{n} [a_{i}]$ such that $x\not\in A$. This implies that $x\in [a_{k}]$ for some positive integer $k$. However, $x\not\in A$ and this contradicts the fact that $[a_{k}] = \{x\in A: x\; R \;a_{k}\}$. \\
 	 
-	 Thus, we can assume that $\bigcup_{i=1}^{n} [a_{i}] \not\supseteq A$. Then, there is some $y\in A$ such that $y\not\in \bigcup_{i=1}^{n} [a_{i}]$. Because $\{[a]_{i}:i\leq n\}$ is the set of all equivalence classes by $R$, it follows that $y \; \cancel R \; a$ for any $a\in A$. Hence $(y,y) \not\in R$. However, this contradicts the fact that $R$ is reflexive.\\
+	 Thus, we can assume that $\bigcup_{i=1}^{n} [a_{i}] \not\supseteq A$. Then, there is some $y\in A$ such that $y\not\in \bigcup_{i=1}^{n} [a_{i}]$. Because $\bigcup_{i=1}^{n} [a_{i}]$ is the union of all distinct equivalence classes resulting from $R$, it follows that $y \; \cancel R \; a$ for any $a\in A$. Hence $(y,y) \not\in R$. However, this contradicts the fact that $R$ is reflexive.\\
 	 
 	 Thus, 
 	 \begin{equation*}
@@ -145,16 +152,43 @@
 	\begin{problem}{26}
 		Let $A=\{1,2,3,4,5,6\}$. The distinct equivalence classes resulting from an equivalence relation $R$ on $A$ are $\{1,4,5\}, \{2,6\}$ and $\{3\}$. What is $R$?
 		\begin{solution}{26}
-			We now that
+			By \textbf{Corollary 8.3.1},
 			\begin{align*}
-				 \{1,4,5\} &= [1] = [4] = [5]
-				 \{2,6\} &= [2] = [6]
-				 \{3\} &= [3]
+				 \{1,4,5\} &= [1] = [4] = [5]\\
+				 \{2,6\} &= [2] = [6] \; \text{ and}\\
+				 \{3\} &= [3].
 			\end{align*}
-			The relation
+			Therefore, the relation
 			\begin{align*}
-				R=\{(1,1),(4,1),(5,1),(1,4),(4,4),(5,4)\}
+				R=\{(1,1),(4,1),(5,1),(1,4),(4,4),(5,4),(1,5),\\ (4,5),(5,5),(2,2),(6,2),(2,6),(6,6),(3,3)\}
 			\end{align*}
+		\end{solution}
+	\end{problem}
+
+	\begin{corollary}{8.3.3}
+		Let $R$ be an equivalence relation on $A$ with a total of $n\in \N$ different equivalence classes $[a_{1}],[a_{2}],[a_{3}]\ldots, [a_{n}]$. Then, 
+		\begin{equation*}
+			|R| = \sum_{i=1}^{n} \left|[a_{i}]\right|^{2}.
+		\end{equation*}
+		\begin{proof}
+			Consider some $[a_{k}]$ for a $k\leq n$. By \textbf{Corollary 8.3.1}, $[x] = [a_{k}]$ for every $x\in [a_{k}]$. Then, $|[a_{k}]|$ elements of $A$ are related to $x$ for every $x\in [a_{k}]$. Hence, $|[a_{k}]|^{2}$ different n-tuples are elements of $R$. This is the apport of each equivalence class, however we need to be sure that each $x\in A$ is an element of only one equivalence class. Since \textbf{Corollary 8.3.2} implies that the different equivalence classes are disjoint and \textbf{Lemma 8.3.2} implies that their union is $A$, it follows that
+			\begin{equation*}
+				|R| = \sum_{i=1}^{n} \left|[a_{i}]\right|^{2}
+			\end{equation*}
+		\end{proof}
+	\end{corollary}
+
+	\begin{problem}{27}
+		Let $R$ be a relation defined on $\Z$ by $a \; R \; b$ if $a^{3} = b^{3}$. Show that $R$ is an equivalence relation on $\Z$ and determine the distinct equivalence classes.
+		\begin{solution}{27}
+		We first show that $R$ is an equivalence relation on $\Z$.
+		\begin{proof}
+			 Consider some integer $x$, then $x^{3} = x^{3}$ and so $x\; R \; x$. Hence, $R$ is reflexive.\\
+			Now, consider some $x,y\in \Z$ such that $x \; R \; y$. Therefore, $x^{3} = y^{3}$ and so $y^{3} = x^{3}$, which implies that $y\; R \;x$. Thus, $R$ is symmetric.\\
+			Let $x,y,z\in \Z$ such that $x\; R \; y$ and $y\; R \; z$. Then, $x^{3} = y^{3} = z^{3}$ and so $x^{3} = z^{3}$, which implies that $x\; R \;z$. Therefore, $R$ is transitive.
+			Hence, $R$ is an equivalence relation on $\Z$.
+		\end{proof} 
+		Note that $x^{3} = y^{3} \iff x=y$ for any integers $x$ and $y$. Therefore, each integer is only related to itself by $R$ namely, $[x] =\{x\}$ whenever $x\in \Z$. Hence, there is an inifinity of different equivalence relations.  
 		\end{solution}
 	\end{problem}
 \end{document}
