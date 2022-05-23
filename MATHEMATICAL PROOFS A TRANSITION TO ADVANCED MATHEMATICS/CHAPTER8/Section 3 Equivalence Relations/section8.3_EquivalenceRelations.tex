@@ -191,4 +191,35 @@
 		Note that $x^{3} = y^{3} \iff x=y$ for any integers $x$ and $y$. Therefore, each integer is only related to itself by $R$ namely, $[x] =\{x\}$ whenever $x\in \Z$. Hence, there is an inifinity of different equivalence relations.  
 		\end{solution}
 	\end{problem}
+    \begin{problem}{30}
+    	Let $H=\{2^{m}:m\in \Z\}$. A relation $R$ is defined on the set $\Q^{+}$ of positive rational numbers by $a\; R \; b$ if $a/b\in H$.
+    	\begin{enumerate}[label=(\alph*)]
+    		\item Show that $R$ is an equivalence relation.
+    		\begin{proof}
+    			Firs, we prove that it is reflexive. Consider some $x\in \Q^{+}$. Then $x/x = 1 = 2^{0} \in H$. Hence, $x\; R \; x$.\\
+    			Now, we show that it is symmetric. Let $a,b\in \Q^{+}$ such that $a\; R \; b$, namely, $a/b = 2^{m}$ for some integer $m$. Then, $b/a = 1/2^{m} = 2^{-m}$. Since $-m\in \Z$, it follows that $b\; R \; a$.\\
+    			Last, we prove that it is transitive. Consider some $a,b,c \in \Q^{+}$ such that $a \; R \; b$ and $b \; R \; c$, which implies that $a/b = 2^{m}$ and $b/c = 2^{n}$ for $m,n\in \Z$. Note that 
+    			\begin{align*}
+    				\frac{a}{c} &= \frac{a}{b}\cdot \frac{b}{c}\\
+    				 &= 2^{m} \cdot 2^{n}\\
+    				&= 2^{m+n}.
+    			\end{align*}
+    		Since $m+n \in \Z$, it follows that $a\; R \; c$.
+    		\end{proof}
+    		\item Describe the elements in the equivalence class $[3]$.
+    		\begin{solution}{b}
+    			Consider some positive rational number $x$ such that $x \; R \; 3$. Then, $x/3 = 2^{k}$ for some integer $k$. Then, $x=3 \cdot 2^{k}$. Thus, $[3] = \{3\cdot 2^{k}:k\in \Z\}$.
+    		\end{solution}
+    	\end{enumerate}
+    \end{problem}
+
+	\begin{problem}{31}
+		A relation $R$ on a nonempty set $A$ is defined to be \textbf{circular} if whenever $x \; R \; y$ and $y\; R \; z$, then $z\; R \; x$ for all $x,y,z \in A$. Prove that a relation $R$ on $A$ is an equivalence relation if and only if $R$ is circular and reflexive.
+		\begin{proof}
+			Firts, assume that $R$ is an equivalence relation on some nonempty set $A$. Hence, $R$ is reflexive, symmetric and transitive. We show that it is circular. Consider some $x,y,z\in A$ such that $x\; R \; y$ and $y\; R \; z$. By the transitive property, $x\; R \; z$. Since $R$ is symmetric, it follows that $z\; R \;x$ and so $R$ is circular.\\
+			 
+			For the converse, Let $R$ be a \textbf{circular} and reflexive relation on some nonempty set $A$. We show that it is symmetric and transitive. Consider some $x,y \in A$ such that $x \; R \; y$. Since $R$ is reflexive, it follows that $y \; R \; y$, and so $y\; R \; x$ due to the circular property of $R$. Thus, $R$ is symmetric.\\
+			Now, consider some $x,y,z\in A$ such that $x\; R \;y$ and $y\; R \;z$. By the \textbf{circular property} of $R$, $z \; R \;x$. Because $R$ is symmetric, it follows that $x\; R \; z$ and so $R$ is transitive. Hence, $R$ is an equivalence relation on $A$.
+		\end{proof}
+	\end{problem}
 \end{document}
