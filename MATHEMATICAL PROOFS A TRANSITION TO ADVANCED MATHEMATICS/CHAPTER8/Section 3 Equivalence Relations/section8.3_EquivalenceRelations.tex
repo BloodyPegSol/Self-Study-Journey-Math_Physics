@@ -222,4 +222,42 @@
 			Now, consider some $x,y,z\in A$ such that $x\; R \;y$ and $y\; R \;z$. By the \textbf{circular property} of $R$, $z \; R \;x$. Because $R$ is symmetric, it follows that $x\; R \; z$ and so $R$ is transitive. Hence, $R$ is an equivalence relation on $A$.
 		\end{proof}
 	\end{problem}
+
+	\begin{problem}{32}
+		A relation $R$ is defined on the set $A=\{a+b\sqrt{2}:a,b\in \Q, a+b\sqrt{2}\neq 0\}$ by $x\; R \; y$ if $x/y \in \Q$. Show that $R$ is an equivalence relation and determine the distinct equivalence classes.
+		\begin{solution}{32}
+			We first show that $R$ is an equivalence relation. 
+			\begin{proof}
+				Consider some $x\in A$. Because $x\neq 0$, $x/x = 1 \in \Q$ and so $R$ is reflexive. \\
+				Let $x,y\in A$ such that $x\; R \;y$. Then, $x/y=c\in \Q$ and so $1/c = y/x \in \Q$. Hence, $y\; R \; x$ and so $R$ is symmetric.\\
+				Last, consider some $x,y,z\in A$ such that $x\; R \;y$ and $y\; R \;z$. Then, $x/y = a \in \Q$ and $y/z = b \in \Q$. Note that
+				\begin{equation*}
+					\frac{x}{y} \cdot \frac{y}{z} = \frac{x}{z} = ab \in \Q.
+				\end{equation*}
+			Thus, $x\; R \; z$ and so $R$ is transitive.
+			\end{proof}
+			Since $R$ is an equivalence relation, we can proceed to determine the distinct equivalence classes. Consider some $x\in A$. Then, $x=a+b\sqrt{2}\neq 0$ for some $a,b\in \Q$. There are two possible cases:\\
+			\textit{Case 1.} $x$ is rational, namely, $b=0$. Then, for $y/x$ to be rational ($y\; R \;x$), it must be true that $y=d+0\sqrt{2}$ for some $d\in \Q$. Thus, $[x] =\Q$\\
+			\textit{Case 2.} $x$ is irrational, namely, $b\neq 0$. Then, for $y/x$ to be rational ($y\; R \;x$), it must be true that $y=cx$ for some $c\in \Q$. Hence, $[x] = \{ax:a\in \Q\}$.\\
+			By \textbf{Corollary 8.3.1}, the only three equivalence classes are: ??????? 
+			\begin{enumerate}[label=(\alph*)]
+				\item $\Q$
+				\item $\{c+c\sqrt{2}:\text{for some nonzero rational number } c\}$
+				\item $\{c(a+b\sqrt{2}):\text{for some nonzero } a,b,c\in \Q\ \text{ such that } a\neq b\}$
+			\end{enumerate}
+		\end{solution}	
+	\end{problem}
+
+	\begin{problem}{34}
+		Let $H$ be a nonempty subset of $\Z$. Suppose that the relation $R$ defined on $\Z$ by $a\; R \;b$ if $a-b \in H$ is an equivalence relation. Verify the following
+		\begin{enumerate}[label=(\alph*)]
+			\item $0\in H$
+			\item If $a\in H$, then $-a\in H$.
+			\item If $a,b\in H$, then $a+b\in H$.
+		\end{enumerate}
+	\end{problem}
+
+	\begin{problem}{35}
+		Prove or disprove: There exist equivalence relations $R_{1}$ and $R_{2}$ on the set $S=\{a,b,c\}$ such that $R_{1} \nsubseteqq R_{2}$, $R_{1} \nsupseteqq R_{2}$ and $R_{1}\cup R_{2} = S \times S$.
+	\end{problem}
 \end{document}
