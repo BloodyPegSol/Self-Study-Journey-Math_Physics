@@ -236,24 +236,36 @@
 				\end{equation*}
 			Thus, $x\; R \; z$ and so $R$ is transitive.
 			\end{proof}
-			Since $R$ is an equivalence relation, we can proceed to determine the distinct equivalence classes. Consider some $x\in A$. Then, $x=a+b\sqrt{2}\neq 0$ for some $a,b\in \Q$. There are two possible cases:\\
-			\textit{Case 1.} $x$ is rational, namely, $b=0$. Then, for $y/x$ to be rational ($y\; R \;x$), it must be true that $y=d+0\sqrt{2}$ for some $d\in \Q$. Thus, $[x] =\Q$\\
-			\textit{Case 2.} $x$ is irrational, namely, $b\neq 0$. Then, for $y/x$ to be rational ($y\; R \;x$), it must be true that $y=cx$ for some $c\in \Q$. Hence, $[x] = \{ax:a\in \Q\}$.\\
-			By \textbf{Corollary 8.3.1}, the only three equivalence classes are: ??????? 
-			\begin{enumerate}[label=(\alph*)]
-				\item $\Q$
-				\item $\{c+c\sqrt{2}:\text{for some nonzero rational number } c\}$
-				\item $\{c(a+b\sqrt{2}):\text{for some nonzero } a,b,c\in \Q\ \text{ such that } a\neq b\}$
-			\end{enumerate}
+			Since $R$ is an equivalence relation, we can proceed to determine the equivalence class for each $y\in A$. Consider some $y\in A$. Then, $y=a+b\sqrt{2}\neq 0$ for some $a,b\in \Q$. For any element $x\in A$, $x\; R \; y$ if $x/y = c$ for some $c\in \Q$. Hence, $x = cy$. Since $y,x\neq 0$, it must be true that $c \neq 0$. Therefore,
+			\begin{equation*}
+				[y] = \left\{cy:c\in \Q/\{0\}\right\}
+			\end{equation*}
+		Note that when $y$ is rational, namely, when $a \neq 0$ and $b=0$, $[y] =\Q/\left\{0\right\}$. 
 		\end{solution}	
 	\end{problem}
 
 	\begin{problem}{34}
-		Let $H$ be a nonempty subset of $\Z$. Suppose that the relation $R$ defined on $\Z$ by $a\; R \;b$ if $a-b \in H$ is an equivalence relation. Verify the following
+		Let $H$ be a nonempty subset of $\Z$. Suppose that the relation $R$ defined on $\Z$ by $a\; R \;b$ if $a-b \in H$ is an equivalence relation. Recall that 
+		\begin{align*}
+			R&=\{(a,b)\in \Z\times \Z : a\; R \;b\}\\
+			&=\{(a,b)\in \Z\times \Z : a-b \in H\}.
+		\end{align*}
+		So, whenever it is said \textit{a relation defined by }$a\; R \;b$ \textit{if} $a-b\in H$, it refers to a biconditional, namely $a\; R \; b \iff a-b\in H$.
+		
+		Verify the following
 		\begin{enumerate}[label=(\alph*)]
 			\item $0\in H$
+			\begin{proof}
+				Since $R$ is an equivalence relation, it follows that it is reflexive. Thus, $x\; R \; x$ for every $x\in \Z$, which implies that $x-x=0\in H$.
+			\end{proof}
 			\item If $a\in H$, then $-a\in H$.
+			\begin{proof}
+			If $a\in H$, then $a-0=a\in H$. Thus, $a\; R \; 0$. We know that $R$ is symmetric. Therefore, $0\; R \; a$ and so $0-a = -a \in H$.
+			\end{proof}
 			\item If $a,b\in H$, then $a+b\in H$.
+			\begin{proof}
+				Since $a,b\in H$, it follows that $a\; R \; 0$ and $b\; R \;0$. By implication (b), $-b \in H$ and so $-b\; R \;0$. By the symmetry of $R$, $0\; R \; -b$. Since (1) $a\; R \; 0$ and $0\; R \; -b$, (2) $R$ is transitive, it follows that $a\; R \; -b$, which implies that $a-(-b) = a+b \in H$. 
+			\end{proof}
 		\end{enumerate}
 	\end{problem}
 
