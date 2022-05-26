@@ -270,6 +270,9 @@
 	\end{problem}
 
 	\begin{problem}{35}
-		Prove or disprove: There exist equivalence relations $R_{1}$ and $R_{2}$ on the set $S=\{a,b,c\}$ such that $R_{1} \nsubseteqq R_{2}$, $R_{1} \nsupseteqq R_{2}$ and $R_{1}\cup R_{2} = S \times S$.
+		Prove or disprove: There exist equivalence relations $R_{1}$ and $R_{2}$ on the set $S=\{a,b,c\}$ such that $R_{1} \nsubseteq R_{2}$, $R_{1} \nsupseteq R_{2}$ and $R_{1}\cup R_{2} = S \times S$.
+		\begin{solution}{35}
+			This is false. Let $R_{1}$ and $R_{2}$ be equivalence relations on $S$ such that $R_{1} \not\subseteq R_{2}$, $R_{1} \not\supseteq R_{2}$ and $R_{1} \cup R_{2} = S\times S$. Thus, there exist $(x,y), (m,n) \in S$ such that $(x,y)\in R_{1}-R_{2}$ and $(m,n)\in R_{2}-R_{1}$. Since they are reflexive, $\{(a,a),(b,b),(c,c)\}\subseteq R_{1}\cap R_{2}$ and so we may further assume that $x\neq y$ and $m\neq n$. Also, since $S$ only has three elements, it must be true that one of $x,y$ is equal to at least one of $m,n$. Without loss of generality, let $y=m$. Due to the symmetric property, $(x,m),(m,x)\in R_{1}-R_{2}$ and $(m,n),(n,m)\in R_{2}-R_{1}$. Since $R_{1} \cup R_{2} = S\times S$, it must be true that $(x,n)$ belongs to at least one of the two equivalence relations. Let $(x,n)\in  R_{1}$. However, since $R_{1}$ is transitive and $(m,x),(x,n)\in R_{1}$, it follows that $(m,n)\in R_{1}$ which is not true. A similar case happens if $(x,n) \in R_{2}$. 
+		\end{solution}
 	\end{problem}
 \end{document}
