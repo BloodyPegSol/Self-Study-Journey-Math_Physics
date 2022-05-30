@@ -203,7 +203,7 @@
 			\end{solution}
 			\item A sequence of closed (not necessarily nested) intervals $I_{1},I_{2},I_{3},\ldots$ with the property that $\bigcap_{n=1}^{N} I_{n} \neq \emptyset$ for all $N\in \N$, but $\bigcap_{n=1}^{\infty} I_{n} = \emptyset$.
 			\begin{solution}{(c)}
-				Since each $I_{n}$ is closed and $\bigcap_{n=1}^{N} I_{n} \neq \emptyset$ for all $N\in \N$, it follows that each $K_{N} = \bigcap_{n=1}^{N} I_{n} \neq \emptyset$ is a closed set and so $S=\{K_{n}:n\in \N\}$ is a sequence of closed sets. Since we are talking about consecutive intersections, it follows that either $S$ is decreasing ($K_{N}\supseteq K_{N+1}$), increasing ($K_{N}\subseteq K_{N+1}$) or constant ($K_{N} = K_{N+1}$), where $N\in \N$. If $S$ is decreasing (nested sequence), then  
+				We show that there is no such sequence of closed intervals. Since each $I_{n}$ is closed and $\bigcap_{n=1}^{N} I_{n} \neq \emptyset$ for all $N\in \N$, it follows that each $K_{N} = \bigcap_{n=1}^{N} I_{n} \neq \emptyset$ is a closed interval and so $S=\{K_{n}:n\in \N\}$ is a sequence of closed sets. Since we are talking about consecutive intersections, it follows that either $S$ is decreasing ($K_{N}\supseteq K_{N+1}$), increasing ($K_{N}\subseteq K_{N+1}$) or constant ($K_{N} = K_{N+1}$), where $N\in \N$. If $S$ is decreasing (nested sequence), then  
 				\begin{align*}
 					\bigcap_{n=1}^{\infty} K_{n} &= \bigcap_{N=1}^{\infty} \left(\bigcap_{n=1}^{N} I_{n}\right)\\
 					&= \bigcap_{n=1}^{\infty}I_{n} \neq \emptyset 
