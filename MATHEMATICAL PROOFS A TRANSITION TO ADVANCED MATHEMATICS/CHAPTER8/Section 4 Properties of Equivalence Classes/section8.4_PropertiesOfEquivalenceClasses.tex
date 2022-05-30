@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label*=\arabic*.}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+
+\begin{document} 
+	
+	\title{Section 8.3: Equivalence Relations}
+	\author{Juan Patricio Carrizales Torres}
+	\date{May 30, 2022}
+	\maketitle
+	
+	This chapter reviews some properties that we realized and proved in the problems of \textbf{Section 8.3}. However, there's something worth noting. Let $R$ be some relation on some nonempty set $A$. I previously showed that the union of the equivalence classes by $R$ is $A$ and they all are pairwise disjoint. Nevertheless, I didn't ponder on it much to realize what this meant, namely, that the set of these distinct equivalence classes is a partition of $A$!!!!\\
+	 This was proven by the authors by just showing that each $x\in A$ belongs to exaclty one equivalence class by $R$. 
+	 
+	 \begin{problem}{36}
+	 	Give an example of an equivalence relation $R$ on the set $A=\{v,w,x,y,z\}$ such that there are exactly three distinct equivalence classes. What are the equivalence classes for your example?
+	 	\begin{solution}{36}
+	 		Consider the parition $P = \{\{v\},\{w\},\{x,y,z\}\}$ of $A$. By \textbf{Theorem 4}, the relation $R$ definded by $a\; R \; b$ if $a,b\in  X$ for some $X\in P$ is an equivalence relation. Hence, the distinct equivalance classe are
+	 		\begin{align*}
+	 			a_{1} &= \{x,y,z\}\\
+	 			a_{2} &= \{w\}\\
+	 			a_{3} &= \{v\}
+	 		\end{align*}
+	 	\end{solution}
+	 \end{problem} 
+ 
+ 	\begin{problem}{37}
+ 		A relation $R$ is defined on $\N$ by $a\; R \; b$ if $a^{2} +b^{2}$ is even. Prove that $R$ is an equivalence relation. Determine the distinct equivalence classes.
+ 		\begin{proof}
+ 			We first prove that $R$ is an equivalence relation. Consider some positive integer $c$. Then, $c^{2} + c^{2} = 2c^{2}$. Since $c^{2}$ is an integer, it follows that $2c^{2}$ is even and so $c\; R \; c$. Hence, $R$ is reflexive.
+ 		\end{proof} 
+ 	\end{problem}
+	 
+\end{document}
