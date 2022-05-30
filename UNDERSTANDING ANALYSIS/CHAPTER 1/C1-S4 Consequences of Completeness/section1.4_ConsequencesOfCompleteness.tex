@@ -1,0 +1,222 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}  
+
+
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label*=\arabic*.}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother 
+
+
+\begin{document} 
+	
+	\title{Section 1.4: Consequences of Completeness}
+	\author{Juan Patricio Carrizales Torres}
+	\date{May 23, 2022}
+	\maketitle
+	
+	One important "corollary" of the Axiom of Completeness in $\R$ is the \textbf{Archimedean Property}, which states that there is no real number that bounds above the set $\N$. Interetingly, this implies the density of $\Q$ in $\R$, which is a powerful property that can be used to determine the $supremums$ and $infimums$ of some bounded sets (as we have seen in the \textbf{Problem 1.3.8} of the previous section). Note that $\Q$ is dense in itself. 
+	
+	\begin{problem}{1.4.1}
+		Recall that $\mathbb{I}$ stands for the set of irrational numbers.
+		\begin{enumerate}[label=(\alph*)]
+			\item Show that if $a,b\in \Q$, then $ab$ and $a+b$ are elements of $\Q$ as well.
+			\begin{proof}
+				Consider two rational numbers $a$ and $b$. Hence, $a= m/n$ and $b=x/y$ for some $m,x\in \Z$ and $y,n\in \N$. Note that 
+				\begin{align*}
+					\frac{m}{n} + \frac{x}{y} &= \frac{my+xn}{ny}\quad \text{ and}\\
+					\frac{m}{n}\cdot \frac{x}{y} &= \frac{mx}{ny}.
+				\end{align*}
+				Since $my,xn,mx \in \Z$ and $ny\in \N$, it follows that $a+b$ and $ab$ are rationals.
+			\end{proof}
+			\item Show that if $a\in \Q$ and $t\in \mathbb{I}$, then $a+t\in \mathbb{I}$ and $at\in \mathbb{I}$ as long as $a\neq 0$.
+			\begin{proof}
+				Consider some nonzero $a\in \Q$ and $t\in \mathbb{I}$. Recall that $\R = \Q\cup \mathbb{I}$ is closed under addition and multiplication. Hence, assume, to the contrary, that $a+t$ and $at$ are rationals. Then, $a+t = m\in \Q$ and $at = n\in \Q$. Therefore,
+				\begin{align*}
+					t &= m + (-a) \quad \text{ and}\\
+					t &= n \cdot \frac{1}{a}.
+				\end{align*} 
+			Since, $(-a), 1/a \in \Q$ and $\Q$ is closed under addition and multiplication, it follows that in both cases, $t$ ends up being a rational number, which contradicts our assumption that it is an irrational one.  
+			\end{proof}
+			\item Part (a) can be summarized by saying that $\Q$ is closed under addition and multiplication. Is $\mathbb{I}$ closed under addition and multiplication? Given two irrationl numbers $s$ and $t$, what can we say about $s+t$ and $st$?
+			\begin{solution}{c}
+				Let's examine some specific examples of multiplication and addition of irrational numbers:\\
+				In the case of multiplication, consider $\sqrt{2}\cdot \sqrt{2} = 2\in \Q$ and $(1+\sqrt{2})\cdot(1 +\sqrt{2}) = 2\sqrt{2} + 3\in \mathbb{I}$. \\
+				In the case of addition,  consider $\sqrt{2} + (-\sqrt{2}) = 0 \in \Q$ and $2\sqrt{2} + 3\sqrt{2} = 5\sqrt{2} \in \mathbb{I}$. Hence, the sum and addition of irrational numbers can result in either a rational or an irrational number. Thus, $\mathbb{I}$ is neither closed under multiplication nor under addition.
+			\end{solution}
+		\end{enumerate}
+	\end{problem}
+ 
+	\begin{problem}{1.4.2}
+		Let $A\subseteq \R$ be nonempty and bounded above, and let $s\in \R$ have the property that for all $n\in \N$, $s+\frac{1}{n}$ is an upper bound for $A$ and $s-\frac{1}{n}$ is not an upper bound for $A$. Show $s=\sup A$.
+		\begin{proof}
+			First, we will show that $s$ is an upper bound for $A$. Assume, to the contrary, that $s$ is not an upper bound for $A$, namely, there is some $a\in A$ such that $s<a$. By the \textbf{Archimedean Property}, there is some $k\in \N$ such that $0<1/k < a-s$ and so $s<s+\frac{1}{k} <a$ which contradicts our assumption that $s+\frac{1}{k}$ ($k\in \N$) is an upper bound for $A$. Thus, $s$ is an upper bound for $A$.\\
+			
+			Now, consider some $\varepsilon > 0$. By the \textbf{Archimedean Property}, there is some $k\in \N$ such that $\frac{1}{k} < \varepsilon$. Hence,
+			\begin{align*}
+				s-\varepsilon < s-\frac{1}{k}.
+			\end{align*}
+		Because $s-\frac{1}{k}$ is not an upper bound for $A$, there is some $a\in A$ such that $s-\frac{1}{k} < a$ and so $s-\varepsilon < a$. Hence, $s=\sup A$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{1.4.3}
+		Prove that $\bigcap^{\infty}_{n=1} (0,1/n)=\emptyset$. Notice that this demonstrates that the intervals in the Nested Interval Property must be closed for the conclusion of the theorem to hold.
+		\begin{proof}
+			Note that $(0,1/n) \supseteq (0,1/(n+1))$ for any $n\in \N$ and so ${(0,1/n):n\in \N}$ is a nested sequence of sets. Assume, to the contrary, that there exists some $x\in \bigcap^{\infty}_{n=1} (0,1/n)$ and so $0<x$. However, by the \textbf{Archimedean Property}, there exist some $k\in \N$ such that $0<1/k<x$ and so $x\not\in \bigcap_{n\geq k} (0,1/k)$. This contradicts our assumption.
+ 		\end{proof}
+	\end{problem}
+
+	\begin{problem}{1.4.4}
+		Let $a<b$ be real numbers and consider the set $T=\Q\cap [a,b]$. Show $\sup T = b$.
+		\begin{proof}
+			Note that 
+			\begin{align*}
+				T &= \Q\cap [a,b]\\ 
+				&= \{x : x\in \Q, a\leq x \leq b\}\\
+				&= \{x\in \Q:a\leq x \leq b\}.
+			\end{align*}
+		Hence, $b$ is an upper bound for $T$. We show that it is the least one. Consider some $\varepsilon>0$. Then, $b-\varepsilon < b$. By \textbf{The Density of Rational Numbers in }$\R$, there exists some rational number $c$ such that $b-\varepsilon<c<b$. If $a\leq c$, then $c\in T$. On the other hand, if $c<a$, recall that there is some rational number $d$ such that $ a <d <b$ and so $b-\varepsilon < d \in T$. Hence, $\sup T = b$.
+		\end{proof}
+	\end{problem}
+
+	\begin{problem}{1.4.5}
+		Using \textbf{Problem 1.4.1}, supply a proof for Corollary $1.4.4$ by considering the real numbers $a-\sqrt{2}$ and $b-\sqrt{2}$. Recall that
+		\begin{corollary}{1.4.4}
+			Given any two real number $a<b$, there exists an irrational number $t$ satisfying $a<t<b$.
+			\begin{proof}
+				Consider two real numbers $a$ and $b$ such that $a<b$. Then, $a-\sqrt{2} < b-\sqrt{2}$ and, by the density of rational numbers in $\R$, there exists some rational $q$ such that $a-\sqrt{2} < q < b-\sqrt{2}$. Thus, $a < q + \sqrt{2} < b$. Note that $q+\sqrt{2}$ is the sum of a rational and irrational number and so $q+\sqrt{2}\in \mathbb{I}$.
+			\end{proof}
+		\end{corollary}
+	\end{problem}
+
+	\begin{problem}{1.4.6}
+		Recall that a set $B$ is \textit{dense} in $\R$ if an element of $B$ can be found between any two real numbers $a<b$. Which of the following sets are dense in $\R$? Take $p\in \Z$ and $q\in \N$ in every case.
+		\begin{enumerate}[label=(\alph*)]
+			\item The set of all rational numbers $p/q$ with $q\leq 10$.
+			\begin{proof}
+				This set is not dense in $\R$. Let $a=0$ and $b=1/100$. Consider some rational number $x=p/q$ for $p\in \Z$ and for the natural number $q\leq 10$. For $p\leq 0$, $a \leq 0$ and so we may further assume that $p>0$.
+				 Note that $1/100 < 1/10$ and so $1/100 \leq  p/100 < p/10$ for any positive integer $p$. Thus,
+				 \begin{equation*}
+				 	\frac{1}{100} < \frac{p}{10} < \frac{p}{9} < \frac{p}{8} < \cdots < \frac{p}{1}.
+				 \end{equation*}
+			 Therefore, there is no such $x$ such that $0<a<1/100$.
+			\end{proof}
+			\item The set of all rational numbers $p/q$ with $q$ a power of $2$.
+			\begin{proof}
+				This set is dense in $\R$. Consider some rational numbers $a<b$. By the \textbf{Archimedean Property}, there is some $n\in \N$ such that $1/n < b-a$ and so $1/2^{n} < 1/n < b-a$. Now we can proceed with the same argument from the proof of \textbf{Theorem 1.3.4}. Consider some integer $m$ such that 
+				\begin{equation*}
+				m-1 \leq 2^{n}\cdot a < m.
+				\end{equation*}
+				 Since $1/2^{n} < b-a$, it follows that $a<b-1/2^{n} = \frac{1}{2^{n}} (2^{n} \cdot b-1)$. Therefore,
+				\begin{align*}
+					2^{n}\cdot a + 1< 2^{n}\cdot b 
+				\end{align*}
+			and so $m\leq 2^{n}\cdot a+1 < 2^{n}\cdot b$. Thus, $2^{n}\cdot a < m < 2^{n}\cdot b$, which implies that
+			\begin{equation*}
+				a < \frac{m}{2^{n}} < b. 
+			\end{equation*}
+			\end{proof}
+			\item  The set of all rational numbers $p/q$ with $10|p|\geq q$.
+			\begin{proof}
+				This set is not dense in $\R$. Let $a = 0$ and $b = 1/11$. If the integer $p<0$, then $p/q < 0$. Also, there is no element in this set for $p=0$ since $q\leq 10\cdot 0$ contradicts the fact that $q\in \N$. Hence, we may assume that $p>0$ and so $|p| = p$ and $10p \geq q$. Note that
+				\begin{equation*}
+					\frac{1}{10p} <  \frac{1}{10p-1} < \frac{1}{10p-2} < \frac{1}{10p-3} < \cdots < \frac{1}{1},
+				\end{equation*}
+			which implies that
+			\begin{equation*}
+				 \frac{1}{10} < \frac{p}{10p-1} < \frac{p}{10p-2} < \frac{p}{10p-3} < \cdots < p.
+			\end{equation*}
+			Since $1/11 < 1/10$ it follows that $1/11 < p/q$ for any positive integer $p$. Therefore, there is no element in this set that lies between 0 and $1/11$.
+			\end{proof}
+ 		\end{enumerate}
+	\end{problem}
+
+	\begin{problem}{1.4.7}
+		Finsih the proof of \textbf{Theorem 1.4.5} 
+	\end{problem}
+
+	\begin{problem}{1.4.8}
+		Give an example of each or state that the request is impossible. When a request is impossible, provide a compelling argument for why this is the case.
+		\begin{enumerate}[label=(\alph*)]
+			\item Two sets $A$ and $B$ with $A\cap B = \emptyset, \sup A=\sup B, \sup A \not\in A$ and $\sup B \not\in B$.
+			\begin{solution}{(a)}
+				Let $A=\{x\in \Q:x<1\}$ and $B=\{x\in \mathbb{I}:x<1\}$. By the desnities of $\Q$ and $\mathbb{I}$ in $\R$, we can show that $\sup A = \sup B = 1$ (the number 1 is an upper bound for both sets and for any $x<1$ we can find some rational and irrational number between $x$ and 1). Also, $1$ is neither in $A$ nor in $B$, and $A\cap B = \emptyset$. 
+			\end{solution}
+			\item A sequence of nested open intervals $J_{1} \supseteq J_{2} \supseteq J_{3} \supseteq \ldots$ with $\bigcap^{\infty}_{n=1} J_{n}$ nonempty but containig only a finite number of elements.
+			\begin{solution}{(b)}
+				Let $J_{n} = (-\frac{1}{n},\frac{1}{n})$ for some $n\in \N$. Note that 
+				\begin{align*}
+					\frac{1}{n+1}&<\frac{1}{n} \quad \text{ and}\\
+					-\frac{1}{n} &< -\frac{1}{n+1}.
+				\end{align*}
+				Hence $J_{1}\supseteq J_{2} \supseteq J_{3} \supseteq \cdots$.
+				Since for any $k\in \N$ it is true that $-\frac{1}{k}<0<\frac{1}{k}$, it follows that $0\in \bigcap_{n=1}^{\infty}J_{n}$. Also, $-\frac{1}{k} < -\frac{1}{k+1}< 0 < \frac{1}{k+1} < \frac{1}{k+1}$ and so we can find another . Thus
+				\begin{equation*}
+					\bigcap_{n=1}^{\infty} J_{n} = \{0\}
+				\end{equation*}
+			is finite.
+			\end{solution}
+			\item A sequence of nested unbounded closed intervals $L_{1} \supseteq L_{2} \supseteq L_{3} \supseteq \ldots$ with $\bigcap_{n=1}^{\infty} L_{n} = \emptyset$. (An unbouned closed interval has the form $[a,\infty) = \{x\in \R : x\geq a\}$.)
+			\begin{solution}{(c)}
+				Let $L_{n} = [n,\infty)$ for any $n\in \N$. Hence, $L_{1} \supseteq L_{2} \supseteq L_{3} \supseteq \ldots$ and so $\{L_{n}:n\in \N\}$ is a sequence of nested unbounded closed intervals. \\
+				We now show that $\bigcap_{n=1}^{\infty} L_{n} = \emptyset$. Assume to the contrary, that $\bigcap_{n=1}^{\infty} L_{n} \neq \emptyset$. Then, there is some real number $x\in \bigcap_{n=1}^{\infty} L_{n}$. By \textbf{The Archimedean Property}, there exists some $k\in \N$ such that $x<k$ and so $x\not\in [k,\infty) = L_{k}$. This contradicts our assumption that $x$ is contained in every $L_{n}$. Therefore, $\bigcap_{n=1}^{\infty} L_{n} = \emptyset$.
+			\end{solution}
+			\item A sequence of closed (not necessarily nested) intervals $I_{1},I_{2},I_{3},\ldots$ with the property that $\bigcap_{n=1}^{N} I_{n} \neq \emptyset$ for all $N\in \N$, but $\bigcap_{n=1}^{\infty} I_{n} = \emptyset$.
+			\begin{solution}{(c)}
+				Since each $I_{n}$ is closed and $\bigcap_{n=1}^{N} I_{n} \neq \emptyset$ for all $N\in \N$, it follows that each $K_{N} = \bigcap_{n=1}^{N} I_{n} \neq \emptyset$ is a closed set and so $S=\{K_{n}:n\in \N\}$ is a sequence of closed sets. Since we are talking about consecutive intersections, it follows that either $S$ is decreasing ($K_{N}\supseteq K_{N+1}$), increasing ($K_{N}\subseteq K_{N+1}$) or constant ($K_{N} = K_{N+1}$), where $N\in \N$. If $S$ is decreasing (nested sequence), then  
+				\begin{align*}
+					\bigcap_{n=1}^{\infty} K_{n} &= \bigcap_{N=1}^{\infty} \left(\bigcap_{n=1}^{N} I_{n}\right)\\
+					&= \bigcap_{n=1}^{\infty}I_{n} \neq \emptyset 
+				\end{align*} 
+			by the \textbf{Nested Interval Property} of closed sets of  real numbers. If $S$ is increasing, then it is easy to understand that
+			\begin{equation*}
+				\bigcap_{n=1}^{\infty}I_{n} = I_{1}
+			\end{equation*}
+		which, by assumption, is nonempty. And if it is constant, then every $K_{n} = X$ for some closed set of real numbers $X$ and so
+		\begin{equation*}
+		\bigcap_{n=1}^{\infty}I_{n} = X.
+		\end{equation*}
+			\end{solution}
+		\end{enumerate}
+	\end{problem}
+\end{document}
