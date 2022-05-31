@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}  
+
+
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label*=\arabic*.}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother 
+
+
+\begin{document} 
+	
+	\title{Section 1.5: Cardinality}
+	\author{Juan Patricio Carrizales Torres}
+	\date{May 31, 2022}
+	\maketitle
+	
+	This chapter introduces to the concept of cardinality and the classification of infinite sets exclusively as either countable or uncountable ones. \\
+	The term \textbf{Cardinality} accounts, hand-wavy speaking, for the "quantity" of elements of some set. This informal definition is intuitive for finite ones, however lacks clarity for infinite sets. Nevertheless, it gives some proper foundation to understand the human questioning that catalized it, namely, how can we compare the "size" of two infinite sets (Check Galileo's Paradox).\\
+	 
+	The equivalence relation $\sim$ is defined by $A\sim B$ for some sets $A$ and $B$, if they have the same cardinality, namely, the same "size". By definition, two sets $A$ and $B$ have the same cardinality if there exists some $f: A\to B$ that is \textit{one-to-one} and \textit{onto}. In fact, this function $f: A\to B$ represents the \textbf{1-1 correspondence} between $A$ and $B$, and so $A\sim B$. Basically, every element of $B$ is assigned to one unique element of $A$ and every element of $A$ is paired with one unique element of $B$. \\
+	
+	This is quite interesting since one can demonstarte that the the set of positive even integers has the same cardinality as $\N$!!! The parts are not necesarily "smaller" than the whole. \\  
+	
+	 Just like in physical sciences, one can use some "standard" or "norm" to compare sizes between two sets, namely, $A\sim C \wedge C\sim B \implies A\sim B$ (transitive property). A very useful "norm" is the set $\N$. In fact, for any infinite set $A$, if $A\sim \N$, then $A$ is \textbf{countable}. Three interesting theorems state the following:
+	 \begin{enumerate}[label=(\alph*)]
+	 	\item $A\subseteq C \wedge C\sim \N \implies A\sim \N $ or $A$ is finite.  
+	 	\item For some sequence of $n$ countable sets $A_{1}, A_{2}, A_{3},\ldots, A_{n}$, the union $\bigcup_{i=1}^{n} A_{i}$ is countable.
+	 	\item For some sequence of countable sets $\{B_{n}:n\in \N\}$, the union $\bigcup_{n\in \N} B_{n}$ is countable.
+	 \end{enumerate}
+ 	Using the \textbf{Nested Interval Property}, one can show that $\R$ is not countable. That's why, one concludes that the uncountability of $\R$ is another consequence of the \textbf{Axiom of Completeness}. Since $\Q$ is countable and $\R = \Q\cup \mathbb{I}$ is uncountable, it follows that $\mathbb{I}$ is uncountable. Otherwise, it will lead to a contradiction (The union of two countable sets is countable). This is quite interesting!!! The set of irrational numbers is of greater "size" than the set of rational ones.  
+	
+\end{document}
