@@ -72,8 +72,29 @@
  	\begin{problem}{37}
  		A relation $R$ is defined on $\N$ by $a\; R \; b$ if $a^{2} +b^{2}$ is even. Prove that $R$ is an equivalence relation. Determine the distinct equivalence classes.
  		\begin{proof}
- 			We first prove that $R$ is an equivalence relation. Consider some positive integer $c$. Then, $c^{2} + c^{2} = 2c^{2}$. Since $c^{2}$ is an integer, it follows that $2c^{2}$ is even and so $c\; R \; c$. Hence, $R$ is reflexive.
+ 			We first prove that $R$ is an equivalence relation. Consider some positive integer $c$. Then, $c^{2} + c^{2} = 2c^{2}$. Since $c^{2}$ is an integer, it follows that $2c^{2}$ is even and so $c\; R \; c$. Hence, $R$ is reflexive. Let $a,b\in \N$. By the commutative property of sums on real numbers, it follows that if $a^{2} + b^{2}$ is even, then $b^{2} + a^{2}$ is equal to the same even number. Therefore, $a\; R \; b$ implies $b\; R \; a$ and so $R$ is symmetric. Consider $x,y,z\in \Z$ such that $x\; R \;y$ and $y\; R \; z$. Hence, $x^{2} + y^{2} = 2m$ and $y^{2} + z^{2} = 2n$ for $m,n\in \Z$. Thus, $x^{2} = 2m-y^{2}$ and $z^{2} = 2n-y^{2}$. Therefore,
+ 			\begin{align*}
+ 				x^{2} + z^{2} &= (2m-y^{2}) + (2n-y^{2}) \\
+ 				&= 2m+2n-2y^{2} = 2(m+n-y^{2}).
+ 			\end{align*}
+ 		Because $m+n-y^{2} \in \Z$, it follows that $x^{2}+z^{2}$ is even and so $x\; R \;z$, which implies that $R$ is transitive.\\
+ 		
+ 		Once $R$ is shown to be an equivalence relation, we now determine the dsitinct equivalence classes. Let $x$ be an even positive integer. Then $x^{2}$ is even. Consider some $y\in \N$. Note that $y^{2}+x^{2}$ is even if and only if $y^{2}$ is even. We also know that $y^{2}$ is even if and only if $y$ is even. Therefore,
+ 		\begin{equation*}
+ 			[x] = \{n\in \N: n \text{ is even}\}.
+ 		\end{equation*} 
+ 		Consider positive integers $y$ and $z$. If $y$ is and odd positive integer, then $z^{2}+y^{2}$ is odd if and only if $z^{2}$ is odd. Hence, $z$ must be odd.
+ 		\begin{equation*}
+ 			[y] = \{n\in \N: n\text{ is odd}\}.
+ 		\end{equation*}
+ 		Since the set of even and odd positive integers is a partition of $\N$, it follows that there only two distinct equivalence classes.
  		\end{proof} 
  	\end{problem}
 	 
+	 \begin{problem}{38}
+	 	Let $R$ be a relation defined on the set $\N$ by $a\; R \;b$ if either $a\mid 2b$ or $b\mid 2a$. Prove or disprove: $R$ is and equivalence relation.
+	 	\begin{solution}{38}
+	 		The relation $R$ on $\N$ is not an equivalence relation. Consider the positive integers $2$, $3$ and $5$. Since $2\mid (2\cdot 3)$ and $2\mid (2\cdot 5)$, it follows that $3\; R \; 2$ and $2\; R \; 5$. However, $3 \nmid (2\cdot 5)$ and $5\nmid (2\cdot 3)$. Hence, $3\; \cancel R \; 5$ and so $R$ is not transitive. This implies that $R$ is not an equivalence relation.
+	 	\end{solution}
+	 \end{problem}
 \end{document}
