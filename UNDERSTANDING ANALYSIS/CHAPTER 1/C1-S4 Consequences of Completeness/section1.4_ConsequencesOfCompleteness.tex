@@ -75,7 +75,7 @@
 					t &= m + (-a) \quad \text{ and}\\
 					t &= n \cdot \frac{1}{a}.
 				\end{align*} 
-			Since, $(-a), 1/a \in \Q$ and $\Q$ is closed under addition and multiplication, it follows that in both cases, $t$ ends up being a rational number, which contradicts our assumption that it is an irrational one.  
+				Since, $(-a), 1/a \in \Q$ and $\Q$ is closed under addition and multiplication, it follows that in both cases, $t$ ends up being a rational number, which contradicts our assumption that it is an irrational one.  
 			\end{proof}
 			\item Part (a) can be summarized by saying that $\Q$ is closed under addition and multiplication. Is $\mathbb{I}$ closed under addition and multiplication? Given two irrationl numbers $s$ and $t$, what can we say about $s+t$ and $st$?
 			\begin{solution}{c}
@@ -85,7 +85,7 @@
 			\end{solution}
 		\end{enumerate}
 	\end{problem}
- 
+	
 	\begin{problem}{1.4.2}
 		Let $A\subseteq \R$ be nonempty and bounded above, and let $s\in \R$ have the property that for all $n\in \N$, $s+\frac{1}{n}$ is an upper bound for $A$ and $s-\frac{1}{n}$ is not an upper bound for $A$. Show $s=\sup A$.
 		\begin{proof}
@@ -95,17 +95,17 @@
 			\begin{align*}
 				s-\varepsilon < s-\frac{1}{k}.
 			\end{align*}
-		Because $s-\frac{1}{k}$ is not an upper bound for $A$, there is some $a\in A$ such that $s-\frac{1}{k} < a$ and so $s-\varepsilon < a$. Hence, $s=\sup A$.
+			Because $s-\frac{1}{k}$ is not an upper bound for $A$, there is some $a\in A$ such that $s-\frac{1}{k} < a$ and so $s-\varepsilon < a$. Hence, $s=\sup A$.
 		\end{proof}
 	\end{problem}
-
+	
 	\begin{problem}{1.4.3}
 		Prove that $\bigcap^{\infty}_{n=1} (0,1/n)=\emptyset$. Notice that this demonstrates that the intervals in the Nested Interval Property must be closed for the conclusion of the theorem to hold.
 		\begin{proof}
 			Note that $(0,1/n) \supseteq (0,1/(n+1))$ for any $n\in \N$ and so ${(0,1/n):n\in \N}$ is a nested sequence of sets. Assume, to the contrary, that there exists some $x\in \bigcap^{\infty}_{n=1} (0,1/n)$ and so $0<x$. However, by the \textbf{Archimedean Property}, there exist some $k\in \N$ such that $0<1/k<x$ and so $x\not\in \bigcap_{n\geq k} (0,1/k)$. This contradicts our assumption.
- 		\end{proof}
+		\end{proof}
 	\end{problem}
-
+	
 	\begin{problem}{1.4.4}
 		Let $a<b$ be real numbers and consider the set $T=\Q\cap [a,b]$. Show $\sup T = b$.
 		\begin{proof}
@@ -115,10 +115,10 @@
 				&= \{x : x\in \Q, a\leq x \leq b\}\\
 				&= \{x\in \Q:a\leq x \leq b\}.
 			\end{align*}
-		Hence, $b$ is an upper bound for $T$. We show that it is the least one. Consider some $\varepsilon>0$. Then, $b-\varepsilon < b$. By \textbf{The Density of Rational Numbers in }$\R$, there exists some rational number $c$ such that $b-\varepsilon<c<b$. If $a\leq c$, then $c\in T$. On the other hand, if $c<a$, recall that there is some rational number $d$ such that $ a <d <b$ and so $b-\varepsilon < d \in T$. Hence, $\sup T = b$.
+			Hence, $b$ is an upper bound for $T$. We show that it is the least one. Consider some $\varepsilon>0$. Then, $b-\varepsilon < b$. By \textbf{The Density of Rational Numbers in }$\R$, there exists some rational number $c$ such that $b-\varepsilon<c<b$. If $a\leq c$, then $c\in T$. On the other hand, if $c<a$, recall that there is some rational number $d$ such that $ a <d <b$ and so $b-\varepsilon < d \in T$. Hence, $\sup T = b$.
 		\end{proof}
 	\end{problem}
-
+	
 	\begin{problem}{1.4.5}
 		Using \textbf{Problem 1.4.1}, supply a proof for Corollary $1.4.4$ by considering the real numbers $a-\sqrt{2}$ and $b-\sqrt{2}$. Recall that
 		\begin{corollary}{1.4.4}
@@ -128,33 +128,33 @@
 			\end{proof}
 		\end{corollary}
 	\end{problem}
-
+	
 	\begin{problem}{1.4.6}
 		Recall that a set $B$ is \textit{dense} in $\R$ if an element of $B$ can be found between any two real numbers $a<b$. Which of the following sets are dense in $\R$? Take $p\in \Z$ and $q\in \N$ in every case.
 		\begin{enumerate}[label=(\alph*)]
 			\item The set of all rational numbers $p/q$ with $q\leq 10$.
 			\begin{proof}
 				This set is not dense in $\R$. Let $a=0$ and $b=1/100$. Consider some rational number $x=p/q$ for $p\in \Z$ and for the natural number $q\leq 10$. For $p\leq 0$, $a \leq 0$ and so we may further assume that $p>0$.
-				 Note that $1/100 < 1/10$ and so $1/100 \leq  p/100 < p/10$ for any positive integer $p$. Thus,
-				 \begin{equation*}
-				 	\frac{1}{100} < \frac{p}{10} < \frac{p}{9} < \frac{p}{8} < \cdots < \frac{p}{1}.
-				 \end{equation*}
-			 Therefore, there is no such $x$ such that $0<a<1/100$.
+				Note that $1/100 < 1/10$ and so $1/100 \leq  p/100 < p/10$ for any positive integer $p$. Thus,
+				\begin{equation*}
+					\frac{1}{100} < \frac{p}{10} < \frac{p}{9} < \frac{p}{8} < \cdots < \frac{p}{1}.
+				\end{equation*}
+				Therefore, there is no such $x$ such that $0<a<1/100$.
 			\end{proof}
 			\item The set of all rational numbers $p/q$ with $q$ a power of $2$.
 			\begin{proof}
 				This set is dense in $\R$. Consider some rational numbers $a<b$. By the \textbf{Archimedean Property}, there is some $n\in \N$ such that $1/n < b-a$ and so $1/2^{n} < 1/n < b-a$. Now we can proceed with the same argument from the proof of \textbf{Theorem 1.3.4}. Consider some integer $m$ such that 
 				\begin{equation*}
-				m-1 \leq 2^{n}\cdot a < m.
+					m-1 \leq 2^{n}\cdot a < m.
 				\end{equation*}
-				 Since $1/2^{n} < b-a$, it follows that $a<b-1/2^{n} = \frac{1}{2^{n}} (2^{n} \cdot b-1)$. Therefore,
+				Since $1/2^{n} < b-a$, it follows that $a<b-1/2^{n} = \frac{1}{2^{n}} (2^{n} \cdot b-1)$. Therefore,
 				\begin{align*}
 					2^{n}\cdot a + 1< 2^{n}\cdot b 
 				\end{align*}
-			and so $m\leq 2^{n}\cdot a+1 < 2^{n}\cdot b$. Thus, $2^{n}\cdot a < m < 2^{n}\cdot b$, which implies that
-			\begin{equation*}
-				a < \frac{m}{2^{n}} < b. 
-			\end{equation*}
+				and so $m\leq 2^{n}\cdot a+1 < 2^{n}\cdot b$. Thus, $2^{n}\cdot a < m < 2^{n}\cdot b$, which implies that
+				\begin{equation*}
+					a < \frac{m}{2^{n}} < b. 
+				\end{equation*}
 			\end{proof}
 			\item  The set of all rational numbers $p/q$ with $10|p|\geq q$.
 			\begin{proof}
@@ -162,19 +162,19 @@
 				\begin{equation*}
 					\frac{1}{10p} <  \frac{1}{10p-1} < \frac{1}{10p-2} < \frac{1}{10p-3} < \cdots < \frac{1}{1},
 				\end{equation*}
-			which implies that
-			\begin{equation*}
-				 \frac{1}{10} < \frac{p}{10p-1} < \frac{p}{10p-2} < \frac{p}{10p-3} < \cdots < p.
-			\end{equation*}
-			Since $1/11 < 1/10$ it follows that $1/11 < p/q$ for any positive integer $p$. Therefore, there is no element in this set that lies between 0 and $1/11$.
+				which implies that
+				\begin{equation*}
+					\frac{1}{10} < \frac{p}{10p-1} < \frac{p}{10p-2} < \frac{p}{10p-3} < \cdots < p.
+				\end{equation*}
+				Since $1/11 < 1/10$ it follows that $1/11 < p/q$ for any positive integer $p$. Therefore, there is no element in this set that lies between 0 and $1/11$.
 			\end{proof}
- 		\end{enumerate}
+		\end{enumerate}
 	\end{problem}
-
+	
 	\begin{problem}{1.4.7}
 		Finsih the proof of \textbf{Theorem 1.4.5} 
 	\end{problem}
-
+	
 	\begin{problem}{1.4.8}
 		Give an example of each or state that the request is impossible. When a request is impossible, provide a compelling argument for why this is the case.
 		\begin{enumerate}[label=(\alph*)]
@@ -194,7 +194,7 @@
 				\begin{equation*}
 					\bigcap_{n=1}^{\infty} J_{n} = \{0\}
 				\end{equation*}
-			is finite.
+				is finite.
 			\end{solution}
 			\item A sequence of nested unbounded closed intervals $L_{1} \supseteq L_{2} \supseteq L_{3} \supseteq \ldots$ with $\bigcap_{n=1}^{\infty} L_{n} = \emptyset$. (An unbouned closed interval has the form $[a,\infty) = \{x\in \R : x\geq a\}$.)
 			\begin{solution}{(c)}
@@ -203,19 +203,16 @@
 			\end{solution}
 			\item A sequence of closed (not necessarily nested) intervals $I_{1},I_{2},I_{3},\ldots$ with the property that $\bigcap_{n=1}^{N} I_{n} \neq \emptyset$ for all $N\in \N$, but $\bigcap_{n=1}^{\infty} I_{n} = \emptyset$.
 			\begin{solution}{(c)}
-				We show that there is no such sequence of closed intervals. Since each $I_{n}$ is closed and $\bigcap_{n=1}^{N} I_{n} \neq \emptyset$ for all $N\in \N$, it follows that each $K_{N} = \bigcap_{n=1}^{N} I_{n} \neq \emptyset$ is a closed interval and so $S=\{K_{n}:n\in \N\}$ is a sequence of closed sets. Since we are talking about consecutive intersections, it follows that either $S$ is decreasing ($K_{N}\supseteq K_{N+1}$), increasing ($K_{N}\subseteq K_{N+1}$) or constant ($K_{N} = K_{N+1}$), where $N\in \N$. If $S$ is decreasing (nested sequence), then  
+				We show that there is no such sequence of closed intervals. Since each $I_{n}$ is closed and $\bigcap_{n=1}^{N} I_{n} \neq \emptyset$ for all $N\in \N$, it follows that each $K_{N} = \bigcap_{n=1}^{N} I_{n}$ is a closed interval and so $S=\{K_{n}:n\in \N\}$ is a sequence of closed sets. Since we are talking about consecutive intersections, it follows that either $K_{N}\supseteq K_{N+1}$ (decreasing) for every $N\in \N$ or $K_{N}\subseteq K_{N+1}$ (increasing) for every $N\in \N$. If $S$ is a decreasing sequence (nested sequence), then  
 				\begin{align*}
 					\bigcap_{n=1}^{\infty} K_{n} &= \bigcap_{N=1}^{\infty} \left(\bigcap_{n=1}^{N} I_{n}\right)\\
 					&= \bigcap_{n=1}^{\infty}I_{n} \neq \emptyset 
 				\end{align*} 
-			by the \textbf{Nested Interval Property} of closed sets of  real numbers. If $S$ is increasing, then it is easy to understand that
-			\begin{equation*}
-				\bigcap_{n=1}^{\infty}I_{n} = I_{1}
-			\end{equation*}
-		which, by assumption, is nonempty. And if it is constant, then every $K_{n} = X$ for some closed set of real numbers $X$ and so
-		\begin{equation*}
-		\bigcap_{n=1}^{\infty}I_{n} = X.
-		\end{equation*}
+				by the \textbf{Nested Interval Property}. If $S$ is an increasing sequence, then it is easy to understand that
+				\begin{equation*}
+					\bigcap_{n=1}^{\infty}I_{n} = I_{1}
+				\end{equation*}
+				which, by assumption, is nonempty. 
 			\end{solution}
 		\end{enumerate}
 	\end{problem}
