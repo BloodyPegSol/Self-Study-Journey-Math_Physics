@@ -69,4 +69,40 @@
 	 \end{enumerate}
  	Using the \textbf{Nested Interval Property}, one can show that $\R$ is not countable. That's why, one concludes that the uncountability of $\R$ is another consequence of the \textbf{Axiom of Completeness}. Since $\Q$ is countable and $\R = \Q\cup \mathbb{I}$ is uncountable, it follows that $\mathbb{I}$ is uncountable. Otherwise, it will lead to a contradiction (The union of two countable sets is countable). This is quite interesting!!! The set of irrational numbers is of greater "size" than the set of rational ones.  
 	
+	\begin{problem}{1.5.1}
+		Finish the following proof for \textbf{Theorem 1.5.7}.\\
+		Assume $B$ is a countable set. Thus, there exists $f:\N \to B$, which is 1-1 and onto. Let $A\subseteq B$ be an infinite subset of $B$. We must show that $A$ is countable.\\
+		Let $n_{1} = min\{n\in \N:f(n)\in A\}$. As a start to a definition of $g:\N\to A$, set $g(1) = f(n_{1})$. Show how to inductively continue this process to produce a 1-1 function $g$ from $\N$ onto $A$.
+		\begin{solution}{1.5.1}
+			 By the \textbf{Well-ordering Principle}, we can define $n_{1} = \min\{n\in \N : f(n)\in A\}$.  Now, let $n_{2} = \min\left(\{n\in \N : f(n)\in A\}/\{n_{1}\}\right)$. In fact, let 
+			 \begin{equation*}
+			 n_{k} = \min\left(\{n\in \N : f(n)\in A\}/\{n_{1},n_{2},n_{3},\ldots,n_{k-1}\}\right)
+			 \end{equation*}
+		 	for any  integer $k\geq 2$. We first prove that $\{n_{k}:k\in \N\} = \{n\in \N : f(n)\in A\}$.
+		 
+		 	\begin{proof}
+		 	Assume, to the contrary, that $\{n_{k}:k\in \N\} \neq \{n\in \N : f(n)\in A\}$. Then, either
+		 	\begin{align*}
+		 	 &\{n_{k}:k\in \N\} \not\subseteq \{n\in \N : f(n)\in A\} &\text{or}&   
+		 	  &\{n_{k}:k\in \N\} \not\supseteq \{n\in \N : f(n)\in A\} 
+		 	 \end{align*}
+		 	 Consider the earlier. Then, there exists some integer $x$ such that  $n_{x}\not\in  \{n\in \N : f(n)\in A\}$. However, this contradicts the fact that $n_{x} = \min\left(\{n\in \N : f(n)\in A\}/\{n_{1},n_{2},n_{3},\ldots,n_{x-1}\}\right)$. Hence, we may assume that $\{n_{k}:k\in \N\} \not\supseteq \{n\in \N : f(n)\in A\}$. Then, there is some $x\in \{n\in \N : f(n)\in A\}$ such that $x\not\in \{n_{k}:k\in \N\}$. This implies that there is no $k\in \N$ such that $x = \min\left(\{n\in \N : f(n)\in A\}/\{n_{1},n_{2},n_{3},\ldots,n_{k-1}\}\right)$. Hence, $x>a$ for all $a\in \{n\in \N : f(n)\in A\}$. This means that $x\not\in \{n\in \N : f(n)\in A\}$, which is a contradiction. 
+			 \end{proof}
+	 
+		 	 Let the function $g:\N \to A$ be defined by
+		 	\begin{equation*}
+		 		g(x) = f(n_{x})
+		 	\end{equation*}
+	 		for every $x\in \N$. Then, $g:\N \to A$ is a 1-1 function. 
+	 		 
+	 		\begin{proof}
+	 			Since $\{n_{k}:k\in \N\} = \{n\in \N : f(n)\in A\}$ and $f:\N \to B$ is biijective, it follows for every $a\in A$ that $a = f(n_{l}) = g(l)$ for some positive integer $l$ (onto), and for every $k\in \N$, $f(n_{k}) = g(k)$ is equal to a unique element of $A$ (one-to-one).
+	 		\end{proof}
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{1.5.2}
+		Review the proof of \textbf{Theorem 1.5.6} part (ii) showing that $\R$ is uncountable, and then find the flaw in the following erroneous proof that $\Q$ is uncountable:\\
+		Assume, for contradiction, that $\Q$ is countable. Thus we can write $\Q = \{r_{1},r_{2},r_{3},\ldots\}$ and, as before, construct a nested sequence of closed intervals with $r_{n} \in I_{n}$. Our construction implies $\bigcap_{n=1}^{\infty} I_{n} = \emptyset$ while NIP implies $\bigcap_{n=1}^{\infty} I_{n} \neq \emptyset$. This contradiction implies $\Q$ must therefore be uncountable.  
+	\end{problem}
 \end{document}
