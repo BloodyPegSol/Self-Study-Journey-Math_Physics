@@ -104,5 +104,52 @@
 	\begin{problem}{1.5.2}
 		Review the proof of \textbf{Theorem 1.5.6} part (ii) showing that $\R$ is uncountable, and then find the flaw in the following erroneous proof that $\Q$ is uncountable:\\
 		Assume, for contradiction, that $\Q$ is countable. Thus we can write $\Q = \{r_{1},r_{2},r_{3},\ldots\}$ and, as before, construct a nested sequence of closed intervals with $r_{n} \in I_{n}$. Our construction implies $\bigcap_{n=1}^{\infty} I_{n} = \emptyset$ while NIP implies $\bigcap_{n=1}^{\infty} I_{n} \neq \emptyset$. This contradiction implies $\Q$ must therefore be uncountable.  
+		\begin{solution}{1.5.2}
+			 It is true that $\bigcap_{n=1}^{\infty} I_{n} = \emptyset$, however, it is also true that \textbf{NIP} is a consequence of \textbf{AoC}. In this closed intervals, we are just considering elements of $\Q$ and we know it is not complete (It lacks the cut property).
+		\end{solution}
+	\end{problem}
+
+	\begin{problem}{1.5.3}
+		Use the following outline to supply proofs for the statements in \textbf{Theorem 1.5.8}.
+		\begin{enumerate}[label=(\alph*)]
+			\item First, prove statement (i) for two countable sets, $A_{1}$ and $A_{2}$. Example \textbf{1.5.3} (ii) may be a useful reference. Some technicalities can be avoided by first replacing $A_{2}$ with the set $B_{2} =A_{2}\backslash A_{1} = \{x\in A_{2}:x\not\in A_{1}\}$. The point of this is that the union $A_{1}\cup B_{2}$ is equal to $A_{1}\cup A_{2}$ and the sets $A_{1}$ and $B_{2}$ are disjoint. (What happens if $B_{2}$ is finite?). Then explain how the more general statement in (i) follows.
+			\begin{solution}{(a)}
+				We first show for any two countable sets $A_{1}$ and $A_{2}$ that their union is countable.
+				\begin{proof}
+					Since $A_{1}$ and $A_{2}$ are countable, it follows that there are biijective functions $f:\N \to A_{1}$ and $g:\N \to A_{2}$. Let $B_{2} = A_{2}\backslash A_{1}$ and so $A_{1}\cap B_{2} = \emptyset$. Also, consider the following sets $S_{1} = \{n\in \N: f(n)\in A_{1}\}$ and $S_{2} = \{n\in \N: g(n) \in B_{2}\}$ since $B_{2} \subseteq A_{2}$. If $B_{2} = \emptyset$, then $A_{1}\cup A_{2} = A_{1}$ and so $f:\N \to A_{1}\cup A_{2}$ is a biijective function and $A_{1}\cup A_{2}$ is countable. Hence, we may assume that $B_{2}\neq \emptyset$. By the \textbf{Well Ordering Principle}, $s_{2} = \min (S_{2})$ exists. Note that $S_{1} = \N$ and $1\leq s_{2}$.
+					
+					Therefore, there are two possible cases. If $B_{2}$ is finite with $k$ elements, then define the function $h:\N \to A_{1}\cup B_{2}$ by
+					\begin{align*}
+						h(n) \begin{cases}
+							g(s_{1}+(n-1)), \text{ if }n\leq k\\
+							f(n-k), \text{ if }n>k.
+						\end{cases}
+					\end{align*}
+				Therefore, $A_{1}\cup B_{2} = A_{1}\cup A_{2}$ is countable.\\
+				
+				If $B_{2}$ is infinite, then define some function $h:\N \to A_{1}\cup B_{2}$ by
+					\begin{equation*}
+						h(n) = \begin{cases}
+							f(n/2), \text{ if }n \text{ is even}.\\
+							g(s_{1} + (n-1)/2), \text{ if }n \text{ is odd}.
+						\end{cases}
+					\end{equation*}
+				Thus, $A_{1}\cup B_{2} = A_{1}\cup A_{2}$ is countable. 
+				\end{proof}
+			\end{solution}
+			\item Explain why induction \textit{cannot} be used to prove part (ii) of \textbf{Theorem 1.5.8} from part (i).
+			\item Show how arranging $\N$ into the two-dimensional array
+			\begin{center}
+			\begin{tabular}{c c c c c c}
+				1 & 3 & 6 & 10 & 15 & $\cdots$\\
+				2 & 5 & 9 & 14 & $\cdots$&\\
+				4 & 8 & 13 & $\cdots$ & & \\
+				7 & 12 & $\cdots$ & & & \\
+				11 & $\cdots$ & & & &\\
+				$\vdots$ & & & & &
+			\end{tabular}
+			\end{center}
+			leads to a proof of \textbf{Theorem 1.5.8} (ii).
+		\end{enumerate}
 	\end{problem}
 \end{document}
