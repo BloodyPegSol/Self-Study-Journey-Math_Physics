@@ -97,4 +97,67 @@
 	 		The relation $R$ on $\N$ is not an equivalence relation. Consider the positive integers $2$, $3$ and $5$. Since $2\mid (2\cdot 3)$ and $2\mid (2\cdot 5)$, it follows that $3\; R \; 2$ and $2\; R \; 5$. However, $3 \nmid (2\cdot 5)$ and $5\nmid (2\cdot 3)$. Hence, $3\; \cancel R \; 5$ and so $R$ is not transitive. This implies that $R$ is not an equivalence relation.
 	 	\end{solution}
 	 \end{problem}
+ 
+ 	\begin{problem}{39}
+ 		Let $S$ be a nonempty subset of $\Z$ and let $R$ be a relation defined on $S$ by $x\; R \; y$ if $3\mid (x+2y)$.
+ 		\begin{enumerate}[label=(\alph*)]
+ 			\item Prove that $R$ is an equivalence relation.
+ 			\begin{proof}
+ 				Let $S$ be some nonempty subset of $\Z$ and $R$ some relation on $S$ defined by $x\; R \; y$ if $3\mid (x+2y)$. For some integer $x\in S$, $x+2x = 3x$ and so $3\mid 3x$. Hence, $x\; R \; x$ is reflexive.\\
+ 				Let $x,y\in S$ such that $x\; R \; y$. Hence, $x+2y = 3c$ for some integer $c$. Then, $x = 3c-2y$ and so
+ 			\begin{align*}
+ 				 y+2x &= y+2(3c-2y) \\
+ 				 &= y+6c-4y \\
+ 				 &= 3(2c-y).
+ 			 \end{align*}
+ 		 Since $2c-y\in \Z$, it follows that $3\mid (y+2x)$ and so $y\; R \; x$ ($R$ is symmetric). \\
+ 		 Consider some $x,y,z\in S$ sucht that $x\; R \; y$ and $y\; R \; z$. Therefore, $x+2y = 3a$ and $y+2z= 3b$ for $a,b\in \Z$. Then, $x= 3a-2y$ and $2z=3b-y$. Note that
+ 		 \begin{align*}
+ 		 	x+2z &= 3a-2y+3b-y\\
+ 		 	&= 3(a-y+b).
+ 		 \end{align*}
+ 	 Since $a-y+b\in \Z$, it follows that $3\mid (x+2z)$ and so $x\; R \; z$ ($R$ is transitive).
+ 			\end{proof}
+ 			\item If $S=\{-7,-6,-2,0,1,4,5,7\}$, then what are the distinct equivalence classes in this case?
+ 			\begin{solution}{(b)}
+ 				The distinct equivalence classes are:
+ 				\begin{align*}
+ 					A_{1} &= \{-6,0\} = [-6] = [0]\\
+ 					A_{2} &= \{5,-7\} = [-7] = [5]\\
+ 				A_{3} &= \{-2,1,4,7\} = [-2] = [1] = [4] = [7]\\
+ 				\end{align*}
+ 			\end{solution}
+ 		\end{enumerate}
+ 	\end{problem}
+ 
+ 	\begin{problem}{40}
+ 		A relation $R$ is defined on $\Z$ by $x\; R \;y$ if $3x-7y$ is even. Prove that $R$ is an equivalence relation. Determine the distinct equivalence classes.
+ 		\begin{solution}{40}
+ 			First, we show that $R$ is an equivalence relation.
+ 			\begin{proof}
+ 				We show that $R$ is reflexive. Consider some integer $x$. Then, $3x-7x = -4(x) = 2(-2x)$, where $-2x\in \Z$ and so it is even. Hence, $x\;R \;x$. \\
+ 				We prove that $R$ is symmetric. Consider two integers $x$ and $y$ such that $x\; R \; y$. Hence, $3x-7y = 2c$ for some integer $c$. Then, $3y-7x = 2c +10y-10x = 2(c+5y-5x)$. Since $c+5y-5x\in \Z$, it follows that $3y-7x$ is even and so $y\; R \;x$.\\
+ 				Now, consider three integers $x,y,z$ such that $x\; R \;y$ and $y\; R \; z$. Thus, $3x-7y = 2a$ and $3y-7z = 2b$ for some $a,b\in \Z$. Note that $(3x-7y) + (3y-7z) = 2a+2b$ and so $3x-7z = 2a+2b +4y = 2(a+b+y)$. Since $a+b+y\in \Z$, it follows that $3x-7y$ is even and so $x\; R \;z$.
+ 			\end{proof}
+ 		Now that it has been proven that $R$ is an equivalence relation. We proceed to determine its equivalence classes. We first determine the equivalence class for some even integer, say 0. Then
+ 		\begin{align*}
+ 			[0] &= \{x\in \Z:x\; R \; 0\}\\
+ 			&= \{x\in \Z: 3x-70 \text{ is even}\}\\
+ 			&= \{x\in \Z: 3x \text{ is even}\}\\
+ 			&= \{x\in \Z: x \text{ is even}\}.
+ 		\end{align*}
+ 	Now, consider some odd integer, say $1$. Then
+ 	\begin{align*}
+ 		[1] &= \{x\in \Z : x\; R \;1\}\\
+ 		&= \{x\in \Z : 3x-7 \text{ is even}\}\\
+ 		&= \{x\in \Z: 3x \text{ is odd}\}\\
+ 		&= \{x\in \Z: x \text{ is odd}\}.
+ 	\end{align*}
+ Therefore, there are two distinct equivalence classes, namley, the set of even integers and the set of odd ones.
+ 		\end{solution} 
+ 	\end{problem} 
+ 
+ 	\begin{problem}{41}
+ 		contenidos...
+ 	\end{problem}
 \end{document}

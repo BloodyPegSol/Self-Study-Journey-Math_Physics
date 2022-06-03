@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2022.4.30)  31 MAY 2022 09:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2022.4.30)  3 JUN 2022 12:55
 entering extended mode
 **./section8.4_PropertiesOfEquivalenceClasses.tex
 (section8.4_PropertiesOfEquivalenceClasses.tex
@@ -805,28 +805,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 79--81
 [1
 
 {C:/Users/juanp/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-(section8.4_PropertiesOfEquivalenceClasses.aux) ) 
+[3] (section8.4_PropertiesOfEquivalenceClasses.aux) ) 
 Here is how much of TeX's memory you used:
- 26458 strings out of 480763
- 647106 string characters out of 2904059
- 928369 words of memory out of 3000000
- 42106 multiletter control sequences out of 15000+200000
+ 26461 strings out of 480763
+ 647180 string characters out of 2904059
+ 931369 words of memory out of 3000000
+ 42109 multiletter control sequences out of 15000+200000
  540535 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,12n,71p,1644b,234s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/latxfont/line10.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on section8.4_PropertiesOfEquivalenceClasses.pdf (2 pages, 91587
+ 60i,12n,71p,1644b,360s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/latxfont/line10.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on section8.4_PropertiesOfEquivalenceClasses.pdf (3 pages, 97681
  bytes).
 PDF statistics:
- 48 PDF objects out of 1000 (max. 8388607)
+ 51 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
