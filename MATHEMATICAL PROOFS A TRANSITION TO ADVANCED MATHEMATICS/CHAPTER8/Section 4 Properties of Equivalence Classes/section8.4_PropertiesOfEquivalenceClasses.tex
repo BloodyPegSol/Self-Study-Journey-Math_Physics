@@ -15,7 +15,7 @@
 
 
 \newlist{legal}{enumerate}{10}
-\setlist[legal]{label*=\arabic*.}
+\setlist[legal]{label=(\alph*)}
 
 \DeclarePairedDelimiter\bra{\langle}{\rvert}
 \DeclarePairedDelimiter\ket{\lvert}{\rangle}
@@ -158,6 +158,39 @@
  	\end{problem} 
  
  	\begin{problem}{41}
- 		contenidos...
+ 		\begin{enumerate}[label=(\alph*)]
+ 			\item Prove that the intersection of two equivalence relations on a nonempty set is an equivalence relation.
+ 			\begin{proof}
+ 				Let $R_{1}$ and $R_{2}$ be two equivalence relations on some nonempty set $A$. Let their intersection be the set $K$. Since both $R_{1}$ and $R_{2}$ are reflexive, it follows that if $x\in A$, then $(x,x)\in R_{1},R_{2}$, and so $(x,x)\in K$. Hence, $K$ is reflexive. Consider some $a,b\in A$ such that $a\; K \;b$ (Recall that $a\; K \;b$ is the same as saying $(a,b)\in K$). Then, $a\; R_{1} \;b$ and $a\; R_{2} \; b$. Since both are symmetric, $b\; [R_{1},R_{2}]\; a$ ($b$ is related to $a$ by both $R_{1}$ and $R_{2}$) and so $b\; K \;a$, which implies that $K$ is symmetric.\\
+ 				Now consider some $a,b,c\in A$ such that $a\; K \;b$ and $b\; K \;c$. Therefore, $a \; [R_{1},R_{2}]\; b$ and $b \; [R_{1},R_{2}]\; c$. Since both relations are transitive, it follows that $a\; [R_{1},R_{2}]\;c$. Therefore, $a\; K \; c$, which implies that $K$ is transitive. Thus, $K$, namely, the intersection of two equivalence relations on a nonempty set, is an equivalence relation.
+ 			\end{proof}
+ 		\vspace{0.5 cm}
+ 		
+ 		\begin{lemma}{8.4.1}
+ 			Let  $a,b$ be integers. $a \equiv b \Mod{2}$ and $a\equiv b \Mod{3}$ is a necessary and sufficiente condition for $a\equiv b \Mod{6}$
+ 			\begin{proof}
+ 				Assume that $a\equiv b \Mod{6}$, then $a=6(c) +b = 2(3c) + b = 3(2c)+b$ for some integer $c$. Since $2c,3c\in \Z$, it follows that $a \equiv b \Mod{3}$ and $a\equiv b \Mod{2}$. \\
+ 				Suppose that $a \equiv b \Mod{3}$ and $a\equiv b \Mod{2}$. Hence, $a=3x+b=2y+b$ and so $3x=2y$ for some $x,y\in \Z$. Hence, $3x$ is even and so $2 \mid x$.  Hence $3x = 3\cdot 2(c)$ for some $c\in \Z$. Therefore, $a=6(c) + b$, which implies that $a\equiv b \Mod{6}$.
+ 			\end{proof}
+ 		\end{lemma}
+ 			\item Consider the equivalence relations $R_{2}$ and $R_{3}$ defined on $\Z$ by $a\; R_{2} \;b$ if $a\equiv b \Mod 2$ and $a\; R_{3}\; b$ if $a\equiv b \Mod{3}$. By (a), $R_{1} = R_{2}\cap R_{3}$ is an equivalence relation on $\Z$. Determine the distinct equivalence classes in $R_{1}$.
+ 			\begin{solution}{b}
+ 				Note that $R_{1}$ is defined by $a\; R_{1}\; b$ if $a\equiv b \Mod 2$ and $a\equiv b \Mod{3}$. Since both 2 and 3 are prime, by the prevoius Lemma, $a\equiv b \Mod 2$ and $a\equiv b \Mod{3} \iff a\equiv b\Mod{6}$. Thus, 
+ 				\begin{align*}
+ 					[a] &= \{x\in \Z:x\; R\;a\}\\
+ 					&= \{x\in \Z: x\equiv a\Mod{6}\}\\
+ 					&= \{x\in \Z: x = 6m + a, m\in \Z\}.
+ 				\end{align*}
+ 			Recall that any integer can be expressed as $6c+b$ for exaclty one $(c,b)$, where $c\in \Z$ and $b\in \{0,1,2,3,4,5\}$ by the \textbf{Divition Algorithm}. Hence,
+ 			\begin{align*}
+ 				[0] &= \{6x+0:x\in \Z\}\\
+ 				[1] &= \{6x+1:x\in \Z\}\\
+ 				[2] &= \{6x+2:x\in \Z\}\\
+ 				[3] &= \{6x+3:x\in \Z\}\\
+ 				[4] &= \{6x+4:x\in \Z\}\\
+ 				[5] &= \{6x+5:x\in \Z\}\\
+ 			\end{align*}
+ 			\end{solution}
+  		\end{enumerate}
  	\end{problem}
 \end{document}
