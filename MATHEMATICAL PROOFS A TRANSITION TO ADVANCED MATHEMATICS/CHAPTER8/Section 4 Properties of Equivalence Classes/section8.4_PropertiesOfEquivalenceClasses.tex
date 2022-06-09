@@ -193,4 +193,28 @@
  			\end{solution}
   		\end{enumerate}
  	\end{problem}
+ 
+ 	\begin{problem}{42}
+ 		Prove or disprove: The union of two equivalence relations on a nonempty set is an equivalence relation.
+ 		\begin{solution}{42}
+ 			This is false. Consider the set $A=\{a,b,c\}$ and relations 
+ 			\begin{align*}
+ 			R_{1} &= \{(a,a),(b,b),(c,c),(a,b),(b,a)\}\quad \text{ and}\\ R_{2} &= \{(a,a),(b,b),(c,c),(d,d),(b,c),(c,b)\}.
+ 			\end{align*}
+ 			Hence, both $R_{1}$ and $R_{2}$ are equivalence relations and their union is 
+ 			\begin{equation*}
+ 			K=R_{1}\cup R_{2} = \{(a,a),(b,b),(c,c),(d,d),(b,c),(c,b),(a,b),(b,a)\}.
+ 			\end{equation*}
+ 			Note that $(a,b),(b,c)\in K$, however, $(a,c)\not\in K$. Thus, $K$ is not transitive and so it is not an equivalence relation.
+ 		\end{solution}
+ 	\end{problem}
+ 
+ 	\begin{problem}{43}
+ 		Let $A=\{u,v,w,x,y,z\}$. The relation
+ 		\begin{align*}
+ 			R=\{&(u,u),(u,v),(u,w),(v,u),(v,v),(v,w),(w,u),(w,v),\\
+ 			&(w,w),(x,x),(x,y),(y,x),(y,y),(z,z)\}
+ 		\end{align*}
+ 		defined on $A$ is an equivalence relation. In particular, $[u]=[v]=[w]=\{u,v,w\}$, $[x]=[y]=\{x,y\}$ and $[z]=\{z\}$; so $|[u]|=|[v]|=|[w]|=3$ and $|[x]|=|[y]|=2$, while $|[z]|=1$. Therefore, $|[u]|+|[v]|+|[w]|+|[x]|+|[y]|+|[z]|=14$. Let $A=\{a_{1},a_{2},\ldots,a_{n}\}$ be an $n$-element set and let $R$ be an equivalence relation defined on $A$. Prove that $\sum_{i=1}^{n}|[a_{i}]|$ is even if and only if $n$ is even.
+ 	\end{problem}
 \end{document}
