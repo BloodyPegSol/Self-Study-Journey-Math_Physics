@@ -216,5 +216,19 @@
  			&(w,w),(x,x),(x,y),(y,x),(y,y),(z,z)\}
  		\end{align*}
  		defined on $A$ is an equivalence relation. In particular, $[u]=[v]=[w]=\{u,v,w\}$, $[x]=[y]=\{x,y\}$ and $[z]=\{z\}$; so $|[u]|=|[v]|=|[w]|=3$ and $|[x]|=|[y]|=2$, while $|[z]|=1$. Therefore, $|[u]|+|[v]|+|[w]|+|[x]|+|[y]|+|[z]|=14$. Let $A=\{a_{1},a_{2},\ldots,a_{n}\}$ be an $n$-element set and let $R$ be an equivalence relation defined on $A$. Prove that $\sum_{i=1}^{n}|[a_{i}]|$ is even if and only if $n$ is even.
+ 		\begin{proof}
+ 		Let $A=\{a_{1},a_{2},\ldots,a_{n}\}$ be an $n$-element set and let $R$ be an equivalence relation defined on $A$. Also, let $r_{1},r_{2},\ldots,r_{k}$ be the distinct equivalence classes by $R$.\\
+ 		
+ 		 Recall that $\{r_{1},r_{2},\ldots,r_{k}\}$ is a partition of $A$, and so
+ 		 \begin{equation*}
+ 		  \sum_{i=1}^{k}|r_{i}| = |A|.
+ 		  \end{equation*}
+ 			  
+ 		We know that $[x] = [w] \iff x\in [w]$ for any elements $x,w\in A$. Hence, for any positive integer $i\leq k$, $r_{i}$ contains $|r_{i}|$ unique elements of $A$ and  $|[x]|=|r_{i}|$ for every $x\in [r_{i}]$. Hence,  
+ 		\begin{equation*}
+ 		 \sum_{i=1}^{n}|[a_{i}]| = \sum_{i=1}^{k}|r_{i}|^{2}
+ 		 \end{equation*}
+ 		  (check \textbf{Corollary 8.3.3}). 	Since $x^{2}$ is even if and only if $x$ is even, the sum $\sum_{i=1}^{k}|r_{i}|^{2}=\sum_{i=1}^{n}|[a_{i}]|$ has the same parity as $\sum_{i=1}^{k}|r_{i}| = |A|$ (same quantitiy of even and odd numbers being added).\\
+ 		\end{proof}
  	\end{problem}
 \end{document}
