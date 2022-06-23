@@ -1,0 +1,83 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+ \title{Section 8.5: Congruence Modulo n}
+ \author{Juan Patricio Carrizales Torres}
+\date{May 30, 2022}
+\maketitle
+
+This chapter discusses the previously seen topic of \textbf{Congruence Modulo n}, but now with the lens of
+\textbf{Equivalence relations}. Basically, the author proved that every relation on $\Z$
+defined by the congruence modulo of some $n\geq 2$ is an equivalence relation with $n$ equivalence
+classes. This follows from the \textbf{Division Algorithm}, namely in the case for $n\geq 2$, any integer $m$ can be expressed uniquely 
+as $m=kn+r$, where $k\in \Z$ and $0\leq r < n$.\\
+
+Another interesting idea is the logical equivalence between coditions that define equivalence relations.
+For example, let $R_{1}$ and $R_{2}$ be relations on some nonempty set defined by $a\; R_{1} \;b$ if $P(a,b)$ and $a\; R_{2} \;b$ if $Q(a,b)$. The fact that 
+$P(a,b) \iff Q(a,b)$ for some other condition $Q(n)$, implies that $R_{1} = R_{2}$. 
+Hence, one can show that two relations have the same distinct equivalence classes by just showing that there is a 
+biconditional relation between the conditions that define them.
+
+\begin{problem}{47}
+  The relation $R$ on $\Z$ defined by $a \; R \; b$ if $a^{2} \equiv b^{2} \Mod{4}$ is known to be
+  an equivalence relation. Determine the distinct equivalence classes.
+  \begin{solution}{47}
+    Let's first consider $[0]$. We know that
+    \begin{align*}
+      [0] &= \left(x\in\Z:x\; R\;0 \right)\\
+      &= \left(x\in\Z: x^{2} = 4k,\; k\in \Z\right)\\
+      &= \left(x\in\Z: 4\mid x^{2}\right) = \left(x\in\Z: 2\mid x^{2}\right)\\
+      &= \left(x\in\Z:2\mid x\right). 
+    \end{align*}
+    Hence, $[0]$ is the set of all even integers. Now we are left with the odd ones, so let's check what are the elements of $[1]$. We know that
+    \begin{align*}
+       [1] &= \left(x\in\Z:x\; R\;1 \right)\\
+      &= \left(x\in\Z: x^{2}-1 = 4k,\; k\in \Z\right).
+    \end{align*}
+    Note that $x^{2}-1 = (x-1)(x+1)$ is an even integer. Thus, it is a necessary and sufficient condition that either $2\mid(x-1)$ or $2\mid(x+1)$. Therefore, $x=2a+1$ or $x=2b-1=2(b-1)+1$ for $a,b\in\Z$, and so $[1]$ is the set of odd integers.
+  \end{solution}
+\end{problem}
+
+
+\end{document}
+
+
