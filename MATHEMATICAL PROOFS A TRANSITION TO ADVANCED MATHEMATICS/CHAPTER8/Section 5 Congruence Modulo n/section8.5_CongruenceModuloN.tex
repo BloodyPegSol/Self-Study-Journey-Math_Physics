@@ -71,9 +71,14 @@ biconditional relation between the conditions that define them.
     Hence, $[0]$ is the set of all even integers. Now we are left with the odd ones, so let's check what are the elements of $[1]$. We know that
     \begin{align*}
        [1] &= \left(x\in\Z:x\; R\;1 \right)\\
-      &= \left(x\in\Z: x^{2}-1 = 4k,\; k\in \Z\right).
+       &= \left(x\in\Z: 4\mid (x^{2}-1)\right)\\
     \end{align*}
-    Note that $x^{2}-1 = (x-1)(x+1)$ is an even integer. Thus, it is a necessary and sufficient condition that either $2\mid(x-1)$ or $2\mid(x+1)$. Therefore, $x=2a+1$ or $x=2b-1=2(b-1)+1$ for $a,b\in\Z$, and so $[1]$ is the set of odd integers.
+    We know that $x^{2}$ is either even or odd. If it is even, then $x^{2}-1$ is odd (sum of an even and odd integer) which contradicts the assumption that it is a multiple of 4. Hence, we may assume that $x^{2}$ is odd. Recall that $x^{2}$ is odd if and only if $x$ is odd and so $x=2k+1$ for some $k\in\Z$. Hence, 
+    \begin{align*}
+      x^{2}-1 &= (2k+1)^{2}-1 \\
+      &= 4k^{2} + 4k +1 -1 = 4(k^{2}+k).
+    \end{align*}
+    Since $k^{2}+k$ is an integer, it follows that $4\mid(x^{2}-1)$. Hence, $x$ being odd is a necessary and sufficient condition for $4\mid(x^{2}-1)$ to be true, and so $[1]$ is the set of odd integers.
   \end{solution}
 \end{problem}
 
