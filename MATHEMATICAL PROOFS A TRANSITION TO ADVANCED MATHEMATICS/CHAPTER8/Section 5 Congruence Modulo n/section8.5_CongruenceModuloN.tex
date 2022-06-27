@@ -82,7 +82,36 @@ biconditional relation between the conditions that define them.
   \end{solution}
 \end{problem}
 
+\begin{problem}{48}
+  The relation $R$ defined on $\Z$ by $x \; R \; y$ if $x^{3} \equiv y^{3} \Mod 4$ is known to be an equivalence relation . Determine the distinct equivalence classes.
+  \begin{solution}{48}
+   Let's first consider the equivalence class [0]. Then
+   \begin{align*}
+     [0] &= \{x\in \Z:x\; R \;0\}\\
+     &= \{x\in \Z:4\mid x^{3}\}.
+   \end{align*}
+   Consider some $x\in [0]$. We know that either $x$ is odd or even. If it is odd, then $x^{3}$ is odd which contradicts our assumption that $4\mid x^{3}$. Hence, $x=2k$ for some $k\in \Z$ and so $x^{3} = 8k^{3} = 4\left( 2k^{3} \right)$. Since $2k^{3} \in \Z$, it follows that $x$ being even is a necessary and sufficient condition for $4\mid x^{3}$ to be true. Thus, [0] is the set of even integers.\\
 
+   Now, we are left with the odd integers. Consider the equivalence class $[1]$. Then
+   \begin{align*}
+     [1] &= \left\{x\in \Z: x \; R \; 1 \right\}\\
+     &= \left\{ x\in\Z: 4\mid\left(x^{3}-1 \right) \right\}.
+   \end{align*}
+   Let $x\in[1]$. Then $x$ must be odd because $[0]$ contains all even integers. Thus, $x=2k+1$ for some $k\in\Z$ and so $x^{3} = 8k^{3} + 6k + 12k^{2} + 1$. Then, $x^{3} -1 = 8k^{3} + 6k + 12k^{2}$. Note that $4\mid (3(2k))$ if and only if $2\mid k$. Hence, $4\mid \left( x^{3} -1 \right)$ if and only if $x=2k+1$ for some even integer $k$. \\
+
+   Now, we are left with the set of odd integers $2k+1$ where $k$ is an odd integer. Consider the equivalence class $[3]$. Then,
+   \begin{align*}
+     [3] &= \left\{x\in \Z: x \; R \; 3 \right\}\\
+     &= \left\{ x\in\Z: 4\mid\left(x^{3}-27 \right) \right\}.
+   \end{align*}
+   Let $x\in[3]$. Then $x=2k+1$ for some odd integer $k=2b+1$, where $b\in\Z$. Thus, $x^{3}-27= (8k^{3}+12k^{2}+6k+1)-27 = 8k^{3}+12k^{2}+12b-20 = 4(2k^{3}+3k^{2}+3b-5)$. Because $2k^{3}+3k^{2}+3b-5$ is an integer, it follows that $4\mid\left(x^{3}-27 \right)$ if and only if $x=2k+1$, where $k$ is an odd integer. Therefore, the distinct equivalence classes are as follows:
+   \begin{align*}
+     [0] &= \left\{ x\in \Z: x \text{ is even}\right\}\\
+     [1] &= \left\{ x\in \Z: x=2k+1, \text{ where }k\text{ is even} \right\}\\
+     [3] &= \left\{ x\in\Z: x=2k+1, \text{ where }k\text{ is odd} \right\}.
+   \end{align*}
+  \end{solution}
+\end{problem}
 \end{document}
 
 
