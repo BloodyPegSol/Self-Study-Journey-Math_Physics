@@ -112,6 +112,55 @@ biconditional relation between the conditions that define them.
    \end{align*}
   \end{solution}
 \end{problem}
+
+\begin{problem}{49}
+  A relation $R$ is defined on $\Z$ by $a\; R\; b$ if $5a \equiv 2b \Mod 3$. Prove that $R$ is an equivalence relation. Determine the distinct equivalence classes.
+  \begin{solution}{49}
+    We first show that $R$ is an equivalence relation. 
+    \begin{proof}
+      We first show that $R$ is reflexive. Consider some integer $x$. Then, $5x-2x = 3x$. Hence, $5x \equiv 2x \Mod 3$. Consider some integers $x,y$ such that $5x \equiv 2y \Mod 3$. Then, $5x-2y =3k$ for some integer $k$. Note that
+      \begin{align*}
+	5y-2x &= (3k-5x+7y)+(3k+2y-7x) \\
+	&= 6k-12x+9y = 3(2k-4x+3y).
+      \end{align*}
+     Since $2k-4x+3y \in \Z$, it follows that $5y \equiv 2x \Mod 3$ and so $R$ is symmetric. Now, consider some integers $x,y,z$ such that $5x \equiv 2y \Mod 3$ and $5y \equiv 2z \Mod 3$, namely, $x\; R \;y$ and $y\; R \;z$. Then $5x-2y = 3a$ and $5y-2z = 3b$ for some integers $a,b$. Note that
+     \begin{align*}
+       5x-2z &= (5x-2y)+(5y-2z)-3y\\
+       &= 3a+3b-3y = 3(a+b-y).
+     \end{align*}
+     Because $a+b-y$ is an integer, it follows that $5x \equiv 2z \Mod 3$ ($x\; R \;z$) and so $R$ is transitive.
+    \end{proof}
+
+    Now, all we have left to do is determine the equivalence classes. We initially consider [0]. Then
+    \begin{align*}
+      [0] &= \left\{ x\in \Z:3\mid 5x \right\}\\
+      &= \left\{ x\in \Z: 3\mid x \right\}
+    \end{align*}
+    since 5 is prime. Now, we are left with the set of every integer $x$ such that either $x \equiv 1 \Mod 3$ or $x \equiv 2 \Mod 3$. Thus, let's check $[1]$. Then
+    \begin{align*}
+      [1] &= \left\{x\in \Z:3\mid(5x-2)\right\}.
+    \end{align*}
+    Consider some $x\in [1]$. If $x \equiv 2\Mod 3$, then $x=3a+2$, where $a\in\Z$, and so $5(3a+2)-2=15a+8=15k+6+2$ which contradicts our assumption that $3\mid(5x-2)$. Hence, $x \equiv 1\Mod 3$ and so $x=3b+1$ for some integer $b$. Therefore, $5(3b+1)-2=15a+3 = 3(5a+1)$ which implies that $3\mid (5x-2)$. Thus, $x\equiv 1\Mod 3$ is a necessary and sufficient condition for $3\mid(5x-2)$ to be true and so
+     \begin{align*}
+      [1] &= \left\{x\in \Z:x\equiv 1\Mod 3\right\}.
+    \end{align*}
+    Since we are left with the set of every integer $x$ such that $x\equiv 2\Mod 3$, it follows that it makes sense to consider $[2]$. We know that
+    \begin{align*}
+      [2] &= \left\{ x\in \Z:3\mid(5x-4) \right\}.
+    \end{align*}
+    Note that $x\in [2]$ implies that $x\equiv 2\Mod 3$ due to the partition nature of equivalence classes. If $x\equiv 2\Mod 3$, then $x=3k+2$ for some $k\in\Z$ and so $5x-4 = 5(3k+2)-4= 15k+10-4= 15k+6$, which implies that $3\mid (5x-4)$ and $x\in [2]$. Hence, 
+    \begin{align*}
+      [2] &= \left\{ x\in \Z:x\equiv 2 \Mod3 \right\}.
+    \end{align*}
+    Therefore, the equivalence classes are as follows:
+    \begin{align*}
+      [0] &= \left\{ x\in \Z:x\equiv 0\Mod 3 \right\}\\
+      [1] &= \left\{x\in \Z:x\equiv 1\Mod 3\right\}\\
+      [2] &= \left\{ x\in \Z:x\equiv 2 \Mod3 \right\}.
+    \end{align*}
+  \end{solution}
+\end{problem}
+
 \end{document}
 
 
