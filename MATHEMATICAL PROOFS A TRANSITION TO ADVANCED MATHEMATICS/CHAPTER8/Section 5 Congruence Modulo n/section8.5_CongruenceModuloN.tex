@@ -161,6 +161,79 @@ biconditional relation between the conditions that define them.
   \end{solution}
 \end{problem}
 
+\begin{problem}{52}
+  Let $R$ be the relation defined on $\Z$ by $a\; R\;b$ if $a^{2} \equiv b^{2} \Mod 5$. Prove that $R$ is an equivalence relation and determine the distinct equivalence classes.
+  \begin{solution}{52}
+    We prove that $R$ is an equivalence relation.
+    \begin{proof}
+      Consider some integer $x$. Then $x^{2}-x^{2}=0$ and so $x^{2} \equiv x^{2} \Mod 5$. Thus, $R$ is reflexive. Now, consider some integers $x,y$ such that $x^{2} \equiv y^{2} \Mod 5$. Then, $x^{2}-y^{2} = 5k$ for some integer $k$. Note that 
+      \begin{align*}
+	y^{2}-x^{2} &= -(x^{2}-y^{2})\\
+	&= -5k = 5(-k).
+      \end{align*}
+      Hence, $y^{2} \equiv x^{2} \Mod 5$ and so $R$ is symmetric. Let $x,y,z$ be integers such that $x^{2} \equiv y^{2} \Mod 5$ and $y^{2} \equiv z^{2} \Mod 5$, namely, $x\; R\;y$ and $y\; R \;z$. Then, $x^{2} - y^{2} = 5a$ and $y^{2}-z^{2} = 5b$ for integers $a,b$. Note that
+    \begin{align*}
+      (x^{2}-y^{2}) + (y^{2}-z^{2}) &= x^{2}-y^{2}\\
+      &= 5(a+b).
+    \end{align*}
+    Thus, $x^{2} \equiv z^{2} \Mod 5$ and so $R$ is transitive.
+    \end{proof}
+
+    Once we know that $R$ is an equivalence relations, let's determine its equivalence classes. Let's check $[0]$. Then
+    \begin{align*}
+      [0] &= \left\{x\in\Z:5\mid x^{2} \right\}\\
+      &= \left\{x\in\Z:5\mid x\right\}
+    \end{align*}
+    since 5 is a prime numbers.
+    We are left with the set of integers not multiples of 5, for instance, 1. Then,
+    \begin{align*}
+      [1] &= \left\{x\in\Z:5\mid(x^{2}-1)\right\}\\
+      &= \left\{x\in\Z:5\mid(x-1)(x+1)\right\}\\
+      &= \left\{x\in\Z:5\mid(x-1)\text{ or }5\mid(x+1)\right\}
+      &= \left\{x\in\Z:x=5a+1\text{ or }x=5b+4,\; a,b\in\Z\right\}
+    \end{align*}
+    since $5$ is a prime number. Therefore, we are left with the set of all integers such that $x^{2} \equiv 2 \Mod5$ and $x^{2} \equiv 3\Mod 5$. Hence, consider $[2]$. Then,
+    \begin{align*}
+      [2] &= \left\{x\in\Z:5\mid(x^{2}-4)\right\}\\
+      &= \left\{x\in\Z:5\mid(x+2)(x-2)\right\}\\
+      &= \left\{x\in\Z:5\mid(x+2)\text{ or }5\mid(x-2)\right\}
+      &= \left\{x\in\Z:x=5a+3\text{ or }x=5b+2,\; a,b\in\Z\right\}.
+    \end{align*}
+    Hence, the distinct equivalence classes are as follows:
+    \begin{align*}
+      [0] &= \left\{x\in\Z:x\equiv \Mod 5\right\}\\
+      [1] &= \left\{x\in\Z:x\equiv 1 \Mod 5 \text{ or } x\equiv 4\Mod 5\right\}\\    
+      [2] &= \left\{x\in\Z:x\equiv 2 \Mod 5 \text{ or } x\equiv 3\Mod 5\right\}
+    \end{align*}
+    The argument of this proof suggests an interesting conjecture. Let $n$ be a prime number. Then the distinct equivalence classes of $R$ defined on $\Z$ by $a\; R\; b$ if $a^{2} \equiv b^{2} \Mod n$ are $[0] = \left\{ x\in\Z: x\equiv \Mod n\right\}$ and $[k] = \left\{ x\in\Z: x\equiv k \Mod n \text{ or } x\equiv (n-k) \Mod n\right\}$. It's like taking the edges, namely
+    \begin{equation*}
+      \underbrace{x\equiv \Mod n}_{[0]} \:
+      \underbrace{x\equiv 1 \Mod n}_{[1]}  \: \underbrace{x\equiv 2 \Mod n}_{[2]} \dots  \underbrace{x\equiv (n-1) \Mod n}_{[2]} \: \underbrace{x\equiv n \Mod n}_{[1]}. 
+    \end{equation*}
+
+    \begin{problem}{53}
+      For an integer $n\geq 2$, the relation $R$ defined on $\Z$ by $a\; R\; b$ if $a\equiv b \Mod n$ is an equivalence relation. Equivalently, $a\; R\; b$ if $a-b=kn$ for some integer $k$. Define a relation $R$ on the set $\R$ by $a\; R\; b$ if $a-b=k\pi$ for some $k\in\Z$. Is this relation $R$ on $\R$ an equivalence relation? If not, explain why. If yes, prove this and determine $[0], [\pi]$ and $[\sqrt{2}]$.
+      \begin{solution}{53}
+	Yes, it is. In fact, for any real number $r$, any relation $R$ on the set $\R$ defined by $a\; R\; b$ if $a-b=kr$ for some $k\in\Z$ is an equivalence relation.
+	\begin{proof}
+	  Let $r\in\R$. Consider some real number $x$. Then, $x-x=0=0r$ and so $R$ is reflexive. Consider some real numbers $x,y$ such that $x-y=kr$ for some $k\in\Z$. Note that $y-x = -(x-y) = -kr = r(-k)$<++> and so $R$ is symmetric. Lastly, consider some real numbers $x,y,z$ such that $x-y=ar$ and $y-z=br$ for some $a,b\in\Z$. Note that $(x-y)+(y-z)=x-z=r(a+b)$. Since $a+b\in\Z$, it follows that $R$ is transitive.
+	\end{proof}
+	Then, let's determine the asked equivalence classes. First, consider $[0]$. Then,
+	\begin{align*}
+	  [0] &= \left\{x\in\R:x=\pi k, \;k\in \Z\right\}.
+	\end{align*}
+	Since $\pi = \pi\cdot1$, it follows that $[\pi] = [0]$. Note that they only contain irrational numbers, being $0$ and exception. Now, consider $[\sqrt{2}]$. Then,
+ \begin{align*}
+   [\sqrt{2}] &= \left\{x\in\R:x-\sqrt{2} = \pi k, \; k\in \Z\right\}\\
+   &= \left\{x\in\R:x=\pi k +\sqrt{2}, \; k\in \Z\right\}.
+ \end{align*}
+ Note that both $\pi k$ and $\sqrt{2}$ are irrational. Thus, $\pi k +\sqrt{2}$ is irrational and so $[\sqrt{2}]$ only contains irrational numbers.
+
+      \end{solution}
+    \end{problem}
+  \end{solution}
+ \end{problem}
+
 \end{document}
 
 
