@@ -220,7 +220,7 @@
                 \tkzLabelPoint[below right](B){$10$};
                 \node at (B)[circle,fill,inner sep=1.5pt]{};
                 \end{tikzpicture}
-                \label{fig:open}
+                \label{fig:(a,b)}
                 \caption{$(3,10)\sim \R$ USING $f(x)=(x-6.5)/(\vert x-6.5\vert - 3.5)$}
                 \end{figure}
 
@@ -228,7 +228,7 @@
 			\begin{equation*}
 				f(x) = \frac{(x-\varphi)}{\vert x-\varphi\vert - \Delta},
 			\end{equation*}
-		where $\varphi = \frac{a+b}{2}$ and $\Delta = \frac{b-a}{2}$ represent the middle point and half the difference of $(a,b)$, respectively. For example, the function $f(x)=(x-6.5)/(\vert x-6.5\vert - 3.5)$ takes the interval $(3,10)$ onto $\R$ in a $1-1$ fashion (Figure \ref{fig:open}).
+		where $\varphi = \frac{a+b}{2}$ and $\Delta = \frac{b-a}{2}$ represent the middle point and half the difference of $(a,b)$, respectively. For example, the function $f(x)=(x-6.5)/(\vert x-6.5\vert - 3.5)$ takes the interval $(3,10)$ onto $\R$ in a $1-1$ fashion (Figure \refeq{fig:(a,b)}).
 		
 
 		Hence, $(a,b)\sim \R$ for any $a,b\in \R$. This can be proven using a little calculus, but I don't provide it since I lack theoretical knowledge in this field.
@@ -240,8 +240,6 @@
 			\begin{equation*}
 				g(x)=\log (x-a).
 			\end{equation*}
-			For example, the function $f(x)=\log(x-5)$ takes the interval $(5,\infty)$ onto $\R$ in a $1-1$ fashion (Figure \ref{fig:inf}).
-
 		\begin{figure}
                 \centering
                 \begin{tikzpicture}
@@ -250,127 +248,17 @@
                 \draw[<->,scale=0.7] (6.5,-5) -- (6.5,4) node[above] {$\R$};
         
                 \draw [scale=0.7,dashed,domain=-6:6] plot (5,\x);
-		\tkzDefPoint (3.5,0){A};
+		\tkzDefPoint (3.1,0){A};
                 \tkzLabelPoint[below left](A){$5$}; 
                 \node at (A)[circle,fill,inner sep=1.5pt]{}; 
                 
 		\draw [domain=5.01:10.5,range=-0.5:0.5,smooth,scale=0.7]plot (\x,{ln(\x-5)});
                 \end{tikzpicture}
-                \label{fig:inf}
-		\caption{$(5,\infty)\sim \R$ USING $f(x)=\log(x-5)$}
+                \label{fig:(b,c)}
+		\caption{$(5,\infty)\sim \R$ USING $f(x)=log(x-5)$}
                 \end{figure}
+
 		\end{proof}
-	      \item Using open intervals makes it more convenient to produce the required 1-1, onto functions, but it is not really necessary. Show that $[0,1)~(0,1)$ by exhibiting a 1-1 onto function between the two sets.
-		\begin{proof}
-		  We know that $\R$ is the union of an uncountable set $\mathbb{I}$ and a countable set $\Q$. Let $r = \left\{r_{n}:n\in \N \right\}$ be the sequence of all rational numbers in $(0,1)$ and let $r_{0} = 0$. Then, define some function $\varphi$ by
-		  \begin{align*}
-		    \varphi(x) = \begin{cases}
-		      x, \; x\in\mathbb{I}.\\
-		      r_{n}, \; x = r_{n-1} \text{ for all } n\in\N.
-		    \end{cases}
-		  \end{align*}
-		  Hence, $\varphi: [0,1) \to (0,1)$ is a 1-1 onto function and so $[0,1)~(0,1)$.
-		\end{proof}
-	 \end{enumerate}
-      
-\end{problem}
-
-\begin{problem}{1.5.5}
-  \begin{enumerate}[label=(\alph*)]
-    \item Why is $A\sim A$ for every set $A$?
-      \begin{solution}{(a)}
-	Just consider the function $g(x)=x$ for every $x\in A$ (some type of identity function) which clearly is bijective. 
-      \end{solution}
-   \item Given sets $A$ and $B$, explain why $A\sim B$ is equivalent to asserting $B\sim A$.
-     \begin{solution}{(b)}
-       If there is a bijective function $\varphi: A\to B$, then there is an inverse function $\varphi^{-1}: B\to A$ that is also bijective.
-     \end{solution}
-   \item For three sets $A,B,$ and $C$, show that $A\sim B$ and $B\sim C$ implies $A\sim C$. These three properties are what is meant by saying that $\sim$ is an \textit{equivalence relation}.
-     \begin{solution}{(c)}
-       If there are bijective functions $\varphi: A\to B$ and $\gamma: B\to C$, there is a composite function $\varphi \circ \gamma:A\to C$ that is bijective.
-     \end{solution}
-  \end{enumerate}
-\end{problem}
-
-\begin{problem}{1.5.6}
-  \begin{enumerate}[label=(\alph*)]
-    \item Give an example of a countable collection of disjoint open intervals.
-      \begin{solution}{(a)}
-	Consider the collection $S=\left\{(n,n+1):n\in\N \right\}$. Then, $S$ is disjoint and countable.
-	\end{solution}
-    \item Give an example of an uncountable collection of disjoint open intervals, or argue that no such collection exists.
-      \begin{solution}{(b)}
-	No such collection exists. Although, I don't have a proof, I can give some hand-wavy argument of why. This has to do with the density property of rational numbers in $\R$. For every open interval, there will be a rational point in it and since all are disjoint, one can pair each interval with a distinct rational number. Since $\Q$ is countable, it follows that any collection of open intervals is countable.
-      \end{solution}
-  \end{enumerate}
-\end{problem}
-
-\begin{problem}{1.5.7}
-  Consider the open interval $(0,1)$, and let $S$ be the set of points in the open unit square; that is, $S=\left\{ (x,y):0<x,y<1 \right\}$.
-  \begin{enumerate}
-    \item Find a 1-1 function that maps $(0,1)$ into, but not necessarily onto, $S$. 
-      \begin{solution}{(a)}
-	Let the function $\varphi: (0,1) \to S$ be defined by
-	\begin{align*}
-	  \varphi(x) = (x,0).
-	\end{align*}
-	This is clearly 1-1 but not onto. 
-      \end{solution}
-    \item Use the fact that every real number has a decimal expansion to produce a 1-1 function that maps $S$ into $(0,1)$. Discuss whether the formulated function is onto. (Keep in mind that any terminating decimal expanison such as $.235$ represents the same real number as $.234999\dots$).
-      \begin{solution}{(b)}
-	Consider some $(x,y)\in S$. Since $x,y\in(0,1)$, it follows that both have unique decimal expansions that can be expressed as $x=0.x_{1}x_{2}x_{3}\dots$ and $y=0.y_{1}y_{2}y_{3}\dots$. Then, let the function $\varphi:S\to (0,1)$ be defined by
-	\begin{align*}
-    \varphi((x,y))  = 
-      0.x_{1}y_{1}x_{2}y_{2}x_{3}y_{3}\dots,
-	\end{align*}
-	which clearly is 1-1 since each decimal expansion represents one unique real number. This function seems to be onto. Consider some real number $z=0.z_{1}z_{2}z_{3}z_{4}z_{5}z_{6}\dots$ contained in $(0,1)$, then one can obtain two real numbers $x=0.z_{1}z_{3}z_{5}\dots$ and $y=0.z_{2}z_{4}z_{6}\dots$ such that $\varphi\left((x,y)\right) = z$.  However, one may come up with some counterexample, namely $z=0.101010101010\dots$, where the even decimal places are 0, which implies that $(x,y) \not\in S$. So $\varphi$ is not onto. 
-      \end{solution}
-  \end{enumerate}
-\end{problem}
-
-\begin{problem}{1.5.9}
-  A real number $x\in\R$ is called \textit{algebraic} if there exist integers $a_{0},a_{1},a_{2},\dots,a_{n}\in\Z$, not all zero, such that
-  \begin{equation*}
-    a_{n}x^{n}+a_{n-1}x^{n-1}+\dots+a_{1}x+a_{0}=0.
-  \end{equation*}
-  Said another way, a real number is algebraic if it is the root of a polynomial with integer coefficients. Real numbers that are not algebraic are called \textit{transcendental} numbers. Reread the last paragraph of Section 1.1. The final question posed here is closely related to the question of whether or not transcendental numbers exist.
-  \begin{enumerate}[label=(\alph*)]
-    \item Show that $\sqrt{2}, \sqrt[3]{2},$ and $\sqrt{3}+\sqrt{2}$ are algebraic.
-      \begin{solution}{(a)}
-	The number $\sqrt{2}$ is a root of $x^{2}-2$, $\sqrt[3]{2}$ is a root of $x^{3}-2$ and $\sqrt{3}+\sqrt{2}$ is a root of $-x^{5}+10x^{3}-x$.
-      \end{solution}
-    \item Fix $n\in \N$, and let $A_{n}$ be the algebraic numbers obtained as roots of polynomials with integer coefficients that have degree $n$. Using the fact that every polynomial has a finite number of roots, show that $A_{n}$ is countable.
-      \begin{solution}{(b)}
-	First let's show that for any positive integer $n\geq 2$, $\N\sim \N^{n}$.
-	\begin{proof}
-	  We proceed by induction. We know that $\N\sim \N\times \N$. Thus, our  statement is true for $n=2$. Assume that $\N\sim \N^{k}$ for some $k\geq 2$. We show that $\N\sim \N^{k+1}$. By our inductive hypothesis, there is some bijective function $f:\N^{k}\to \N$. Consider the set, $A=\left\{(f(a),b):a\in\N^{k},b\in\N\right\}$, which is equal to $\N\times\N$ since $\N\sim \N^{k}$. Hence, $A\sim \N$. Now, if we pair each $\left( (a_{1},a_{2},\dots,a_{k}),b \right)$ with $\left( a_{1},a_{2},\dots,a_{k},b\right)$ it follows that $\N^{k+1}\sim A$ and so $\N^{k+1}\sim \N$.
-	\end{proof}
-	Note that the set $P$ of all polynomials of degree $n$ with integer coefficients can be shown to be correspondent with the set $\Z^{n+1}$ if we pair each polynomial $a_{n}x^{n}+a_{n-1}x^{n-1}+\dots+a_{1}x+a_{0}$ with $(a_{n},a_{n-1},\dots,a_{1},a_{0})$. Furthermore, each element $(a_{n},a_{n-1},\dots,a_{1},a_{0})$ can be paired with $(\varphi(a_{n}),\varphi(a_{n-1}),\dots,\varphi(a_{1}),\varphi(a_{0}))$ for the bijective funciton $\varphi:\Z\to\N$. Hence, $P\sim\Z^{n+1}\sim \N^{n+1}\sim \N$ and so $P\sim \N$. Therefore, the set $A_{n}$ contains the roots of countably many polynomials of degree $n$ with integer coefficients ($A_{n}$ is the union of countably many sets with finite elements), and so $A_{n}$ is countable. 
-      \end{solution}
-    \item Now, argue that the set of all algebraic numbers is countable. What may we conclude about the set of transcendental numbers?
-      \begin{solution}{(c)}
-	Consider the collection $\left\{ P_{n}:n\in\N \right\}$, where each $P_{n}$ contains all algebraic numbers as roots for polynomials of degree $n$ with integer coefficients. Then, $A=\bigcup_{n\in\N}P_{n}$ is the set of all algebraic numbers. Note that $A$ is the union of countably many countable sets, which implies that $A$ is countable. Since each real number is either algebraic or transcendental, it follows that $\R=A\cup T$, where $T$ is the set of transcendentals. Therefore, $T$ must be uncountable.
-      \end{solution}
-  \end{enumerate}
-  
-\end{problem}
-
-\begin{problem}{1.5.10}
-  \begin{enumerate}[label=(\alph*)]
-    \item Let $C\subseteq [0,1]$ be uncountable. Show that there exists $a\in(0,1)$ such that $C\cap [a,1]$ is uncountable.
-      \begin{solution}{(a)}
-	Choose any $a\in (0,1)$ such that $a < \sup(C)$. Since $(a,\sup(C))$ has inifinitely many uncountable elements, it follows that $C\cap [a,1]$ is uncountable. 
-      \end{solution}
-
-    \item Now let $A$ be the set of all $a\in(0,1)$ such that $C\cap[a,1]$ is countable, and set $a=\sup A$. Is $C\cap[a,1]$ an uncountable set?
-      \begin{solution}{(b)}
-	It is not since $\sup A = \sup C$. Therefore, either $C\cap\left[a, 1 \right]=\left\{ \sup C \right\}$ or $C\cap\left[a,1\right]=\emptyset$ depending on wether $\sup C \in C$ or not. 
-      \end{solution}
-
-    \item Does the statement in (a) remain true if ''uncountable'' is replaced by ''infinite''?
-      \begin{solution}{(c)}
-	Yes, since a set being uncountable already implies that it is infinite.
-      \end{solution}
-  \end{enumerate}
+	\end{enumerate}
 \end{problem}
 \end{document}
