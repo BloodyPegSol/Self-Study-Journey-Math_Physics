@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+ \title{Section 8.6: The Integers Modulo n}
+  \author{Juan Patricio Carrizales Torres}
+   \date{July 4, 2022}
+     \maketitle
+	
+     We know that for any positive integer $n\in \N$, the relation $R$ defined on $\Z$ by $a\; R\; b$ if $a\equiv b \Mod n$ is an equivalence relation that results in the distinct equivalence classes $[0],[1],\dots,[n-1]$. Then, we can define some class that contains these equivalences classes, namely, $\Z_{n} = \left\{ [0],[1],\dots,[n-1] \right\}$, where $\Z_{n}$ is known as \textbf{integers modulo n}. Although, some may refer to it as the set of \textbf{residue classes}.
+     Furthermore, one can define some type of addition and multiplication on $\Z_{n}$ as follows:
+     \begin{equation*}
+       [a]+[b] = [a+b] \quad [a]\cdot[b] = [ab],
+     \end{equation*}
+	for any $[a],[b]\in \Z_{n}$. Since the elements of $\Z_{n}$ are equivalence classes (partitions of $\Z$), it follows that both $a+b\in [c]$ and $ab\in [d]$ for some $[c],[d]\in\Z_{n}$, which implies that $[a+b]=[c]$ and $[ab]=[d]$. Hence, this addition and multiplication are \textit{operations} in $\Z_{n}$, which means that both the sum and product of two equivalence classes are also equivalence classes. In fact, these operations are \textit{well-defined} and so the sum and product of two equivalence classes do not depend on the representative integers. More precisely, if $[a]=[b]$ and $[c]=[d]$, then $[a+c] = [b+d]$ and $[ac]=[bd]$.
+	This operations have the familiar properties of addition and product on $\Z$, namely, 
+	\begin{enumerate}[label=(\alph*)]
+	  \item Commutative Property\\
+	  $[a]+[b]=[b]+[a]$ and $[a]\cdot[b] = [b]\cdot[a]$ for all $a,b\in \Z$\\
+
+	\item Associative Property\\
+	  $([a]+[b])+[c] = [a] + ([b]+[c])$ and $([a]\cdot[b])\cdot[c] = [a]\cdot([b]\cdot[c])$ for all $a,b,c\in \Z$\\
+
+	\item Distributive Property\\
+	  $[a]\cdot([b]+[c]) = [a]\cdot[b]+[a]\cdot[c]$ for all $a,b,c\in \Z$.
+	\end{enumerate}
+\end{document}
+
+
