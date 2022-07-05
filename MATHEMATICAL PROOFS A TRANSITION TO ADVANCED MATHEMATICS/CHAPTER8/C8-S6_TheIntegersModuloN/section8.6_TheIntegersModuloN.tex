@@ -61,7 +61,41 @@
 
 	\item Distributive Property\\
 	  $[a]\cdot([b]+[c]) = [a]\cdot[b]+[a]\cdot[c]$ for all $a,b,c\in \Z$.
-	\end{enumerate}
+       \end{enumerate}
+   \begin{problem}{57}
+     Let $S=\Z$ and $T=\left\{ 4k:k\in\Z \right\}$. Thus $T$ is a nonempty subset of $S$.
+     \begin{enumerate}[label=(\alph*)]
+       \item Prove that $T$ is closed under addition and multiplication.
+	 \begin{proof}
+	   Let $a,b\in T$. Then, $a=4m$ and $b=4n$ for some $n,m\in \Z$. Then, $a+b = 4m+4n=4(n+m)$ and $ab = 16nm= 4(4nm)$. Since both $n+m$ and $4nm$ are integers, it follows that $a+b,ab\in T$. Hence, $T$ is closed under addition and multiplication.
+	 \end{proof}
+	\item If $a\in S-T$ and $b\in T$, is $ab\in T$?
+	  \begin{solution}{(b)}
+	    Yes. Since multiplying the integer divisible by four $b=4m$ by the integer $a$, one gets the integer divisible by four $ab=4(ma)$ which is an element of $T$.
+	  \end{solution}
+	\item If $a\in S-T$ and $b\in T$, is $a+b\in T$?
+	  \begin{solution}{(c)}
+	    No. Since $a\in S-T$, it follows that $a=4k+m$ where $k\in\Z$ and $m\in{1,2,3}$. Hence, $a+b=4l+m$, where $l\in \Z$, is not divisible by $4$ and so it is not an element of $T$.
+	  \end{solution}
+	\item If $a,b\in S-T$, is it possible that $ab \in T$?
+	  \begin{solution}{(d)}
+	    Yes. Let $a=4n+2$ and $b=4m+2$ for integers $n,m$. Hence, $a,b\in S-T$. However, $ab = 16mn + 8n + 8m +4 = 4(4mn+2m+2n+1)$ which is divisible by 4. Thus, $ab\in T$. 
+	  \end{solution}
+	 \item If $a,b\in S-T$, is it possible that $a+b\in T$?
+	   \begin{solution}{(e)}
+	     Yes. Let $a=4n+2$ and $b=4m+2$ for integers $n,m$. Hence, $a,b\in S-T$. However, $a+b = 4n+4m+4 = 4(m+n+1)$ which is divisible by 4. Thus, $a+b\in T$.
+	   \end{solution}
+We can conclude that $S-T$ is not closed under addition and multiplication.
+     \end{enumerate}
+   \end{problem}
+
+   \begin{problem}{58}
+     Prove that the multiplication in $\Z_{n}$, $n\geq 2$, defined by $[a][b]=[ab]$ is well-defined.
+     \begin{proof}
+       Consider the equivalence classes $[a]=[b]$ and $[c]=[d]$ in $\Z_{n}$ where $a,b,c,d\in \Z$. Then, $a\equiv b \Mod n$ and $c\equiv d \Mod n$. By \textbf{theorem 4.11}, $ac \equiv bd \Mod n$ and so $[ac]=[bd]$.
+     \end{proof}
+   \end{problem}
+    
 \end{document}
 
 
