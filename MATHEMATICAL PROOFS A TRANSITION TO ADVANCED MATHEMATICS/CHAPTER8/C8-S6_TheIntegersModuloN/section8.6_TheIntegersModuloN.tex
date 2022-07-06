@@ -95,7 +95,30 @@ We can conclude that $S-T$ is not closed under addition and multiplication.
        Consider the equivalence classes $[a]=[b]$ and $[c]=[d]$ in $\Z_{n}$ where $a,b,c,d\in \Z$. Then, $a\equiv b \Mod n$ and $c\equiv d \Mod n$. By \textbf{theorem 4.11}, $ac \equiv bd \Mod n$ and so $[ac]=[bd]$.
      \end{proof}
    \end{problem}
-    
+   
+   \begin{problem}{59}
+     \begin{enumerate}[label=(\alph*)]
+       \item Let $[a],[b]\in\Z_{8}$. If $[a]\cdot[b]=[0]$, does it follows that $[a]=[0]$ or $[b]=[0]$?
+	 \begin{solution}{(a)}
+	   Let $a=[2]$ and $b=[4]$. Then, $[a]\cdot[b] = [2]\cdot[4]=[8]=[0]$. However, $[2],[4]\neq [0]$. 	  
+       \end{solution}
+       \item How is the question in $(a)$ answered if $\Z_{8}$ is replaced by $\Z_{9}$? by $\Z_{10}$? by $\Z_{11}$?
+	 \begin{solution}{(b)}
+	   For $\Z_{9}$, note that $[3]\cdot[3]=[0]$, for $\Z_{10}$, note that $[2]\cdots[5]=[0]$. However, for $\Z_{11}$,$[ab]=[0]=[11k]$ for some $k\in\Z$ if and only if either $a$ or $b$ are multiples of $11$ since $11$ is a prime integer. This suggests that the question in $(a)$ follows only for prime numbers.
+	 \end{solution}
+       \item For which integers $n\geq 2$ is the following statement true? (You are only asked to make a conjecture, not to provide a proof.) Let $[a],[b]\in \Z_{n}$, $n\geq2$. If $[a]\cdot[b]=[0]$, then $[a]=[0]$ or $[b]=[0]$.
+	 \begin{solution}{(c)}
+	   This seems to be true for all \textbf{prime} integers $n\geq 2$. Namely, if $[a]\cdot[b]=[0]=[nk]$ for some integer $k$, then $[a]=[0]=[nm]$ or $[b]=[0]=[nl]$ for integers $l,m$.
+	 \end{solution}
+     \end{enumerate}
+   \end{problem}
+
+   \begin{problem}{60}
+     For integers $m,n\geq 2$ consider $Z_{m}$ and $Z_{n}$. Let $[a]\in\Z_{m}$ where $0\leq a\leq m-1$. Then, $a,a+m\in[a]$ in $\Z_{m}$. If $a,a+m\in[b]$ for some $[b]\in\Z_{n}$, then what can be said of $m$ and $n$?
+     \begin{solution}{60}
+       If $a,a+m\in [b]$ for some $[b]\in \Z_{n}$, then $a-b=kn$ and $(a+m)-b = ln$ for integers $l,k$. Thus, $kn + m =ln$ and so $m=n(l-k)$, where $l-k\in\Z$ and $l-k\neq0$. This implies that $n\mid m$. 
+     \end{solution}
+   \end{problem}
 \end{document}
 
 
