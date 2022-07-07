@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+ \title{Section 9.1: The Definition of Function}
+   \author{Juan Patricio Carrizales Torres}
+     \date{July 7, 2022}
+       \maketitle
+       A very famous type of relation is the function. For some sets $A,B$, a function $f$ is a relation from $A$ to $B$, expressed as $f:A\to B$, such that for every $a\in A$, $(a,b)\in f$ for only one $b\in B$. Hence, $|A|=|f|$. Also, since $f$ is a relation, $\text{dom}(f) = A$ and $\text{codom}(f)=B$. 
+       For a function $f: A \to B$, Consider some $(a,b)\in f$. Because every ordered pair in $f$ is adscribed to only one $a\in A$, it follows that $(a,b),(a,c)\in f$ implies $b=c$. Thus, $b=f(a)$ is considered as the \textbf{image} of $a$. In fact this is known as \textbf{mapping}. For instance, $f$ is said to map $a$ into $b$. Hence, the \textbf{range} of this relation $f$ can be expressed as
+       \begin{align*}
+	 \text{range}(f) &=\left\{b \in B:  (a,b)\in f, \; a\in A\right\}\\
+	 &= \left\{ f(a): a\in A \right\}.
+       \end{align*}
+ Now, suppose that we have some subset $C$ of $A$. Then, 
+ \begin{align*}
+   f(C) &= \left\{ f(x):x\in C \right\}
+ \end{align*}
+ is known as the \textbf{image} of $C$. Obviously, if $C=A$, then $f(C) = \text{range}(f)$. Furthermore, for some subeset $D$ of $B$, its \textbf{inverse image} is denoted as
+ \begin{align*}
+   f^{-1} (D) &= \left\{a\in A: f(a)\in D\right\}.
+ \end{align*}
+ Due to the definition of a function, $f^{-1} (B) = A$. 
+\end{document}
+
+
