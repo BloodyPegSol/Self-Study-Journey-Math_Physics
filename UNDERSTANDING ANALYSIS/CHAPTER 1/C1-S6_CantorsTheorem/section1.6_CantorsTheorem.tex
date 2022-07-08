@@ -1,0 +1,150 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+\title{Section 1.6: Cantor's Theorem}
+   \author{Juan Patricio Carrizales Torres}
+     \date{May 30, 2022}
+       \maketitle
+	
+This chapter deals with some excercises that aid in proving a transcendental Theorem of Cantor:
+
+\begin{problem}{1.6.1}
+  Show that $(0,1)$ is uncountable if and only if $\R$ is uncountable. 
+  \begin{proof}
+    The function $f:(0,1) \to \R$ defined by $f(x) = \tan\left(\pi x - \pi/2 \right)$ is bijective. Thus, $(0,1)\sim \R$. 
+  \end{proof}
+\end{problem}
+
+\begin{problem}{1.6.2}
+  \begin{enumerate}[label=(\alph*)]
+    \item Explain why the real number $x=.b_{1}b_{2}b_{3}b_{4}\dots$ cannot be $f(1)$.
+      \begin{solution}{(a)}
+	Because the real number with decimal expansion $.3\dots \neq .2\dots$.
+      \end{solution}
+    \item Now, explain why $x\neq f(2)$, and in general why $x\neq f(n)$ for any $n\in \N$. 
+      \begin{solution}{(b)}
+	In general, for any $n\in \N$, $a_{n,n} \neq b_{n}$. This difference is what makes the decimal expansion of $f(n)$ to be different from $x$. 
+      \end{solution}
+
+    \item Point out the contradiciton that arises from these observations and conclude that $(0,1)$ is uncountable.
+      \begin{solution}{(c)}
+	Since $x\neq f(n)$ for any $n\in \N$, it follows that function $f$ is not onto. This is a contradiction of the assumption. 
+      \end{solution}
+  \end{enumerate}
+\end{problem}
+
+\begin{problem}{1.6.3}
+  Supply rebuttals to the following complaints about the proof of Theorem 1.6.1 $(\R\sim  (0,1))$.
+  \begin{enumerate}[label=(\alph*)]
+    \item Every rational number has a decimal expansion, so we could apply this same argument to show that the set of rationl numbers between 0 and 1 is uncountable. However, because we know that any subset of $\Q$ must be countable, the proof of Theorem 1.6.1 must be flawed.
+      \begin{solution}{(a)}
+	Recall that rational numbers are expressed by periodic decimal expansions. Carrying out the diagonalization does not assure the creation of a periodic decimal expansion. This sounds very unlikely, in fact the periodic decimal expansion repeats a finite sequence, I may not have a proof, but it must be that the number created is irrational (lacks periodic decimal expansion).  
+      \end{solution}
+
+    \item Some numbers have \textit{two} different decimal representations. Specifically, any decimal expansion that terminates can also be written with repeating 9's. For instance, $1/2$ can be written as $.5$ or as $4.999\dots$. Doesn't this cause some problems?
+      \begin{solution}{(b)}
+	Since 2 and 3 are used to generate the real number $b$, we should see the case where this can be considered a problem. Let $a$ be some real number paired with the positive integer $n$ such that it terminates in the position $n$ with $3$, namely, $a=.\; \dots3$ and so $a=.\; \dots299999\dots$. Then, the integer in the n'th place of the decimal expansion of $a$ corresponds to the one in the decimal expansion of $b$. However, note that the integer in the $n+1$ place of the decimal expansion of $b$ is either $2$ or $3$ which clearly does not correspond with $0$ or $9$. Thus, $a\neq b$ remains true. 
+      \end{solution}
+  \end{enumerate}
+\end{problem}
+
+\begin{problem}{1.6.4}
+  Let $S$ be the set consisting of all sequences of $0's$ and $1's$. Observe that $S$ is not a particular sequence, but rather a large set whose elements are sequences; namely,
+  \begin{equation*}
+    S=\left\{(a_{1},a_{2},a_{3},\dots:a_{n}=0 \text{ or }1\right\}.
+  \end{equation*}
+  As an example, the sequence $(1,0,1,0,1,0,1,0,\dots)$ is an element of $S$, as is the sequence $(1,1,1,1,1,1,1,\dots)$. Give a rigorous argument showing that $S$ is uncountable.
+  \begin{solution}{1.6.4}
+    We can apply the a similar argument to the one given by Cantor; namley, 
+    suppose, to the contrary, that there is a bijection $f:N\to S$, where $f(n) = (a_{n1},a_{n2},a_{n3},a_{n4},\dots)$. Thus, one can construct the following matrix of values.
+    \begin{align*}
+      f(1) &\to (a_{\mathbf{11}},a_{12},a_{13},a_{14},a_{15},a_{16},\dots)\\
+      f(2) &\to (a_{21},a_{\mathbf{22}},a_{23},a_{24},a_{25},a_{26},\dots)\\
+      f(3) &\to (a_{31},a_{32},a_{\mathbf{33}},a_{34},a_{35},a_{36},\dots)\\
+      f(4) &\to  (a_{41},a_{42},a_{43},a_{\mathbf{44}},a_{45},a_{46},\dots)\\
+      f(5) &\to (a_{51},a_{52},a_{53},a_{54},a_{\mathbf{55}},a_{56},\dots)\\
+      f(6) &\to (a_{61},a_{62},a_{63},a_{64},a_{65},a_{\mathbf{66}},\dots)\\
+      \vdots
+    \end{align*}
+    Now, define a sequence $b=(b_{1},b_{2},b_{3},b_{4},b_{5},\dots)$ by
+    \begin{align*}
+      b_{n} = \begin{cases}
+	1, \quad \text{if } a_{nn} = 0\\
+	0, \quad \text{if } a_{nn} \neq 0.
+      \end{cases}
+      \end{align*}
+      Thus, $b\neq f(n)$ for all $n\in \N$ and so $f$ is not onto. This is a contradiction. Therefore, $S$ is uncountable. \\
+      Using this same argument, one can prove that the countable cartesian product of $\N$ is uncountable. Which also implies that the countable product of countable sets is uncountable.  
+      
+  \end{solution}
+\end{problem}
+
+\begin{problem}{1.6.5}
+      If $A$ is finite with $n$ elements, show that $P(A)$ has $2^{n}$ elements.
+      \begin{solution}{1.6.5}
+	Consider some finite set $A$ with $k$ elements. Hence, we can order them finitely with some bijective function $f:\N\to A$. Now, consider the set $S$ of all possible $k$-tuples of 0's and 1's. For instance, the $k$-tuple $(1,1,0,1,\dots,0)\in S$. Since each place can be either 1 or 0, and their values are independent of each other, it follows that $S$ has $2^{k}$ elements. Let some function $\varphi:S \to P(A)$ be defined by
+	\begin{align*}
+	  \varphi(s)=\left\{f(n):\text{ for all n'th positions in }s\text{ that are equal to 1}\right\}.
+	\end{align*}
+	Hence, every subset of $A$ is represented by a unique sequence in $S$, and so $\varphi$ is bijective. Therefore, $|S|=|A|=2^{k}$. 
+      \end{solution}
+\end{problem}
+
+\begin{problem}{1.6.6}
+  \begin{enumerate}[label=(\alph*)]
+    \item Letting $C=\left\{1,2,3,4\right\}$, produce an example of a 1-1 map $g:C\to P(C)$.
+      \begin{solution}{(a)}
+	   Define the funciton $g$ by 
+	   \begin{align*}
+	     g(c) &= \left\{c\right\}.
+	   \end{align*}
+	\end{solution}
+     \item Explain why, in part (a), it is impossible to construct mappings that are \textit{onto}.
+       \begin{solution}{(b)}
+	 Consider some finite set $C$. Then, any function $f:C\to P(C)$ is a relation where each $c\in C$ is paired with only one $p\in P(C)$. In fact, this is true for any function. Therefore, $|f(C)|=|C|< |P(C)| = 2^{|C|}$. Hence, there are elements in $P(C)$ that are not the image of any element of $c$, and so it is impossible to build an \textit{onto} function from any finite set to its power set.
+       \end{solution}
+  \end{enumerate}
+   
+\end{problem}
+       \end{document}
+
+

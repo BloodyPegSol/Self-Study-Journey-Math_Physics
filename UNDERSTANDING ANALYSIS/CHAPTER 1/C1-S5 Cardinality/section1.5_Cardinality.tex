@@ -373,4 +373,49 @@
       \end{solution}
   \end{enumerate}
 \end{problem}
+
+\begin{problem}{1.5.11 (Schr\"oder-Bernstein Theorem).}
+  Assume there exists a 1-1 function $f:X\to Y$ and another 1-1 function $g:Y\to X$. Follow the steps to show that there exists a 1-1, onto function $h:X\to Y$ and hence $X\sim Y$. The stratgey is to partition $X$ and $Y$ into components
+  \begin{equation*}
+    X=A\cup A' \quad \text{ and } \quad Y=B\cup B'
+  \end{equation*}
+  with $A\cap A' = \emptyset$ and $B\cap B'=\emptyset$, in such a way that $f$ maps $A$ onto $B$, and $g$ maps $B'$ onto $A'$.
+  \begin{enumerate}
+    \item Explain how achieving this would lead to a proof that $X\sim Y$.
+      \begin{solution}{(a)}
+	By achieving this, one would show that $f:A\to B$ and $g:B'\to A'$ are bijective functions. Then, one can define the function $\varphi: X\to Y$ by
+	\begin{align*}
+	  \varphi(x) = \begin{cases}
+	    f(x), \; x\in A\\
+	    g^{-1}(x), \; x\in A'
+	  \end{cases}
+	\end{align*}
+	which is 1-1 and onto. This suggests that if $A\sim B$ and $C\sim D$, then $(A\cup C) \sim (B\cup D)$.
+      \end{solution}
+    \item Set $A_{1}=X\backslash g(Y) = \left\{ x\in X:x\not\in g(Y) \right\}$ (what happens if $A_{1}=\emptyset$?) and inductively define a sequence of sets by letting $A_{n+1} = g(f(A_{n}))$. Show that $\left\{A_{n}:n\in \N\right\}$ is a pairwise disjoint collection of subsets of $X$, while $\left\{ f(A_{n}):n\in\N \right\}$ is a similar collection in $Y$.
+     \begin{solution}{(b)}
+       First we prove the following lemma:
+       \begin{lemma}{1.5.11.b}
+	 Let $f:A\to B$ be a 1-1 function and $A_{1},A_{2}$ be two subsets of $A$. Then, $f(A_{1})\cap f(A_{2})\neq \emptyset$ if and only if $A_{1}\cap A_{2} \neq \emptyset$. 
+	 \begin{proof}
+	   Let $A_{1}\cap A_{2} \neq \emptyset$. Then, there is some $x\in A_{1}\cap A_{2}$ and so $f(x) \in A_{1}\cap A_{2}$. For the converse, assume that $f(A_{1})\cap f(A_{2})\neq \emptyset$. Hence, there are $f(a)\in f(A_{1})$ and $f(b)\in f(A_{2})$ such that $f(a)=f(b)$ for $a\in A_{1}$ and $b\in A_{2}$. Due to the injective nature of $f$, it follows that $a=b\in A_{1}\cap A_{2}$. 
+	 \end{proof}
+       \end{lemma}
+
+       We now proceed to show the required result:
+      \begin{proof}
+	Suppose, to the contrary, that there are distinct positive integers $k,p$ such that $A_{k}\cap A_{p}\neq \emptyset$. Note that $A_{1}\cap A_{n}=\emptyset$ for any integer $n\geq 2$ since $A_{1}=X\backslash g(Y)$ and $A_{n}\subseteq g(Y)$. Then, we may further assume that $k,p\geq 2$. Hence, $g\left( f\left( A_{k-1} \right) \right)\cap g\left(f \left( A_{p-1} \right) \right) \neq \emptyset$. Note that $g\circ f$ is injective and so, by \textbf{Lemma 1.5.11.b}, $A_{k-1}\cap A_{p-1}\neq \emptyset$. We can use the same argument recursively in a finite fashion, until we get to the statement that $A_{1}\cap A_{n}\neq \emptyset$ for some $n\geq 2$, which is a contradiction. Therefore, the collection $\left\{ A_{n}:n\in\N \right\}$ is pairwise disjoint.
+	Also, by \textbf{Lemma 1.5.11.b},  the collection $\left\{ f(A_{n}):n\in\N \right\}$ is pairwise disjoint.
+      \end{proof}
+     \end{solution}
+    \item Let $A=\bigcup_{n=1}^{\infty} A_{n}$ and $B=\bigcup_{n=1}^{\infty}f(A_{n})$. Show that $f$ maps $A$ onto $B$.
+      \begin{proof}
+	Consider some $b\in B$. Since $\bigcup_{n=1}^{\infty}f(A_{n})$ is a union of pairwise disjoint sets, it follows that $b\in f(A_{k})$ for one unique $k\in \N$. Thus, there is some $a\in A_{n}$ such that $f(a)=b$. Hence, $f:A\to B$ is onto. 
+      \end{proof}
+    \item Let $A'=X\backslash A$ and $B' = Y\backslash B$. SHow $g$ maps $B'$ onto $A'$.
+      \begin{proof}
+	Note that $X/g(Y) \subseteq A$ and so $A'$ is a partition of $g(Y)$. Assume, to the contrary, that there is some $a\in A'$ such that for all $b\in B'$, $g(b)\neq a$. Hence, there is some  $c\in B$, where $c\in f(A_{n})$ for some positive integer $n$. However, this implies that $g(c)\in A_{n+1}$, which contradicts the fact that $A'=X\backslash A$. Thus, $g:B'\to A'$ is onto.  
+      \end{proof}
+  \end{enumerate}
+\end{problem}
 \end{document}
