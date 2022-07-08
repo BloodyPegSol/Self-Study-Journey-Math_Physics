@@ -44,7 +44,7 @@
    \author{Juan Patricio Carrizales Torres}
      \date{July 7, 2022}
        \maketitle
-       A very famous type of relation is the function. For some sets $A,B$, a function $f$ is a relation from $A$ to $B$, expressed as $f:A\to B$, such that for every $a\in A$, $(a,b)\in f$ for only one $b\in B$. Hence, $|A|=|f|$. Also, since $f$ is a relation, $\text{dom}(f) = A$ and $\text{codom}(f)=B$. 
+       A very famous type of relation is the function. For some sets $A,B$, a function $f$ is a relation from $A$ to $B$, expressed as $f:A\to B$, such that for every $a\in A$, $(a,b)\in f$ for only one $b\in B$. Hence, $|A|=|f|$. Also, $\text{dom}(f) = A$ and $\text{codom}(f)=B$. 
        For a function $f: A \to B$, Consider some $(a,b)\in f$. Because every ordered pair in $f$ is adscribed to only one $a\in A$, it follows that $(a,b),(a,c)\in f$ implies $b=c$. Thus, $b=f(a)$ is considered as the \textbf{image} of $a$. In fact this is known as \textbf{mapping}. For instance, $f$ is said to map $a$ into $b$. Hence, the \textbf{range} of this relation $f$ can be expressed as
        \begin{align*}
 	 \text{range}(f) &=\left\{b \in B:  (a,b)\in f, \; a\in A\right\}\\
@@ -59,6 +59,32 @@
    f^{-1} (D) &= \left\{a\in A: f(a)\in D\right\}.
  \end{align*}
  Due to the definition of a function, $f^{-1} (B) = A$. 
-\end{document}
+
+ \begin{problem}{3}
+   Let $A$ be a nonempty set. If $R$ is a relation from $A$ to $A$ that is both an equivalence relation and a function, then what familiar function is $R$?
+   \begin{solution}{3}
+     It is some type of identity linear function, namely, $R=\left\{(x,x):x\in A\right\}$. Recall that for it to be a function, each $x\in A$ must be paired with only one $c\in A$. However, each $x$ must be paired with itself, since the reflexive property requires each element of $A$ be related to itself. Note that the property of symmetry follows directly and the transitivity follows vacuously. (Remember that this linear relation is the smallest equivalence relation for some nonempty set). 
+   \end{solution}
+ \end{problem}
+
+ \begin{problem}{4}
+   For the given subset $A_{i}$ of $\R$ and the relation $R_{i}(1\leq i\leq3)$ from $A_{i}$ to $\R$, determine whether $R_{i}$ is a function from $A_{i}$ to $\R$. 
+   \begin{enumerate}[label=(\alph*)]
+     \item $A_{1} = \R, R_{1}=\left\{ (x,y):x\in A_{1}, y=4x-3 \right\}$
+       \begin{solution}{a}
+	  
+       \end{solution}
+     \item $A_{2} = [0,\infty), R_{2}=\left\{ (x,y):x\in A_{2}, (y+2)^{2}=x \right\}$
+       \begin{solution}{b}
+	  
+       \end{solution}
+     \item $A_{3} = \R, R_{3}=\left\{ (x,y):x\in A_{3}, (y+2)^{2}=4 \right\}$
+       \begin{solution}{c}
+	  
+       \end{solution}
+   \end{enumerate}
+ \end{problem}
+
+ \end{document}
 
 
