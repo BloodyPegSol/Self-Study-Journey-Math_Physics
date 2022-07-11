@@ -86,6 +86,13 @@
    \end{enumerate}
  \end{problem}
 
+ \begin{problem}{5}
+   Let $A$ and $B$ be nonempty sets and let $R$ be a nonempty relation from $A$ to $B$. Show that there exists a subset $A'$ of $A$ and a subset $f$ of $\R$ such that $f$ is a function from $A'$ to $B$.     
+   \begin{proof}
+     Let $A$ and $B$ be two nonempty sets and let $R$ be a nonempty relation from $A$ to $B$. Since $R$ is nonempty, let $A'=\left\{a:(a,b)\in R \text{ for some }b\in B \right\}$. Now, for each $a'\in A'$ select only one $b$ such that $(a,b)\in R$, and let $B'\subset B$ be the set containing these elements. Then, let $f=\left\{(a,b):a\in A', b\in B'\right\}$. Thus, $\text{dom}(f) = A'$ and every $a$ is only related to only one $b$ through $f$. Therefore, $f:A'\to B$ is a function.
+    \end{proof}
+ \end{problem}
+
  \end{document}
 
 
