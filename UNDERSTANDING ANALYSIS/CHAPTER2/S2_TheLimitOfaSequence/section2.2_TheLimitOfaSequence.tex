@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+\title{Section 2.2: The Limit of a Sequence}
+   \author{Juan Patricio Carrizales Torres}
+     \date{July 12, 2022}
+       \maketitle
+     
+       The section started with some examples as arguments for the idea that our intuition regarding the properties and manipulations (i.e. reordering the terms, splitting it into finite sums) of finite sums are ambiguous in the field of infinite sums. In fact saying ''This infinite sum \textit{equals} \dots'' for any inifnite sum is kind of problematic. That's why, one must first check the concepts of sequences and convergence, which are very related to the infinite sums. 
+
+       A \textit{sequence} in real analysis is defined as a function from $\N$ to $\R$, which orders some real numbers. Recall that a function is a relation and a sequence is a subset of $\N \times \R$. The contents of a  sequence define an ordered list of ordered real numbers. For instance, the list of ordered real numbers $(0,1,2,3,\dots)$ is defined by the sequence with rule $f(n) = n-1$. \\
+
+       The ordered list of real numbers $(a_{n})$ defined by a sequence is said to converge to $a$ if for any real number $\varepsilon > 0$, there exists some $N\in \N$ such that for all $n\geq N$, $|a_{n}-a|< \varepsilon$. This states that as we go higher in the sequence at some point, the distance between the next elements and the limit $a$ gets eventually smaller and smaller approaching 0. The elements eventually get arbitrarily close to the limit $a$. Arbitrarily in the sense that we are choosing any positive real number $\varepsilon$ and eventually since there is some positive integer $N$ after which the sequence gets closer to the limit with a distance lower than $\varepsilon$.\\
+       Also, one can define convergence in a topological manner, namely, an ordered list of real number $(a_{n})$ defind by some sequence is said to converge to $a$ if for every $\varepsilon$-neighbourhood $V_{\varepsilon}(a)$, there is some $N\in \N$ such that $a_{n} \in V_{\varepsilon}(a)$ for every $n\geq \N$. A neighbourhood $V_{\varepsilon}$ is defined as
+    \begin{align*}
+      V_{\varepsilon}(a) &= \left\{x\in \R: |x-a|<\varepsilon \right\}\\
+      &= (a-\varepsilon,a+\varepsilon).
+    \end{align*}
+    for some $a\in \R$ and positive real number $\varepsilon$. This definition says that every $\varepsilon$-neighbourhood $V_{\varepsilon}(a)$ contains all but finitely many elements of the sequence $(a_{n})$. 
+       \end{document}
+
+
