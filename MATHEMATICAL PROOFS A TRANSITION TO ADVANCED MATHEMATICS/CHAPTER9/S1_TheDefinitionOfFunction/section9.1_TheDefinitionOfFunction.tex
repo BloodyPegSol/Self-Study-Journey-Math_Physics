@@ -93,6 +93,33 @@
     \end{proof}
  \end{problem}
 
+ \begin{problem}{8}
+   Let $A=\left\{5,6 \right\}$, $B=\left\{ 5,7,8 \right\}$ and $S=\left\{n:n\geq 3 \text{ is an odd integer} \right\}$. A relation $R$ from $A\times B$ to $S$ is defined as $(a,b)\; R\; s$ if $s\mid (a+b)$. Is $R$ a function from $A\times B$ to $S$?
+   \begin{solution}{8}
+     Note that 
+    \begin{align*}
+      5+5 &= 10\\
+      5+7 &= 12\\
+      5+8 &= 13\\
+      6+5 &= 11\\
+      6+7 &= 13\\
+      6+8 &= 14.
+    \end{align*}
+    Hence,
+    \begin{align*}
+    (5,5)\; R \;5\\
+    (5,7)\; R \;3\\
+    (5,8)\; R \;13\\
+    (6,5)\; R \;11\\
+    (6,7)\; R \;13\\
+    (6,8)\; R \;7.
+    \end{align*}
+    Therefore, $A\times B = \text{dom}(R)$. Now, we have to see whether each element of $A\times B$ has only one image. Note that $11$ and $13$ are odd prime numbers whose only odd divisors greater or equal to three are themselves. On the other hand, $10,12,14$ are even numbers that just have one odd divisor greater or equal to three. Hence, $R$ is a funtion from $A\times B$ to $S$.
+   \end{solution}
+   
+    \end{problem}
+
+
  \end{document}
 
 
