@@ -11,8 +11,9 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
-
-
+\newcommand{\dom}[1]{\mathrm{dom}\left(#1\right)}
+\newcommand{\rng}[1]{\mathrm{range}\left(#1\right)}
+\newcommand{\rel}[3]{#2\; #1\; #3}
 
 \newlist{legal}{enumerate}{10}
 \setlist[legal]{label=(\alph*)}
@@ -20,7 +21,6 @@
 \DeclarePairedDelimiter\bra{\langle}{\rvert}
 \DeclarePairedDelimiter\ket{\lvert}{\rangle}
 \DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
-
 
 \newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
 \newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
@@ -39,7 +39,7 @@
 \makeatother
 
 \begin{document}
-  
+
  \title{Section 9.1: The Definition of Function}
    \author{Juan Patricio Carrizales Torres}
      \date{July 7, 2022}
@@ -115,9 +115,35 @@
     (6,8)\; R \;7.
     \end{align*}
     Therefore, $A\times B = \text{dom}(R)$. Now, we have to see whether each element of $A\times B$ has only one image. Note that $11$ and $13$ are odd prime numbers whose only odd divisors greater or equal to three are themselves. On the other hand, $10,12,14$ are even numbers that just have one odd divisor greater or equal to three. Hence, $R$ is a funtion from $A\times B$ to $S$.
-   \end{solution}
-   
+   \end{solution} 
     \end{problem}
+
+    \begin{problem}{9}
+	Determine which of the following five relations $R_{i}\; (i=1,2,\dots,5)$ are functions.
+     \begin{enumerate}[label=(\alph*)]
+       \item $R_{1}$ is defined on $\R$ by $x\; R_{1}\;y$ if $x^{2}+y^{2}=1$. 
+	 \begin{solution}{(a)}
+	   Note that if $x>1$, then $x^{2}> 1$ and $x^{2}+y^{2}> 1$ for all $y\in\R$ since $y^{2}\geq 0$. Therefore, $\R \neq \text{dom}(R_{1})$ and so $R_{1}$ is not a function.
+         \end{solution}
+       \item $R_{2}$ is defined on $\R$ by $x\; R_{2}\;y$ if $4x^{2}+3y^{2}=1$.
+	 \begin{solution}{(b)}
+	   The condition for this relation is similar to the one for the previous relation. Hence, it makes sense to think that it is not a function. We proceed to show that $\dom{R_2}\neq \R$. Let  $x>1/2$, then $4x^{2} > 4(1/4) =1$ and so for any real number $y$, $4x^{2} + 3y^{2} > 1$. Hence, $x\not\in \dom{R_{2}}$. 
+         \end{solution}
+       \item $R_{3}$ is defined from $\N$ to $\Q$ by $a\; R_{3}\;b$ if $3a+5b=1$.
+	 \begin{solution}{(c)}
+             Consider any positive integer $x$. Then, $\rel{R_{3}}{x}{b}$ if $b=(1-3x)/5$, which is a rational number since $1-3x\in\Z$. Note that each $b$ has only one value for each $x$. Hence, $\dom{R_{3}}=\N$ and every positive integer is related to only one rational number. Therefore, $R_{3}$ is a function.
+         \end{solution}
+       \item $R_{4}$ is defined on $\R$ by $x\; R_{4}\;y$ if $y=4-|x-2|$.
+	 \begin{solution}{(d)}
+	   For each real number $x$, $y=4-|x-2|\in \R$ has only one value. Hence, $R_{4}$ is a function.  
+         \end{solution}
+       \item $R_{5}$ is defined on $\R$ by $x\; R_{5}\;y$ if $|x+y|=1$.
+	 \begin{solution}{(e)}
+	   Consider any real values $x$ and $y$ such that $|x+y|=1$. Then, $|x+(-2x-y)| =1$. Therefore, $\rel{R_{5}}{x}{y}$ and $\rel{R_{5}}{x}{(-2x-y)}$, and so $R_{5}$ is not a function.
+         \end{solution}
+     \end{enumerate}
+    \end{problem}
+
 
 
  \end{document}
