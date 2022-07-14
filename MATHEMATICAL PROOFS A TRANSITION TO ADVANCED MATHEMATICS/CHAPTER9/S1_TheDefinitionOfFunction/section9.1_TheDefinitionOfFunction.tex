@@ -144,8 +144,64 @@
      \end{enumerate}
     \end{problem}
 
+    \begin{problem}{10}
+      A function $g:\Q\to \Q$ is defined by $g(r) = 4r+1$ for each $r\in \Q$.
+      \begin{enumerate}[label=(\alph*)]
+	\item Determine $g(\Z)$ and $g(E)$, where $E$ is the set of even integers.
+	  \begin{solution}{(a)}
+	    The sets are
+    \begin{align*}
+      g(\Z) &= \left\{g(r):r\in\Z \right\}\\
+    &= \left\{4r+1:r\in\Z \right\}=\left\{\dots,-7,-3,1,5,9,\dots\right\}.
+    \end{align*}
+    and
+    \begin{align*}
+      g(E) &= \left\{g(2r):r\in\Z\right\}\\
+      &= \left\{8r+1:r\in\Z\right\}=\left\{\dots,-15,-7,1,9,17,\dots\right\}.
+    \end{align*}
+    \end{solution}
+	\item Determine $g^{-1}(\N)$ and $g^{-1}(D)$, where $D$ is the set of odd integers.
+    \begin{solution}{(b)}
+      The sets are
+    \begin{align*}
+      g^{-1}(\N) &= \left\{r\in\Q:g(r)\in\N\right\}\\
+      &= \left\{r\in\Q:4r+1\in\N\right\}\\
+      &= \left\{r\in\Q:4r=x, \; x\text{ is a nonegative integer}\right\}\\
+      &= \left\{x/4: x\text{ is a nonegative integer}\right\} = \left\{0,1/4,1/2,3/4,1,5/4,\dots\right\}
+    \end{align*}
+    and
+    \begin{align*}
+      g^{-1}(D) &= \left\{r\in\Q:g(r)\in D\right\}\\
+      &= \left\{r\in\Q: 4r+1=2k+1,\; k\in\Z\right\}\\
+      &= \left\{k/2: k\in\Z\right\} = \left\{\dots,-1,-1/2,0,1/2,1,\dots\right\}.
+    \end{align*}
+    \end{solution}
+    \end{enumerate}
+    \end{problem}
 
+    \begin{problem}{11}
+      Let $C=\left\{ x\in\R:x\geq 1 \right\}$ and $D=\R^{+}$. For each function $f$ defined below, determine $f(C),f^{-1}(C),f^{-1}(D)$ and $f^{-1}({1})$.
+      \begin{enumerate}[label=(\alph*)]
+	\item $f:\R\to\R$ is defined by $f(x)=x^{2}$.
+	\item $f:\R^{+}\to\R$ is defined by $f(x)=\ln{x}$.
+	\item $f:\R\to\R$ is defined by $f(x)=e^{x}$.
+	\item $f:\R\to\R$ is defined by $f(x)=\sin{x}$.
+	\item $f:\R\to\R$ is defined by $f(x)=2x-x^{2}$.
+    \end{enumerate}
+    \end{problem}
 
+    \begin{problem}{12}
+      For a function $f:A\to B$ and subsets $C$ and $D$ of $A$ and $E$, and $F$ of $B$, prove the following.
+      \begin{enumerate}[label=(\alph*)]
+	\item $f(C\cup D) = f(C)\cup f(D)$
+	\item $f(C\cap D) \subseteq f(C)\cap f(D)$
+	\item $f(C)-f(D) \subseteq f(C-D)$
+	\item $f^{-1}(E\cup F) = f^{-1}(E)\cup f^{-1}(F)$
+	\item $f^{-1}(E\cap F) = f^{-1}(E)\cap f^{-1}(F)$
+	\item $f^{-1}(E- F) = f^{-1}(E)- f^{-1}(F)$
+	
+    \end{enumerate}
+    \end{problem}
  \end{document}
 
 
