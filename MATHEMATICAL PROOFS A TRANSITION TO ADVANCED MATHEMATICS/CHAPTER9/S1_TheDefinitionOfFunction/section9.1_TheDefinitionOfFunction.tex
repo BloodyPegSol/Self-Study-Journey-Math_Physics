@@ -179,26 +179,33 @@
     \end{enumerate}
     \end{problem}
 
-    \begin{problem}{11}
-      Let $C=\left\{ x\in\R:x\geq 1 \right\}$ and $D=\R^{+}$. For each function $f$ defined below, determine $f(C),f^{-1}(C),f^{-1}(D)$ and $f^{-1}({1})$.
-      \begin{enumerate}[label=(\alph*)]
-	\item $f:\R\to\R$ is defined by $f(x)=x^{2}$.
-	\item $f:\R^{+}\to\R$ is defined by $f(x)=\ln{x}$.
-	\item $f:\R\to\R$ is defined by $f(x)=e^{x}$.
-	\item $f:\R\to\R$ is defined by $f(x)=\sin{x}$.
-	\item $f:\R\to\R$ is defined by $f(x)=2x-x^{2}$.
-    \end{enumerate}
-    \end{problem}
-
     \begin{problem}{12}
       For a function $f:A\to B$ and subsets $C$ and $D$ of $A$ and $E$, and $F$ of $B$, prove the following.
       \begin{enumerate}[label=(\alph*)]
 	\item $f(C\cup D) = f(C)\cup f(D)$
+	  \begin{solution}{(a)}
+	    Let $C,D\subseteq A$. If $C\cup D = \emptyset$, then $C,D=\emptyset$, which implies that $f(C\cup D) = \emptyset = f(C)\cup f(D)$. We may further assume that $C\cup D\neq \emptyset$ and so either $C\neq \emptyset$ or $D\neq \emptyset$. Consider some $x\in f(C\cup D)$, then there is some $a\in C\cup D$ such that $x=f(a)$. Without loss of generality, suppose that $a\in C$, and so $x=f(a)\in f(C)$. Which implies that $x\in f(C)\cup f(D)$. Therefore, $f(C\cup D) \subseteq f(C)\cup f(D)$.
+	    Now, consider some $x\in f(C)\cup f(D)$. Then, either $x\in f(C)$ or $x\in f(D)$. Without loss of generality, let $x\in f(C)$ and so $x=f(a)$ for some $a\in C$. Thus, $x\in f(C\cup D) =\left\{f(x):x\in C\text{ or }x\in D \right\}$. Therefore, $f(C)\cup f(D)\subseteq f(C\cup D)$ and so $f(C\cup D) = f(C)\cup f(D)$.
+          \end{solution}
 	\item $f(C\cap D) \subseteq f(C)\cap f(D)$
+	  \begin{solution}{(b)}
+	    Let $C,D\subseteq A$. If $C\cap D=\emptyset$, then $f(C\cap D) = \emptyset \subseteq f(C)\cap f(D)$. We may further assume that $C\cap D\neq \emptyset$ and so they both share at least one common element, which implies that $C,D\neq \emptyset$. Consider some $y\in f(C\cap D)$, then there is some $a\in C\cap D$ such that $f(a)=y$. Thus, $a$ is in both $C$ and $D$, and so $f(a)\in f(C)$ and $f(a)\in f(D)$. Therefore, $y\in f(C)\cap f(D)$ and so $f(C\cap D)\subseteq f(C)\cap f(D)$. 
+	    The statement $f(C)\cap f(D)\subseteq f(C\cap D)$ does not follows since there can be some unique image assigned to only one preimage in both $f(c)\in f(C)$ and $f(d)\in f(D)$ such that $f(c) = f(d)$ and $c,d\not\in C\cap D$. 
+    \end{solution}
 	\item $f(C)-f(D) \subseteq f(C-D)$
+	  \begin{solution}{(c)}
+	    Consider some $C,D\subseteq A$. If $f(C)-f(D)$ is empty, then it is a subset of $f(C-D)$. Then, we may further assume that $f(C)-f(D)\neq \emptyset$ which implies that $f(C)\neq \emptyset$ and so $C\neq \emptyset$. Consider some $y\in f(C)-f(D)$, then $y\in f(C)$ and $y\not\in f(D)$. Hence, there is some $c\in C$ such that $f(c)=y$ and for all $d\in D$, $f(d)\neq y$. Therefore, $c\not\in D$ and so $c\in C-D$. This implies that $f(c)=y\in f(C-D)$. 
+    \end{solution}
 	\item $f^{-1}(E\cup F) = f^{-1}(E)\cup f^{-1}(F)$
+	  \begin{solution}{(d)}
+	    Suppose that 
+    \end{solution}
 	\item $f^{-1}(E\cap F) = f^{-1}(E)\cap f^{-1}(F)$
+	  \begin{solution}{(d)}
+    \end{solution}
 	\item $f^{-1}(E- F) = f^{-1}(E)- f^{-1}(F)$
+	  \begin{solution}{(d)}
+    \end{solution}
 	
     \end{enumerate}
     \end{problem}
