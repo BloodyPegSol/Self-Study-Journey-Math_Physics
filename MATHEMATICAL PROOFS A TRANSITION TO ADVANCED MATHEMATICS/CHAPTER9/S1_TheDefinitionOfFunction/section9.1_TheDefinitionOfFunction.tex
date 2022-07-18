@@ -184,12 +184,12 @@
       \begin{enumerate}[label=(\alph*)]
 	\item $f(C\cup D) = f(C)\cup f(D)$
 	  \begin{solution}{(a)}
-	    Let $C,D\subseteq A$. If $C\cup D = \emptyset$, then $C,D=\emptyset$, which implies that $f(C\cup D) = \emptyset = f(C)\cup f(D)$. We may further assume that $C\cup D\neq \emptyset$ and so either $C\neq \emptyset$ or $D\neq \emptyset$. Consider some $x\in f(C\cup D)$, then there is some $a\in C\cup D$ such that $x=f(a)$. Without loss of generality, suppose that $a\in C$, and so $x=f(a)\in f(C)$. Which implies that $x\in f(C)\cup f(D)$. Therefore, $f(C\cup D) \subseteq f(C)\cup f(D)$.
+	    Let $C,D\subseteq A$. If $f(C\cup D)$ is empty, then $C\cup D = \emptyset$ and so $C,D=\emptyset$, which implies that $f(C\cup D) = \emptyset = f(C)\cup f(D)$. We may further assume that $f(C\cup D) \neq \emptyset$ and so either $C\neq \emptyset$ or $D\neq \emptyset$. Consider some $x\in f(C\cup D)$, then there is some $a\in C\cup D$ such that $x=f(a)$. Without loss of generality, suppose that $a\in C$, and so $x=f(a)\in f(C)$. Which implies that $x\in f(C)\cup f(D)$. Therefore, $f(C\cup D) \subseteq f(C)\cup f(D)$.
 	    Now, consider some $x\in f(C)\cup f(D)$. Then, either $x\in f(C)$ or $x\in f(D)$. Without loss of generality, let $x\in f(C)$ and so $x=f(a)$ for some $a\in C$. Thus, $x\in f(C\cup D) =\left\{f(x):x\in C\text{ or }x\in D \right\}$. Therefore, $f(C)\cup f(D)\subseteq f(C\cup D)$ and so $f(C\cup D) = f(C)\cup f(D)$.
           \end{solution}
 	\item $f(C\cap D) \subseteq f(C)\cap f(D)$
 	  \begin{solution}{(b)}
-	    Let $C,D\subseteq A$. If $C\cap D=\emptyset$, then $f(C\cap D) = \emptyset \subseteq f(C)\cap f(D)$. We may further assume that $C\cap D\neq \emptyset$ and so they both share at least one common element, which implies that $C,D\neq \emptyset$. Consider some $y\in f(C\cap D)$, then there is some $a\in C\cap D$ such that $f(a)=y$. Thus, $a$ is in both $C$ and $D$, and so $f(a)\in f(C)$ and $f(a)\in f(D)$. Therefore, $y\in f(C)\cap f(D)$ and so $f(C\cap D)\subseteq f(C)\cap f(D)$. 
+	    Let $C,D\subseteq A$. If $f(C\cap D)$ is empty, $f(C\cap D) = \emptyset \subseteq f(C)\cap f(D)$. We may further assume that $(C\cap D)\neq \emptyset$. Then, $C\cap D\neq \emptyset$ and so they both share at least one common element, which implies that $C,D\neq \emptyset$. Consider some $y\in f(C\cap D)$, then there is some $a\in C\cap D$ such that $f(a)=y$. Thus, $a$ is in both $C$ and $D$, and so $f(a)\in f(C)$ and $f(a)\in f(D)$. Therefore, $y\in f(C)\cap f(D)$ and so $f(C\cap D)\subseteq f(C)\cap f(D)$. 
 	    The statement $f(C)\cap f(D)\subseteq f(C\cap D)$ does not follows since there can be some unique image assigned to only one preimage in both $f(c)\in f(C)$ and $f(d)\in f(D)$ such that $f(c) = f(d)$ and $c,d\not\in C\cap D$. 
     \end{solution}
 	\item $f(C)-f(D) \subseteq f(C-D)$
@@ -198,13 +198,30 @@
     \end{solution}
 	\item $f^{-1}(E\cup F) = f^{-1}(E)\cup f^{-1}(F)$
 	  \begin{solution}{(d)}
-	    Suppose that 
+	    Note that
+    \begin{align*}
+      f^{-1}(E\cup F) &= \left\{x\in A: f(x)\in E\cup F\right\}\\
+      &= \left\{x\in A: f(x)\in E \; \mathrm{or}\; f(x)\in F\right\}\\
+      &= f^{-1}(E)\cup f^{-1}(F).
+    \end{align*}
     \end{solution}
 	\item $f^{-1}(E\cap F) = f^{-1}(E)\cap f^{-1}(F)$
 	  \begin{solution}{(d)}
+	    Note that
+    \begin{align*}
+      f^{-1}(E\cap F) &= \left\{x\in A: f(x)\in E\cap F\right\}\\
+      &= \left\{x\in A: f(x)\in E\; \mathrm{and}\; f(x)\in F \right\}\\
+      &= f^{-1}(E)\cap f^{-1}(F).
+    \end{align*}
     \end{solution}
 	\item $f^{-1}(E- F) = f^{-1}(E)- f^{-1}(F)$
 	  \begin{solution}{(d)}
+	    Note that
+    \begin{align*}
+      f^{-1}(E-F) &= \left\{x\in A:f(x)\in E-F\right\}\\
+      &= \left\{x\in A: f(x)\in E \; \mathrm{and} \; f(x)\not\in F\right\}\\
+      &= f^{-1}(E)-f^{-1}(F).
+    \end{align*}
     \end{solution}
 	
     \end{enumerate}
