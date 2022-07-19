@@ -88,8 +88,33 @@
     for every $n\geq N$.
     \end{solution}
 	\item $\lim \frac{\sin(n^{2})}{\sqrt[3]{n}}=0$.
-	  \begin{solution}{(c)}
+	  \begin{solution}
 	    Consider some positive real number $\varepsilon$. Note that $\Abs{\frac{\sin(n^{2})}{\sqrt[3]{n}}-0} = \frac{\Abs{\sin(n^{2})}}{\sqrt[3]{n}}\leq \frac{1}{\sqrt[3]{n}}$. Consider some $N\in \N$ such that $N>\frac{1}{\varepsilon^{3}}$. Now, let $n\geq N$. Hence, $n>\frac{1}{\varepsilon^{3}}$ and so $\sqrt[3]{n}>\frac{1}{\varepsilon}$. Therefore, $\frac{\Abs{\sin(n^{2})}}{\sqrt[3]{n}}\leq \frac{1}{\sqrt[3]{n}}< \varepsilon$. Thus, $|x_{n}-0|<\varepsilon$ for all $n\geq N$.
+    \end{solution}
+    \end{enumerate}
+    \end{problem}
+    \begin{problem}{2.2.4}
+      Give an example of each or state that the request is impossible. For any that are imposible, give a compelling argument for why that is the case.
+      \begin{enumerate}[label=(\alph*)]
+	\item A squence with an infinite number of ones that does not converge to one.
+    \begin{solution}
+      This is impossible. Since the lowest infinity is $\mathrm{card}(\N)$ and a sequence is defined as a function from $\N$ to $\R$, then $(a_{n} = 1: n\in \N)$ is the only possible sequence with an infinity of ones. Note that for any positive real number $\varepsilon$, $|a_{n} -1| = 0 < \varepsilon$ for every $n\in\N$. Therefore, the sequence converges to one.
+    \end{solution}
+  \item A sequence with an infinite number of ones that converges to a limit not equal to one.
+    \begin{solution}
+      The former argument also shows that such sequence is impossible to create.
+    \end{solution}
+  \item A divergent sequence such that for every $n\in \N$ it is possible to find $n$ consecutive ones somewhere in the sequence.
+    \begin{solution}
+      Let $S=(a_{n})$ be a sequence defined by $a_{1}=1$ and $a_{n}=a_{n-1}+n$ for $n\geq 2$. Then,
+    \begin{equation*}
+      S=(1,3,6,10,\dots).
+    \end{equation*}
+    Now, define the sequence $M=(b_{n})$ by $b_{n} = 0$ for $n\in S$ and $b_{k}=1$ for $k\in \N-S$. Then, 
+    \begin{equation*}
+      M=(0,1,0,1,1,0,1,1,1,0,\dots).
+    \end{equation*}
+        We first show that one can find $k$ consecutive ones in the sequence. Suppose that $k=1$, then $b_{1}=0, b_{2}=1,b_{3}=0$  and so there is 1 consecutive one. We may further assume that $k\geq 2$. Hence, $a_{k}=a_{k-1}+k$ and $a_{k+1}=a_{k}+k+1$. Note that $a_{k+1}-a_{k} = k+1$ and so in between $a_{k+1}$ and $a_{k}$ there are $k$ consecutive positive integers such that they are not elements of $S$. Thus, these $k$ spaces are ones. Also, $M$ is divergent, since one can only find two discrete values inside it.
     \end{solution}
     \end{enumerate}
     \end{problem}
