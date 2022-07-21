@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[1][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+ \title{Section 8.3: Equivalence Relations}
+   \author{Juan Patricio Carrizales Torres}
+     \date{May 30, 2022}
+       \maketitle
+
+       We know that a function is a special kind of relation and for nonempty sets $A$ and $B$, that the set of all posible relations is $\mathcal{P}(A\times B)$. One may ask how many of those subsets are functions. In other words, we are looking for the set of all functions from $A$ to $B$ denoted by $B^{A}=\left\{ f:f:A\to B \right\}$. Its symbolical representation aludes to its cardinality, namly, $|B^{A}| = |B|^{|A|}$.
+       This is so since for each function $f:A\to B$, every $a\in A$ must be paired with only one $b\in B$, and so each $a\in A$ can be paired with $|B|$ possible choices in an independly manner. It is like obtaining all possible combinations of $|B|$ repetible elements in $|A|$ ordered places. Namely,
+    \begin{align*}
+      &1 &2& &3& &4& &\dots& &|A|&\\
+      &b_{1} &b_{1}& &b_{1}& &b_{1}& &\dots& &b_{1}\\
+      &b_{2} &b_{1}& &b_{1}& &b_{1}& &\dots& &b_{1}\\
+      &b_{1} &b_{2}& &b_{1}& &b_{1}& &\dots& &b_{1}\\
+      &b_{2} &b_{2}& &b_{1}& &b_{1}& &\dots& &b_{1}\\
+      &\vdots\\
+      &b_{|B|} &b_{|B|}& &b_{|B|}& &b_{|B|}& &\dots& &b_{|B|-2}\\
+      &b_{|B|} &b_{|B|}& &b_{|B|}& &b_{|B|}& &\dots& &b_{|B|-1}\\
+      &b_{|B|} &b_{|B|}& &b_{|B|}& &b_{|B|}& &\dots& &b_{|B|}\\
+    \end{align*}
+    \begin{problem}{13}
+      Let $A=\left\{ 1,2,3 \right\}$ and $B=\left\{ x,y \right\}$. Determine $B^{A}$.
+    \begin{solution}
+    \begin{align*}
+      B^{A} &= \left\{ f:f:A\to B \right\}\\
+      &= \{f_{xxx},f_{yxx}, f_{xyx}, f_{yyx}, f_{xxy}, f_{yxy}, f_{xyy},f_{yyy}\},
+    \end{align*}
+    where $f_{abc} = \left\{ (1,a),(2,b),(3,c) \right\}$.
+    \end{solution}
+    \end{problem}
+    \begin{problem}{16}
+      \begin{enumerate}[label=(\alph*)]
+	\item Give an example of two sets $A$ and $B$ such that $|B^{A}|=8$
+    \begin{solution}
+      It suffices to have a set $B$ with 2 elements and a set $A$ with 3. For instance, $B=\left\{ a,b \right\}$ and $A=\left\{1,2,3 \right\}$.However this is not necessary. An alternate example is $B=\left\{1,2,3,4,5,6,7,8\right\}$ and $A=\left\{0\right\}$.
+    \end{solution}
+	\item Give an example of an element in $B^{A}$ for the sets $A$ and $B$ given in $(a)$.
+    \begin{solution}
+      One example is $\left\{(1,a),(2,a),(3,a)\right\}$.
+    \end{solution}
+    \end{enumerate}
+    \end{problem}
+    \begin{problem}{17}
+      \begin{enumerate}[label=(\alph*)]
+	\item For nonempty sets $A$, $B$ and $C$, what is a possible interpretation of th notation $C^{B^{A}}$?
+    \begin{solution}
+      One possible interpretation is that $C^{B^{A}}$ is the set of all functions from $B^{A}$ to $C$, namely, $C^{B^{A}}=\left\{f:f:B^{A}\to C\right\}$, where $B^{A}=\left\{g:g:A\to B \right\}$. Thus, $\left\{(g_{1},c_{1}),(g_{2},c_{1}),(g_{3},c_{1}),\dots,(g_{k},c_{1})\right\}\in C^{B^{A}}$.
+    \end{solution}
+	\item According to the definition given in $(a)$, determine $C^{B^{A}}$ for $A=\left\{ 0,1 \right\}$, $B=\left\{ a,b \right\}$ and $C=\left\{ x,y \right\}$. 
+    \end{enumerate}
+    \end{problem}
+   
+       \end{document}
+
+   
