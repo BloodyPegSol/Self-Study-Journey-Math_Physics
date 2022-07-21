@@ -118,6 +118,20 @@
     \end{solution}
     \end{enumerate}
     \end{problem}
+    \begin{problem}{2.2.5}
+      Let $\left[ \left[ x \right] \right]$ be the greatest integer less than or equal to $x$. For example, $\left[ \left[ \pi \right] \right]=3$ and $\left[ \left[ 3 \right] \right]=3$. For each sequence, find $\lim a_{n}$ and verify it with the definition of convergence.
+      \begin{enumerate}[label=(\alph*)]
+      \item $a_{n}=\left[ \left[ 5/n \right] \right]$
+    \begin{solution}
+      Note that $0<5/n$ for every $n\in\N$ and for $k\geq 6$, we have that $0<5/k<1$. This implies that $\left[ \left[ 5/k \right]\right]=0$ for every positive integer $k\geq 6$. Therefore, for any positive real number $\varepsilon$, we have that $|a_{n}-0| = 0 < \varepsilon$ for every $n\geq 6$. Thus, $\lim a_{n}=0$.
+    \end{solution}
+      \item $a_{n} = \left[ \left[ \left( 12+4n \right)/3n \right] \right]$
+    \begin{solution}
+      Note that $\left( 12+4n \right)/3n = 12/3n + 4/3$ and so it makes sense that $a_{n}$ approaches $4/3$ as $n$ increases. For instance, $1<a + 4/3<2$ for $0<a < 2/3$, where $a=12/3n$. Hence, for every positive integer $n>6$, $[[12/3n+4/3]] = 1$. Thus, for any positive real number $\varepsilon$, for every positive integer $n\geq 6$, we have that $|a_{n} - 1| = 0 < \varepsilon$. Therefore, $\lim a_{n} = 1$.    
+    \end{solution}
+    \end{enumerate}
+    The last example gives some insight for a possible conjecture, namely, $\lim a_{n} + \lim b_{n} = \lim(a_{n}+b_{n})$, for convergent sequences $(a_{n})$ and $(b_{n})$.
+    \end{problem}
        \end{document}
 
 
