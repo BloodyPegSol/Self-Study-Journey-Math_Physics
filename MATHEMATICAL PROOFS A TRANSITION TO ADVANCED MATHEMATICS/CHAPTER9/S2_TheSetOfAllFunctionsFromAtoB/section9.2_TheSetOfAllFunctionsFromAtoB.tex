@@ -51,11 +51,16 @@
       &1 &2& &3& &4& &\dots& &|A|&\\
       &b_{1} &b_{1}& &b_{1}& &b_{1}& &\dots& &b_{1}\\
       &b_{2} &b_{1}& &b_{1}& &b_{1}& &\dots& &b_{1}\\
+      &b_{3} &b_{1}& &b_{1}& &b_{1}& &\dots& &b_{1}\\
+      &\vdots\\
+      &b_{|B|} &b_{1}& &b_{1}& &b_{1}& &\dots& &b_{1}\\
       &b_{1} &b_{2}& &b_{1}& &b_{1}& &\dots& &b_{1}\\
       &b_{2} &b_{2}& &b_{1}& &b_{1}& &\dots& &b_{1}\\
-      &\vdots\\
-      &b_{|B|} &b_{|B|}& &b_{|B|}& &b_{|B|}& &\dots& &b_{|B|-2}\\
-      &b_{|B|} &b_{|B|}& &b_{|B|}& &b_{|B|}& &\dots& &b_{|B|-1}\\
+      &b_{3} &b_{2}& &b_{1}& &b_{1}& &\dots& &b_{1}\\
+      \vdots\\
+      &b_{|B|} &b_{2}& &b_{1}& &b_{1}& &\dots& &b_{1}\\
+      &b_{1} &b_{3}& &b_{1}& &b_{1}& &\dots& &b_{1}\\
+      \vdots\\
       &b_{|B|} &b_{|B|}& &b_{|B|}& &b_{|B|}& &\dots& &b_{|B|}\\
     \end{align*}
     \begin{problem}{13}
@@ -87,6 +92,17 @@
       One possible interpretation is that $C^{B^{A}}$ is the set of all functions from $B^{A}$ to $C$, namely, $C^{B^{A}}=\left\{f:f:B^{A}\to C\right\}$, where $B^{A}=\left\{g:g:A\to B \right\}$. Thus, $\left\{(g_{1},c_{1}),(g_{2},c_{1}),(g_{3},c_{1}),\dots,(g_{k},c_{1})\right\}\in C^{B^{A}}$.
     \end{solution}
 	\item According to the definition given in $(a)$, determine $C^{B^{A}}$ for $A=\left\{ 0,1 \right\}$, $B=\left\{ a,b \right\}$ and $C=\left\{ x,y \right\}$. 
+    \begin{solution}
+        We know that
+    \begin{align*}
+      B^{A} &= \left\{ g_{aa}, \;g_{ba}, \;g_{bb}, \;g_{ab}\right\},
+    \end{align*}
+    where $g_{aa} = \left\{ (0,a),(1,a) \right\}$. Let $g_{aa}$ the element 1, $g_{ba}$ be 2, $g_{bb}$ be 3 and $g_{ab}$ be 4. Therefore,
+    \begin{align*}
+      C^{B^{A}} &= \left\{ \varphi_{ijkl}: i,j,k,l\in\left\{ x,y \right\}\right\}
+    \end{align*}
+    where the order of $i,j,k,l$ represents the order of the elements in $B^{A}$. For instance, $\varphi_{xxxx} = \left\{ (g_{aa},x), ( g_{ba},x), (g_{bb},x), (g_{ab}, x)\right\}$ and $\varphi_{xyyx} = \left\{ (g_{aa},x),(g_{ba},y), (g_{bb},y), (g_{bb},x) \right\}$. (Although, the notation is ``long'' it gives the idea of combination of independent and repetible elements).
+    \end{solution}
     \end{enumerate}
     \end{problem}
    
