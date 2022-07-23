@@ -98,11 +98,11 @@
       \begin{enumerate}[label=(\alph*)]
 	\item A squence with an infinite number of ones that does not converge to one.
     \begin{solution}
-      This is impossible. Since the lowest infinity is $\mathrm{card}(\N)$ and a sequence is defined as a function from $\N$ to $\R$, then $(a_{n} = 1: n\in \N)$ is the only possible sequence with an infinity of ones. Note that for any positive real number $\varepsilon$, $|a_{n} -1| = 0 < \varepsilon$ for every $n\in\N$. Therefore, the sequence converges to one.
+      This is possible. Define a sequence $(a_{n})$ by $a_{n}=1$ if $n$ is odd and $a_{n} =0$ if $n$ is even. The sequence constantly alternates between $1$ and $0$.
     \end{solution}
   \item A sequence with an infinite number of ones that converges to a limit not equal to one.
     \begin{solution}
-      The former argument also shows that such sequence is impossible to create.
+      There is no such sequence. Since $a_{n}=1$ for infinitely many $n\in \N$, it follows for any $a\neq 1$ that $|a_{n}-a|=\varepsilon$ for some positive real number $\varepsilon$ and infinitely many $n\in \N$. Therefore, for some positive real number $r<\varepsilon$, for any $N\in \N$, there is some $n\geq N$ such that $r<|a_{n}-a|=\varepsilon$.    
     \end{solution}
   \item A divergent sequence such that for every $n\in \N$ it is possible to find $n$ consecutive ones somewhere in the sequence.
     \begin{solution}
@@ -114,7 +114,7 @@
     \begin{equation*}
       M=(0,1,0,1,1,0,1,1,1,0,\dots).
     \end{equation*}
-        We first show that one can find $k$ consecutive ones in the sequence. Suppose that $k=1$, then $b_{1}=0, b_{2}=1,b_{3}=0$  and so there is 1 consecutive one. We may further assume that $k\geq 2$. Hence, $a_{k}=a_{k-1}+k$ and $a_{k+1}=a_{k}+k+1$. Note that $a_{k+1}-a_{k} = k+1$ and so in between $a_{k+1}$ and $a_{k}$ there are $k$ consecutive positive integers such that they are not elements of $S$. Thus, these $k$ spaces are ones. Also, $M$ is divergent, since one can only find two discrete values inside it.
+        We first show that one can find $k$ consecutive ones in the sequence. Suppose that $k=1$, then $b_{1}=0, b_{2}=1,b_{3}=0$  and so there is 1 consecutive one. We may further assume that $k\geq 2$. Hence, $a_{k}=a_{k-1}+k$ and $a_{k+1}=a_{k}+k+1$. Note that $a_{k+1}-a_{k} = k+1$ and so in between $a_{k+1}$ and $a_{k}$ there are $k$ consecutive positive integers such that they are not elements of $S$. Thus, these $k$ spaces are ones. Also, $M$ is divergent, since the sequence constantly alternates between $1$ and $0$.
     \end{solution}
     \end{enumerate}
     \end{problem}
@@ -131,6 +131,46 @@
     \end{solution}
     \end{enumerate}
     The last example gives some insight for a possible conjecture, namely, $\lim a_{n} + \lim b_{n} = \lim(a_{n}+b_{n})$, for convergent sequences $(a_{n})$ and $(b_{n})$.
+    \end{problem}
+    \begin{problem}{2.2.6}
+      Prove Theorem 2.2.7. To get started, assume $(a_{n})\to a$ and also that $(a_{n})\to b$. Now argue $a=b$.
+    \begin{solution}
+      The limit of a sequence, when it exists, must be unique.
+    \begin{proof} 
+      Let's try to prove it directly. Let $(a_{n})$ be some sequence such that $(a_{n})\to a$ and $(a_{n})\to b$. Consider some positive real number $\varepsilon$. Then, $\varepsilon/2$ is a positive real number and so there are $M,N\in \N$ such that $|a_{n_{1}}-a|,|a_{n_{2}}-b| < \varepsilon/2$ for all $n_{1}\geq M$ and $n_{2}\geq N$. Therefore, there is some $k\geq M,N$ such that $|a_{k}-a|,|a_{k}-b|< \varepsilon/2$ and so $|a_{k}-a|+|a_{k}-b| < \varepsilon$. \\
+      Note that
+    \begin{align*}
+      |(a_{k}-a)-(a_{k}-b)| &= |(a_{k}-a)+(-(a_{k}-b))|\\
+      &\leq |a_{k}-a|+|-(a_{k}-b)| = |a_{k}-a|+|a_{k}-b|.
+    \end{align*}
+    Since $|(a_{k}-a)-(a_{k}-b)| = |b-a|$, it follows that $|b-a|<\varepsilon$, for any positive real number $\varepsilon$. Therefore, $|b-a|=0$ and so $b=a$. 
+    \end{proof}
+    \end{solution}
+    \end{problem}
+    \begin{problem}{2.2.7}
+      Here are two useful definitions:
+      \begin{enumerate}
+	\item A sequence $(a_{n})$ is \textit{eventually} in a set $A\subseteq \R$ if there exists an $N\in \N$ such that $a_{n}\in A$ for all $n\geq N$.
+	\item A sequence $(a_{n})$ is \textit{frequently} in a set $A\subseteq \R$ if, for every $N\in \N$, there exists an $n\geq \N$ such that $a_{n}\in A$.
+	  \begin{enumerate}[label=(\alph*)]
+	    \item Is the sequence $(-1)^{n}$ eventually or frequently in the set $\left\{ 1 \right\}$?
+    \begin{solution}
+      It is frequently in $\left\{ 1 \right\}$. Consider some $N\in \N$. If $N$ is even, then $(-1)^{N} = 1\in \left\{ 1 \right\}$. On the other hand, if it is odd, then $(-1)^{N+1} = 1\in \left\{ 1 \right\}$.
+    \end{solution}
+	    \item Which definition is stronger? Does frequently imply eventually or does eventually imply frequently?
+    \begin{solution}
+      Eventually implies frequently. Consider some sequence $(a_{n})$ such that it is eventually in a set $A\subseteq \R$. Then, there is some $N\in \N$ such that $a_{n}\in A$ for all $n\geq N$. Let $k\in \N$. If $k\leq N$, then $a_{N}\in A$. On the other hand, if $k> N$, then $a_{k}\in A$. 
+    \end{solution}
+	    \item Give an alternative rephrasing of Defintion 2.2.3 using either frequently or eventually. Which is the term we want?
+    \begin{solution}
+      A sequence $(a_{n})$ converges to a real numbr $a$ if, for every positive real number $\varepsilon$, $(a_{n})$ is eventually in $A=(a-\varepsilon,a+\varepsilon)$. 
+    \end{solution}
+	     \item Suppose an infinite number of terms of a sequence $(x_{n})$ are equal to 2. Is $(x_{n})$ necessarily eventually in the interval $(1.9,2.1)$? Is it frequently in $(1.9,2.1)$?
+    \begin{solution}
+      It is not necessarily eventually in $(1.9,2.1)$. For instance, consider the sequence $(x_{n})=(1,2,1,2,1,2,1,2,1,2,\dots)$. On the other hand, it is necessarily frequently in $(1.9,2.1)$, since for any $N\in \N$, there is some $n\geq N$ such that $x_{n} = 2$. Otherwise, there would be a finite quantity of $2$s, namely, some quantity lower or equal to $N$.
+    \end{solution}
+    \end{enumerate}
+    \end{enumerate}
     \end{problem}
        \end{document}
 
