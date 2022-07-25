@@ -64,6 +64,36 @@
       First we show that it is injective. Consider two $f(a)=f(b)$ for some $a,b\in \Z$. Then, $2a+1=2b+1$. Substracting 1 to both sides, we get $2a=2b$. Dividing by 2, we obtain $a=b$. However, it is not surjective. Consider any even integer $r$ and so there is no integer $n$ such that $f(n)=2n+1=r$.
     \end{solution}
     \end{problem}
+    \begin{problem}{21}
+	A function $f:\Z\to \Z$ is defined by $f(n)=n-3$. Determine whether $f$ is injective, surjective.
+    \begin{solution}
+      The function is both injective and surjective. Consider some some $f(a)=f(b)$ for $a,b\in \Z$. Then, $a-3=b-3$ and so $a=b$. Now, let $y\in \Z$. Note that $x=b+3$ is an integer. Then $f(x) = (y+3)-3=b$.
+    \end{solution}
+    \end{problem}
+    \begin{problem}{23}
+      Prove or disprove: For every nonempty set $A$, there exists an injective function $f:A\to \mathcal{P}(A)$.
+      \begin{proof}
+	Let $g:A\to \mathcal{P}(A)$ be deifned by $f(n)=\left\{ n \right\}$. We show that it is injective. Consider some element $f(a)=f(b)$ for $a,b\in A$, then $\left\{ a \right\}=\left\{ b \right\}$, which implies that $a=b$. Due to the individuality of each element of $A$, $f(n)$ is injective.	
+    \end{proof}
+    Note that it is impossible to define a function $f:A\to \mathcal{P}(A)$ that is surjective since $|A|<2^{|A|} = |\mathcal{P}(A)|$. 
+    \end{problem}
+    \begin{problem}{24}
+      Determine whether the function $f:\R\to \R$ defined by $f(x)=x^{2}+4x+9$ is one-to-one, onto.
+    \begin{solution}
+      We show that it is not one-to-one. Consider some $f(x)=f(y)$ for $x,y\in \R$. Then, $x^{2}+4x+9 = y^{2}+4y+9$ and so $x^{2}+4x - (y^{2}+4y)=0$. Note that  
+    \begin{align*}
+      x^{2}+4x-(y^{2}+4y) &= (x^{2}-y^{2})+4(x-y)\\
+      &= (y+x)(x-y)+4(x-y) = (x-y)(y+x+4) = 0.
+    \end{align*}
+    Hence, either $x-y=0$ or $y+x+4=0$. In the latter, $y=-(x+4)$. For instace, if $x=3$ and $y=1$, then $f(x)=f(y)$.\\
+    Also, it is not surjective. Note that   
+    \begin{align*}
+    x^{2}+4x+9 &= \left(x^{2}+4x+4\right)-4+9\\
+    &= \left(x+2\right)^{2}+5\geq 5.
+    \end{align*}
+    Thus, there is no $x\in \R$ such that $f(x)<4$.
+    \end{solution}
+    \end{problem}
 \end{document}
 
 
