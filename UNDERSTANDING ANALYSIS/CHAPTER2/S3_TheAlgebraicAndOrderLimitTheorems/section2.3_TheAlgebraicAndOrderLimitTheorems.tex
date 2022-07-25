@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\Lim}[1]{\mathrm{lim}(#1)}
+
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[1][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+\title{Section 2.3: The Algebraic and Order Limit Theorems}
+   \author{Juan Patricio Carrizales Torres}
+     \date{Jul 25, 2022}
+       \maketitle 
+       Now that we have a more formal and clearer definition of convergence for sequences, we can check some properties that come with this meaning. Namely, algebraic and order properties. Before that, we must mention an important theorem, which says that for any convergent sequence $(a_{n})$, there is some real number $M$ such that $(a_{n})$ is inside $[-M,M]$. Namely, $|a_{n}|\leq M$ for all $n\in \N$.
+       Let $(a_{n})\to a$ and $(b_{n})\to b$. The algebraic property states the following: 
+       \begin{enumerate}[label=(\roman*)]
+	 \item $\Lim{ca_{n}} = ca$
+	 \item $\Lim{a_{n}+b_{n}} = a + b$
+	 \item $\Lim{a_{n}b_{n}} = ab$
+	 \item $\Lim{a_{n}/b_{n}} = a/b$, if $b\neq0$.
+    \end{enumerate}
+    THe interesting thing about the arguments given by the author to prove them is that they use the fact that one can make $|a_{n} -a|$ as small as one wants, namely, for any positive real number $\varepsilon$ as small as one can imagine, there is some $a_{n}$ such that $|a_{n}-a|<\varepsilon$. Also, these properties helps us interact with combinations of sequences and their limits on a more ``familiar'' way. On the other hand, the order property states the following:
+       \begin{enumerate}[label=(\roman*)]
+	 \item If $a_{n}\geq 0$ for all $n\in \N$, then $a\geq0$.
+	 \item If $a_{n}\leq b_{n}$ for all $n\in\N$, then $a\leq b$.
+	 \item If there exists $c\in \R$ for which $c\leq b$ for all $n\in \N$, then $c\leq b$. Similarly, if $a_{n}\geq c$ for all $n\in \N$, then $a\geq c$. 
+    \end{enumerate}
+    Noteworthy, if one changes the initial assumption from \textit{for all} for \textit{infinitely many}, the theorem holds. In other words, the property of a finite amount of elements in a sequence is not sufficient to predict the general property of its limit. The first $10^{10^{100}}$ elements can be positive but the rest be negative, which means that the sequence \textit{eventually} aquires the property of negativity. 
+\end{document}
+
+
