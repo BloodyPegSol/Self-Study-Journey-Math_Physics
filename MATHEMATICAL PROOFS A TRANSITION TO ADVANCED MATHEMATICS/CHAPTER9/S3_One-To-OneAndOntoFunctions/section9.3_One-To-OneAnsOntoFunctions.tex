@@ -92,7 +92,44 @@
     &= \left(x+2\right)^{2}+5\geq 5.
     \end{align*}
     Thus, there is no $x\in \R$ such that $f(x)<4$.
+
     \end{solution}
+    \end{problem}
+    \begin{problem}{25}
+      Is there a function $f:\R\to \R$ that is onto but not one-to-one? Explain your answer.
+    \begin{solution}
+      Yes, there is such function. Let the function $g:\R\to \R$ be defined by 
+    \begin{align*}
+      g(n) =
+    \begin{cases}
+      n, \; \mathrm{if}\; n\leq -\frac{\pi}{2}\\
+      \tan(n), \; \mathrm{if }-\frac{\pi}{2}<n<\frac{\pi}{2}\\ 
+      n, \; \mathrm{if}\; n\geq \frac{\pi}{2}.
+    \end{cases}
+    \end{align*}
+    Clearly, $\mathrm{dom}(g)=\R$. Note that, the function $\varphi : \left(-\frac{\pi}{2},\frac{\pi}{2}\right)\to \R$ defined by $\varphi(n)=\tan(n)$ is by itself injective and surjective. However, by adding identity relations for the lower and upper bounds, namely,$\left(-\infty, \frac{\pi}{2}\right]$ and $\left[ \frac{\pi}{2},\infty \right)$, we make sure that $g$ is not injective, in other words, there are $a,b\in \R$ such that $f(a)=f(b)$ and $a\neq b$. 
+    \end{solution}
+    \end{problem}
+    \begin{problem}{26}
+      Give an example of a function $f:\N\to\N$ that is
+    \begin{enumerate}[label=(\alph*)]
+      \item one-to-one and onto 
+    \begin{solution}
+      Let $f:\N\to \N$ be defined by $f(n)=n$.
+    \end{solution}
+      \item one-to-one but not onto 
+    \begin{solution}
+      Let $f$ be defined by $f(n)=2n$. We show that it is one-to-one. Consider some $f(a)=f(b)$ for positive integers $a,b$. Then, $2a=2b$ and so $a=b$. However, note that $\{2n+1:n\in\N\}\not\subseteq \mathrm{range}(f)$. The function $f$ is not surjective.
+    \end{solution}
+      \item  onto but not one-to-one 
+    \begin{solution}
+      Let $f$ be defined by $f(1)=1$ and $f(n)=n-1$ if $n\geq 2$. Clearly, $f(1)=f(2)=1$ and so it is not injective. We prove that it is surjective. Consider any $b\in\N$, then $b+1\in \N$ and $f(b+1)=(b+1)-1=b$.
+    \end{solution}
+      \item neither one-to-one nor onto 
+    \begin{solution}
+      Let $f$ be defined by $f(n)=1$. Note that $f(a)=f(b)$ for any $a,b\in \N$ and $\mathrm{range}(f) = \left\{ 1 \right\}$. Hence, $f$ is neither onto nor one-to-one. 
+    \end{solution}
+    \end{enumerate}
     \end{problem}
 \end{document}
 
