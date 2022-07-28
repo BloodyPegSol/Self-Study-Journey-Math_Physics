@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\Lim}[1]{\mathrm{lim}(#1)}
+\newcommand{\Abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\Dom}[1]{\mathrm{dom}(#1)}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+\setenumerate[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[1][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+ \title{Section 9.4: Bijective Functions}
+   \author{Juan Patricio Carrizales Torres}
+     \date{Jul 28, 2022}
+       \maketitle
+
+       As it was mentioned in the previous section, for finite sets $A$ and $B$, $|A|\geq |B|$ is a necessary and sufficient condition for an onto function $f:A\to B$ to exist. The same can be said for $|A|\leq |B|$ and some one-to-one function $g:A\to B$. Since we are talking about positive integers, it must be true that $|A|=|B|$ is a necessary and sufficient condition for an onto and one-to-one function $\varphi:A\to B$ to exist, knwon as a bijective function. \\
+       In fact, for finite sets $B$ and $C$ such that $|B|=|C|=n$, there are $n!$ distinct bijective functions from $B$ to $C$. Namely, every bijective function is a permutation of the elements of $|C|$ for $n$ spaces. Furthermore, for any function $f$ from $B$ to $C$, $f$ is onto if and only if $f$ is one-to-one. All this makes sense for finite sets, we must make sure to pair all elements of $C$ with the constriction of assigning one unique element to every element of $B$. However, this intuition does not work for analyzing the cases with infinite ones.\\
+       Let $A,B$ be sets. So far, we defined the function $f:A\to B$ as a relation from $A$ to $B$ such that
+    \begin{enumerate}
+      \item $x\in A \implies \exists b\in B, (a,b)\in f$
+      \item $(a,b),(a,c)\in f \implies b=c$
+    \end{enumerate}
+    If a relation satisfies (b), then it is called \textbf{well-defined}.\\
+    Lastly, the identity function $i_{S}$ on ANY nonempty set $S$ defined by $i_{S}(n)=n$ for all $n\in S$ is bijective. 
+       \end{document}
+
