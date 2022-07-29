@@ -57,5 +57,39 @@
     \end{enumerate}
     If a relation satisfies (b), then it is called \textbf{well-defined}.\\
     Lastly, the identity function $i_{S}$ on ANY nonempty set $S$ defined by $i_{S}(n)=n$ for all $n\in S$ is bijective. 
+    \begin{problem}{31}
+      Let $f:\Z_{5} \to \Z_{5}$ be a function defined by $f([a]) = [2a+3]$.
+    \begin{enumerate}
+      \item Show that $f$ is well-defined.
+    \begin{proof}
+      Consider two $[a]=[b]$ such that $[a],[b]\in \Z_{5}$. Then, $a \equiv b \Mod{5}$ which implies that $a-b=5k$ for some $k\in\Z$. Then, $f([a]) = [2a+3]$ and $f([b])=[2b+3]$. Note that 
+    \begin{align*}
+      (2a+3)-(2b+3) &= 2(a-b) = 5(2k).
+    \end{align*}
+    Therefore, $(2a+3)\equiv (2b+3) \Mod{5}$ and so $f([a]) = f([b])$
+    \end{proof}
+      \item Determine wheter $f$ is bijective.
+    \begin{proof}
+      We know that $\Z_{5} = \left\{ [0],[1],[2],[3],[4] \right\}$. Note that $f([0]) = [3], f([1])=[5]=[0], f([2])=[7]=[2], f([3])=[4]$ and $f([4])=[11]=[1]$. Hence, all elements of $\Z_{5}$ are paired with a unique element of $\Z_{5}$. The function is bijective.
+    \end{proof}
+    \end{enumerate}
+    \end{problem}
+    \begin{problem}{33}
+      Let $A=[0,1]$ denote the closed interval of real numbers between 0 and 1. Give an example of two different bijective functions $f_{1}$ and $f_{2}$ from $A$ to $A$, neither of which is the identity function.
+    \begin{enumerate}
+      \item $f:A\to A$ defined by $f(n)$
+    \end{enumerate}
+    \end{problem}
+    \begin{problem}{34}
+      Give a proof of Theorem 7 using mathematical induction.
+    \begin{solution}
+      If $A$ and $B$ are sets with $|A|=|B|=n$, then there are $n!$ bijective functions from $A$ to $B$. 
+    \begin{proof}
+      We proceed by induction. Let $A$ and $B$ be sets with $|A|=|B|=1$, then there is only $1=1!$ bijective function from $A$ to $B$, namely, the pairing of the only element of $A$ with the only element of $B$. In fact, this is the only function from $A$ to $B$ since $\Abs{B^{A}} = 1$. \\
+      Suppose for sets $A_{1}$ and $B_{1}$ with $|A_{1}| = |B_{1}|=k$ that there are $k!$ bijective functions from $A$ to $B$. We prove for sets $A_{2}$ and $B_{2}$ with $|A_{2}|=|B_{2}|=k+1$ that there are $(k+1)!$ bijective functions.\\
+      By our inductive hypothesis, we can only create $k!$ distinct bijective functions by fixing an element $(a_{k+1}, b_{k+1})$ in all of them since the remaining elements correspond to a bijective function from $\left\{ a_{1},a_{2},\dots,a_{k} \right\}$ to $\left\{ b_{1},b_{2},\dots,b_{k} \right\}$.  Note that we can do this with $(a_{k+1},b_{k}),(a_{k+1},b_{k-1}),\dots,$ $(a_{k+1},b_{2}),(a_{k+1},b_{1})$. Therefore, for each of the possible $k+1$ images of $a_{k+1}$, there are only $k!$ distinct bijective functions. By the Principle of Mathematical Induction,  there are $(k+1)k! = (k+1)!$ bijective functions from $A_{2}$ to $B_{2}$. 
+    \end{proof}
+    \end{solution}
+    \end{problem}
        \end{document}
 
