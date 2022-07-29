@@ -12,7 +12,7 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
 \newcommand{\Lim}[1]{\mathrm{lim}(#1)}
-
+\newcommand{\Abs}[1]{\left\vert #1 \right\vert}
 
 \newlist{legal}{enumerate}{10}
 \setlist[legal]{label=(\alph*)}
@@ -59,6 +59,19 @@
 	 \item If there exists $c\in \R$ for which $c\leq b$ for all $n\in \N$, then $c\leq b$. Similarly, if $a_{n}\geq c$ for all $n\in \N$, then $a\geq c$. 
     \end{enumerate}
     Noteworthy, if one changes the initial assumption from \textit{for all} for \textit{infinitely many}, the theorem holds. In other words, the property of a finite amount of elements in a sequence is not sufficient to predict the general property of its limit. The first $10^{10^{100}}$ elements can be positive but the rest be negative, which means that the sequence \textit{eventually} aquires the property of negativity. 
+    \begin{problem}{2.3.1}
+      Let $x_{n}\geq 0$ for all $n\in \N$.
+      \begin{enumerate}[label=(\alph*)]
+	\item If $(x_{n})\to 0$, show that $(\sqrt{x_{n}})\to0$.
+    \begin{proof}
+      Observe that $|x_{n}-0|=|x_{n}|$. Now, consider some positive real number $\epsilon$. Since $(x_{n})\to 0$, there is some $N\in \N$ such that $|x_{n}|=x_{n} < \epsilon^{2}$ for all $n\geq N$ ($0\leq x_{n}$). Then, $\sqrt{x_{n}} < \sqrt{\epsilon^{2}}=\epsilon$. Because $\sqrt{x_{n}}\geq 0$, it follows that $\sqrt{x_{n}}=\Abs{\sqrt{x_{n}}} = \Abs{\sqrt{x_{n}}-0}<\epsilon$ for all $n\geq N$. 
+    \end{proof}
+	\item If $(x_{n})\to x$, show that $(\sqrt{x_{n}})\to\sqrt{x}$.
+    \begin{proof}
+      Consider some positive real number $\epsilon$. Since $(x_{n}) \to 0$, it follows that there is some $N\in \N$ such that $|x_{n}-x| < \epsilon^{2}$ for all $n\geq N$. Thus, $\sqrt{\epsilon^{2}} > \sqrt{|x_{n}-x|} \geq |\sqrt{x_{n}}-\sqrt{x}|$, and so  $|\sqrt{x_{n}}-\sqrt{x}|<\epsilon$ for all $n\leq N$. Therefore, $(\sqrt{x_{n}})\to \sqrt{x}$.
+    \end{proof}
+    \end{enumerate}
+    \end{problem}
 \end{document}
 
 
