@@ -91,5 +91,40 @@
     \end{proof}
     \end{solution}
     \end{problem}
+    \begin{problem}{35}
+      For two finite nonempty sets $A$ and $B$, let $R$ be a relation from $A$ to $B$ such that $\Range{R}=B$. Define the domination number $\gamma(R)$ of $R$ as the smallest cardinality of a subset $S\subseteq A$ such that for every element $y$ of $B$, there is an element $x\in S$ such that $x$ is related to $y$.
+    \begin{enumerate}
+      \item Let $A=\left\{ 1,2,3,4,5,6,7 \right\}$ and $B=\left\{ a,b,c,d,e,f,g \right\}$ and let 
+    \begin{align*}
+      R= \{ &(1,c),(1,e),(2,c),(2,f),(2,g),(3,b),(3,f),(4,a),\\
+      &(4,c),(4,g),(5,a),(5,b),(5,c),(6,d),(6,e),(7,a),(7,g) \}.
+    \end{align*}
+    Determine $\gamma(R)$. 
+    \begin{solution}
+      Observe that $B$ has 7 elements and each element of $A$ is related to either 2 or 3 distinct elements of $B$. Therefore, wihtout looking at $R$, we can assure that $S\subseteq A$ has $|S|\geq 3$. For instance, $S=\left\{3,4,6\right\}$. Therefore, $\gamma(R)=3$.
+    \end{solution}
+      \item If $R$ is an equivalence relation defined on a finite nonempty set $A$ (and so $B=A$), then what is $\gamma(R)$?
+    \begin{solution}
+      Since $R$ is an equivalence relation on the finite set $A$, it follows that there are $n$ distinct equivalence classes. We know that the union of the distinct equivalence classes is $A$, they are pairwise disjoint and any element belonging to one of them is related to itself and all elements inside of the equivalence class. Hence, $\gamma(R) =n$.
+    \end{solution}
+      \item If $f$ is a bijective function from $A$ to $B$, then what is $\gamma(f)$?
+    \begin{solution}
+      Clearly, $\gamma(f) = |A|$ due to the onto and one-to-one properties of bijective functions.
+    \end{solution}
+    \end{enumerate}
+    \end{problem}
+    \begin{problem}{36}
+      Let $A=\left\{ a,b,c,d,e,f \right\}$ and $B=\left\{u,v,w,x,y,z \right\}$. With each element $r\in A$, there is associated a list or subset $L(r) \subseteq B$. The goal is to define a ``list function'' $\varphi: A\to B$ with the property that $\varphi(r)\in L(r)$ for each $r\in A$.
+    \begin{enumerate}
+      \item For $L(a) = \left\{ w,x,y \right\}$, $L(b)=\left\{ u,z \right\}$, $L(c)=\left\{ u,v \right\}$, $L(d)=\left\{ u,w \right\}$, $L(e)=\left\{ u,x,y \right\}$, $L(f)=\left\{ v,y \right\}$, does there exist a bijective list function $\varphi: A\to B$ for these lists?
+    \begin{solution}
+      Let $\varphi = \left\{ (a,x), (b,z), (c,v), (d,w), (e,u), (f,y) \right\}$. Then $\varphi$ is a bijective list function from $A$ to $B$. 
+    \end{solution}
+      \item For $L(a) = \left\{ u,v,x,y \right\}$, $L(b)=\left\{ v,w,y \right\}$, $L(c)=\left\{ v,y \right\}$, $L(d)=\left\{ u,w,x,z \right\}$, $L(e)=\left\{ v,w \right\}$, $L(f)=\left\{ w,y \right\}$, does there exist a bijective list function $\varphi: A\to B$ for these lists?
+    \begin{solution}
+      Note that the only list that contains $z$ is $L(d)$. Hence, $(d,z)\in \varphi$. However, $u$ and $x$ are contained only in $L(d),L(a)$ and $a$ can only have one image. Hence, there is no onto (bijective) list function $\varphi: A\to B$. Also, note that $\varphi(b),\varphi(c),\varphi(e),\varphi(f)\in \left\{ v,w,y \right\}$.
+    \end{solution}
+    \end{enumerate}
+    \end{problem}
        \end{document}
 
