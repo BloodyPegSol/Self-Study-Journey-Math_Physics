@@ -72,6 +72,30 @@
     \end{proof}
     \end{enumerate}
     \end{problem}
+    \begin{problem}{2.3.2}
+      Using only Definition 2.2.3 (definition of convergence), prove that if $(x_{n})\to 2$, then 
+    \begin{enumerate}
+      \item $\left( \frac{2x_{n}-1}{3} \right)\to 1$
+    \begin{proof}
+      First, note that $\Abs{\frac{2x_{n}-1}{3}-1} = \Abs{\frac{2x_{n}-4}{3}}$. Now, consider some positive real number $\epsilon$. Then, there is some $N\in \N$ such that $\Abs{x_{n}-2}<\frac{3}{2} \epsilon$ for all $n\geq N$. Observe that
+    \begin{align*}
+    \frac{2}{3}\Abs{x_{n}-2} &= \Abs{\frac{2}{3}}\Abs{x_{n}-2}\\
+  &= \Abs{\frac{2}{3}x_{n}-\frac{4}{3}} = \Abs{\frac{2x_{n}-4}{3}}\\
+  &< \epsilon.
+    \end{align*}
+    Therefore, $\Abs{\frac{2x_{n}-1}{3}-1}<\epsilon$ for all $n\geq \N$ and so $\left( \frac{2x_{n}-1}{3} \right)\to 1$. 
+    \end{proof}
+      \item $\left( \frac{1}{x_{n}} \right)\to 1/2$
+    \begin{proof}
+      Since $(x_{n})\to 2$, it follows that there is an infinity of nonzero $x_{n}$ that eventually get nearer and nearer to $2$. Then, let's consider all $x_{n} \neq 0$ in the sequence $\left( \frac{1}{x_{n}} \right)$. \\
+      Note that $\Abs{\frac{1}{x_{n}}-1/2} = \Abs{\frac{2-x_{n}}{2x_{n}}} = \frac{\Abs{2-x_{n}}}{2\Abs{x_{n}}}$. Now, let $\epsilon$ be any positive real number. Then, there is some $K_{1}\in \N$ such that $|x_{n}-2| < 1$, which implies that $|x_{n}| > 1$. Furthermore, there is a positive integer $K_{2}$ such that $|x_{n}-2| < 2\epsilon$ for all $n\geq K_{2}$. Thus, 
+    \begin{align*}
+      \Abs{2-x_{n}}\frac{1}{2|x_{n}|} < \Abs{2-x_{n}}\frac{1}{2} < 2\epsilon\;\frac{1}{2} 
+    \end{align*}
+    for any $n\geq M$, where $M=\mathrm{max}(K_{1},K_{2})$. Then, $\Abs{\frac{1}{x_{n}}-1/2}<\epsilon$ for all $n\geq M$. Hence, $\left( \frac{1}{x_{n}} \right)\to 1/2$.
+    \end{proof}
+    \end{enumerate}
+    \end{problem}
 \end{document}
 
 
