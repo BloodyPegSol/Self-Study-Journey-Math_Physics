@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\Lim}[1]{\mathrm{lim}(#1)}
+\newcommand{\Abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\Dom}[1]{\mathrm{dom}(#1)}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+\setenumerate[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[1][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+ \title{Section 9.5: Composition of Functions}
+   \author{Juan Patricio Carrizales Torres}
+     \date{Aug 1, 2022}
+       \maketitle
+   
+       We have previously defined operations on sets such as the integers modulo $n$. Some sets of functions are no exception. Let $A,B',B$ and $C$ be nonempty sets and consider the functions $f:A\to B'$ and $g:B\to C$. If $B' \subseteq B$, namely, if $\Range{f} \subseteq \Dom{g}$, then it is possible to create a new function from $A$ to $C$ called the composition of $f$ and $g$. This composition $g\circ f$ is defined by
+    \begin{equation*}
+   ( g\circ f)(x) = g(f(x)) \text{ for all } x\in A.
+    \end{equation*}
+    Furthermore, it has some useful properties. Consider two functions $f$ and $g$ such that their composition $g\circ f$ is defined, then 
+    \begin{enumerate}
+      \item If both $g$ and $f$ are injective (surjective), then the composition $g\circ f$ is injective (surjective).
+    \end{enumerate}
+    Clearly, one can further conclude that if $g$ and $f$ are bijective, then their composition $g\circ f$ is bijective. Keep in mind that in the beginning of the paragraph we assumed that their composition $g\circ f$ is defined. However, this is not a sufficient condition for $f\circ g$ to be defined. This depends on whether $\Range{g} \subseteq \Dom{f}$ is true or not. \\
+
+    Also, for nonempty functions $f,g,h$, if the compositions $g\circ f$ and $h\circ g$ are defined, then $h\circ (g \circ f)$ and $(h\circ g)\circ f$ are defined. Furthermore, $h\circ(g\circ f) = (h\circ g)\circ f$ and so the composition of $f,g,h$ is \textbf{associative}. \\
+    Lastly, let's prove the following theorem.
+    \begin{theorem}{9.5.1}
+      Let $g$ and $f$ be nonempty functions. If $\Range{f}\subseteq \Dom{g}$ then  $g\circ f$ is a function.
+    \begin{proof}
+      Assume that $\Range{f}\subseteq \Dom{g}$. Consider some $(x,y)\in f$. Then, $(y,z)\in g$ and so $(x,z)\in g\circ f$. Hence, for any $x\in \Dom{f}=\Dom{g\circ f}$, there is an image $g(f(x)) = (g\circ f)(x)$ defined. We now prove that $g\circ f$ is well-defined. Consider two $a,b\in \Dom{g\circ f} = \Dom{f}$ such that $a=b$. Then, $f(a)=f(b)\in \Dom{g}$ and so $g(f(a))=g(f(b))$. Hence, $(g\circ f)(a)=(g\circ f)(b)$.
+    \end{proof}
+    \end{theorem}
+       \end{document}
+
+
