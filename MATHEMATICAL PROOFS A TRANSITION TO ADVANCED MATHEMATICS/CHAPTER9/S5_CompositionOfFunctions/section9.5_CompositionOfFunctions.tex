@@ -66,6 +66,32 @@
       Assume that $\Range{f}\subseteq \Dom{g}$. Consider some $(x,y)\in f$. Then, $(y,z)\in g$ and so $(x,z)\in g\circ f$. Hence, for any $x\in \Dom{f}=\Dom{g\circ f}$, there is an image $g(f(x)) = (g\circ f)(x)$ defined. We now prove that $g\circ f$ is well-defined. Consider two $a,b\in \Dom{g\circ f} = \Dom{f}$ such that $a=b$. Then, $f(a)=f(b)\in \Dom{g}$ and so $g(f(a))=g(f(b))$. Hence, $(g\circ f)(a)=(g\circ f)(b)$.
     \end{proof}
     \end{theorem}
+    \begin{problem}{38}
+      Two functions $f:\R \to \R$ and $g:\R \to \R$ are defined by $f(x) = 3x^{2}+1$ and $g(x) = 5x-3$ for all $x\in \R$. Determine $(g\circ f)(1)$ and $(f\circ g)(1)$.
+    \begin{solution}
+      The composition functions $g\circ f:\R \to \R$ and $f\circ g: \R \to \R$ are defined by $g(f(x)) = 5\left( 3x^{2}+1 \right)-3 = 15x^{2}+2$ and $f(g(x)) = 3\left( 5x-3\right)^{2}+1 = 75x^{2}-90x+28$ for all $x\in \R$.\\
+      Hence, $(g\circ f)(1) =17$ and $(f\circ g)(1) = 13$.
+    \end{solution}
+    \end{problem}
+    \begin{problem}{39}
+      Two functions $f:\Z_{10} \to \Z_{10}$ and $g:\Z_{10} \to \Z_{10}$ are defined by $f([a])=[3a]$ and $g([a])=[7a]$.
+    \begin{enumerate}
+      \item Determine $g\circ f$ and $f\circ g$.
+    \begin{solution}
+    The composition functions $g\circ f:\Z_{10}\to \Z_{10}$ and $f\circ g: \Z_{10} \to \Z_{10}$ are defined by $g(f([x])) = [21a]=[21][a]=[1][a]=[a]$ and $f(g([x])) = [21a]=[a]$ for every $[a]\in \Z_{10}$. Therefore, $g\circ f=f\circ g$.
+    \end{solution}
+      \item What can be concluded as a result of (a)?
+    \begin{solution}
+      Both $g\circ f$ and $f\circ g$ are identity functions on $\Z_{10}$.
+    \end{solution}
+    \end{enumerate}
+    \end{problem}
+    \begin{problem}{40}
+      Let $A$ and $B$ be nonempty sets. Prove that if $f:A\to B$, then $f\circ i_{A} = f$ and $i_{B} \circ f = f$.
+    \begin{proof}
+      Note that $\Range{i_{A}} = A = \Dom{f}$ and $\Range{f} \subseteq \Dom{i_{B}} = B$. Hence, both functions $f\circ i_{A}:A\to B$ and $i_{B}\circ f:A\to B$ are defined by $(f\circ i_{A})(x) = f(i_{A}(x))=f(x)$ and $(i_{B}\circ f)(x) = i_{B}(f(x))= f(x)$ for every $x\in A$. Both have the same Dominion and rule as $f$. Hence, $f\circ i_{A} = i_{B} \circ f = f$.
+    \end{proof}
+    \end{problem}
        \end{document}
 
 
