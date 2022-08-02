@@ -11,7 +11,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
-\newcommand{\Lim}[1]{\mathrm{lim}(#1)}
+\newcommand{\Lim}[1]{\mathrm{lim}\left( #1\right)}
 \newcommand{\Abs}[1]{\left\vert #1 \right\vert}
 
 \newlist{legal}{enumerate}{10}
@@ -94,6 +94,20 @@
     \end{align*}
     for any $n\geq M$, where $M=\mathrm{max}(K_{1},K_{2})$. Then, $\Abs{\frac{1}{x_{n}}-1/2}<\epsilon$ for all $n\geq M$. Hence, $\left( \frac{1}{x_{n}} \right)\to 1/2$.
     \end{proof}
+    \end{enumerate}
+    \end{problem}
+    \begin{problem}{2.3.3 (Squeeze Theorem)}
+      Show that if $x_{n} \leq y_{n} \leq z_{n}$ for all $n\in \N$, and if $\lim x_{n} = \lim z_{n} = l$, then $\lim y_{n} = l$ as well.
+    \begin{proof}
+      Since $(x_{n})\to l$ and $(z_{n}) \to l$, it follows that for some positive real numbr $\epsilon$, there is some positive integer $K$, such that $|x_{n}-l|<\epsilon$ and $|z_{n}-l|<\epsilon$ for all $n\geq K$. Hence, $-\epsilon< x_{n}-l < \epsilon$  and $-\epsilon < z_{n} -l <\epsilon$, and so $l-\epsilon < x_{n},z_{n} < l+\epsilon$. Since $x_{n} \leq y_{n} \leq z_{n}$, it follows that $l-\epsilon < x_{n} \leq y_{n} \leq z_{n} < l+\epsilon$. Thus, $|y_{n}-l| < \epsilon$ for each $n\geq K$, namely, $(y_{n}) \to l$.  
+    \end{proof}
+    \end{problem}
+    \begin{problem}{2.3.4} 
+      Let $(a_{n})\to 0$, and use the Algebraic Limit Theorem to compute each of the following limits (assuming the fractions are always defined):
+    \begin{enumerate}
+      \item $\Lim{\frac{1+2a_{n}}{1+3a_{n}-4a_{n}^{2}}}$
+      \item $\Lim{\frac{(a_{n}+2)^{2}-4}{a_{n}}}$
+      \item $\Lim{\frac{\frac{2}{a_{n}}+3}{\frac{1}{a_{n}}+5}}$
     \end{enumerate}
     \end{problem}
 \end{document}
