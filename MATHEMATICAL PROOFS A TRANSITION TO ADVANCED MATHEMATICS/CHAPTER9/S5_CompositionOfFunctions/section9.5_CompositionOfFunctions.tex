@@ -92,6 +92,68 @@
       Note that $\Range{i_{A}} = A = \Dom{f}$ and $\Range{f} \subseteq \Dom{i_{B}} = B$. Hence, both functions $f\circ i_{A}:A\to B$ and $i_{B}\circ f:A\to B$ are defined by $(f\circ i_{A})(x) = f(i_{A}(x))=f(x)$ and $(i_{B}\circ f)(x) = i_{B}(f(x))= f(x)$ for every $x\in A$. Both have the same Dominion and rule as $f$. Hence, $f\circ i_{A} = i_{B} \circ f = f$.
     \end{proof}
     \end{problem}
-       \end{document}
+    \begin{problem}{41}
+      Let $A$ be a nonempty set and let $f:A \to A$ be a function. Prove that if $f\circ f = i_{A}$, then $f$ is bijective.
+    \begin{proof}
+      Assume that $f\circ f = i_{A}$ for a function $f:A\to A$. First, we show that $f$ is injective. Let $f(a)=f(b)$ for some $a,b\in A$. Then, $(f\circ f)(a) = f(f(a)) = i_{A}(a) = a$ and $(f\circ f)(b) = f(f(b)) = i_{A}(b) = b$. Since $f$ is a function and $f(a)=f(b)$, it follows that $f(f(a)) = a = b = f(f(b))$.\\
+      We now show that $f$ is surjective. Consider any $c\in A$. Then, there is some $f(c)\in A$ and so $f(f(c)) = (f\circ f)(c) = c$.
+    \end{proof}
+    \end{problem}
+    \begin{problem}{42}
+      Prove or disprove the following:
+    \begin{enumerate}
+      \item If two functions $f:A\to B$ and $g:B\to C$ are both bijective, then $g\circ f:A\to C$ is bijective.
+    \begin{proof}
+      Since both $f$ and $g$ are bijective, it follows that $f$ and $g$ are both \textbf{injective} and \textbf{surjective}. By \textbf{Theorem 11}, $g\circ f: A\to C$ is injective and surjective, which, by definition, is a bijective function. 
+    \end{proof}
+      \item Let $f:A\to B$ and $g:B\to C$ be two functions. If $g$ is onto, then $g\circ f: A\to C$ is onto.
+    \begin{solution}
+      This is false. Let $A=\left\{ 1\right\}$, $B=\left\{ a,b,c \right\}$ and $C=\left\{ 1,2,3 \right\}$. Also, let $f=\left\{ (1,a) \right\}$ and $g=\left\{ (a,1),(b,2),(c,3) \right\}$. Hence, $g$ is onto and $g\circ f= \left\{ (1,1) \right\}$ is not onto. 
+    \end{solution}
+      \item Let $f:A\to B$ and $g:B\to C$ be two functions. If $g$ is one-to-one, then $g\circ f: A\to C$ is one-to-one.
+    \begin{solution}
+      This is false. Let $A=\left\{ 1,2 \right\}$, $B=\left\{ a \right\}$ and $C=\left\{ 1 \right\}$. Also, let $f=\left\{ (1,a), (2,a)\right\}$ and $g=\left\{ (a,1) \right\}$. Then, $g\circ f=\left\{ (1,1),(2,1) \right\}$ is not one-to-one.
+    \end{solution}
+      \item There exist functions $f:A\to B$ and $g:B\to C$ such that $f$ is not onto and $g\circ f: A\to C$ is onto.
+    \begin{solution}
+      Such functions exist. Let $A=\left\{1\right\}$, $B=\left\{a,b,c\right\}$ and $C=\left\{10 \right\}$. Also, let $f=\left\{ (1,a) \right\}$ and $g=\left\{ (a,10),(b,10),(c,10) \right\}$. Then, $g\circ f = \left\{ (1,10) \right\}$ is onto and $f$ is not onto.
+    \end{solution}
+      \item There exist functions $f:A\to B$ and $g:B\to C$ such that $f$ is not one-to-one and $g\circ f: A\to C$ is one-to-one.
+    \begin{proof}
+      We show that this is false. Namely, we prove that if $f$ is not one-to-one, then $g\circ f$ is not one-to-one. Since $f$ is not one-to-one, there are at least two distinct $a,b\in A$ such that $f(a)=f(b)$. Since $g$ is a function and $f(a)=f(b)\in B$, it follows that  $g(f(a)) = g(f(b))$. Therefore, there two distinct $a,b\in A$ such that $(g\circ f)(a) = (g\circ f)(b)$ and so $g\circ f$ is not one-to-one.
+    \end{proof}
+    \end{enumerate}
+    \end{problem}
+    \begin{problem}{43}
+      For nonempty sets $A, B$ and $C$, let $f:A\to B$ and $g:B\to C$ be functions.
+    \begin{enumerate}
+      \item Prove:
+    \begin{center}
+      If $g\circ f$ is one-to-one, then $f$ is one-to-one. 
+    \end{center}
+    using as many of the following proof techniques as possible: direct proof, proof by contrapositive, proof by contradiction.
+    \begin{solution}
+      \begin{enumerate}[label=(\roman*)]
+      \item Direct Proof
+    \begin{proof}
+      Assume that $g\circ f: A\to C$ is one-to-one. Consider some $f(a)=f(b)\in B$ for some $a,b\in A$. Then, $g(f(a)) = (g\circ f)(a) = g(f(b)) = (g\circ f)(b)$. Since $g\circ f$ is one-to-one, it follows that $a=b$. Hence, $f$ is one-to-one.  
+    \end{proof}
+      \item Proof by Contrapositive.
+    \begin{proof}
+      We show that if $f$ is not one-to-one, then $g\circ f$ is not one-to-one. Since $f$ is not one-to-one, it follows that there are two distinct $a,b\in A$ such that $f(a) = f(b)$. Then, $g(f(a)) = (g\circ f)(a) = g(f(b)) = (g\circ f)(b)$ and $a\neq b$. The function $g\circ f$ is not one-to-one.
+    \end{proof}
+      \item Proof by Contradiction.
+    \begin{proof}
+      Suppose that there are functions $f:A\to B$ and $g:B\to C$ such that $f$ is not one-to-one and $g\circ f$ is one-to-one. We can use the argument made in the \textbf{Proof by Contrapositive} to arrive at the conclusion that there are two distinct $a,b\in A$ such that $(g\circ f)(a) = (g\circ f)(b)$, which contradicts our assumption that $g\circ f$ is one-to-one.
+    \end{proof}
+    \end{enumerate}
+    \end{solution}
+  \item Disprove: If $g\circ f$ is one-to-one, then $g$ is one-to-one.
+    \begin{solution}
+      We disprove this statement by giving functions $f:A\to B$ and $g:B\to C$ such that $g$ is not one-to-one and $g\circ f: A\to C$ is one-to-one. Let $A=\left\{ 1 \right\}, B=\left\{ a,b \right\}$ and $C=\left\{ 10 \right\}$, and define $f:A\to B$ and $g:B\to C$ by $f=\left\{ (1,a) \right\}$ and $g=\left\{ (a,10),(b,10) \right\}$. Then, $g\circ f = \left\{ (1,10) \right\}$ is one-to-one and $g$ is not.
+    \end{solution}
+    \end{enumerate}
+    \end{problem}
+    \end{document}
 
 
