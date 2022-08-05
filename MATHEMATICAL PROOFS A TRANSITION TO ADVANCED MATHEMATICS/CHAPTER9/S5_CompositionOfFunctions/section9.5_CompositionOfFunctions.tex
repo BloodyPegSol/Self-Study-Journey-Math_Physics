@@ -154,6 +154,44 @@
     \end{solution}
     \end{enumerate}
     \end{problem}
+    \begin{problem}{47}
+      For functions $f,g$ and $h$ with domain and codomain $\R$, prove or disprove the following.
+    \begin{enumerate}
+      \item $(g+h)\circ f = (g\circ f)+(h\circ f)$
+    \begin{proof}
+      Note that both functions have the same domain, namely, $\R$. We show that $((g+h)\circ f)(x) = ((g\circ f)+(h\circ f))(x)$ for every $x\in \R$. Observe that
+    \begin{align*}
+      \left( \left( g+h \right)\circ f \right)(x) &= (g+h)(f(x))\\
+      &= g(f(x)) + h(f(x)) = (g\circ f)(x) + (h\circ f)(x)
+    \end{align*}
+    for any $x\in \R$. Both functions have the same domain and equal definition. 
+    \end{proof}
+      \item $f\circ (g+h) = (f\circ g) + (f\circ h)$.
+    \begin{solution}
+      This is not true for every functions $f,g,h$. Note that $f(g(x)+h(x)) = f(g(x)) +f(h(x))$ is not true for all cases, for instance 
+    \begin{equation*}
+      \Abs{g(x) + h(x)} = \Abs{g(x)} + \Abs{h(x)}
+    \end{equation*}
+    is not true for all real numbers $g(x),h(x) \in \R$. Hence, we can define functions $g:\R \to \R$, $h:\R\to \R$ and $f:\R\to \R$ by $g(x) = 3$, $h(x) = -2$ and $f(x) = \Abs{x}$ for all real numbers $x$ to create a counterexample.
+    \end{solution}
+    \end{enumerate}
+    \end{problem}
+    \begin{problem}{48}
+      The composition $g\circ f: (0,1) \to \R$ of two functions $f$ and $g$ is given by $(g\circ f)(x) = \frac{4x-1}{2\sqrt{x-x^{2}}}$, where $f:(0,1)\to (-1,1)$ is defined by $f(x) = 2x-1$ for $x\in (0,1)$. Determine the function $g$.
+    \begin{solution}
+      Let $g: (-1,1) \to \R$ be defined by
+    \begin{equation*}
+      g(n) = \frac{2n+1}{\sqrt{1-n^{2}}}
+    \end{equation*}
+    for every $n\in (-1,1)$. Note that for all $n\in (-1,1)$, $0<1-n^{2}$ and so its denominator $\sqrt{1-n^{2}}$ is defined in the real numbers and is nonzero. Then, the function $g\circ f: (0,1) \to \R$ is defined by 
+    \begin{align*}
+      (g\circ f)(x) &= \frac{2(2x-1)+1}{\sqrt{1-(2x-1)^{2}}}\\
+	&= \frac{4x-1}{\sqrt{1-4x^{2}+4x-1}}\\
+	  &= \frac{4x-1}{\sqrt{4(x-x^{2})}} = \frac{4x-1}{2\sqrt{x-x^{2}}}
+    \end{align*}
+    for all real numbers $x\in (0,1)$.
+    \end{solution}
+    \end{problem}
     \end{document}
 
 
