@@ -1,0 +1,83 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\Lim}[1]{\mathrm{lim}(#1)}
+\newcommand{\Abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\Dom}[1]{\mathrm{dom}\left(#1\right)}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+\setenumerate[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[1][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+ \title{Section 9.6: Inverse Functions}
+   \author{Juan Patricio Carrizales Torres}
+     \date{Aug 6, 2022}
+       \maketitle
+
+       A part from its properties, functions come with an interesting concept, namley, the \textbf{inverse function}. Let $f:A\to B$ be some function. Then, the inverse $f^{-1}$ is a relation defined by 
+    \begin{equation*}
+      f^{-1} = \left\{ (b,a):(a,b)\in f \right\}.
+    \end{equation*}
+    In fact, $f^{-1}$ is a function from $B$ to $A$ if and only if $f$ is bijective. Furthermore, $f$ being bijective implies that $f^{-1}$ is bijective. This points out that all \textbf{inverse functions} are bijective. Also, for some function $f$ from $A$ to $B$, if $f\circ f^{-1} = B$ and $ f^{-1} \circ f= A$, then $f$ is bijective. In fact, for functions $f:A\to B$ and $g: B\to A$ such that $f\circ g = i_{A}$ and $g\circ f = i_{B}$, both $g$ and $f$ are bijective and $g=f^{-1}$.  
+
+    Moreover, for any function $f:A\to B$, let $g$ be some function such that $f\circ g = i_{B}$. Then, $g$ is known as the \textbf{right inverse} of $f$. In fact, if $h\circ f= i_{A}$ for some function $h$, then $h$ is the left inverse of $f$. The following can be proven: 
+    \begin{enumerate}
+      \item $f$ is surjective $\iff$ function $g$ exists.
+      \item $f$ is injective $\iff$ funciton $h$ exists.
+    \end{enumerate}
+    \begin{problem}{51}
+      Show that the function $f:\R-\left\{ 3 \right\}\to \R-\left\{ 5 \right\}$ defined by $f(x) = \frac{5x}{x-3}$ is bijective and determine $f^{-1}(x)$ for $x\in \R-\left\{ 5 \right\}$.
+    \begin{proof}
+      We first show that $f:\R-\left\{ 3 \right\} \to \R-\left\{ 5 \right\}$ is bijective. Consider some $a,b\in \R-\left\{ 3 \right\}$ such that $f(a)=f(b)$. Then, $\frac{5a}{a-3}=\frac{5b}{b-3}$. Multiplying by $(a-3)(b-3)$ we have $(5a)(b-3) = (5b)(a-3)$. Hence, $5ab-15a = 5ba-15b$. Substracting $5ba$ and then dividing by $-15$ results in $a=b$. The function $f$ is one-to-one. Now, consider any $y\in \R-\left\{ 5 \right\}$. Then, $r=\frac{-3y}{5-y}$ is defined and $r\neq 3$ (otherwise $15=0$). Hence, $r\in \R-\left\{ 3 \right\}$ and so
+    \begin{align*}
+      f(r) &= \frac{5r}{r-3} = \frac{5\left( \frac{-3y}{5-y} \right)}{\left( \frac{-3y}{5-y} \right)-3}\\
+      &= \frac{\frac{-15y}{5-y}}{\frac{-3y-15+3y}{5-y}} \\
+      &= \frac{\frac{-15y}{5-y}}{\frac{-15}{5-y}}= y.
+    \end{align*}
+    Thus, $f$ is onto and so bijective. \\
+    Since $f$ is bijective, it follows that $f^{-1}$ is a bijective function. We determine $f^{-1}(x)$ for any $x\in \R-\left\{ 5 \right\}$. Consider some $x\in \R-\left\{ 5 \right\}$. Because $f$ is onto, it follows that there is some $a\in \R-\left\{ 3 \right\}$ such that $f(a)=x$ and so $f^{-1}(x) = a$. Hence,
+    \begin{align*}
+      f\left( f^{-1}(x) \right) &= \frac{5f^{-1}(x)}{f^{-1}(x)-3} = x.
+    \end{align*}
+    Hence, $5f^{-1}(x) = xf^{-1}-3x$ and so $f^{-1}(x)(5-x) = -3x$. This implies that $f^{-1}(x) = \frac{3x}{x-5}$.
+    \end{proof}
+    \end{problem}
+
+
+       \end{document}
+
+
