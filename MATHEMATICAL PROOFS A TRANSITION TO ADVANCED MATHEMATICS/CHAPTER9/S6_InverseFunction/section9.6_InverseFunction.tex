@@ -129,8 +129,44 @@
     Therefore, $f$ is bijective.
     \end{proof}
       \item Determine the inverse $f^{-1}$ of $f$
+    \begin{solution}
+      Since $f:\R\to \R$ is bijective, we know that $f\circ f^{-1}(x)=x$ for all $x\in \R$. Let $x\in \R$. We considr the following cases.
+	\begin{enumerate}[label=Case\arabic*]
+	  \item $x<0$. Then, there is some real number $a<1$ such that $f(a)=x$. Thus, $f^{-1}(x)=a$ and so $f^{-1}(x)<1$. Then, 
+    \begin{align*}
+      f\circ f^{-1}(x) &= \frac{1}{f^{-1}(x)-1} = x.
+    \end{align*}
+    Multiplying both sides by $f^{-1}(x)-1$ and adding $x$. we have $1+x=xf^{-1}(x)$. Dividing by $x$ we get $f^{-1}(x) = \frac{1+x}{x}$ for all real numbers $x<0$.
+  \item $x\geq 0$. Then, there is some real number $a\geq 1$ such that $f(a)=x$. Thus, $f^{-1}(x)=a$ and so $f^{-1}(x)\geq 1$. Then,
+    \begin{align*}
+      f\circ f^{-1}(x) &= \sqrt{f^{-1}(x)-1} = x.
+    \end{align*}
+    Squaring both sides and adding 1, we have $f^{-1}(x) = x^{2}+1$ for all real numbers greater than or equal to zero. 
+    \end{enumerate}
+    Hence, the function $f^{-1}:\R\to \R$ is defined by 
+    \begin{align*}
+      f^{-1}(x) &= 
+    \begin{cases}
+      \frac{1+x}{x} &\text{if }x<0\\
+      x^{2}+1 &\text{if }x\geq 0
+    \end{cases}
+    \end{align*}
+    for all $x\in \R$.
+    \end{solution}
     \end{enumerate}
     \end{problem}
+    \begin{problem}{58}
+      Suppose, for a function $f:A\to B$, that there is a function $g:B\to A$ such that $f\circ g = i_{B}$. Prove that if $g$ is surjective, then $g\circ f = i_{A}$.
+    \begin{proof}
+      Consider some $x\in A$. Since $g$ is surjective, it follows that there is some $b\in B$ such that $g(b) =x$. Because $f(x) = f(g(b)) = (f\circ g)(b)$ and $f\circ g = i_{B}$, we have $f(x) = b$. Then, $ (g\circ f)(x) = g(f(x))= g(b) = x$. Therefore, $g\circ f = i_{A}$.  
+    \end{proof}
+    \end{problem}
+    \begin{problem}{59}
+      Let $f:A\to B$, $g:B\to C$ and $h:B\to C$ be functions where $f$ is a bijection. Prove that if $g\circ f = h\circ f$, then $g=h$.
+    \end{problem}
+    \begin{proof}
+      Consider some $b\in B$. Since $f:A\to B$ is bijective, it follows that $f$ is surjective and so there is some $a\in A$ such that $f(a) =b$. Then, $(g\circ f)(a) = g(f(a)) = g(b) =  (h\circ f)(a) = h(f(a)) = h(b)$. Hence, $g(b) = h(b)$ for each $b\in B$ and so $g=h$ (it suffices to assume that $f$ is surjective).
+    \end{proof}
 
 
        \end{document}
