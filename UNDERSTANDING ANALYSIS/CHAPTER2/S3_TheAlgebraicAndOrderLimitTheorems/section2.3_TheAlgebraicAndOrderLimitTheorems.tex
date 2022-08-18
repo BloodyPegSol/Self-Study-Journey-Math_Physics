@@ -16,6 +16,7 @@
 
 \newlist{legal}{enumerate}{10}
 \setlist[legal]{label=(\alph*)}
+\setenumerate[legal]{label=(\alph*)}
 
 \DeclarePairedDelimiter\bra{\langle}{\rvert}
 \DeclarePairedDelimiter\ket{\lvert}{\rangle}
@@ -106,8 +107,116 @@
       Let $(a_{n})\to 0$, and use the Algebraic Limit Theorem to compute each of the following limits (assuming the fractions are always defined):
     \begin{enumerate}
       \item $\Lim{\frac{1+2a_{n}}{1+3a_{n}-4a_{n}^{2}}}$
+    \begin{solution}
+      In the denominator and numerator, there is a $1$ being added. This is constant for all $n\in \N$. Hence, one can define the sequence $(1)$ (all elements are 1), which $(1) \to 1$. Since $(2a_{n}) \to 2\cdot 0 = 0$, $(3a_{n}) \to 3\cdot 0 = 0$ and $(4a_{n}a_{n}) \to 4\cdot 0\cdot 0 = 0$, it follows that $\left( 1+2a_{n} \right)\to 1+0 = 1$ and $\left( 1+3a_{n}-4a_{n}^{4} \right)\to 1+ 0 -0= 1$. Thus, $\left( \frac{1}{1+3a_{n}-4a_{n}^{4}} \right)\to \frac{1}{1}=1$ (recall that all fractions are defined and so $1+3a_{n}-4a_{n}^{4}\neq 0$ for all $n\in \N$) and 
+    \begin{align*}
+      \Lim{\frac{1+2a_{n}}{1+3a_{n}-4a_{n}^{2}}} &= 1*1 = 1
+    \end{align*}
+    \end{solution}
       \item $\Lim{\frac{(a_{n}+2)^{2}-4}{a_{n}}}$
+    \begin{solution}
+      Note that  
+    \begin{align*}
+      \frac{(a_{n}+2)^{2}-4}{a_{n}} &= \frac{a_{n}^{2}+4a_{n}}{a_{n}}\\
+      &= a_{n} + 4
+    \end{align*}
+    for all $n\in \N$. Thus, $(a_{n}+4) \to 0+4 = 4$.
+    \end{solution}
       \item $\Lim{\frac{\frac{2}{a_{n}}+3}{\frac{1}{a_{n}}+5}}$
+    \begin{solution}
+      Note that
+    \begin{align*}
+      \frac{\frac{2}{a_{n}}+3}{\frac{1}{a_{n}}+5} &= \frac{\frac{2+3a_{n}}{a_{n}}}{\frac{1+5a_{n}}{a_{n}}}\\
+      &= \frac{2+3a_{n}}{1+5a_{n}}
+    \end{align*}
+    for all $n\in \N$. Also, $(2+3a_{n})\to 2+3\cdot0 = 2$ and $(1+5a_{n})\to 1+5\cdot0 = 1$. Thus, 
+    \begin{equation*}
+      \Lim{\frac{\frac{2}{a_{n}}+3}{\frac{1}{a_{n}}+5}} = \Lim{\frac{2+3a_{n}}{1+5a_{n}}} = 1/1=1.
+    \end{equation*}
+    \end{solution}
+    \end{enumerate}
+    \end{problem}
+    \begin{problem}{2.3.5}
+      Let $(x_{n})$ and $(y_{n})$ be given, and define $(z_{n})$ to be the ``shuffled'' sequence $(x_{1},y_{1},x_{2},y_{2},x_{3},y_{3},\dots,x_{n},y_{n},\dots)$. Prove that $z_{n}$ is convergent if and only if $(x_{n})$ and $(y_{n})$ are both convergent with $\Lim{x_{n}} = \Lim{y_{n}}$.
+    \begin{proof}
+      Assume that $(x_{n})$ and $(y_{n})$ are both convergent with $\Lim{x_{n}} = \Lim{y_{n}}=M$, where $M \in \R$. We show that $(z_{n}) \to M$. Consider some positive real number $\epsilon$. By definition of convergence, there is some $K\in \N$ such that $|x_{n}-M|,|y_{n}-M|<\epsilon$ for all $n\geq K$. Thus, $|z_{n} - M| < \epsilon$ for all $n\geq K$.\\
+      For the converse, assume that $(z_{n})$ is convergent. Specifically, $(z_{n}) \to M$ for some real number $M$. Consider some positive real number $\epsilon$. Then, there is some $K\in \N$ such that $|z_{n} -M| < \epsilon$ for all $n\geq K$. By definition of $z_{n}$, it follows that $|x_{n} -M|,|y_{n}-M| < \epsilon$ for all $n\geq K$. Thus, $(x_{n})\to M$ and $(y_{n})\to M$.
+    \end{proof}
+    \end{problem}
+    \begin{problem}{2.3.6}
+      Consider the sequence given $b_{n} = n-\sqrt{n^{2}+2n}$. Taking $(1/n)\to 0$ as given, and using both the Algebraic Limit Theorem and the result in Excercise 2.3.1, show $\Lim{b_{n}}$ exists and find the value of the limit.
+    \begin{proof}
+      Note that
+    \begin{align*}
+      b_{n} &= n-\sqrt{n^{2}+2n}\\
+      &= \left( n-\sqrt{n^{2}+2n} \right)\frac{n+\sqrt{n^{2}+2n}}{n+\sqrt{n^{2}+2n}}\\
+      &= \frac{\left( n^{2}-\left(n^{2}+2n\right) \right)}{n+\sqrt{n^{2}+2n}}\\
+      &= \frac{-2n}{n+\sqrt{n^{2}\left( 1+\frac{2}{n} \right)}}\\
+      &= \frac{-2n}{n\left( 1+\sqrt{1+\frac{2}{n}} \right)} = \frac{-2}{1+\sqrt{1+(2/n)}}
+    \end{align*}
+    for each $n\in \N$. Observe that $\left( 1+(2/n) \right)\to 1+2\cdot 0 = 1$. Thus, by \textbf{Excercise 2.3.1}, $\left( \sqrt{1+(2/n)} \right) \to \sqrt{1} = 1$ and so $\left( \frac{1}{1+\sqrt{1+(2/n)}} \right) \to 1/(1+1) =1/2$. Therefore, $(b_{n}) = \left(\frac{-2}{1+\sqrt{1+(2/n)}}\right)\to  -2(1/2) = -1$ and so the limit exists.
+    \end{proof}
+    \end{problem}
+    \begin{problem}{2.3.7}
+      Give an example of each of the following, or state that such a request is impossible by referencing the proper theorem(s):
+    \begin{enumerate}
+      \item sequences $(x_{n})$ and $(y_{n})$, which both diverge, but whose sum $(x_{n} + y_{n})$ converges;
+    \begin{solution}
+      Such sequences can be constructed. Let $(x_{n})$ and $(y_{n})$ be defined by $x_{n} = n$ and $y_{n} = -n$ for all $n\in \N$. Note that both $(x_{n})$ and $(y_{n})$ keep approaching objects that are not real numbers, namely, $\infty$ and $-\infty$ respectively. They diverge. However, $(z_{n}) = (x_{n}+y_{n}) = (n-n) = (0)\to 0$ converges.
+    \end{solution}
+      \item sequences $(x_{n})$ and $(y_{n})$, where $(x_{n})$ converges, $(y_{n})$ diverges, and $(x_{n} + y_{n})$ converges;
+    \begin{proof}
+      We prove that this leads to a contradiction. Let $(x_{n})$ be a convergent sequence and $(y_{n})$ be a divergent one. Then $(-x_{n})$ is convergent. Suppose that $(x_{n} + y_{n})$ converges and so $((x_{n}+y_{n})+(-x_{n}))=(y_{n})$ is the sum of two convergent sequences. Hence, $(y_{n})$ is a convergent sequence. This contradicts our initial assumption. 
+    \end{proof}
+      \item a convergent sequence $(b_{n})$ with $b_{n} \neq 0$ for all $n$ such that $(1/b_{n})$ diverges;
+    \begin{solution}
+      Let $(b_{n}) = (1/n)$. Then $(b_{n})\to 0$ and $b_{n} \neq 0$ for all $n\in \N$. However, $(1/b_{n}) = (n)$ diverges to $\infty$.
+    \end{solution}
+      \item an unbounded sequence $(a_{n})$ and a convergent sequence $(b_{n})$ with $(a_{n}-b_{n})$ bounded;
+    \begin{proof}
+      We show that this leads to a contradiction. Let $(a_{n})$ and $(b_{n})$ be unbounded and convergent sequences, respectively. Since $(b_{n})$ is convergent, it follows that it is bounded. Also, assume that $(a_{n}-b_{n})$ is bounded. Then, there are real numbers $M,C\geq 0$ such that $|b_{n}|\leq M$ and $|a_{n}-b_{n}|\leq C$ for any $n\in \N$. Thus,
+    \begin{align*}
+      M+C &\geq |a_{n}-b_{n}| + |b_{n}| \\
+      &\geq |(a_{n}-b_{n})+b_{n}| = |a_{n}|
+    \end{align*}
+    for every positive integer $n$. Hence, $(a_{n})$ is a bounded sequence. This contradicts our initial assumption.
+    \end{proof}
+      \item two sequences $(a_{n})$ and $(b_{n})$, where $(a_{n}b_{n})$ and $(a_{n})$ converge but $(b_{n})$ does not.
+    \begin{solution}
+      Let $(a_{n}) = (0,0,0,0,0,0,0,0,\dots)$ and $(b_{n}) = (1,2,3,4,5,6,7,\dots)$. Then $(a_{n})\to 0$ and $(b_{n})$ does not converge to a real number. However, $(z_{n}) = (a_{n}b_{n}) = (0\cdot 1, 0\cdot 2, 0\cdot 3, \dots) = (0,0,0,0,0,0,0) \to 0$.
+    \end{solution}
+    \end{enumerate}
+    \end{problem}
+    \begin{problem}{2.3.8}
+      Let $(x_{n})\to x$ and let $p(x)$ be a polynomial.
+    \begin{enumerate}
+      \item Show $p(x_{n}) \to p(x)$.
+    \begin{proof}
+      Note that a finite polynomial $p(x)$ of degree $k$ can be expressed as $\sum_{j=0}^{k} a_{j}x^{j}$, where $a_{j}$ are the real coefficients. Hence, each $p(x_{n})$ is a member of the sequence of real numbers $ \left( \sum_{j=0}^{k} a_{j}x_{n}^{j} \right)$. Since $(x_{n})\to x$, it follows, by the algebraic properties of limits of sequences, that $(a_{j}x_{n}^{j}) \to (a_{j}x^{j})$ for all $j$ and so $\left( \sum_{j=0}^{k} a_{j}x_{n}^{j} \right)\to \left( \sum_{j=0}^{k} a_{j}x^{j} \right) = p(x)$. Thus, $p(x_{n}) \to p(x)$.
+    \end{proof}
+      \item Find an example of a function $f(x)$ and a convergent sequence $(x_{n}) \to x$ where the sequence $f(x_{n})$ converges, but not to $f(x)$.
+    \begin{solution}
+      Let $f:\R\to \R$ be a function be defined by $f(x) = 0$ and $f(a)=1$ for the rest of $a\in \R$. Then, $f(x_{n})=1$ for all but finitely many $n\in \N$ and so $f(x_{n}) \to 1 \neq 0 = f(x)$.
+    \end{solution}
+    \end{enumerate}
+    \end{problem}
+    \begin{problem}{2.3.9}
+    \begin{enumerate}
+      \item Let $(a_{n})$ be a bounded (not necessarily convergent) sequence, and assume $\Lim{b_{n}} = 0$. Show that $\Lim{a_{n}b_{n}} = 0$. Why are we not allowed to use the Algebraic Limit Theorem to prove this?
+    \begin{proof}
+      Since $(a_{n})$ is bounded, we have that $|a_{n}|\leq M$ for some nonegative real number $M$. If $M=0$, then $a_{n} = 0$ for all $n\in \N$ and so $(a_{n}) \to 0$. This implies that $(a_{n}b_{n}) \to 0$ since $(b_{n})\to 0$. Therefore, we assume that $M$ is nonzero. Now, consider some positive real number $\epsilon$. Then, $\epsilon/M$ is positive and so there is some positive integer $N$ such that $|b_{n} -0| = |b_{n}| < \epsilon/M$ for all $n\geq N$. Note that $0\leq |b_{n}|$ for all $n\in \N$ and $0<M$, and so
+    \begin{align*}
+      |a_{n}||b_{n}| \leq M|b_{n}| < (\epsilon/M) M = \epsilon.
+    \end{align*}
+    for all $n\geq N$. Therefore, $|a_{n}||b_{n}| = |a_{n}b_{n}| = |a_{n}b_{n} - 0| < \epsilon$ for all $n\geq N$. Hence, $(a_{n}b_{n}) \to 0$.\\
+
+  We were not allowed to use the Algebraic Limit Theorem since both $(a_{n})$ and $(b_{n})$ must converge, but in this case $(a_{n})$ is bounded but not necessarily convergent. 
+    \end{proof}
+      \item Can we conclude anything about the convergence of $(a_{n}b_{n})$ if we assume that $(b_{n})$ converges to some nonzero limit $b$?
+    \begin{proof}
+
+    \end{proof}
+      \item Use (a) to prove Theorem 2.3.3, part (iii), for the case when $a=0$.
     \end{enumerate}
     \end{problem}
 \end{document}
