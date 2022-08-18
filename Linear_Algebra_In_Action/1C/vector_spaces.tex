@@ -85,17 +85,29 @@
     for every $t\in \R$. Thus, $\mathbf{a} + \mathbf{b} = \begin{bmatrix} a_{1}+b_{1}\\ a_{2} + b_{2}\\ a_{3}+b_{3} \end{bmatrix} \in \mathcal{C}$. However, it is not close under scalar multiplication. Consider some nonzero $\mathbf{v} \in \mathcal{C}$ and let $\alpha = -1$. Since $v_{1} + v_{2}t + v_{3}t^{2} \geq 0$ for every $t\in \R$, it follows that $(-v_{1}) + (-v_{2})t + (-v_{3})t^{2}<0$ for every positive $t$. Hence, $(-1)\mathbf{v} \not\in \mathcal{C}$ and so it is not a vector space over $\R$.
     \end{proof}
     \end{problem}
-    \begin{problem}{1.4}
-      Show that for each positive integer $n$, the space of polynomials
-    \begin{equation*}
-      p(\lambda) = \sum_{j=0}^{n} a_{j}\lambda^{j} \text{ of degree } \leq n
-    \end{equation*}
-    with coefficients $a_{j}\in \mathbb{C}$ is a vector space over $\mathbb{C}$ under the natural rules of addition and scalar multiplication. [REMARK: You may assume that $\sum_{j=0}^{n} a_{j}\lambda^{j} = 0$ for every $\lambda \in \mathbb{C}$ if and only if $a_{0} = a_{1} = \dots = a_{n} = 0$.]
-    \begin{proof}<++>
-    \end{proof}
-    \end{problem}
     \begin{problem}{1.5}
-      Let $\mathcal{F}$ denote the set of continous real-valued functions $f(x)$ on the interval $0\leq x \leq 1$. Show that $\mathcal{F}$ is a vector space over $\R$ with respect to the natural rules of vector addition
+      Let $\mathcal{F}$ denote the set of continuous real-valued functions $f(x)$ on the interval $0\leq x\leq 1$. Show that $\mathcal{F}$ is a vector space over $\R$ with respect to the natural rules of vector addition $\left( \left( f_{1} + f_{2} \right)(x) = f_{1}(x) + f_{2}(x) \right)$ and scalar multiplication $\left( (\alpha f)(x) = \alpha f(x) \right)$.
+      \begin{proof}
+      \begin{enumerate}
+	\item \textbf{Closed under vector addition}
+
+	  Consider two functions $f,g \in \mathcal{F}$. Let $x\in [0,1]$. Then, $f(x), g(x) \in \R$ and so $(f + g)(x) = f(x) + g(x) \in \R$ since $\R$ is closed under addition. Therefore, $f+g$ is a real-valued function on the interval $[0,1]$ and so $(f+g)\in \mathcal{F}$.
+	\item \textbf{Closed under scalar multiplication}
+
+	  Consider some function $f\in \mathcal{F}$ and real number $\alpha$. Let $x\in [0,1]$. Then, $f(x)\in \R$ and so $ (\alpha f)(x) = \alpha f(x) \in \R$ since $\R$ is closed under multiplication. Thus, $\alpha f$ is a real-valued function on the interval $[0,1]$ and so $\alpha f \in \mathcal{F}$.  
+	\item \textbf{Vector addition is commutative}
+
+	  Let $f,g\in \mathcal{F}$ and $x\in [0,1]$. Then, $(f+g)(x) = f(x) + g(x) = g(x) + f(x) = (g+f)(x)$ since addition in the set of real numbers is commutative.
+	\item \textbf{Vector addition is associative}
+
+	  Let $f,g,h \in \mathcal{F}$ and $x\in [0,1]$. Then, $\left( \left( f+g \right)+h \right)(x) = (f+g)(x) + h(x) = f(x)+g(x)+h(x) = f(x) + (g+h)(x) = \left( f +\left( g+h\right) \right)(x)$ since addition in $\R$ is associative (the order of addition does not matter).
+	\item \textbf{Existence of additive identity}
+	\item \textbf{Existence of additive inverse}
+	\item $f \in \mathcal{F} \implies (1)f = f$
+      \item For any $\alpha,\beta \in \R$ and vector $f \in \mathcal{F}$, $\alpha(\beta f) = (\alpha\beta) f$
+      \item For any $\alpha,\beta \in \R$ and vector $f \in \mathcal{F}$, $(\alpha + \beta) f = \alpha f + \beta f$
+    \end{enumerate}
+    \end{proof}
     \end{problem}
 \end{document}
 
