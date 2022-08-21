@@ -102,13 +102,43 @@
 
 	  Let $f,g,h \in \mathcal{F}$ and $x\in [0,1]$. Then, $\left( \left( f+g \right)+h \right)(x) = (f+g)(x) + h(x) = f(x)+g(x)+h(x) = f(x) + (g+h)(x) = \left( f +\left( g+h\right) \right)(x)$ since addition in $\R$ is associative (the order of addition does not matter).
 	\item \textbf{Existence of additive identity}
+
+	  Let $f:[0,1]\to \R$ be defined by $f(x) = 0$ for all $x\in [0,1]$. Then, $f$ is a continous real-valued function and so $f\in \mathcal{F}$. Consider any $g\in \mathcal{F}$ and let $a\in [0,1]$. Then, $(f + g)(a) = f(a) + g(a) = 0+ g(a) = g(a)$ since $0$ is the additive identity  of real numbers. Thus, $f$ is an additive identitive in $\mathcal{F}$. 
 	\item \textbf{Existence of additive inverse}
+
+	  Consider some $f\in \mathcal{F}$. Let $g:[0,1]\to \R$ be defined by $g(x) = -f(x)$ for all $x\in [0,1]$. Consider some $x\in [0,1]$ and so $(f+g)(x) = f(x) + g(x) = f(x) -f(x) = 0$. Hence, $g$ is the additive inverse of $f$.
 	\item $f \in \mathcal{F} \implies (1)f = f$
+	  
+	  Let $f\in \mathcal{F}$. Consider any $x\in[0,1]$ and so $f(x) = (1)f(x)$. Thus, $f = (1)f$. 
       \item For any $\alpha,\beta \in \R$ and vector $f \in \mathcal{F}$, $\alpha(\beta f) = (\alpha\beta) f$
+
+       Let $f\in \mathcal{F}$ and $\alpha,\beta \in \R$. Consider any $x\in[0,1]$ and so $\alpha(\beta f)(x) = \alpha(\beta f(x)) = (\alpha\beta)f(x)$ since multiplication in $\R$ is associative. Thus, $\alpha(\beta f) = (\alpha \beta)f$
       \item For any $\alpha,\beta \in \R$ and vector $f \in \mathcal{F}$, $(\alpha + \beta) f = \alpha f + \beta f$
+
+	Let $f\in \mathcal{F}$ and $\alpha,\beta \in \R$. Consider any $x\in [0,1]$ and so $(\alpha + \beta)f(x) = \alpha f(x) + \beta f(x) = (\alpha f + \beta f)(x)$ since multiplication over addition is distributive for real numbers.
     \end{enumerate}
     \end{proof}
     \end{problem}
+    \begin{lemma}{1}
+      Let $\mathcal{S}$ be a nonempty subset of a vector space $\mathcal{M}$ over $\mathbb{F}$. Then, $\mathcal{S}$ is a vector space if and only if for every pair of vectors $\mathbf{v}, \mathbf{a} \in \mathcal{S}$ and $\alpha, \beta\in \mathbb{F}$, $\alpha \mathbf{v} + \beta \mathbf{a} \in \mathcal{S}$.
+    \end{lemma}
+    \begin{proof}
+	Assume that $\mathcal{S}$ is a vector space and so it is closed under addition and scalar multiplication. Let $\mathbf{v},\mathbf{a} \in \mathcal{S}$ and $\alpha, \beta \in \mathbb{F}$, then $\alpha \mathbf{v}, \beta \mathbf{a} \in \mathcal{S}$ and so $\alpha \mathbf{v} + \beta \mathbf{a} \in \mathcal{S}$.\\
+	Suppose, for every pair of vectors $\mathbf{v}, \mathbf{a} \in \mathcal{S}$ and $\alpha, \beta\in \mathbb{F}$, that $\alpha \mathbf{v} + \beta \mathbf{a} \in \mathcal{S}$. Let $\alpha = 0$ and $\beta\in \mathbb{F}$. Consider any vectors $\mathbf{v},\mathbf{a} \in \mathcal{S}$. Then, $\alpha \mathbf{v} = 0$ is the additive identity of $\mathcal{M}$ and so $\beta\mathbf{a} = \alpha \mathbf{v} + \beta\mathbf{a} \in \mathcal{S}$. Thus, $\mathcal{S}$ is closed under scalar multiplication.\\
+	Consider some vectors $\mathbf{v},\mathbf{a}\in \mathcal{S}$ and let $\alpha = \beta = 1$. Then, $\mathbf{v} + \mathbf{a} = (1)\mathbf{v} + (1)\mathbf{a} = \alpha\mathbf{v} + \beta \mathbf{a} \in \mathcal{S}$ since $\mathbf{v}, \mathbf{a} \in \mathcal{M}$. Therefore, $\mathcal{S}$ is closed under addition and so it is a vector space.
+    \end{proof}
+    \begin{problem}{1.6}
+      Let $F_{0}$ denote the set of continuous real-valued functions $f(x)$ on the interval $0\leq x \leq 1$ that met the auxiliary constraints $f(0) =0$ and $f(1) = 0$. Show that $F_{0}$ is a vector space over $\R$ with respect to the natural rules of vector addition and scalar multiplication that were introducd in \textbf{Excercise 1.5} and that $F_{0}$ is a subspace of the vector space $\mathcal{F}$ that was considered there.
+    \end{problem}
+    \begin{proof}
+      By definition, $F_{0} \subseteq \mathcal{F}$. Let's prove that it is closd under addition and scalar multiplication. Consider some $f, g\in F_{0}$ and $\alpha,\beta\in \R$. Then, $\alpha f + \beta g$ is a real-valued function since $f,g\in \mathcal{F}$. Particularly, $(\alpha f + \beta g)(0) = \alpha f(0) + \beta g(0) = 0 + 0 = \alpha f(1) + \beta g(1) = (\alpha f+ \beta g)(1)$ and so, by condition, it is a vector in $F_{0}$. Therefore, $F_{0}$ is a subspace of $\mathcal{F}$. 
+    \end{proof}
+    \begin{problem}{1.7}
+      Let $F_{1}$ denote the set of continuous real-valued functions $f(x)$ on the interval $0\leq x \leq 1$ that meet the auxiliary constraints $f(0)=0$ and $f(1)=1$. Show that $F_{1}$ is not a vector space over $\R$ with respect to the natural rules of vector addition and scalar multiplication that were introduced in \textbf{Exercise 1.5}.
+    \end{problem}
+    \begin{proof}
+      We know that $F_{1}\subseteq \mathcal{F}$. Consider some $f\in F_{1}$. Then, $(2)f$ is a continuous real-valued function since $f\in \mathcal{F}$. However, note that $(2f)(1) = (2)f(1) = 2 \neq 1$ and so $(2)f\not\in F_{1}$. Hence, $F_{1}$ is not closed under scalar multiplication and so $F_{1}$ is not a subspace of $\mathcal{F}$. 
+    \end{proof}
 \end{document}
 
 
