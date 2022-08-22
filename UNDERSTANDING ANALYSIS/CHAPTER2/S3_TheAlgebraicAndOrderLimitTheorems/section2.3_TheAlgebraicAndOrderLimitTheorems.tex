@@ -214,9 +214,22 @@
     \end{proof}
       \item Can we conclude anything about the convergence of $(a_{n}b_{n})$ if we assume that $(b_{n})$ converges to some nonzero limit $b$?
     \begin{proof}
-
+      This leads to a contradiction if $(a_{n})$ is nonconvergent. In fact, for any sequence $(a_{n})$ and convergent sequence $(b_{n})\to c\neq 0$, $(a_{n}b_{n})$ diverges. Suppose, to the contrary, that there is some nonconvergent sequence $(a_{n})$ and sequence $(b_{n})$ that converges to some nonzero $c$ such that $(a_{n}b_{n})$ converges to some $b$. Since $(b_{n})\to c\neq 0$, eventually, all $b_{n}$ are nonzero, namely, all but finitely many of them are nonzero. Hence, we can create a sequence $(1/b_{n})$ defined by $1/b_{n}$ if $b_{n}\neq 0$ and $1$ if $b_{n}=0$. Hence, $(1/b_{n}) \to 1/c$. Therefore, $\left( \frac{1}{b_{n}}a_{n}b_{n} \right) = (a_{n}) \to (b/c)$ for all but finitely many of $n\in \N$, and so $(a_{n})$ is a convergent sequence. This is a contradiction.	
     \end{proof}
       \item Use (a) to prove Theorem 2.3.3, part (iii), for the case when $a=0$.
+    \begin{proof}
+      Since $(b_{n})$ is convergent, it follows that it is bounded. Furthermore, because $(a_{n})\to 0$, by (a), $(a_{n}b_{n}) = 0$.
+    \end{proof}
+    \end{enumerate}
+    \end{problem}
+    \begin{problem}{2.3.11 (Cesaro Means)}
+    \begin{enumerate}
+      \item Show that if $(x_{n})$ is a convergent squence, then the sequence given by the averages
+    \begin{equation*}
+      y_{n} = \frac{x_{1}+x_{2}+\dots+x_{n}}{n}
+    \end{equation*}
+    also converges to the same limit.
+  \item Give an example to show that it is possible for the sequence $(y_{n})$ of averages to converge even if $(x_{n})$ does not.
     \end{enumerate}
     \end{problem}
 \end{document}
