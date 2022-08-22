@@ -139,6 +139,17 @@
     \begin{proof}
       We know that $F_{1}\subseteq \mathcal{F}$. Consider some $f\in F_{1}$. Then, $(2)f$ is a continuous real-valued function since $f\in \mathcal{F}$. However, note that $(2f)(1) = (2)f(1) = 2 \neq 1$ and so $(2)f\not\in F_{1}$. Hence, $F_{1}$ is not closed under scalar multiplication and so $F_{1}$ is not a subspace of $\mathcal{F}$. 
     \end{proof}
+    \begin{problem}{1.8}
+      Verify the last assertion; i.e., if $\left\{ \mathbf{v}_{1}, \mathbf{v}_{2}, \mathbf{v}_{3}, \dots, \mathbf{v}_{k} \right\}$ is a set of linearly independent vectors in the space $\mathcal{V}$ over $\mathbb{F}$ and if $\mathbf{v} = \alpha_{1}\mathbf{v}_{1} + \alpha_{2}\mathbf{v}_{2} + \dots+\alpha_{k}\mathbf{v}_{k} = \beta_{1}\mathbf{v}_{1} + \beta_{2}\mathbf{v}_{2}+ \dots+ \beta_{k}\mathbf{v}_{k}$, where $\alpha_{j},\beta_{j}\in \mathbb{F}$ for $j=1,\dots,k$, then $\alpha_{j} = \beta_{j}$ for $j=1,\dots,k$.
+    \end{problem}
+    \begin{proof}
+      Let $\left\{ \mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k} \right\}$ be a set of linearly independet vectors in the space $\mathcal{V}$ over $\mathbb{F}$. Furthermore, assume that there is some vector $\mathbf{v}\in \mathcal{V}$ such that $\mathbf{v} = \alpha_{1}\mathbf{v}_{1} + \alpha_{2}\mathbf{v}_{2} + \dots+\alpha_{k}\mathbf{v}_{k} = \beta_{1}\mathbf{v}_{1} + \beta_{2}\mathbf{v}_{2}+ \dots + \beta_{k}\mathbf{v}_{k}$, where $\alpha_{j},\beta_{j}\in \mathbb{F}$ for $j=1,\dots,k$. Because $\mathbf{v}\in \mathcal{V}$, it follows that
+    \begin{align*}
+      \mathbf{v} - \mathbf{v} &= \alpha_{1}\mathbf{v}_{1} + \alpha_{2}\mathbf{v}_{2} + \dots+\alpha_{k}\mathbf{v}_{k} - \left(\beta_{1}\mathbf{v}_{1} + \beta_{2}\mathbf{v}_{2}+ \dots + \beta_{k}\mathbf{v}_{k}\right)\\
+      &= (\alpha_{1}-\beta_{1})\mathbf{v}_{1} + (\alpha_{2}-\beta_{2})\mathbf{v}_{2} + \dots + (\alpha_{k}-\beta_{k})\mathbf{v}_{k} = 0.
+    \end{align*}
+    Since $\mathbf{v}_{1}, \mathbf{v}_{2},\dots,\mathbf{v}_{k}$ are linearly independent, it follows that $\alpha_{j} - \beta_{j}=0$ and so $\alpha_{j}=\beta_{j}$ for $j=1,\dots,k$.
+    \end{proof}
 \end{document}
 
 
