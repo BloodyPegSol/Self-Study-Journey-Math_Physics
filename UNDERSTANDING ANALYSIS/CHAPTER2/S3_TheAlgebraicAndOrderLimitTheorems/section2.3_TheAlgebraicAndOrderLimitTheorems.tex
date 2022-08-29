@@ -229,6 +229,21 @@
       y_{n} = \frac{x_{1}+x_{2}+\dots+x_{n}}{n}
     \end{equation*}
     also converges to the same limit.
+    \begin{proof}
+      Assume that $(x_{n}) \to x$. Then, there is some positive number $\varepsilon_{max} > \Abs{x_{n}-x}$ for all $n\in \N$. Consider some positive real numbers $\varepsilon_{1}$ and a lower one such that $\varepsilon_{2} < \varepsilon_{max}$. Thus, $0 < \varepsilon_{1} - \varepsilon_{2} = \delta$ and so $\varepsilon_{1} = \varepsilon_{2}+\delta$. Since $(x_{n})$ converges to $x$, we know that there is some $N \in \N$ such that $|x_{n} -x| < \varepsilon_{2}$ for all $n> N$. Choose some $n>N$ and so 
+    \begin{align*}
+      \Abs{y_{n} - x} &= \Abs{\frac{\sum_{i=1}^{n} x_{i}}{n} - x}\\
+      &= \Abs{\frac{\sum_{i=1}^{n} x_{i} - xn}{n}} = \Abs{\frac{\sum_{i=1}^{n} (x_{i} - x)}{n}}\\
+      &= \frac{1}{n} \Abs{\sum_{i=1}^{n} (x_{i}-x)} \leq \frac{1}{n} \sum_{i=1}^{n} \Abs{x_{i}-x}\\
+      &< \frac{N\varepsilon_{max} + (n-N)\varepsilon_{2}}{n} = \varepsilon_{2} + \frac{N\varepsilon_{max} - N\varepsilon_{2}}{n}
+    \end{align*}
+    since $|x_{n} - x|< \varepsilon_{2}$ for all $n>N$ and $|x_{n} - x| < \varepsilon_{max}$ for every $n\in \N$, which includes the first $N$ integers. Note that $0< N\varepsilon_{max} - N\varepsilon_{2}$ since $\varepsilon_{max} > \varepsilon_{2}$. By the archimedean property of $\R$, we can choose some positive integer $k>N$ large enough such that $N\varepsilon_{max} - N\varepsilon_{2} < k\delta$ and so $N\varepsilon_{max} - N\varepsilon_{2} < n\delta$ for all $n\geq k$. Therefore, $\delta > \frac{N\varepsilon_{max} - N\varepsilon_{2}}{n}>0$ and 
+    \begin{align*}
+       \frac{1}{n} \sum_{i=1}^{n} \Abs{x_{i}-x} &< \varepsilon_{2} + \frac{N\varepsilon_{max} - N\varepsilon_{2}}{n}\\ 
+       &< \varepsilon_{2} + \delta = \varepsilon_{1}.
+    \end{align*}
+    for all $n\geq k$. We have shown for any real number $\varepsilon_{1}$ that there is some $k\in \N$ such that $|y_{n} - x| < \varepsilon_{1}$ for all $n\geq k$. Thus, $(y_{n}) \to x$.
+    \end{proof}
   \item Give an example to show that it is possible for the sequence $(y_{n})$ of averages to converge even if $(x_{n})$ does not.
     \end{enumerate}
     \end{problem}
