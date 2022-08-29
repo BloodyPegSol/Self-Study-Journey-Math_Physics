@@ -190,6 +190,33 @@
       \begin{bmatrix} a_{13} \\ a_{23}\end{bmatrix} \begin{bmatrix} b_{31} & b_{32} & b_{33} & b_{34} \end{bmatrix}
     \end{align*}
     \end{proof}
+    \begin{problem}{1.12}
+      Show that if $A$ and $B$ are invertible matrices of the same size, then $AB$ is invertible and $(AB)^{-1} = B^{-1}A^{-1}$. 
+    \begin{proof}
+      Let $A,B\in \mathbb{F}^{p\times p}$ be invertible matrices. Then, $A^{-1}$ and $B^{-1}$ are left-right inverses of $A$ and $B$, respectively. Therefore,
+    \begin{align*}
+      (AB)(B^{-1}A^{-1}) &= A(BB^{-1})A^{-1}\\
+      &= A(I_{p}A^{-1}) = AA^{-1}\\
+      &= I_{p}
+    \end{align*}
+    and
+    \begin{align*}
+      (B^{-1}A^{-1})(AB) &= B^{-1}(A^{-1}A)B\\
+      &= B^{-1}(I_{p}B) = B^{-1}B\\
+      &= I_{p},
+    \end{align*}
+    since matrix multiplication is associative. Thus, $B^{-1}A^{-1}$ is the \textbf{inverse} of $AB$ and so $AB$ is invertible. 
+    \end{proof}
+    \end{problem}
+    \begin{problem}{1.13} Show that the matrix $A=\begin{bmatrix} 1 & 0 & 1\\ 1 & 1 & 0\\ 1 & 1 & 0 \end{bmatrix}$ has no left inverses and no right inverses.
+    \begin{proof}
+      Suppose to the contrary, that $A$ has some right inverse $B$. Then, $B\in \mathbb{F}^{3\times 3}$ and $AB=C=I_{3}$. Therefore, $c_{22} = 1\cdot b_{12} + 1\cdot b_{22} + 0\cdot b_{32} = 1$ and $c_{32} = 1\cdot b_{12} + 1\cdot b_{22} + 0\cdot b_{32} = 0$, which is a contradiction.\\
+      Now, assume, to the contrary, that $A$ has some left inverse $B$. Then, $B\in \mathbb{F}^{3\times 3}$ and $BA = C = I_{3}$. Hence, $c_{11} = b_{11}\cdot 1 + b_{12}\cdot 1 + b_{13}\cdot 1 = 1$, $c_{12} =  b_{11}\cdot 0 + b_{12}\cdot 1 + b_{13}\cdot 1 = 0$ and $c_{13} = b_{11}\cdot 1 + b_{12}\cdot 0+ b_{13}\cdot 0 = 0$. This leads to the contradiction $1=0$.
+    \end{proof}
+    \end{problem}
+    \begin{problem}{1.15}
+      Show that if a matrix $A\in \mathbb{C}^{p\times q}$ has two right inverse $B_{1}$ and $B_{2}$, then $\lambda B_{1} + (1-\lambda)B_{2}$ is also a right inverse for every choic of $\lambda \in \mathbb{C}$.
+    \end{problem}
 \end{document}
 
 
