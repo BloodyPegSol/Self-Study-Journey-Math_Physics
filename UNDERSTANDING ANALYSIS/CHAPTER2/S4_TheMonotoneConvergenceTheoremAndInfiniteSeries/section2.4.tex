@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\Lim}[1]{\mathrm{lim}(#1)}
+\newcommand{\Abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\Dom}[1]{\mathrm{dom}\left(#1\right)}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+\setenumerate[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[1][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+\title{Section 2.4: The Monotone Convergence Theorem and Infinite Series}
+   \author{Juan Patricio Carrizales Torres}
+     \date{Sep 2, 2022}
+       \maketitle
+
+       In this chapter we are introduced to the Monotone Convergence Theorem, which is very useful in cheecking the convergence of sequences of partial sums. Let $(a_{n})$ be a sequence. This theorem states that if $(a_{n})$ is increasing, namely $a_{n} \leq a_{n+1}$ for all $n\in \N$, and it is bounded, then it converges to some limit. Its usfulness comes in two ``flavors''. First, the fact that partial sums of positive real numbers are elements of an increasing sequence. Second, it suffices to show that a sequence is increasing and bounded to conclude that converges without the necessity to come up with a particular limit. 
+       We are interested in the convergence of partial sums, since an infinite series
+\begin{align*}
+  \sum_{n\in\N} a_{n}
+\end{align*}
+is said to converge (equal) some number $N$ if the sequence of its partial sums $(s_{n}) = (a_{1}+a_{2}+\dots+a_{n})$ converges to $N$. 
+One way to show that an increasing sequence of partial sums  is bounded is by proving that every element is lower or equal to other element from a bounded sequence. On the other hand, a sequence of partial sums $(s_{n})$ is not bounded if for every element $k$ of some unbounded sequence $(p_{n})$ there is an element in $(s_{n})$ that is greater or equal to $p_{k}$. For instance, one can extract another sequence $(m_{n})$ from $(s_{n})$ such that $m_{k} \geq p_{k}$ for all $k\in\N$.\\
+Let's state this in a clear and clean way. Let $(a_{n})$ and $(b_{n})$ be sequences. If for every $n\in\N$ there is some positive integer $k$ such that $a_{n}\leq b_{k}$, then $(a_{n})\leq (b_{n})$. Now, let $(s_{n})$ and $(p_{n})$ be bounded and unbounded sequences, respectively. Then, the increasing sequence $(a_{n})$ is bounded if $(a_{n})\leq (s_{n})$. On the other hand, $(a_{n})$ is unbounded if $(p_{n}) \leq (a_{n})$.\\
+
+For example, the  $\mathbf{Cauchy \; Condensation \; Test}$ uses the infinite series
+\begin{align*}
+  \sum_{n\in\N} 2^{n}b_{2^{n}}.
+\end{align*}
+to check the converge or divergence of the infinite series of some decreasing sequence $(b_{n})$ of nonengative real numbers since $(s_{2^{n}b_{2^{n}}}) \leq (s_{b_{n}})$ and viceversa.
+\end{document}
+
+
