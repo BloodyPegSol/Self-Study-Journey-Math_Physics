@@ -215,7 +215,53 @@
     \end{proof}
     \end{problem}
     \begin{problem}{1.15}
-      Show that if a matrix $A\in \mathbb{C}^{p\times q}$ has two right inverse $B_{1}$ and $B_{2}$, then $\lambda B_{1} + (1-\lambda)B_{2}$ is also a right inverse for every choic of $\lambda \in \mathbb{C}$.
+      Show that if a matrix $A\in \mathbb{C}^{p\times q}$ has two right inverse $B_{1}$ and $B_{2}$, then $\lambda B_{1} + (1-\lambda)B_{2}$ is also a right inverse for every choice of $\lambda \in \mathbb{C}$.
+\begin{proof}
+  Suppose that $A$ has two right inverses $B_{1},B_{2}\in \mathbb{C}^{q\times p}$. Choose any $\lambda \in \mathbb{C}$. Then
+\begin{align*}
+  A\left( \lambda B_{1} + (1-\lambda)B_{2} \right) &= \lambda AB_{1} + (1-\lambda)AB_{2}\\
+  &= \lambda I_{p} + (1-\lambda)I_{q} = (\lambda - \lambda)I_{p} + I_{p}\\
+  &= I_{p}.
+\end{align*}
+since matrix multiplication is distributive and  under scalar multiplication is commutative. Assuming that another matrix $A'$ has two left inverses $B_{1},B_{2}\in \mathbb{C}^{q\times p}$ and let $\lambda \in \mathbb{C}$. Then,
+\begin{align*}
+  \left( \lambda B_{1} + (1-\lambda)B_{2} \right)A &= \lambda B_{1}A + (1-\lambda)B_{2}A\\
+  &= \lambda I_{q} + (1-\lambda)I_{q} = (\lambda - \lambda)I_{q} + I_{q}\\
+  &= I_{q}.
+\end{align*}
+\end{proof}
+\section{INTERESTING LEMMAS}
+
+\begin{lemma}{1}
+  Let $A\in \mathbb{F}^{p\times q}$. $A$ is right-invertible if and only if the rows are linearly independent. The same can be said for left-invertibility and columns.
+\begin{proof}
+  Assume that the rows of $A$ are linearly independent. We show that we can construct a right-inverse $B\in \mathbb{F}^{q\times p}$. 
+\end{proof}
+\end{lemma}
+\begin{problem}{1.16}
+  Show that a given matrix $A\in \mathbb{F}^{p\times q}$ has either 0, 1 or infinitely many right inverses and that the same conclusion prevails for left inverses.
+\end{problem}
+\begin{proof}
+  Consider the vector space $\mathbb{F}^{p\times q}$ with $p,q\geq 2$. Consider the zero matrix $\mathbf{0}\in \mathbb{F}^{p\times q}$ and so it has no left and right invertibles since $A\mathbf{0} = \mathbf{0}B = \mathbf{0}$ for all $A,B\in \mathbb{F}^{q\times p}$. \\
+  Now, let's construct some matrix $A\in \mathbf{F}^{p\times q}$. Now, let each entry $a_{ii}=1$ while the other be zero. For instance, in the case $p>q$, we have that 
+\begin{align*}
+  A &= 
+\begin{bmatrix}
+  1 & 0 & 0 & 0 & \dots & 0 \\
+  0 & 1 & 0 & 0 &  \dots & 0\\
+  0 & 0 & 1 & 0 &  \dots & 0\\
+   &   &  \vdots & \vdots & & \vdots\\
+   0 & 0 & 0 & 0 &  \dots & 1\\
+   0 & 0 & 0 & 0 &  \dots & 0\\
+   0 & 0 & 0 & 0 &  \dots & 0\\
+   0 & 0 & 0 & 0 & \dots & 0.
+\end{bmatrix}
+\end{align*}
+If $p\geq q$ (greater or equal number of rows), then $A^{T}A = I_{p}$. On the other hand, if $q\geq p$ (greater or equal numbr of columns), then $AA^{T} = I_{q}$.\\
+
+Hence, any matrix $A\in \mathbb{F}^{p\times q}$ can have 0 or at least one right/left invertible (depending on the order relation of rows and columns). If it has more than one right/left invertibles, then one can construct and infinity of right/left invertibles with the formula given in \textbf{Problem 1.15}.
+
+\end{proof}
     \end{problem}
 \end{document}
 
