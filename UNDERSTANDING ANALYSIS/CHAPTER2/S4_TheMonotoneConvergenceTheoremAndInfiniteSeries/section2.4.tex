@@ -48,7 +48,7 @@
      \date{Sep 2, 2022}
        \maketitle
 
-       In this chapter we are introduced to the Monotone Convergence Theorem, which is very useful in cheecking the convergence of sequences of partial sums. Let $(a_{n})$ be a sequence. This theorem states that if $(a_{n})$ is increasing, namely $a_{n} \leq a_{n+1}$ for all $n\in \N$, and it is bounded, then it converges to some limit. Its usfulness comes in two ``flavors''. First, the fact that partial sums of positive real numbers are elements of an increasing sequence. Second, it suffices to show that a sequence is increasing and bounded to conclude that converges without the necessity to come up with a particular limit. 
+       In this chapter we are introduced to the Monotone Convergence Theorem, which is very useful in cheecking the convergence of sequences of partial sums. Let $(a_{n})$ be a sequence. This theorem states that if $(a_{n})$ is monotone (either increasing or decreasing), namely $a_{n} \leq a_{n+1}$ or $a_{n}\geq a_{n+1}$ for all $n\in \N$ respectively, and it is bounded, then it converges to some limit. Its usfulness comes in two ``flavors''. First, the fact that partial sums of positive real numbers are elements of an increasing sequence. Second, it suffices to show that a sequence is increasing and bounded to conclude that converges without the necessity to come up with a particular limit. 
        We are interested in the convergence of partial sums, since an infinite series
 \begin{align*}
   \sum_{n\in\N} a_{n}
@@ -62,6 +62,29 @@ For example, the  $\mathbf{Cauchy \; Condensation \; Test}$ uses the infinite se
   \sum_{n\in\N} 2^{n}b_{2^{n}}.
 \end{align*}
 to check the converge or divergence of the infinite series of some decreasing sequence $(b_{n})$ of nonengative real numbers since $(s_{2^{n}b_{2^{n}}}) \leq (s_{b_{n}})$ and viceversa.
+\begin{problem}{2.4.1}
+\begin{enumerate}
+  \item Prove that the sequence defined by $x_{1} = 3$ and 
+\begin{equation*}
+  x_{n+1} = \frac{1}{4-x_{n}}
+\end{equation*}
+converges.
+\begin{proof}
+  We proceed by induction. We show that $3\geq x_{n} > x_{n+1} >0$ for all $n\in \N$. Note that $x_{1} = 3$ and $x_{2} = 1/(4-3) = 1$. Hence, $3\geq x_{1} > x_{2} > 0$. Now, assume for some $k\in \N$ that $3\geq x_{k} > x_{k+1} > 0$. We prove that $3\geq x_{k+1} > x_{k+2}>0$. Note that
+\begin{align*}
+  3&\geq x_{k} > x_{k+1} >0 \implies\\
+  1&\leq 4-x_{k} < 4-x_{k+1} < 4 \implies\\
+  1&\geq \frac{1}{4-x_{k}} > \frac{1}{4-x_{k+1}} > \frac{1}{4}.
+\end{align*}
+Therefore, $3\geq x_{k+1} > x_{k+2} >0$. By the Principle of Mathmatical Induction, $3\geq x_{k}>x_{k+1}>0$ for all $k\in \N$. Thus, $x_{n}$ is decreasing and bounded. It converges to some $a$, and according to the given argument, it seems that $a=\frac{1}{4}$.
+\end{proof}
+\item Now that we know $\lim x_{n}$ exists, explain why $\lim x_{n+1}$ must also exist and equal the same value.
+\begin{solution}
+  Recall that when dealing with convergence of sequences, we are mostly intersted in the ``tail'', namely, how infinitely but finite many of them behave. Note that $x_{n+1} = \left(x_{n}:n\geq 2 \right)$ is the same sequence as $x_{n}$ minus the first term. We keep infinitely many of them (tail). Hence, for any $\epsilon$ such that for any $n\geq N$ we have $|x_{n} -a|<\epsilon$, there is still some $K\geq N$ such that $|x_{n+1}-a|<\epsilon$ for all $n\geq K$. Thus, $\lim x_{n} = \lim x_{n+1}$.
+\end{solution}
+\item Take the limit of each side of the recursive equation in part (a) to explicitly xompute $\lim x_{n}$. 
+\end{enumerate}
+\end{problem}
 \end{document}
 
 
