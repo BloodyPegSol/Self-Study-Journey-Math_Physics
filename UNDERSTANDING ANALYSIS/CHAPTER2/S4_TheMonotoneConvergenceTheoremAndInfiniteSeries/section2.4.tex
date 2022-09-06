@@ -80,9 +80,51 @@ Therefore, $3\geq x_{k+1} > x_{k+2} >0$. By the Principle of Mathmatical Inducti
 \end{proof}
 \item Now that we know $\lim x_{n}$ exists, explain why $\lim x_{n+1}$ must also exist and equal the same value.
 \begin{solution}
-  Recall that when dealing with convergence of sequences, we are mostly intersted in the ``tail'', namely, how infinitely but finite many of them behave. Note that $x_{n+1} = \left(x_{n}:n\geq 2 \right)$ is the same sequence as $x_{n}$ minus the first term. We keep infinitely many of them (tail). Hence, for any $\epsilon$ such that for any $n\geq N$ we have $|x_{n} -a|<\epsilon$, there is still some $K\geq N$ such that $|x_{n+1}-a|<\epsilon$ for all $n\geq K$. Thus, $\lim x_{n} = \lim x_{n+1}$.
+  Recall that when dealing with convergence of sequences, we are mostly intersted in the ``tail'', namely, how infinitely but finite many of them behave. Note that $x_{n+1} = \left(x_{n}:n\geq 2 \right)$ is the same sequence as $x_{n}$ minus the first term. We keep infinitely many of them (tail). Hence, for any $\epsilon$ such that for any $n\geq N$ we have $|x_{n} -a|<\epsilon$, there is still some $K\geq N$ such that $|x_{n+1}-a|<\epsilon$ for all $n\geq K$. Thus, $\lim x_{n} = \lim x_{n+1}=a$.
 \end{solution}
 \item Take the limit of each side of the recursive equation in part (a) to explicitly xompute $\lim x_{n}$. 
+\begin{solution}
+  The sequence $(x_{n+1})$ is recursively defined by 
+\begin{align*}
+  x_{n+1} &= \frac{1}{4-x_{n}}
+\end{align*}
+for all $n\in \N$. Taking the limit in both sides we get that
+\begin{align*}
+  \lim x_{n+1} &= \lim \frac{1}{4-x_{n}} \implies \\
+  a &= \frac{1}{4-a},
+\end{align*}
+by the Algebraic Limit Theorem. Hence, $(x_{n+1})\to a$ and so $(x_{n+1})=\left( \frac{1}{4-x_{n}} \right) \to \frac{1}{4-a} = a$. Then, $a^{2}-4a+1=0$. Using the quadratic formula, we get $a=2\pm \sqrt{3}$. Since $3\geq x_{n}+1$ for all $n\in \N$, it follows that $3\geq a$ and so $a=2-\sqrt{3}$. Note that $a\approx 0.267949$ which is very near to our initial guess of $\frac{1}{4}$.
+\end{solution}
+\end{enumerate}
+\end{problem}
+\begin{problem}{2.4.2}
+\begin{enumerate}
+  \item Consider the recursively defined sequence $y_{1} = 1$,
+\begin{equation*}
+  y_{n+1} = 3-y_{n},
+\end{equation*}
+and set $y=\lim y_{n}$. Because $(y_{n})$ and $(y_{n+})$ have the same limit, taking the limit across the the recursive equation gives $y=3-y$. Solving for $y$, we conclude $\lim y_{n} = 3/2$.\\
+What is wrong with this argument?
+\begin{solution}
+  Computing the first 5 terms of $(y_{n})$ we realize that $(y_{n}) = \left( 2,1,2,1,2,\dots \right)$ is a sequence that alternates between 2 values and so it does not converges. The argument is good if the assumption is true, however the stament $y=\lim y_{n}$ is false.
+\end{solution}
+\item This time set $y_{1} = 1$ and $y_{n+1} = 3-\frac{1}{y_{n}}$. Can the strategy in (a) be applied to compute the limit of this sequence?
+\begin{solution}
+  In order to be sure that the strategy in (a) can be applied to this example we must show that the recursive sequence converges. One way is using the Monotone Convergence Theorem.  
+\begin{proof}
+  We procced by induction. We show that $3>y_{n+1}>y_{n}\geq 1$ for all $n\in \N$. Observe that $y_{1} = 1$ and $y_{2} = 3-1=2$. Hence, $3>y_{2}>y_{1}\geq1$. Suppose for some $k\in \N$ that $3>y_{k+1}>y_{k}\geq1$. We prove that $3>y_{k+2}>y_{k+1}>1$. Note that $1/3 < 1/y_{k+1} \leq 1/y_{k} < 1$ and so $3-1/3 > 3-1/y_{k+1} > 3-1/y_{k} \geq3-1$. Therefore, 
+\begin{equation*}
+  3>\frac{8}{3} > y_{k+2} > y_{k+1} \geq 2 > 1.
+\end{equation*}
+Thus, by the Principle of Mathematical Induction, $3>y_{n+1}>y_{n}\geq 1$ for all $n\in \N$. Then, $(y_{n})$ is an increasing and bounded sequence, and so, by the Monotone Convergence sequence, $\lim y_{n} = y$ for some $y\in \R$.
+\end{proof}
+Then, it is valid to apply the argument of (a) in this case. Hence,
+\begin{align*}
+  \lim y_{n+1} &= \lim \left( 3-\frac{1}{y_{n}} \right)\implies\\
+  y &= 3-\frac{1}{y}
+\end{align*}
+since $y_{n} > 0$ for all $n\in \N$. Thus, $y^{2}-3y+1=0$ and so, using the cuadratic equation, $y= \frac{3\pm\sqrt{5}}{2}$. Since $y_{n}\geq1$ for all $n\in \N$, then $y\geq1$ and so $y=\frac{3+\sqrt{5}}{2}\approx 2.6180$.
+\end{solution}
 \end{enumerate}
 \end{problem}
 \end{document}
