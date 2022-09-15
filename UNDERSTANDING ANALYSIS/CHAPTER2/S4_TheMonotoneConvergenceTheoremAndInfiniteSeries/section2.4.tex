@@ -123,8 +123,44 @@ Then, it is valid to apply the argument of (a) in this case. Hence,
   \lim y_{n+1} &= \lim \left( 3-\frac{1}{y_{n}} \right)\implies\\
   y &= 3-\frac{1}{y}
 \end{align*}
-since $y_{n} > 0$ for all $n\in \N$. Thus, $y^{2}-3y+1=0$ and so, using the cuadratic equation, $y= \frac{3\pm\sqrt{5}}{2}$. Since $y_{n}\geq1$ for all $n\in \N$, then $y\geq1$ and so $y=\frac{3+\sqrt{5}}{2}\approx 2.6180$.
+since $y_{n} > 0$ for all $n\in \N$. Thus, $y^{2}-3y+1=0$ and so, using the cuadratic equation, $y= \frac{3\pm\sqrt{5}}{2}$. Since $y_{n}\geq1$ for all $n\in \N$, then $y\geq1$ and so $y=\frac{3+\sqrt{5}}{2}\approx 2.6180$. This technique is possible thanks to the \textbf{Algebraic Theorem of Limits}.
 \end{solution}
+\end{enumerate}
+\end{problem}
+\begin{problem}{2.4.3}
+\begin{enumerate}
+  \item Show that 
+\begin{align*}
+  \sqrt{2}, \sqrt{2+\sqrt{2}}, \sqrt{2+\sqrt{2+\sqrt{2}}},\dots
+\end{align*}
+converges and find the limit.
+\begin{proof}
+  Note that this is can be expressed as a  recursive sequence defined by $y_{1} = \sqrt{2}$ and $y_{n+1} = \sqrt{2+y_{n}}$. We first show that it is bounded and an increasing sequence. Hence, we proceed by induction and prove that $1<y_{n} < y_{n+1}<2$ for all $n\in \N$. Note that $1<2<2+\sqrt{2}<4$ and, by taking the root, $1<\sqrt{2}<\sqrt{2+\sqrt{2}} < 2$. Hence, $1<y_{1}<y_{2}<2$.\\
+  Now, assume that $1<y_{k}<y_{k+1}<2$ for some $k\in \N$. We show that $1<y_{k+1}<y_{k+2}<2$. \\
+  Observe that $1<2+y_{k}<2+y_{k+1}<4$ and, by taking the square root, 
+\begin{align*}
+  1<y_{k+1} < \sqrt{2+y_{k+1}} = y_{k+2} < 2.
+\end{align*}
+By the Principle of Mathematical Induction, $1<y_{n}<y_{n+1}<2$ for all $n\in \N$ and so $(y_{n})$ is a bounded and increasing sequence. Thus, it converges to some limit, by the  Bounded Monotone Convergence Theorem.\\
+
+Now, we proceed to find its limit. Note that $\lim (y_{n+1}) = \lim (y_{n}) = y$ and so
+\begin{align*}
+  \lim{y_{n+1}} &= \sqrt{2+y} \implies\\
+  y^{2} -y -2 &= 0 
+\end{align*}
+Thus, $(y-2)^{2}=0$ and so $y=2$.
+\end{proof}
+\item Does the sequence  
+\begin{align*}
+  \sqrt{2},\sqrt{2\sqrt{2}},\sqrt{2\sqrt{2\sqrt{2}}},\dots
+\end{align*}
+converge? If so, find the limit.
+\begin{proof}
+  Note that sequence can be expressed as a recursive sequence defined by $y_{1} = \sqrt{2}$ and $y_{n+1} = \sqrt{2y_{n}}$. We show that it is an increasing bounded sequence. Therefore, we proceed by induction and show that $1<y_{n}<y_{n+1}<2$ for all $n\in \N$. First, note that $1<2<2\sqrt{2}<4$ and, by taking the square root, $1<\sqrt{2}<\sqrt{2\sqrt{2}}<2$. Hence, $1<y_{1}<y_{2}<2$.\\
+  Now, suppose that $1<y_{k}<y_{k+1}<2$ for some $k\in\N$. We show that $1<y_{k+1}<y_{k+2}<2$.\\
+  Observe that $1<2y_{k}<2y_{k+1}<4$ and, by taking the square root, $1<y_{k+1}<y_{k+2}<2$. By the Principle of Mathematical Induction, $1<y_{n}<y_{n+1}<2$ for all $n\in \N$. Hence, $(y_{n})$ is an increasing bounded sequence and, by the Monotone Bounded Sequence, $(y_{n})$ converges to some $y$.\\
+  We have that $\lim y_{n+1} = \lim \sqrt{2y_{n}}$ and so $y^{2}-2y = y(y-2)=0$. Thus, either $y=0$ or $y=2$. However, since $1<y_{n}$ for all $n\in\N$, it follows that $1<y$, and so $y=2$. 
+\end{proof}
 \end{enumerate}
 \end{problem}
 \end{document}
