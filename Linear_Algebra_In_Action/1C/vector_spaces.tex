@@ -1,6 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage[margin=1in]{geometry}
-\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem,esvect}  
 \usepackage{tikz}
 \usetikzlibrary{datavisualization} 
 \usepackage[makeroom]{cancel} 
@@ -230,14 +230,6 @@ since matrix multiplication is distributive and  under scalar multiplication is 
   &= I_{q}.
 \end{align*}
 \end{proof}
-\section{INTERESTING LEMMAS}
-
-\begin{lemma}{1}
-  Let $A\in \mathbb{F}^{p\times q}$. $A$ is right-invertible if and only if the rows are linearly independent. The same can be said for left-invertibility and columns.
-\begin{proof}
-  Assume that the rows of $A$ are linearly independent. We show that we can construct a right-inverse $B\in \mathbb{F}^{q\times p}$. 
-\end{proof}
-\end{lemma}
 \begin{problem}{1.16}
   Show that a given matrix $A\in \mathbb{F}^{p\times q}$ has either 0, 1 or infinitely many right inverses and that the same conclusion prevails for left inverses.
 \end{problem}
@@ -263,6 +255,74 @@ Hence, any matrix $A\in \mathbb{F}^{p\times q}$ can have 0 or at least one right
 
 \end{proof}
     \end{problem}
+    \begin{problem}{1.19}
+      Show that if $T$ is a linear transformation from a vector space $\mathcal{U}$ over $\mathbb{F}$ with basis $\left\{ \mathbf{u}_{1},\dots,\mathbf{u}_{q} \right\}$ into a vector space $\mathcal{V}$ over $\mathbb{F}$ with basis $\left\{ \mathbf{v}_{1},\dots,\mathbf{v}_{p} \right\}$, then there exists a unique st of scalars $a_{ij}\in \mathbb{F},\; i=1,\dots,p$ and $j=1,\dots,q$ such that 
+\begin{equation}
+  \label{eq:scalars}
+  T\mathbf{u}_{j} = \sum_{i=1}^{p}a_{ij}\mathbf{v}_{i} \:\text{ for }\: j=1,\dots,q
+\end{equation}
+and hence that
+\begin{align*}
+  T\left( \sum_{j=1}^{q} x_{j}\mathbf{u}_{j} \right) = \sum_{i=1}^{p} y_{i}\mathbf{v}_{i} \iff A\mathbf{x} = \mathbf{y},
+\end{align*}
+where $\mathbf{x}\in \mathbb{F}^{q}$ has components $x_{1},\dots,x_{q}$, $\mathbf{y}\in \mathbb{F}^{p}$ has components $y_{1},\dots,y_{p}$ and the entries $a_{ij}$ of $A\in \mathbb{F}^{p\times q}$ are determined by formula \ref{eq:scalars}.
+\end{problem}
+\begin{proof}
+  Since $T$ is a linear transformation, $T$ maps $u_{j}$ $(j\in \left\{ 1,\dots,q \right\}$ into only one vector $b\in \mathcal{V}$. Because $\mathcal{V}$ has basis $\left\{ \mathbf{v}_{1},\dots,\mathbf{v}_{p} \right\}$ and $T\mathbf{u}_{j}\in \mathcal{V}$ represents only one vector, it follows that there is a unique set of scalars $a_{ij}\in \mathbb{F}$ such that  
+\begin{align*}
+  T\mathbf{u}_{j} = \sum_{i=1}^{p}a_{ij}\mathbf{v}_{i}.
+\end{align*}
+Note that it is possible for $T\mathbf{u}_{i} = T\mathbf{u}_{j}$, where $i\neq j$ (Non-injective linear transformation). However, each are still represented by a unique set of scalars. Now, assume that  
+\begin{align*}
+  T\left( \sum_{j=1}^{q}x_{j}\mathbf{u}_{j} \right) = \sum_{i=1}^{p}y_{i}\mathbf{v}_{i}.
+\end{align*}
+Note that $\sum_{j=1}^{q}x_{j}\mathbf{u}_{j} \in \mathcal{U}$ and $\sum_{i=1}^{p}y_{i}\mathbf{v}_{i} \in \mathcal{V}$, since they are linear combinations of the basis of $\mathcal{U}$ and $\mathcal{V}$, respectively. Furthermore,
+\begin{align*}
+  T\left( \sum_{j=1}^{q}x_{j}\mathbf{u}_{j} \right) &= \sum_{j=1}^{q}x_{j}T(\mathbf{u}_{j}) \\
+  &= \sum_{i=1}^{p}y_{i}\mathbf{v}_{i}
+\end{align*}
+due to the linearity of  $T$ (Note that both characteristics of linear mappings $T(\mathbf{a}+\mathbf{b}) = T\mathbf{a} + T\mathbf{b}$ and $T(\alpha\mathbf{a}) = \alpha T\mathbf{a}$ are used). Now, consider the $p\times q$ matrix
+\begin{align*}
+  A = 
+\begin{bmatrix}
+  T\mathbf{u}_{1} &  T\mathbf{u}_{2} & \ldots & T\mathbf{u}_{q}
+\end{bmatrix}.
+\end{align*}
+ Now, let $\mathbf{x} = (x_{1},\dots,x_{q})$ be a column matrix. Then,
+\begin{align*}
+  A\mathbf{x} &= \sum_{j=1}^{q} T(\mathbf{u}_{j})x_{j} = \sum_{i=1}^{p}y_{i}\mathbf{v}_{i} =  
+\begin{bmatrix}
+  y_{1} \\ y_{2} \\ \vdots \\ y_{p}
+\end{bmatrix}
+= \mathbf{y},
+\end{align*}
+assuming each $\mathbf{v}_{i}$ has one as the only nonzero entry in the $i$'th row. For the converse, assume that  
+\begin{align*}
+  A\mathbf{x} &= \sum_{j=1}^{q} T(\mathbf{u}_{j})x_{j} = \sum_{i=1}^{p}y_{i}\mathbf{v}_{i} =  
+\begin{bmatrix}
+  y_{1} \\ y_{2} \\ \vdots \\ y_{p}
+\end{bmatrix}
+= \mathbf{y}.
+\end{align*}
+Since $T$ is a linear transformation, it follows that 
+\begin{align*}
+  \sum_{j=1}^{q} T(\mathbf{u}_{j})x_{j} = T\left(\sum_{j=1}^{q} \mathbf{u}_{j}x_{j}\right)=\sum_{i=1}^{p}y_{i}\mathbf{v}_{i}. 
+\end{align*}
+\end{proof}
+\section{INTERESTING LEMMAS}
+
+\begin{lemma}{1}
+  Let $A\in \mathbb{F}^{p\times q}$. $A$ is right-invertible if and only if the rows are linearly independent. The same can be said for left-invertibility and columns.
+\begin{proof}
+  Assume that the rows of $A$ are linearly independent. We show that we can construct a right-inverse $B\in \mathbb{F}^{q\times p}$. 
+\end{proof} 
+\end{lemma}
+\begin{lemma}{2}
+  Let $\mathcal{V}$ be a vector space over $\mathbb{F}$ with basis $\left\{ \mathbf{v}_{1},\dots,\mathbf{v}_{p} \right\}$. Also, let $T:\mathcal{V}\to \mathcal{U}$ be a linear transformation, where $\mathcal{U}$ is a vector space over $\mathbb{F}$. Then, $T\mathbf{v}_{j} \neq T\mathbf{v}_{i}$ for all $i\neq j$. 
+\begin{proof}
+  Suppose, to the contrary, that there are two distinct basis vectors such that $T\mathbf{v}_{i} = T\mathbf{v}_{j}$. Then, $T\mathbf{v}_{i} - T\mathbf{v}_{j}=0$ since they belong to a vector space. Because $T$ is a linear transformation, it follows that $T$
+\end{proof}
+\end{lemma}
 \end{document}
 
 
