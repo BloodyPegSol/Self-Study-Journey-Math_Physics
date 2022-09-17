@@ -163,6 +163,29 @@ converge? If so, find the limit.
 \end{proof}
 \end{enumerate}
 \end{problem}
+\begin{lemma}{1}
+  Let $(a_{n})$ be an increasing sequence ($a_{n}\leq a_{n+1}$ for all $n\in  \N$) that converges to $a$. Then, $a\geq a_{n}$ for all $n\in \N$.
+\begin{proof}
+  Assume, to the contrary, that there is some $N\in\N$ such that $a_{N}>a$. Thus, $\epsilon = a_{N}-a>0$ and so $|a_{n}-a|\geq\epsilon$ for all $n\geq N$ (recall $(a_{n})$ is increasing). This contradicts the fact that $a$ is the limit of $(a_{n})$.
+\end{proof}
+\end{lemma}
+\begin{problem}{2.4.4}
+\begin{enumerate}
+  \item In Section 1.4 we used the Axiom of Completeness (AoC) to prove the Archimedean Property of $\R$ (Theorem 1.4.2). Show that the Monotone Convergence Theorem can also be used to prove the Archimedean Property without making any use of AoC
+\begin{proof}
+  First, let $(a_{n})$ be a sequence defined by $a_{n}=n$. Note that $a_{n}=n<n+1=a_{n+1}$ for all $n\in \N$ and so it is an increasing sequence. Just like the proof from \textbf{Section 1.4}, we proceed by contradiction. Suppose, to the contrary, that there is some real number $y$ such that $a_{n}<y$ for all $n\in \N$. Thus, $0<a_{n}<y$ for all $n\in \N$ and it is a bounded increasing sequence. By the Bounded Monotone Convergence Sequence, there is some $\lim a_{n} = a$. Since $(a_{n})$ is an increasing sequence, it follows that $a_{n} \leq  a$ for all $n\in\N$.
+
+  Now, consider some $m\in \N$ and so there is some $N\in \N$ such that $|a_{n} -a|=|n-a| < m$ for all $n\geq \N$. Thus, $a-n<m$ and so $a<m+n$. Because $\N$ is closed under addition, $m+n\in \N$ and so $a<a_{m+n}$ for all $n\geq N$, which contradicts the fact that $a$ is the limit of an increasing sequence.
+\end{proof}
+\item Use the Monotone Convergence Theorem to supply a proof for the Nested Interval Property (\textbf{Theorem 1.4.1}) that doesn't make use of AoC.\\
+\begin{proof}
+  Let $A=\left\{ a_{n}:n\in\N \right\}$ and every $b_{n}$ serves as an upper bound for $A$. Also, note that $a_{n}\leq a_{n+1}$ for all $n\in \N$ since each $I_{n+1} = [a_{n+1},b_{n+1}] \subseteq [a_{n},b_{n}] = I_{n}$ for all $n\in \N$ (nested). Hence, $(a_{n})$ is an increasing and bounded sequence, and so, by the Bounded Monotone Convergence Theorem, it converges to some $x$. Thus, $a_{n} \leq x$ for all $n\in\N$ since $x$ is the limit of an increasing sequence.
+
+  As we have previously seen, $\lim a_{n} = x$ must the lowest upper bound of $A$ (l.u.b for all elements in the sequence), otherwise, it leads to a contradiction. Therefore, $x\leq b_{n}$ for all $n\in\N$. Now, consider some $I_{n}$ and so $a_{n}\leq x \leq b_{n}$. Hence, $x\in I_{n}$ and $x\in \bigcap_{n\in\N} I_{n} \neq \emptyset$.
+\end{proof}
+  These two results suggest that we could have used the Monotone Convergence Theorem in place of AoC as our starting axiom for building theory of  the real numbers.
+\end{enumerate}
+\end{problem}
 \end{document}
 
 
