@@ -279,18 +279,30 @@ Note that it is possible for $T\mathbf{u}_{i} = T\mathbf{u}_{j}$, where $i\neq j
 Note that $\sum_{j=1}^{q}x_{j}\mathbf{u}_{j} \in \mathcal{U}$ and $\sum_{i=1}^{p}y_{i}\mathbf{v}_{i} \in \mathcal{V}$, since they are linear combinations of the basis of $\mathcal{U}$ and $\mathcal{V}$, respectively. Furthermore,
 \begin{align*}
   T\left( \sum_{j=1}^{q}x_{j}\mathbf{u}_{j} \right) &= \sum_{j=1}^{q}x_{j}T(\mathbf{u}_{j}) \\
-  &= \sum_{i=1}^{p}y_{i}\mathbf{v}_{i}
+  &= \sum_{j=1}^{q}x_{j}\left( \sum_{i=1}^{p}a_{ij}\mathbf{v}_{i} \right)\\
+  &= \sum_{i=1}^{p}\sum_{j=1}^{q}x_{j}a_{ij}\mathbf{v}_{i}
+  = \sum_{i=1}^{p}y_{i}\mathbf{v}_{i}
 \end{align*}
-due to the linearity of  $T$ (Note that both characteristics of linear mappings $T(\mathbf{a}+\mathbf{b}) = T\mathbf{a} + T\mathbf{b}$ and $T(\alpha\mathbf{a}) = \alpha T\mathbf{a}$ are used). Now, consider the $p\times q$ matrix
+due to the linearity of  $T$ (Note that both characteristics of linear mappings $T(\mathbf{a}+\mathbf{b}) = T\mathbf{a} + T\mathbf{b}$ and $T(\alpha\mathbf{a}) = \alpha T\mathbf{a}$ are used). If we fix $i$, then each basis vector is expressed with their coefficient as
+\begin{align*}
+  \sum_{j=1}^{q}x_{j}a_{ij} \mathbf{v}_{i} = \beta_{i}\mathbf{v}_{i}& &\text{ and }& &y_{i} \mathbf{v}_{i}=\alpha_{i}\mathbf{v}_{i}.
+\end{align*}
+Recall that $\sum_{j=1}^{p} \beta_{i}\mathbf{v}_{i} = \sum_{j}^{p} \alpha_{i}\mathbf{v}_{i}$. Hence, $\beta_{i} = \alpha_{i}$ for all $i=1,\dots,p$.
+Now consider the $p\times q$ matrix
 \begin{align*}
   A = 
 \begin{bmatrix}
-  T\mathbf{u}_{1} &  T\mathbf{u}_{2} & \ldots & T\mathbf{u}_{q}
-\end{bmatrix}.
+  \vec{a}_{1} &  \vec{a}_{2} & \ldots & \vec{a}_{q}
+\end{bmatrix},
 \end{align*}
- Now, let $\mathbf{x} = (x_{1},\dots,x_{q})$ be a column matrix. Then,
+where $\vec{a}_{j} = (a_{1j},a_{2j},\dots,a_{pj})^{T}$ is a column vector.
+Now, let $\mathbf{x} = (x_{1},\dots,x_{q})^{T}$ be a column matrix. Then,
 \begin{align*}
-  A\mathbf{x} &= \sum_{j=1}^{q} T(\mathbf{u}_{j})x_{j} = \sum_{i=1}^{p}y_{i}\mathbf{v}_{i} =  
+  A\mathbf{x} &= \sum_{j=1}^{q} \vec{a}_{j}x_{j} =    
+\begin{bmatrix}
+  \sum_{j=1}^{q}x_{j}a_{1j} \\ \sum_{j=1}^{q}x_{j}a_{2j} \\ \vdots \\ \sum_{j=1}^{q}x_{j}a_{pj}
+\end{bmatrix}
+=
 \begin{bmatrix}
   y_{1} \\ y_{2} \\ \vdots \\ y_{p}
 \end{bmatrix}
@@ -298,15 +310,21 @@ due to the linearity of  $T$ (Note that both characteristics of linear mappings 
 \end{align*}
 assuming each $\mathbf{v}_{i}$ has one as the only nonzero entry in the $i$'th row. For the converse, assume that  
 \begin{align*}
-  A\mathbf{x} &= \sum_{j=1}^{q} T(\mathbf{u}_{j})x_{j} = \sum_{i=1}^{p}y_{i}\mathbf{v}_{i} =  
+  A\mathbf{x} &= \sum_{j=1}^{q} \vec{a}_{j}x_{j} =    
+\begin{bmatrix}
+  \sum_{j=1}^{q}x_{j}a_{1j} \\ \sum_{j=1}^{q}x_{j}a_{2j} \\ \vdots \\ \sum_{j=1}^{q}x_{j}a_{pj}
+\end{bmatrix}
+=
 \begin{bmatrix}
   y_{1} \\ y_{2} \\ \vdots \\ y_{p}
 \end{bmatrix}
 = \mathbf{y}.
 \end{align*}
-Since $T$ is a linear transformation, it follows that 
+Then, $\sum_{j=1}^{q} x_{j}a_{ij} = y_{i}$. This implies that 
 \begin{align*}
-  \sum_{j=1}^{q} T(\mathbf{u}_{j})x_{j} = T\left(\sum_{j=1}^{q} \mathbf{u}_{j}x_{j}\right)=\sum_{i=1}^{p}y_{i}\mathbf{v}_{i}. 
+  \sum_{i=1}^{p}\sum_{j=1}^{q} x_{j}a_{ij} \mathbf{v}_{i} &=  \sum_{j=1}^{p}x_{j}\sum_{i=1}^{p} a_{ij}\mathbf{v}_{i} \\
+  &= \sum_{j=1}^{p} x_{j}T(\mathbf{u}_{j}) = \sum_{j=1}^{p}T(x_{j}\mathbf{u}_{j})\\
+  &= T\left( \sum_{j=1}^{p} x_{j}\mathbf{u}_{j} \right) = \sum_{i=1}^{p} y_{i} \mathbf{v}_{i}.
 \end{align*}
 \end{proof}
 \section{INTERESTING LEMMAS}
