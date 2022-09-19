@@ -327,6 +327,60 @@ Then, $\sum_{j=1}^{q} x_{j}a_{ij} = y_{i}$. This implies that
   &= T\left( \sum_{j=1}^{p} x_{j}\mathbf{u}_{j} \right) = \sum_{i=1}^{p} y_{i} \mathbf{v}_{i}.
 \end{align*}
 \end{proof}
+\begin{problem}{1.21}
+  Show that if $A\in \mathbb{C}^{n\times n}$ and $A^{k}=O_{n\times n}$ for some positive integer $k$, then $I_{n}-A$ is invertible. [The author gaves use the inverse $B$, we just showed that it was an inverse]. 
+\begin{proof}
+  Let $B=I_{n}+A+A^{2}+\dots+A^{k-2}+A^{k-1}$. Then, 
+\begin{align*}
+  B(I_{n}-A) &= BI_{n}-BA\\
+  &= \left( I_{n}+A+A^{2}+\dots+A^{k-2}+A^{k-1} \right) - \left( A+A^{2}+\dots+A^{k-2}+A^{k-1}+A^{k} \right)\\
+  &= (I_{n}-A)B = I_{n} - A^{k} = I_{n}
+\end{align*}
+since $A^{k}=O_{n\times n}$. Hence, $I_{n}-A$ is invertible and $B$ is its inverse.
+\end{proof}
+\end{problem}
+\begin{problem}{1.22}
+  Show that even though all the diagonal entries of the matrix
+\begin{align*}
+A=
+\begin{bmatrix}
+  0 & 1 & 1\\ 1 & 0 & 1\\ 1 & 0 & 0
+\end{bmatrix}
+\end{align*}
+are equal to zero, $A$ is invertible, and find $A^{-1}$. 
+\begin{proof}
+  Let 
+\begin{align*}
+  B=
+\begin{bmatrix}
+  0 & 0 & 1\\ 1 & -1 & 1\\ 0 & 1 & -1. 
+\end{bmatrix}
+\end{align*}
+It is readily checked that 
+\begin{align*}
+  AB = 
+\begin{bmatrix}
+  0 & 1 & 1\\ 1 & 0 & 1\\ 1 & 0 & 0 
+\end{bmatrix}
+\begin{bmatrix}
+  0 & 0 & 1\\ 1 & -1 & 1\\ 0 & 1 & -1 
+\end{bmatrix}
+= 
+\begin{bmatrix}
+  1 & 0 & 0\\ 0 & 1 & 0\\ 0 & 0 & 1 
+\end{bmatrix}
+=
+\begin{bmatrix}
+  0 & 0 & 1\\ 1 & -1 & 1\\ 0 & 1 & -1 
+\end{bmatrix}
+\begin{bmatrix}
+  0 & 1 & 1\\ 1 & 0 & 1\\ 1 & 0 & 0 
+\end{bmatrix}
+= BA.
+\end{align*}
+Hence, $A$ is invertible and $A^{-1}=B$, despite the fact that all diagonal entries of $A$ are $0$. 
+\end{proof}
+\end{problem}
 \section{INTERESTING LEMMAS}
 
 \begin{lemma}{1}
