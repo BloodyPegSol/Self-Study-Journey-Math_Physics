@@ -388,7 +388,56 @@ Hence, $A$ is invertible and $A^{-1}=B$, despite the fact that all diagonal entr
 \end{align*}
 where $D$ is the diagonal matrix with $d_{jj} = a_{jj}$ for $j=1,\dots,n$. 
 \begin{proof}
-  Let $A\in \mathbb{F}^{n\times n}$ be an upper triangular matrix. Note that $A-D$ is an upper triangular matrix with zero diagonal and so $D^{-1}(A-D)$ is a triangular matrix with zero diagonal since $D^{-1}$ is just a diagonal matrix. Thus, $C_{1} = D^{-1}(A-D)$ is a diagonix of level $1$. 
+  Let $A\in \mathbb{F}^{n\times n}$ be an upper triangular matrix. Note that $D^{-1}(D-A) = -D^{-1}A+I_{n}$ and $-D^{-1}A$ is an upper triangular matrix with a diagonal of ones. Thus, $C_{1} = -D^{-1}A+I_{n}$ is a diagonix of level $1$ and so $C_{1}^{n} = C_{n\cdot 1}=O_{n\times n}$ (\textbf{Lemma Diagonix}). Then, $M = I_{n} + D^{-1}(A-D) = I_{n} - D^{-1}(D-A)$ is an invertible matrix by \textbf{Problem 1.21}. Therefore, $A=D(I_{n}+D^{-1}(A-D)) = DM$ is invertible and its inverse is $M^{-1}D^{-1}$. For the case of lower triangular matrices, we just take the transpose of our upper one, namely, 
+\begin{align*}
+  A^{T} &= (I_{n}+D^{-1}(A-D))^{T}D^{T} = M^{T}D.
+\end{align*}
+The lower triangular matrix $A^{T}\in \mathbb{F}^{n\times n}$ with nonzero diagonal entries is invertible and its inverse is $D^{-1}\left( M^{-1} \right)^{T}$.
+\end{proof}
+\end{problem}
+\begin{problem}{1.24}
+Let $A = \begin{bmatrix} A_{11} & A_{12} \\ O_{q\times p} & A_{22}\end{bmatrix}$ be an upper block triangular matrix with blocks $A_{11}$ of size $p\times p$ and $A_{22}$ of size $q\times q$. Show that $A$ is invertible if and only if $A_{11}$ and $A_{22}$ are both invertible and that in this case  
+\begin{align*}
+A^{-1} &= \begin{bmatrix} A_{11}^{-1} & -A_{11}^{-1}A_{12}A_{22}^{-1}\\ O_{q\times p} & A_{22}^{-1} \end{bmatrix}. 
+\end{align*}
+\begin{proof}
+  First, assume that $A_{11}$ and $A_{22}$ are both invertible. Hence, the matrix $B = \begin{bmatrix} A_{11}^{-1} & -A_{11}^{-1}A_{12}A_{22}^{-1}\\ O_{q\times p} & A_{22}^{-1} \end{bmatrix}$ is defined. Then,  
+\begin{align*}
+  AB &= \begin{bmatrix} A_{11} & A_{12} \\ O_{q\times p} & A_{22}\end{bmatrix} \begin{bmatrix} A_{11}^{-1} & -A_{11}^{-1}A_{12}A_{22}^{-1}\\ O_{q\times p} & A_{22}^{-1} \end{bmatrix} \\
+  &=  \begin{bmatrix} A_{11}A_{11}^{-1} & -A_{12}A_{22}^{-1}+A_{12}A_{22}^{-1}\\ O_{q\times p} & A_{22}A_{22}^{-1}\end{bmatrix} \\
+  &=  \begin{bmatrix} A_{11}A_{11}^{-1} & O_{p\times q}\\ O_{q\times p} & A_{22}A_{22}^{-1}\end{bmatrix} \\
+  &= \begin{bmatrix}I_{p} & O_{p\times q}\\ O_{q\times p} & I_{q}\end{bmatrix} = I_{p+q}
+\end{align*}
+and
+\begin{align*}
+  BA &= \begin{bmatrix} A_{11}^{-1} & -A_{11}^{-1}A_{12}A_{22}^{-1}\\ O_{q\times p} & A_{22}^{-1} \end{bmatrix} \begin{bmatrix} A_{11} & A_{12} \\ O_{q\times p} & A_{22}\end{bmatrix}\\
+  &= \begin{bmatrix} A_{11}^{-1}A_{11} & O_{p\times p}\\ O_{q\times q} & A_{22}^{-1}A_{22}\end{bmatrix} = \begin{bmatrix} I_{p} & O_{p\times p}\\ O_{q\times q} & I_{q}\end{bmatrix} = I_{p+q}.
+\end{align*}
+Hence, $B = A^{-1}$ and $A$ is invertible.\\
+
+For the converse, assume that $A$ is invertible. Hence, there is some inverse $A^{-1}=B$. Hence, 
+\begin{align*}
+  AB &=  \begin{bmatrix} A_{11} & A_{12} \\ O_{q\times p} & A_{22}\end{bmatrix}\begin{bmatrix}B_{11} & B_{12} \\ B_{21} & B_{22} \end{bmatrix}\\
+  &=  I_{p+q} =  \begin{bmatrix}B_{11} & B_{12} \\ B_{21} & B_{22} \end{bmatrix} \begin{bmatrix} A_{11} & A_{12} \\ O_{q\times p} & A_{22}\end{bmatrix} = BA\\
+\end{align*}
+Hence, 
+\begin{enumerate}
+  \item $A_{11}B_{11} + A_{12}B_{21} = I_{p}$.
+  \item $A_{11}B_{12} + A_{12}B_{22} = O_{p\times q}$.
+  \item $O_{q\times p}B_{11} + A_{22}B_{21} = O_{q\times p}$.
+  \item $O_{q\times p}B_{12} + A_{22}B_{22} = I_{q}$.
+\end{enumerate}
+and
+\begin{enumerate}
+  \item $B_{11}A_{11} + B_{12}O_{q\times p} = I_{p}$.
+  \item $B_{11}A_{12} + B_{12}A_{22} = O_{p\times q}$.
+  \item $B_{21}A_{11} + B_{22}O_{q\times p} = O_{q\times p}$.
+  \item $B_{21}A_{12} + B_{22}A_{22} = I_{q}$.
+\end{enumerate}
+Thus, $A_{22}B_{21} = B_{21}A_{11} = O_{q\times p}$. Then,  
+\begin{align*}
+  (B_{11}A_{11})A_{11} &= (I_{p})A_{11} = (A_{11}B_{11}+A_{12}B_{21})A_{11} 
+\end{align*}
 \end{proof}
 \end{problem}
 \section{INTERESTING LEMMAS}
@@ -461,5 +510,4 @@ due to the inductive hypothesis and the result proven in the previous lemma. Als
 \end{proof}
 \end{corollary}
 \end{document}
-
 
