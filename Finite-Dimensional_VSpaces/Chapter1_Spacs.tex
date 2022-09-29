@@ -1,0 +1,132 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\Lim}[1]{\mathrm{lim}(#1)}
+\newcommand{\Abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\Dom}[1]{\mathrm{dom}\left(#1\right)}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+\setenumerate[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[1][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+\title{Chapter 1: Spaces}
+\author{Juan Patricio Carrizales Torres}
+\date{Sep 29, 2022}
+\maketitle
+\section{Fields}
+
+In Linear Algebra, we will be working with numbers from any type of class/set. Hence, to simplify things and make them more general, we will introduce the idea of fields. A \textbf{field} is a set of objects (including numbers) called \textbf{scalars} with operations of addition and multiplication that fulfill the following rules (let $\alpha$ and $\beta$ be scalars):
+\begin{enumerate}
+  \item \textbf{Addition}
+\begin{enumerate}
+  \item commutatitivity, $\alpha+\beta = \beta + \alpha$.
+  \item associativity, $\alpha + (\beta + \gamma) = (\alpha + \beta) + \gamma$.
+  \item additive identity, there is a unique scalar $0$ such that for every scalar $\alpha$, $\alpha + 0 = \alpha$.
+  \item additive inverse, for each scalar $\alpha$ there is a unique scalar $-\alpha$ such that $\alpha + (- \alpha) = 0$.
+\end{enumerate}
+\item \textbf{Multiplication}
+\begin{enumerate}
+  \item commutativity, $\alpha\beta = \beta\alpha$.
+  \item associativity, $\gamma(\alpha\beta) = (\gamma\alpha)\beta$.
+  \item multiplicative identity, there is a unique scalar $1$ for every scalar $\alpha$ such that $1\alpha = \alpha$.
+  \item multiplicative inverse, for every nonzero scalar $\beta$, there is a unique $\beta^{-1}$ such that $\beta\beta^{-1}=1$.
+\end{enumerate}
+\item \textbf{Linearity}
+\begin{enumerate}
+  \item Multiplication is distributive over addition, $\alpha(\beta + \gamma) = \alpha\beta + \alpha\gamma$.
+\end{enumerate}
+\end{enumerate}
+For instance, the class of real numbers and the class of complex numbers are fields.
+\subsection{Excercises}
+\begin{problem}{1}
+  Almost all the laws of elementary arithmetic are consequences of the axioms defining a field. Prove, in particular, that if $\mathcal{F}$ is a field, and if $\alpha,\beta$ and $\gamma$ belong to $\mathcal{F}$, then the following relations hold.
+\begin{enumerate}
+  \item $0+\alpha = \alpha$
+\begin{proof}
+  Due to the commutativity property of addition, $\alpha = \alpha + 0 = 0 + \alpha$.
+\end{proof}
+  \item If $\alpha + \beta = \alpha + \gamma$, then $\beta = \gamma$.
+\begin{proof}
+  Due to the additive inverse, associativity and commutativity, $\alpha + \beta + (-\alpha) = \alpha + (\beta + (-\alpha)) = ( \alpha + (-\alpha))+\beta = \beta = \gamma$.
+\end{proof}
+  \item $\alpha + (\beta-\alpha) = \beta$.
+\begin{proof}
+  Just like in $(b)$, 
+\begin{align*}
+  \alpha + (\beta+(-\alpha)) &= \alpha + (-\alpha + \beta)\\
+  &= (\alpha + (-\alpha)) +\beta = 0 + \beta\\
+  &= \beta.
+\end{align*}
+\end{proof}
+\item $\alpha\cdot 0 = 0\cdot \alpha = 0$. (In this case, the dot indicates multiplication).
+\begin{proof}
+  Note that
+\begin{align*}
+  0\cdot \alpha + (-0\cdot\alpha) &= 0 = (0+0)\alpha + (-0\cdot\alpha)\\
+  &= 0\cdot\alpha + (0\cdot\alpha + (-0\cdot\alpha)) = 0\cdot\alpha\\
+  &= \alpha\cdot 0
+\end{align*}
+\end{proof}
+\item $(-1)\alpha = -\alpha$
+\begin{proof}
+  Observe that
+\begin{align*}
+  \alpha + (-\alpha) &= 0 = 0\alpha\\
+  &= (1-1)\alpha = \alpha + (-1)\alpha.
+\end{align*}
+By $(b)$, $-\alpha = (-1)\alpha$.
+\end{proof}
+\item $(-\alpha)(-\beta) = \alpha\beta$.
+\begin{proof}
+  By $(e)$, $(-\alpha)(-\beta) = ((-1)\alpha)((-1)\beta)$. Then,
+\begin{align*}
+  ( (-1)\alpha)( (-1)\beta) &= (-1)(\alpha( (-1)\beta))\\
+  &= (-1)( (\alpha(-1))\beta) = (-1)( ((-1)\alpha)\beta)\\
+  &= ( (-1)( (-1)\alpha))\beta = ( ( (-1)(-1))\alpha)\beta\\
+&= (1\alpha)\beta = \alpha\beta
+\end{align*}
+\end{proof}
+\item $\alpha\beta = 0 \implies \alpha = 0 \text{ or }\beta=0$.
+\begin{proof}
+  Let $\alpha\beta = 0$. Note that either $\alpha = 0$ or $\alpha \neq 0$. In the first case, the result is true. In the case of the latter, there is some $\alpha^{-1}$ and so $\alpha^{-1}\alpha\beta = 1\beta = \alpha^{-1}0 = 0$. 
+\end{proof}
+\end{enumerate}
+\end{problem}
+
+\end{document}
+
+
