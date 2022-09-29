@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  26 SEP 2022 13:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  29 SEP 2022 13:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -811,7 +811,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 180--182
 
  []
 
-[5] [6] (./section2.4.aux) ) 
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
+
+ []
+
+[6] [7] (./section2.4.aux) ) 
 Here is how much of TeX's memory you used:
  26331 strings out of 480806
  642547 string characters out of 5905151
@@ -833,10 +838,10 @@ ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/symbols/msbm10.pfb>
-Output written on section2.4.pdf (6 pages, 148873 bytes).
+Output written on section2.4.pdf (7 pages, 150643 bytes).
 PDF statistics:
- 78 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
+ 83 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
