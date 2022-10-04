@@ -151,16 +151,24 @@ Every integer is its own multiplicative inverse.
 \begin{enumerate}
   \item Prove that $Z_{m}$ is a field if and only if $m$ is a prime.
 \begin{proof}
-  Let $m$ be a prime number. Note that addition and multiplication are both closed, commutative, associative and linear in the set of positive integers and so their least remainder when divided by $m$ is in $\Z_{m}$ (recall the equivalence classes in integers modulo $m$). Since $m\geq 2$, there is the additive identity $0$ and additive multiplicative $1$. Now consider some $\alpha \in Z_{m}$, then $m> m-\alpha>0$ and $m-\alpha \in Z_{m}$. Since $\alpha + (m-\alpha) = m = 0$, it follows that $m-\alpha$ is the additive inverse of $\alpha$.\\
+  Let $m$ be a prime number. Note that addition and multiplication are both closed, commutative, associative and linear in the set of positive integers and so their least remainder when divided by $m$ is in $\Z_{m}$ (recall the equivalence classes in integers modulo $m$). Since $m\geq 2$, there is the additive identity $0$ and additive multiplicative $1$. Also, $0$ is its own additive inverse. Now consider some nonzero $\alpha \in Z_{m}$, then $m> m-\alpha>0$ and $m-\alpha \in Z_{m}$. Since $\alpha + (m-\alpha) = m = 0$, it follows that $m-\alpha$ is the unique additive inverse of $\alpha$.\\
   Now, we show for any nonzero $x\in Z_{m}$ that $x\cdot Z_{m} = Z_{m}$ (multiplication of all elements of $Z_{m}$ by $\alpha$) to prove the existence of some multiplicative inverse. Consider some nonzero $x \in Z_{m}$ and so $x = m-\beta$ where $\beta \in \left\{ 1,\dots,m-1 \right\}$. Note that there are only $m$ possible remainders when dividing a positive integer by $m$ and all are contained in $Z_{m}$. Hence, the only way $x\cdot Z_{m} \neq Z_{m}$ is when $|x\cdot Z_{m}|<|Z_{m}|$, namely, when there are distinct $y,z\in Z_{m}$ such that both $x\cdot y$ and $x\cdot z$ have the same remainder when divided by $m$. We show this is not possible when $m$ is a prime integer.\\
   Consider two distinct $y,z\in Z_{m}$ and so $y=m-\alpha$ and $z=m-\gamma$ for $\alpha,\gamma \in \left\{ 1,\dots,m \right\}$. Observe that 
 \begin{align*}
   \Abs{(m-\beta)(m-\alpha) - (m-\beta)(m-\gamma)} &= \Abs{(m-\beta)(\gamma-\alpha)}.
 \end{align*}
-Since $y\neq z$, it follows that $\gamma \neq \alpha$ and so $\gamma-\alpha \neq 0$. Furthermore, $\Abs{\gamma-\alpha}< m$. Thus, $(m-\beta)(\gamma-\alpha)$ is the multiplication of two numbers that are not multiples of $m$ and so $\Abs{(m-\beta)(\gamma-\alpha)}$ is not a multiple of $m$ since $m$ is a prime number. Therefore, $m\nmid |y-z|$  and so $y$ and $z$ do not have equal remainder when divided by $m$. Thus, $x\cdot Z_{m}$ for any $x\in Z_{m}$ and so there is some $y\in Z_{m}$ such that $x\cdot y = 1$ (multiplicative inverse).
+Since $y\neq z$, it follows that $\gamma \neq \alpha$ and so $\gamma-\alpha \neq 0$. Furthermore, $\Abs{\gamma-\alpha}< m$. Thus, $(m-\beta)(\gamma-\alpha)$ is the multiplication of two numbers that are not multiples of $m$ and so $\Abs{(m-\beta)(\gamma-\alpha)}$ is not a multiple of $m$ since $m$ is a prime number. Therefore, $m\nmid |y-z|$  and so $y$ and $z$ do not have equal remainder when divided by $m$. Thus, $x\cdot Z_{m}$ for any $x\in Z_{m}$ and so there is some $y\in Z_{m}$ such that $x\cdot y = 1$ (multiplicative inverse). This argument can be used to show that the multiplicative inverse for any nonzero $\alpha\in Z_{m}$ is unique.
+
+For the converse, assume that $Z_{m}$ is a field. By \textbf{Problem 1}, for any elements $\alpha,\beta\in Z_{m}$, $\alpha\beta = 0$ if and only if at least one of them is $0$. This implies that all possible multiplications between the nonzero positive integers lower than $m$ are not multiples of $m$. Thus, $m$ is a factorization of itself times 1, $m$ must be a prime number.
 \end{proof}
   \item What is $-1$ in $Z_{5}$
+\begin{solution}
+  Let the operations be extended to any integers, not just the ones inside $Z_{5}$. We know that $-5$ is a multiple of 5 and we must add $-4$ to $-1$ to get to $-5$. See this as some type of remainder, just as we need to add $-2$ to $2$ to get to $0$. Hence, $-1$ in $Z_{5}$ is 4.
+\end{solution}
   \item What is $\frac{1}{3}$ in $Z_{7}?$
+\begin{solution}
+  It is not defined, since there is no integer in $\alpha\in Z_{7}$ such that $\frac{1}{3}-\alpha$ is divisible by $7$. 
+\end{solution}
 \end{enumerate}
 \end{problem}
 
