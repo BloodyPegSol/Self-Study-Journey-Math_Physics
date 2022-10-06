@@ -251,7 +251,7 @@ This implies that $y=x$.
 \begin{enumerate}
   \item Prove that the sequence defined by $y_{n}=\sup\{a_{k}:k\geq n\}$ converges.
 \begin{proof}
-  Consider some $y_{n}=\sup\{a_{k}:k\geq n\}$. Note that $y_{n+1}=\sup\{a_{k}:k\geq n+1\}$ is the supremum of the set $\{a_{k}:k\geq n+1\}/\{a_{n}\}$. Thus, $y_{n+1}\leq y_{n}$ which implies that $(y_{n})$ is a decreasing sequence. Furthermore, since $(a_{n})$ is bounded, it follows that each $y_{n}$ is lower or equal. \\
+  Consider some $y_{n}=\sup\{a_{k}:k\geq n\}$. Note that $y_{n+1}=\sup\{a_{k}:k\geq n+1\}$ is the supremum of the set $\{a_{k}:k\geq n+1\}/\{a_{n}\}$. Thus, $y_{n+1}\leq y_{n}$ which implies that $(y_{n})$ is a decreasing sequence. Furthermore, since $|a_{n}|\leq M$ for some $M\in \R$ (bounded), it follows that each $y_{n}\leq M$ (supremum) and $-M\leq a_{n} \leq y_{n}$. \\
   By the Bounded Monotone Sequence, $(y_{n})$ converges.
 \end{proof}
   \item The \textit{limit superior} of $(a_{n})$, or $\lim\sup a_{n}$, is defined by
@@ -259,8 +259,21 @@ This implies that $y=x$.
   \lim\sup a_{n} &= \lim y_{n},
 \end{align*}
 where $y_{n}$ is the sequence from part $(a)$ of this excercise. Provide a reasonable definition for $\lim\inf a_{n}$ and briefly explain why it always exists for any bounded sequence.
-\item Prove that $\lim\in a_{n} \leq \lim\sup a_{n}$ for every bounded sequence, and give an example of a sequence for which the inequality is strict.
+\begin{solution}
+  The \textit{limit inferior} of $(a_{n})$ can be defined by  
+\begin{align*}
+  \lim\inf a_{n} = \lim y_{n}
+\end{align*}
+where $(y_{n})$ is a sequence defined by $y_{n} = \inf\{a_{k}:k\geq n\}$. Note that $y_{n}$ is an increasing sequence. Furthermore, if $(a_{n})$ is bounded by $M$, then each $y_{n}\geq -M$ (infimum) and $M\geq a_{n} \geq y_{n}$.
+\end{solution}
+\item Prove that $\lim\inf a_{n} \leq \lim\sup a_{n}$ for every bounded sequence, and give an example of a sequence for which the inequality is strict.
+\begin{proof}
+  Let $x_{n} = \inf\left\{ a_{k}:k\geq n \right\}$ and $y_{n} = \sup\left\{ a_{k}:k\geq n \right\}$. Note that $x_{n} \leq y_{n}$ for all $n\in \N$ and so $\lim x_{n} = \lim\inf a_{n} \leq \lim y_{n}= \lim\sup a_{n}$.
+\end{proof}
 \item Show that $\lim\inf a_{n} = \lim\sup a_{n}$ if and only if $\lim a_{n}$ exists. In this case, all three share the same value. 
+\begin{proof}
+  Suppose that $\lim\inf a_{n} = \lim\sup a_{n}$, 
+\end{proof}
 \end{enumerate}
 \end{problem}
 \end{document}
