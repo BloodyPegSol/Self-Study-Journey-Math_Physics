@@ -246,6 +246,23 @@ This implies that $y=x$.
 \end{proof}
 \end{enumerate}
 \end{problem}
+\begin{problem}{2.4.7 (Limit Superior)}
+  Let $(a_{n})$ be a bounded sequence.
+\begin{enumerate}
+  \item Prove that the sequence defined by $y_{n}=\sup\{a_{k}:k\geq n\}$ converges.
+\begin{proof}
+  Consider some $y_{n}=\sup\{a_{k}:k\geq n\}$. Note that $y_{n+1}=\sup\{a_{k}:k\geq n+1\}$ is the supremum of the set $\{a_{k}:k\geq n+1\}/\{a_{n}\}$. Thus, $y_{n+1}\leq y_{n}$ which implies that $(y_{n})$ is a decreasing sequence. Furthermore, since $(a_{n})$ is bounded, it follows that each $y_{n}$ is lower or equal. \\
+  By the Bounded Monotone Sequence, $(y_{n})$ converges.
+\end{proof}
+  \item The \textit{limit superior} of $(a_{n})$, or $\lim\sup a_{n}$, is defined by
+\begin{align*}
+  \lim\sup a_{n} &= \lim y_{n},
+\end{align*}
+where $y_{n}$ is the sequence from part $(a)$ of this excercise. Provide a reasonable definition for $\lim\inf a_{n}$ and briefly explain why it always exists for any bounded sequence.
+\item Prove that $\lim\in a_{n} \leq \lim\sup a_{n}$ for every bounded sequence, and give an example of a sequence for which the inequality is strict.
+\item Show that $\lim\inf a_{n} = \lim\sup a_{n}$ if and only if $\lim a_{n}$ exists. In this case, all three share the same value. 
+\end{enumerate}
+\end{problem}
 \end{document}
 
 
