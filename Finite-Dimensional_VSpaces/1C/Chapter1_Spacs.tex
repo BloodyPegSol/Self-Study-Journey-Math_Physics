@@ -175,11 +175,26 @@ For the converse, assume that $Z_{m}$ is a field. By \textbf{Problem 1}, for any
   Let $Q(\sqrt{2})$ be the set of all real numbers of the form $\alpha + \beta\sqrt{2}$, where $\alpha$ and $\beta$ are rational.
 \begin{enumerate}
   \item Is $Q(\sqrt{2})$ a field?
-  \item What if $\alpha$ and $\beta$ are required to be integers?
-\end{enumerate}
 \begin{proof}
+  Yes, it is a field. Note that $Q(\sqrt{2})\subseteq \R$ and so the properties of commutativity, associativity and linearity of multiplication and addition are present. Also, $\alpha+\beta\sqrt{2},-\alpha-\beta\sqrt{2}\in Q(\sqrt{2})$. Furthermore, $1+0\sqrt{2},0+0\sqrt{2}\in Q(\sqrt{2})$. We now show that addition and multiplication are closed. Consider some $\alpha +\beta\sqrt{2}$ and $\gamma + \epsilon\sqrt{2}$, where $\alpha,\beta,\gamma,\epsilon\in \Q$. Observe that
+\begin{align*}
+  \left( \alpha + \beta\sqrt{2} \right)+\left( \gamma +\epsilon\sqrt{2} \right)&= (\alpha+\gamma)+(\beta+\epsilon)\sqrt{2}\in \Q\left(\sqrt{2}\right)
+\end{align*}
+and 
+\begin{align*}
+  \left( \alpha + \beta\sqrt{2} \right)\left( \gamma +\epsilon\sqrt{2} \right)&= \alpha\gamma + \alpha\epsilon\sqrt{2} +\gamma\beta\sqrt{2} + 2\beta\epsilon\\
+  &= (\alpha\gamma+2\beta\epsilon) + (\alpha\epsilon+\gamma\beta)\sqrt{2} \in \Q\left( \sqrt{2} \right)
+\end{align*}
+since $\Q$ is closed under multiplication and addition.\\
 
+We just have to show that every nonzero element of $\Q\left( \sqrt{2} \right)$ has a unique inverse in $\Q\left( \sqrt{2} \right)$. Consider some $\alpha + \beta\sqrt{2} \in \Q\left( \sqrt{2} \right)$. If $\alpha = 0$ or $\beta =0$, then $\frac{1}{2\beta}\sqrt{2}$ and $\frac{1}{\alpha}$ are their inverses,respectively. If $\alpha,\beta\neq 0$, then $\frac{\alpha}{\alpha^{2}-2\beta^{2}}-\frac{\beta}{\alpha^{2}-2\beta^{2}}\sqrt{2}\in \Q\left( \sqrt{2} \right)$ is its inverse. \\
+Actually, we can use the same argument to show that $\Q\left( \sqrt{c} \right)$ is a field for any $c\in \Q$.
 \end{proof}
+  \item What if $\alpha$ and $\beta$ are required to be integers?
+\begin{proof}
+  Then it is not a field since not all members have a multiplicative inverse. For instance, consider $\alpha + 0\sqrt{2}\in \Z\left( \sqrt{2} \right)$ for some integer $|\alpha|>1$. Since $\alpha\in \Z$ its inverse is $\frac{1}{\alpha}$, however it is not an integer.
+\end{proof}
+\end{enumerate}
 \end{problem}
 \begin{problem}{6}
 \begin{enumerate}
