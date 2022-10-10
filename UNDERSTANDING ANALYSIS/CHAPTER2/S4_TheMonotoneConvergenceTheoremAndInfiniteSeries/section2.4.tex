@@ -272,7 +272,9 @@ where $(y_{n})$ is a sequence defined by $y_{n} = \inf\{a_{k}:k\geq n\}$. Note t
 \end{proof}
 \item Show that $\lim\inf a_{n} = \lim\sup a_{n}$ if and only if $\lim a_{n}$ exists. In this case, all three share the same value. 
 \begin{proof}
-  Suppose that $\lim\inf a_{n} = \lim\sup a_{n}$, 
+  Suppose that $\lim\inf a_{n} = \lim\sup a_{n}$ and let $x_{n} = \inf a_{n}$ and $y_{n} = \sup a_{n}$. By definition, $x_{n} \leq a_{n} \leq y_{n}$ for all $n\in \N$. By the \textbf{Squeeze Theorem} proved in the previous section, the sequence $(a_{n})$ converges and $\lim a_{n} = \lim\inf a_{n} = \lim\sup a_{n}$.\\
+
+  For the converse, assume that $\lim a_{n} = a$ exists. Consider some $\epsilon >0$, then there is some $N\in \N$ such that  $a_{n} \in (a-\epsilon, a+\epsilon)$ for all $n\geq N$. Consider some $k\geq N$, then $y_{k}$ and $x_{k}$ are the gratest lower and lowest upper bounds of $\left\{ a_{n}:n\geq k \right\}$, respectively. This implies that $a-\epsilon < y_{k} \leq a_{k}$ and $a_{k} \leq x_{k} < a+\epsilon$. Hence, $y_{k},x_{k}\in \left( a-\epsilon, a+\epsilon \right)$ for all $k\geq N$ and so $\lim\inf a_{n} = \lim\sup a_{n} = \lim a_{n} = a$.
 \end{proof}
 \end{enumerate}
 \end{problem}

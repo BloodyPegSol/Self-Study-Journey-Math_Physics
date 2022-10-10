@@ -187,7 +187,7 @@ and
 \end{align*}
 since $\Q$ is closed under multiplication and addition.\\
 
-We just have to show that every nonzero element of $\Q\left( \sqrt{2} \right)$ has a unique inverse in $\Q\left( \sqrt{2} \right)$. Consider some $\alpha + \beta\sqrt{2} \in \Q\left( \sqrt{2} \right)$. If $\alpha = 0$ or $\beta =0$, then $\frac{1}{2\beta}\sqrt{2}$ and $\frac{1}{\alpha}$ are their inverses,respectively. If $\alpha,\beta\neq 0$, then $\frac{\alpha}{\alpha^{2}-2\beta^{2}}-\frac{\beta}{\alpha^{2}-2\beta^{2}}\sqrt{2}\in \Q\left( \sqrt{2} \right)$ is its inverse. \\
+We just have to show that every nonzero element of $\Q\left( \sqrt{2} \right)$ has a unique inverse in $\Q\left( \sqrt{2} \right)$. Consider some $\alpha + \beta\sqrt{2} \in \Q\left( \sqrt{2} \right)$. If $\alpha = 0$ or $\beta =0$, then $\frac{1}{2\beta}\sqrt{2}$ and $\frac{1}{\alpha}$ are their inverses,respectively. If $\alpha,\beta\neq 0$, then $\frac{\alpha}{\alpha^{2}-2\beta^{2}}-\frac{\beta}{\alpha^{2}-2\beta^{2}}\sqrt{2}\in \Q\left( \sqrt{2} \right)$ is its inverse (Note that $\alpha^{2} - 2\beta^{2} = 0$ if and only if $|\alpha| = \sqrt{2}|\beta| \not\in \Q$). \\
 Actually, we can use the same argument to show that $\Q\left( \sqrt{c} \right)$ is a field for any $c\in \Q$.
 \end{proof}
   \item What if $\alpha$ and $\beta$ are required to be integers?
@@ -199,7 +199,19 @@ Actually, we can use the same argument to show that $\Q\left( \sqrt{c} \right)$ 
 \begin{problem}{6}
 \begin{enumerate}
   \item Does the set of all polynomials with integer coefficitents form a field?
+\begin{proof}
+  No. The unique multiplicative identity is the polynomial $g(x) = 1$. We show that there is an infinity of polynomials in our set without inverse multiplicative. Consider some polynomial $p(x) = 0 + a_{1}x^{1} + a_{2}x^{2} + \dots + a_{n}x^{n}$ where $n\in \N$. Multiplying it by any other polynomial $s(x) = b_{0}+b_{1}x^{1}+\dots+b_{k}x^{k}$ for $k\in \N$, we get that
+\begin{align*}
+  p(x)s(x) &= \left( 0+a_{1}x^{1}+a_{2}x^{2}+\dots+a_{n}x^{n} \right)\left( b_{0}+b_{1}x^{1}+\dots+b_{k}x^{k} \right)\\
+  &= 0\left( b_{0}+b_{1}x^{1}+\dots+b_{k}x^{k} \right) + a_{1}x^{1}\left( b_{0}+b_{1}x^{1}+\dots+b_{k}x^{k} \right)\\
+  &+\dots+a_{n}x^{n}\left( b_{0}+b_{1}x^{1}+\dots+b_{k}x^{k} \right).
+\end{align*}
+The polynomial $p(x)s(x)$ is not a constant and so it can not be the multiplicative identity. 
+\end{proof}
   \item What if the coefficients are allowed to be real numbers?
+\begin{solution}
+  The previous argument can still be used to show that it is not a field.  
+\end{solution}
 \end{enumerate}
 \end{problem}
 \begin{problem}{7}
