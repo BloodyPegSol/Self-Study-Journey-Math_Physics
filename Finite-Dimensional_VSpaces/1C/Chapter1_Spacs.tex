@@ -226,6 +226,9 @@ and
   (\alpha,\beta)(\gamma,\delta) = (\alpha\gamma,\beta\delta),
 \end{align*}
 does $\mathcal{F}$ become a field?
+\begin{proof}
+  No, it is not a field. Some conditions may be fulfilled. For insatnce, since $\R$ is a field and the elements of the $j$'th place are added and multiplied, its easy to see that addition and multiplication is closed, commutative, associative and linear. However, since ther is no multiplicative inverse for 0, it follows that there is no ordered tuple $(\alpha,\beta)$ such that $(1,0)(\alpha,\beta) = (1,1)$. Hence, it is a nonzero element without multiplicative inverse.
+\end{proof}
 \item If addition and multiplication are defined by 
 \begin{align*}
   (\alpha,\beta)+(\gamma,\delta) = (\alpha+\gamma,\beta+\delta)
@@ -235,7 +238,46 @@ and
   (\alpha,\beta)(\gamma,\delta) = (\alpha\gamma-\beta\delta,\alpha\delta+\beta\gamma),
 \end{align*}
 is $\mathcal{F}$ a field then?
+\begin{proof}
+Yes, it is a field. Both addition and multiplication are closed since we are defining our operations as their application to the real elements inside the ordered tuples. Furthermore, as in the previous excercise, its easy to see why addition is associative and commutative. Also, for any scalar $(\alpha,\beta)$, $(\alpha,\beta)+(0,0) = (\alpha,\beta)$ and $(\alpha,\beta)+(-\alpha,-\beta) = (0,0)$. We show the required properties of multiplication. Consider the scalars $(\alpha,\beta), (\gamma,\delta)$ and $(\epsilon,\zeta)$\\
+\begin{enumerate}[label= \arabic*.]
+\item Commutativity:
+\begin{align*}
+  (\alpha,\beta)(\gamma,\delta) &= (\alpha\gamma-\beta\delta,\alpha\delta+\beta\gamma)\\
+  &= (\gamma\alpha-\delta\beta,\delta\alpha+\gamma\beta) = (\gamma,\delta)(\alpha,\beta)\\
+\end{align*}
+\item Associativity:
+\begin{align*}
+  \left[(\alpha,\beta)(\gamma,\delta)\right](\varepsilon,\zeta) &= (\alpha\gamma-\beta\delta,\alpha\delta+\beta\gamma)(\varepsilon,\zeta)\\
+  &= \alpha\gamma\varepsilon-(\beta\delta\varepsilon + \alpha\delta\zeta+\beta\gamma\zeta) \\
+  &= (\alpha,\beta)(\gamma\varepsilon-\delta\zeta,\gamma\zeta+\delta\varepsilon) = (\alpha,\beta)\left[(\gamma,\delta)(\varepsilon,\zeta)\right]
+\end{align*}
+\item Multiplicative identity:\\
+  Consider the scalar $(1,0)$. Then,
+\begin{align*}
+  (\alpha,\beta)(1,0) = (\alpha-0,0+\beta) = (\alpha,\beta)
+\end{align*}
+and so $(1,0)$ is the multiplicative identitity.
+\item Multiplicative inverse:\\
+
+  If either $\alpha = 0$ or $\beta = 0$, then the multplicative inverses are $(0,-1/\beta)$ and $(1/\alpha,0)$, respectively. On the other hand, if both $\alpha, \beta \neq 0$, then 
+\begin{align*}
+  \left( \frac{\alpha}{\alpha^{2}+\beta^{2}}, -\frac{\beta}{\alpha^{2}+\beta^{2}} \right)
+\end{align*}
+is the miltiplicative inverse.
+\item Linearity:
+\begin{align*}
+  (\alpha,\beta)\left[ (\gamma,\delta)+(\epsilon,\zeta) \right] &= (\alpha,\beta)(\gamma+\epsilon, \delta+\zeta)\\
+  &= (\alpha(\gamma+\epsilon) - \beta(\delta+\zeta), \alpha(\delta+\zeta)+\beta(\gamma+\epsilon))\\
+&= ((\alpha\gamma-\beta\delta)+(\alpha\epsilon-\beta\zeta), (\alpha\delta+\beta\gamma)+(\alpha\zeta+\beta\epsilon))\\
+  &= (\alpha,\beta)(\gamma,\delta) + (\alpha,\beta)(\epsilon,\zeta)
+\end{align*}
+\end{enumerate}
+\end{proof}
 \item What happens (in both the preceding cases) if we consider ordered pairs of complex numbers instead?
+\begin{proof}
+  Then $(a)$ is still not a field and $(b)$ is a field. This is so, since the properties of operations of real numbers are maintained for the complex field. Also, $0,1\in \mathbb{C}$.
+\end{proof}
 \end{enumerate}
 \end{problem}
 
