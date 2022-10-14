@@ -62,7 +62,7 @@ In Linear Algebra, we will be working with numbers from any type of class/set. H
 \begin{enumerate}
   \item commutativity, $\alpha\beta = \beta\alpha$.
   \item associativity, $\gamma(\alpha\beta) = (\gamma\alpha)\beta$.
-  \item multiplicative identity, there is a unique scalar $1$ for every scalar $\alpha$ such that $1\alpha = \alpha$.
+  \item multiplicative identity, there is a unique nonzero scalar $1$ for every scalar $\alpha$ such that $1\alpha = \alpha$.
   \item multiplicative inverse, for every nonzero scalar $\beta$, there is a unique $\beta^{-1}$ such that $\beta\beta^{-1}=1$.
 \end{enumerate}
 \item \textbf{Linearity}
@@ -281,6 +281,43 @@ is the miltiplicative inverse.
 \end{enumerate}
 \end{problem}
 
+\section{Vector Space}
+
+Just like fields, we have another type of set called the \textbf{Vector Space} with elements called \textbf{vectors} over some field $\mathcal{F}$. This set comes with two operations of addition and multiplication with the following properties:
+\begin{enumerate}
+  \item ADDITION: For any vectors $x$ and $y$ there is a vector $x+y$ in the space (closed under addition). 
+\begin{enumerate}[label=\arabic*.]
+  \item commutativity, $x+y=y+x$.
+  \item associativity, $(x+y)+z=x+(y+z)$.
+  \item additive identity, there is a unique vector $0$ such that  for every vector $x$, $x+0=x$.
+  \item additive inverse, there is a vector $-x$ such that $x+(-x)=0$.\\
+
+    As a comment, note that this are the same properties that addition has in the elemnts of a field. This is a similarity that both vector spaces and fields share: addition over their elements with these properties.\\
+\end{enumerate}
+\item MULTIPLICATION: This is not a multiplication between vectors but a scalar multplication, namely, for any vector $x$ and scalar $\alpha$ there is a vector $\alpha x$ in the space (closed under scalar multiplication).
+  \begin{enumerate}[label=\arabic*.]
+    \item associativity, $\alpha(\beta x) = (\alpha\beta)x$.
+    \item $1x = x$ for every vector $x$\\
+
+      Observe that multiplication is not defined between vectors but between a scalar and a vector. That's why multiplication can be interpreted as the application of operators on the elements of the vector space.
+\end{enumerate}
+\item CONNECTION: Just like in the properties of linearity for fields, vector spaces have properties that connect both structures of vector addition and scalar addition (field) in scalar multiplication (vector space).
+\begin{enumerate}[label=\arabic*.]
+  \item Scalar multiplication is distributive with respect to scalar addition, $(\alpha+\beta)x = \alpha x+ \beta x$
+  \item Scalar multiplication is distributive with respect to  vector addition, $\alpha(x+y) = \alpha x + \alpha y$.
+\end{enumerate}
+\end{enumerate}
+It's easy to see that any field $\mathcal{F}$ over itself is a vector space. Furthermore, we can extende this generalization to $\mathcal{F}^{n}$ for any $n\in \N$ by mathematical induction, if we define addition and scalar multiplication as the field addition and multiplication between the elements of the ordered $n$-tuples. For instance,
+\begin{align*}
+  (\alpha_{1},\alpha_{2},\dots,\alpha_{n}) + (\beta_{1},\beta_{2},\dots,\beta_{n}) = (\alpha_{1}+\beta_{1},\alpha_{2}+\beta_{2},\dots,\alpha_{n}+\beta_{n})
+\end{align*}
+and 
+\begin{align*}
+  \gamma(\alpha_{1},\alpha_{2},\dots,\alpha_{n}) =  (\gamma\alpha_{1},\gamma\alpha_{2},\dots,\gamma\alpha_{n}).
+\end{align*}
+Then,  $\R^{3}$ over $\R$ is a real vector space and $\mathbb{C}$ over $\mathbb{C}$ is a complex vector space.
+
+Another interesting question is related to the minimum of elements a field and a vector space must have. The smallest field is $\mathcal{F} = \left\{ 0,1 \right\}$ and the smallest vector space is $V=\left\{ 0 \right\}$, since these are the only necessary elements in the properties. The other properties only discuss the characteristics of the operation.  
 \end{document}
 
 
