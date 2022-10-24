@@ -336,13 +336,67 @@ Another interesting question is related to the minimum of elements a field and a
   \alpha\cdot 0 + \alpha\cdot x &= \alpha \cdot ( 0 + x)\\
   &= \alpha \cdot x.
 \end{align*}
-Thus, $\alpha\cdot 0 = 0$ due to the uniqueness of the additive identity.
+Thus, $\alpha\cdot 0 = 0$ (We can add the additive inverse of $\alpha x$ to both sides). Thishas to do with the uniqueness of the additive identity.
 \end{proof}
 \item $0\cdot x = 0$. (The symbol $0$ on the left of scalar multiplication denotes a scalar, on the right it denotes a vector).
+\begin{proof}
+  Simply apply the distributive property with respect to scalar addition, namely, 
+\begin{align*}
+  0\cdot x + \alpha \cdot x &= (0+\alpha)\cdot x\\
+  &= \alpha \cdot x.
+\end{align*}
+Then, $0\cdot x$. Thus, the scalar $0$ can be seen as some operator that neutralizes the vector. 
+\end{proof}
 \item If $\alpha x = 0$, then either $\alpha = 0$ or $x=0$ (or both).
+\begin{proof}
+  Suppose that $\alpha = 0$. Then, the result is true. On the other hand, assume that $\alpha \neq 0$. Consider some nonzero vector $c$. Then, 
+\begin{align*}
+  \alpha\cdot x + \alpha\cdot c &= \alpha\cdot (x+c)\\
+  &= \alpha\cdot c.
+\end{align*}
+Then, Multiplying both sides by the inverse of $\alpha$, $x+c = c$. Thus, $x=0$.
+\end{proof}
   \item $-x=(-1)x$.
-  \item $y+(x-y)$. (Here $x-y=x+(-y)$.)
+\begin{proof}
+  Note that 
+\begin{align*}
+  x + (-x ) &= 0 \\
+  &= (1+(-1))\cdot x \\
+  &= x + (-1)\cdot x. 
+\end{align*}
+Then, $-x = (-1)\cdot x$.
+\end{proof}
+  \item $y+(x-y) = x$. (Here $x-y=x+(-y)$.)
+\begin{proof}
+Note that
+\begin{align*}
+  y+(x-y) &= y+(-y+x) \\
+  &= (y-y)+x = 0+x.
+\end{align*}
+\end{proof}
 \end{enumerate}
+\end{problem}
+\begin{problem}{2}
+  If $p$ is a prime, then $\Z_{p}^{n}$ is a vector space over $\Z_{p}$; how many vectors are there in this vector space?
+\begin{solution}
+  Because a vector space is closed under addition and scalar multiplication we consider the cardinality of $\Z_{p}^{n}$. We know that $\Z_{p}$ contains $p$ elements and there is a bijection from $\Z_{p}^{n}$ to all possible permutations with $n$ elements of $\Z_{p}$. Hence, the cardinality of the vector space in question is $p^{n}$. 
+\end{solution}
+\end{problem}
+\begin{problem}{3} 
+  Let $\mathcal{V}$ be the set of all (ordered) pairs of real numbers. If $x=(\xi_{1},\xi_{2})$ and $y=(\eta_{1},\eta_{2})$ are elements of $\mathcal{V}$, write
+\begin{align*}
+  x+y &= (\xi_{1}+\eta_{1}, \xi_{2} + \eta_{2})\\
+  \alpha x &= (\alpha\xi_{1}, 0)\\
+  0 &= (0,0)\\
+  -x &= (-\xi_{1},-\xi_{2}).
+\end{align*}
+Is $\mathcal{V}$ a vector space with respect to these definitions of linear operations? Why?
+\begin{solution}
+  The set $\mathcal{V}$ over $\R$ is not a vector space with respect to thes definitions of operations. Note that the scalar $1$ is no longer a mutltiplicative identity with respect to scalar multiplication because  
+\begin{align*}
+  1x &= (1\cdot\xi_{1},0) \neq (\xi_{1},\xi_{2}) = x
+\end{align*}
+\end{solution}
 \end{problem}
 \end{document}
 
