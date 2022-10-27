@@ -278,6 +278,60 @@ where $(y_{n})$ is a sequence defined by $y_{n} = \inf\{a_{k}:k\geq n\}$. Note t
 \end{proof}
 \end{enumerate}
 \end{problem}
+\begin{problem}{2.4.10 (Infinite Products)}
+  A close relative of infinite series is the \textit{infinite product}
+\begin{align*}
+  \prod_{n=1}^{\infty} b_{n} = b_{1}b_{2}b_{3}\dots
+\end{align*}
+which is understood in terms of its sequence of \textit{partial products}
+\begin{align*}
+  p_{m} = \prod_{n=1}^{m}b_{n} = b_{1}b_{2}b_{3}\dotsb_{m}.
+\end{align*}
+Consider the special class of infinite products of the form
+\begin{align*}
+  \prod_{n=1}^{\infty}(1+a_{n}) = (1+a_{1})(1+a_{2})(1+a_{3})\dots, \: \text{ where }a_{n}\geq 0.
+\end{align*}
+\begin{enumerate}
+  \item Find an explicit formula for the sequence of partial products in the case where $a_{n} = 1/n$ and decide whether the sequence converges. Write out the first few terms in the sequence of partial products in the case where $a_{n} = 1/n^{2}$ and make a conjecture about the convergence of this sequence.
+\begin{solution}
+  We consider the case where $a_{n} = 1/n$. Then, let's define the sequence $(x_{n})$ of partial products by  
+\begin{align*}
+  x_{n} &= \prod_{m=1}^{n} (1+1/m) = \prod_{m=1}^{n}\left( \frac{m+1}{m} \right)\\
+  &= \frac{2}{1}\cdot \frac{3}{2}\cdot \frac{4}{3}\cdot \dots\cdot \frac{n}{n-1}\cdot \frac{n+1}{n} = n+1
+\end{align*}
+Clearly, this sequence diverges. Now, let's consider the case when $a_{n} = \frac{1}{n^{2}} = \left( \frac{1}{n} \right)^{2}$. The first 6 terms are $(2,2.5,2.7777,2.951,3.069, 3.154,\dots)$. It seems that this sequence slowly diverges, however, calculating the first 6000 terms with a program, it seems that the sequence approaches 3.675443. \\
+
+Another way to prove the divergence  when $a_{n} = 1/n$. 
+
+Let the sequence $(x_{n})$ be defined by $a_{1} = 2$ and
+\begin{align*}
+  a_{n+1} = a_{n}\left( 1+\frac{1}{n+1} \right) = a_{n}\left( \frac{n+2}{n+1} \right).
+\end{align*}
+Clearly, this is an increasing sequence and $1<x_{n}$ for all $n\in \N$. However, it is not bounded above by any real number. Consider any real number $y$ such that $x_{n} <y$ for some $n\in \N$. By the Archimedean principle, there is some positive integer $b$ such that $y<x_{n}b$. Now, consider the positive integer $k=(n+1)b$ and observe that
+\begin{align*}
+  x_{k} &= x_{n}\left( \frac{n+2}{n+1} \right)\left( \frac{n+3}{n+2} \right)\left( \frac{n+4}{n+3} \right)\dots\left( \frac{k}{k-1} \right)\left( \frac{k+1}{k} \right)\\
+  &= x_{n}\left( \frac{k+1}{n+1} \right) = x_{n}\left( b+\frac{1}{n+1} \right) > x_{n} b > y. 
+\end{align*}
+Hence, $(x_{n})$ diverges and so $\prod_{n=1}^{\infty}(1+a_{n})$ diverges.
+\end{solution}
+  \item Show, in general, that the sequence of partial products converges if and only if $\sum_{n=1}^{\infty}a_{n}$ converges. (The inequality $1+x\leq 3^{x}$ for positive $x$ will be useful in one direction.)
+\begin{proof}
+  First, assume that the sequence of partial products $\left(\prod_{i=1}^{n} (1+a_{i})\right)$ converges. Note that $\left( \sum_{i\leq n} a_{i} \right)=(y_{n})$ is an increasing sequence since $0\leq a_{n}$. Furthermore, observe that 
+\begin{align*}
+  \prod_{i=1}^{n}(1+a_{i}) &= (1+a_{1})(1+a_{2})(1+a_{3})\dots(1+a_{n})\\
+    &= \sum_{i=1}^{n}a_{i} + b +1 > \sum_{i=1}^{n}a_{i}
+\end{align*}
+for som $0\leq b$. Hence, $(y_{n})$ is bounded above and so it converges.\\
+
+For the converse, suppose that $\sum_{n\in \N} a_{n}$ converges. Hence, the sequence of partial sums $\left( \sum_{i\leq n}a_{i} \right)$ converges and so it is bounded by some $M$. We know that $1+x\leq 3^{x}$ is true for every real number $x\geq 0$. Hence, for any positive integer $n$,
+\begin{align*}
+  \prod_{i=1}^{n}(1+a_{i}) &\leq \prod_{i=1}^{n} 3^{a_{i}}\\
+  &= 3^{\sum_{i=1}^{n}a_{i}}\leq 3^{M}
+\end{align*}
+since $a_{n}\geq 0$ for every $n\in \N$. Furthermore, $\left( \prod_{i=1}^{n}(1+a_{i}) \right)$ is an increasing sequence and so, by the Monotone Bounded Theorem, it converges.
+\end{proof}
+\end{enumerate}
+\end{problem}
 \end{document}
 
 
