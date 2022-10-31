@@ -398,6 +398,38 @@ Is $\mathcal{V}$ a vector space with respect to these definitions of linear oper
 \end{align*}
 \end{solution}
 \end{problem}
+\begin{problem}{4}
+  Sometimes a subset of a vector space is itself a vector space (with respect to the linear operations already given). Consider, for example, the vector space $\mathbb{C}^{3}$ and the subsets $\mathcal{V}$ of $\mathbb{C}^{3}$ consisting of those vectors $(\xi_{1},\xi_{2},\xi_{3})$ for which 
+\begin{enumerate}
+  \item $\xi_{1}$ is real,
+  \item $\xi_{1} = 0$.
+  \item either $\xi_{1}=0$ or $\xi_{2}=0$,
+  \item $\xi_{1}+\xi_{2} = 0$,
+  \item $\xi_{1}+\xi_{2}=1$.
+\end{enumerate}
+In which of these cases is $\mathcal{V}$ a vector space?
+\begin{solution}
+  Note that the set $\mathcal{V}\subseteq \mathbb{C}^{3}$ over $\mathbb{C}$ has the same linear operations with their required properties for a vector space. Hence, we must only check if $\mathcal{V}$ is closed under these linear operations and $0\in \mathcal{V}$ to conclude whether it is a vector space or not. \\
+  Then, (a), (c) and (e) are not vector spaces since 
+\begin{align*}
+  \alpha\cdot (\xi_{1},\xi_{2},\xi_{3}) &= (\alpha\xi_{1},\alpha\xi_{2},\alpha\xi_{3}) \not\in \mathcal{V}, \text{ for }\alpha\in \mathbb{C}/\R\; \text{ (not closed)},\\
+  (\xi_{1},0,\xi_{3}) + (0,\gamma_{2},\gamma_{3}) &= (\xi_{1},\gamma_{2},\gamma_{3}+\xi_{3}) \not\in \mathcal{V}, \text{ for }\xi_{1},\gamma_{2}\neq 0\; \text{ (not closed)} \text{ and}\\
+  (\xi_{1},\xi_{2},\xi_{3}) + (\gamma_{1},\gamma_{2},\gamma_{3}) &= (\xi_{1} + \gamma_{1}, \xi_{2} + \gamma_{2}, \xi_{3} + \gamma_{3})\not\in \mathcal{V}, \text{ because }\xi_{1}+\gamma_{1}+\xi_{2}+\gamma_{2} = 2 \;\\
+  \text{ (not closed)},
+\end{align*}
+respectively.\\
+On the other hand, $(0,0,0)\in \mathcal{V}_{b},\mathcal{V}_{d}$, where $\mathcal{V}_{x}$ is the subset of case $x$. Furtheremore, for $\mathcal{V}_{b}$,  
+\begin{align*}
+  \alpha\cdot (0,\xi_{2},\xi_{3}) &= (\alpha0,\alpha\xi_{2},\alpha\xi_{3})\in \mathcal{V}_{b} \text{ and }\\
+  (0,\xi_{2},\xi_{3}) + (0,\gamma_{2},\gamma_{3}) &=  (0+0,\xi_{2}+\gamma_{2},\xi_{3}+\gamma_{3})\in \mathcal{V}_{b}.
+\end{align*}
+In the case of $\mathcal{V}_{d}$, note that each vector  $(\xi_{1},\xi_{2},\xi_{3}) = (\xi_{1},-\xi_{1},\xi_{3})$ due to the uniqueness of the additive inverse in the field $\mathbb{C}$, and so 
+\begin{align*}
+  \alpha\cdot (\xi_{1},-\xi_{1},\xi_{3}) &= (\alpha\xi_{1},-\alpha\xi_{1},\alpha\xi_{3})\in \mathcal{V}_{b} \;\text{ and }\\
+  (\xi_{1},-\xi_{1},\xi_{3}) + (\gamma_{1},-\gamma_{1},\gamma_{3}) &=  (\xi_{1}+\gamma_{1},-(\xi_{1}+\gamma_{1}),\xi_{3}+\gamma_{3})\in \mathcal{V}_{b}.
+\end{align*}
+\end{solution}
+\end{problem}
 \end{document}
 
 
