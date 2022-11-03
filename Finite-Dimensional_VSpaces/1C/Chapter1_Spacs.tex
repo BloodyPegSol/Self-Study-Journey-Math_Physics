@@ -442,8 +442,32 @@ In the case of $\mathcal{V}_{d}$, note that each vector  $(\xi_{1},\xi_{2},\xi_{
 \end{enumerate}
 In which of these cases is $\mathcal{V}$ a vector space?
 \begin{solution}
-  Just like in the previous excercise, $\mathcal{V}$ has the same linear operations of addition and scalar multiplication as the vector space $\mathcal{P}$ over $\R$. Hence, for the subset $\mathcal{V}_{x}$ of case $x$, it suffices to check if  $0\in \mathcal{V}_{x}$, each vector has its unique inverse and $\mathcal{V}_{x}$ is closed under this linear operations to conclude that it is a vector space.
-  Then, (a), (b) 
+  Just like in the previous excercise, $\mathcal{V}$ has the same linear operations of addition and scalar multiplication as the vector space $\mathcal{P}$ over $\R$. Hence, for the subset $\mathcal{V}_{x}$ of case $x$, it suffices to check if  $0\in \mathcal{V}_{x}$, each vector has its unique inverse and $\mathcal{V}_{x}$ is closed under this linear operations to conclude that it is a vector space. Here, $0$ is the polynomial $p(t)=0$ for all $t\in \R$.
+  Then, (a) and (c) are not vector spaces because 
+\begin{align*}
+0 &\not\in \mathcal{V}_{a} \text{ (no additive identity) since 0 has no degree 4 and}\\
+  \text{if }x(t)&\in\mathcal{V}_{c}\text{ and }x(1)>0,\text{ then } -x(t)\not\in \mathcal{V}_{c} \text{ (no additive inverse)} 
+\end{align*}
+since $-x(1) = (-1)\cdot x(1)<0$. On the other hand, $0\in \mathcal{V}_{b},\mathcal{V}_{d}$ since $2\cdot p(0) = p(1) = 0$ and $p(t) = p(1-t)=0$ for all $t\in \R$. Furthermore, if $x(t) \in \mathcal{V}_{b}$, then $2\cdot(-x(0)) = (2(-1))\cdot x(0) = -1\cdot(2\cdot x(0)) = (-1)\cdot x(1) = -x(1)$ and so $-x(t)\in \mathcal{V}_{b}$. Also, for some $x_{1},x_{2}\in \mathcal{V}_{b}$ and $\alpha\in\R$,
+\begin{align*}
+  2\cdot(x_{1}+x_{2})(0) &= 2\cdot(x_{1}(0) + x_{2}(0)) = x_{1}(1) +x_{2}(1)\\
+  &= (x_{1}+x_{2})(1)
+\end{align*}
+and 
+\begin{align*}
+  2\cdot(\alpha\cdot x_{1}(0)) &= (\alpha 2)\cdot x_{1}(0) = \alpha\cdot (2\cdot x_{1}(0))\\
+  &= \alpha \cdot x(1).
+\end{align*}
+Now consider some $x_{1},x_{2}\in \mathcal{V}_{d}$ and $\alpha\in \R$. Then, $-x(t) = (-1)\cdot x(t) = (-1)\cdot x(1-t) = -x(1-t)$ for every $t\in \R$. Moreover,  
+\begin{align*}
+  (x_{1}+x_{2})(t) &= x_{1}(t) + x_{2}(t) = x_{1}(1-t) + x_{2}(1-t)\\
+  &= (x_{1}+x_{2})(1-t) 
+\end{align*}
+and
+\begin{align*}
+  \alpha\cdot x_{1}(t) &= \alpha \cdot x_{1}(1-t)
+\end{align*}
+for any $t\in\R$. Hence, $\mathcal{V}_{b}$ and $\mathcal{V}_{d}$ are vector spaces.
 \end{solution}
 \end{problem}
 \end{document}
