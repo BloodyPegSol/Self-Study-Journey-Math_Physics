@@ -470,6 +470,26 @@ and
 for any $t\in\R$. Hence, $\mathcal{V}_{b}$ and $\mathcal{V}_{d}$ are vector spaces.
 \end{solution}
 \end{problem}
+
+\section{Properties of sets of vectors: Linear dependence and Linear combinations}
+
+\subsection{Linear dependence}
+
+Now that we have described these sets with specific characteristics known as \textbf{Vector Spaces} over some field, we can explore some interesting properties that their subsets can have. But first, let's define the summation notation $\sum_{i} x_{i}$ for vectors of a vector space $\mathcal{V}$. The set $\left\{ x_{i} \right\}$ is a subset of $\mathcal{V}$ where $i\in I$ are the indexes. Then, 
+\begin{align*}
+  \sum_{i} x_{i} = x_{i_{1}} + x_{i_{2}} + \dots x_{i_{n}}
+\end{align*}
+namely, the sequent application of addition for the vectors $\left\{ x_{i} \right\}$. Furthermore, if $I = \emptyset$, then $\left\{ x_{i} \right\}= \emptyset$ and $\sum_{i}x_{i}$ is defined to be the vector $0$ since there are no indexes to assign to vectors.\\
+
+Now, we can proceed with the discussion of linear dependence. A finite subset $\left\{ x_{i} \right\}\subseteq \mathcal{V}$ is linearly dependent if there exists a set $\left\{ \alpha_{i} : \exists i, \alpha_{i} \neq 0\right\}$ of scalars such that $\sum_{i} \alpha_{i}x_{i} = 0$. On the other hand, by negation, it is linearly independent if no such set exists. This can be interpreted as that for every set $\left\{ \alpha_{i}: \exists i, \alpha_{i}\neq 0 \right\}$ of scalars, $\sum_{i} \alpha_{i}x_{i} \neq 0$. Because we are dealing with scalars of a field and $0x = 0$, it is true that, in the case of a linearly independent set $\left\{ x_{i} \right\}$,   
+\begin{align*}
+  \sum_{i} \alpha_{i}x_{i} =0 \iff \forall i\in I, \alpha_{i} = 0.
+\end{align*}
+One can push the limits of this ideas and ask in which category does the empty set $\emptyset \subseteq \mathcal{V}$ resides. After all, it is a finite subset of $\mathcal{V}$. The issue with this, is that $\left\{ x_{i} \right\} = \emptyset$ implies that $\left\{ i \right\}=\emptyset$, namely, we don't have indexes to assign to something since there are not things to be assigned (vectors). However, note that  
+\begin{align*}
+  \left\{ i \right\}=\emptyset \implies \sim \left( \exists \left\{ \alpha_{i}:\exists i, \alpha_{i} \neq 0 \right\}, \sum_{i}\alpha_{i} x_{i} = 0 \right)
+\end{align*}
+since we don't have indexes to assign to scalars and so there is no $i$ such that $\alpha_{i} \neq 0$. This implies that no such set $\left\{ \alpha_{i}: \exists i, \alpha\neq 0 \right\}$ can be constructed. Hence, by definition, the empty set is linearly independent. Obviously, this argument uses the excluded middle principle, and is open for debate.
 \end{document}
 
 
