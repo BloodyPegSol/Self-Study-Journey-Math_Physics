@@ -492,7 +492,21 @@ One can push the limits of this ideas and ask in which category does the empty s
 since we don't have indexes to assign to scalars and so there is no $i$ such that $\alpha_{i} \neq 0$. This implies that no such set $\left\{ \alpha_{i}: \exists i, \alpha\neq 0 \right\}$ can be constructed. Hence, by definition, the empty set is linearly independent. Obviously, this argument uses the excluded middle principle, and is open for debate.\\
 In the case of not finite set $\mathcal{M}$ of vectors, we say that $\mathcal{M}$ is linearly dependent if every finite subset is linearly dependent.\\
 
-Recall that every field over itself is a vector space. Let $\mathcal{V}$ be an example of such vector space. Then, consider the set $S=\{x,y\}\subseteq \mathcal{V}$. If $x=y=0$, then $S$ is linearly dependent. If not, $(-x)y + (y)x = 0$. Hence, every subset of $\mathcal{V}$ containing two vectors is linearly dependent. Using mathematical induction, one can conclude that any finite subset such that $|S|\geq 2$ is linearly dependent. However, $\mathcal{V}$ is not linearly dependent, since $\left\{ x \right\}$ for any nonzero $x\in\mathcal{V}$ is linearly independent. This has to do with the uniqueness of $0$ as the additive identitiy.
+Recall that every field over itself is a vector space. Let $\mathcal{V}$ be an example of such vector space. Then, consider the set $S=\{x,y\}\subseteq \mathcal{V}$. If $x=y=0$, then $S$ is linearly dependent. If not, $(-x)y + (y)x = 0$. Hence, every subset of $\mathcal{V}$ containing two vectors is linearly dependent. Using mathematical induction, one can conclude that any finite subset such that $|S|\geq 2$ is linearly dependent. However, $\mathcal{V}$ is not linearly dependent, since $\left\{ x \right\}$ for any nonzero $x\in\mathcal{V}$ is linearly independent. This has to do with the uniqueness of $0$ as the additive identitiy.\\
+
+Furthermore, a vector $x$ is a linear combination of the set $\left\{ x_{i} \right\}$ if $x = \sum_{i}\alpha_{i}x_{i}$. Note that, by definition, $0$ is linearly dependent on the emptyset. It is common to say that $x$ is linearly dependent on $\left\{ x_{i} \right\}$. This is so due to the following thorem. 
+\begin{theorem}{1}
+  Let $x$ be a vector in the vector space $\mathcal{V}$ and $\left\{ x_{i} \right\}\subseteq \mathcal{V}$ be linearly independent. Then, the set $\left\{ x \right\}\cup\left\{ x_{i}x \right\}$ is linearly dependent if and only if $x=\sum_{i}\alpha_{i}x_{i}$.
+\begin{proof}
+  Assume that $\left\{ x_{i} \right\}\cup \left\{ x \right\}$ is linearly dependent. Hence, there is a set $S_{j} = \left\{ \alpha_{j}:\exists j,\alpha_{j}\neq 0 \right\}$ such that $\sum_{j} \alpha_{j} x_{j} = 0$, here $j$ is the new index notation for $\left\{ x_{i} \right\}\cup \left\{ x \right\}$. Since $\left\{ x_{i} \right\}$ is linearly independent, it follows that the coefficient $\alpha$ of $x$ can not be 0 since there is no set $S_{i}$ such that $0x + \sum_{i}\alpha_{i}x_{i} = 0$. Hence, 
+\begin{align*}
+  x = \alpha^{-1} \left(\sum_{i}-\alpha_{i}x_{i}\right),
+\end{align*}
+and so $x$ is a linear combination of $\left\{ x_{i} \right\}$. Note that the scope of the argument includes the case when $\left\{ x_{i} \right\}=\emptyset$. For the converse, assume that $x = \sum_{i}\alpha_{i}x_{i}$ and so $(1)x-\sum_{i}\alpha_{i}x_{i} = 0$. Therefore, $1\in \left\{ \alpha_{j} \right\} \supseteq \left\{ \alpha_{i} \right\}$ and the set $\left\{ x_{j} \right\} = \left\{ x_{i} \right\}\cup \left\{ x \right\}$ is linearly dependent. 
+\end{proof}
+\end{theorem}
+Additionaly, a set of non-zero vectors $\left\{ x_{n} \right\}$ is linearly dependent if and only if some $x_{k}$, $2\leq k \leq n$, is a linear combination of the preceding ones.
+Another concept that was explained is basis. Basically, a basis is a linearly independent subset of some vector space such that any vector is a linear combination of it. Interestingly, for any finite vector space, one can extend any linearly independent subset to a basis by adding vectors to it. In the case of the vector space $\left\{ 0 \right\}$, its basis is the empty set. Also, a vector space with a finite basis is known as a \textbf{finite-dimensional vector space}. 
 \end{document}
 
 
