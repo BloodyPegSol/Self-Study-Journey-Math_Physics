@@ -507,6 +507,33 @@ and so $x$ is a linear combination of $\left\{ x_{i} \right\}$. Note that the sc
 \end{theorem}
 Additionaly, a set of non-zero vectors $\left\{ x_{n} \right\}$ is linearly dependent if and only if some $x_{k}$, $2\leq k \leq n$, is a linear combination of the preceding ones.
 Another concept that was explained is basis. Basically, a basis is a linearly independent subset of some vector space such that any vector is a linear combination of it. Interestingly, for any finite vector space, one can extend any linearly independent subset to a basis by adding vectors to it. In the case of the vector space $\left\{ 0 \right\}$, its basis is the empty set. Also, a vector space with a finite basis is known as a \textbf{finite-dimensional vector space}. 
+\begin{problem}{1}
+\begin{enumerate}
+  \item Prove that th four vectors
+\begin{align*}
+  x &= (1,0,0)\\
+  y &= (0,1,0)\\
+  z &= (0,0,1)\\
+  u &= (1,1,1),
+\end{align*}
+in $\mathcal{C}^{2}$ form a linearly dependent set, but any three of them are linearly independent.
+\begin{proof}
+  Let $S=\left\{ x,y,z,u \right\}$. Note that $u= x+y+z = (1,1,1)$ and so $u-(x+y+z) = 0$ and so the set of scalars $\left\{ \alpha_{i} \right\}$ contains nonzero elements. Hence, $S$ is linearly dependent.\\
+  Now, consider some subset $P\subseteq S$ with only three elements. Since three of the four vectors have only one nonzero element in one unique place of the ordered triple, it follows that $P$ contains at least two of this vectors. Then, this two vectors coincide in having a zero element in the $i$'th place of the ordered triple, and the third vector has a nonzero element in place $i$. Hence, $0\cdot \gamma_{i} = 0$, being $\gamma_{i}$ the $i$'th element of the third vector, implies that $\alpha_{3} = 0$. Furthermore, the first two mentioned vectors do not coincide in their nonzero elements and so $\alpha_{1} x +\alpha_{2} y =0 \implies \alpha_{1},\alpha_{2}=0$. Therefore, $P$ is linearly independent.
+\end{proof}
+\item If the vectors $x, y ,z,$ and $u$ in $\mathcal{P}$ are defined by $x(t) = 1$, $y(t) = t$, $z(t) =t^{2}$, and $u(t) = 1+t+t^{2}$, prove that $x,y,z,$ and $u$ are linearly dpenden, but any three of them are linearly dependent.
+\begin{proof}
+  Let $S=\left\{ x,y,z,u \right\}$. Observe that $u(t) = 1+t+t^{2} = (1)x(t) + (1)y(t) + (1)z(t)$. Hence, $u$, a nonzero vector, is a linear combination of $x,y,z$ and so $S$ is a linearly dependent set.
+  Note that 
+\begin{align*}
+  x(t) = 1+0t+0t^{2} &\mapsto (1,0,0)\\
+  y(t) = 0+t+0t^{2} &\mapsto (0,1,0)\\
+  z(t) = 0+0t+t^{2} &\mapsto (0,0,1)\\
+  u(t) = 1+t+t^{2} &\mapsto (1,1,1),
+\end{align*}
+which is the same set of vectors that we saw earlier. Hence, by the same argument, any subset $P\subset S$ of three vectors is linearly independent.
+\end{proof}
+\end{enumerate}
+\end{problem}
 \end{document}
-
 
