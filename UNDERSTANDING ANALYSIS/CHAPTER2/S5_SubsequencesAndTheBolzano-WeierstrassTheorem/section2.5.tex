@@ -1,0 +1,59 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\Lim}[1]{\mathrm{lim}(#1)}
+\newcommand{\Abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\Dom}[1]{\mathrm{dom}\left(#1\right)}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+\setenumerate[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[1][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+\title{Section 2.5: Subsequences and the Bolzano-Weierstrass Theorem}
+   \author{Juan Patricio Carrizales Torres}
+     \date{Nov 14, 2022}
+       \maketitle
+
+     As we have seen in previous excercises and theorems, like the \textbf{Squeeze theorem}, is possible to obtain subsequences from other ones. A sequence $(b_{n})$ is a subsquence of $(a_{n})$ if for any $k\in \N$, $b_{k}=a_{k}$, namely, $(b_{n})$ is contained in $(a_{n})$, no elements of $(a_{n})$ are repeated in $(b_{n})$ and the order of $(a_{n})$ is maintained in $(b_{n})$.\\
+     
+     Related to our discussion of sequences that converge to some limit, An interesting fact about subsequences is that for any convergent sequence, all it's sequences converge to the same limit. So, one sequence can be hard to work with while trying to compute the limit, but some of its sequences could be easier to deal with. Furtheremore, there is the \textbf{Bolzano-Weierstrass Theorem}, which states that ``inside'' any bounded sequence, there is at least one subsequence that converges.\\
+
+     The proof is very illustrative, since it shows an algorithm of continous partition in halves and selection of the segment with infinite elements, whose goal is to create a sequence of nested bounded sets $(I_{n})$ which in fact share a common element $x$. Note that the original sequence being bounded ensures that every $I_{n}$ is bounded. The proof shows why $x$ is the limit of any subsequence $(a_{n})$, where $a_{n} \in I_{n}$ for every $n\in \N$, since the sequence of lengths of $I_{n}$ converges to $0$ $(\text{length}(I_{n}) = M(1/2)^{k-1})$.
+
+       \end{document}
+
+
