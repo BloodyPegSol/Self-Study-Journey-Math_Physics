@@ -552,5 +552,38 @@ which is the same set of vectors that we saw earlier. Hence, by the same argumen
 Since one of the scalars is nonzero, it follows that two scalars must be the inverse additive of this nonzero scalar for two of the sums to be zero, which implies that their sum is nonzero. Hence, at least one of the sums $\alpha+\beta, \alpha+\gamma,\gamma + \beta$ is nonzero. Thus,  $(\alpha+\gamma)x + (\alpha + \beta) y + (\beta+\gamma)z \neq 0$ (recall that $\left\{ x,y,z \right\}$ is linearly independent).
 \end{proof}
 \end{problem}
+\begin{problem}{4}
+\begin{enumerate}
+  \item Under what conditions on the scalar $\xi$ are the vectors $(1+\xi, 1-\xi)$ and $(1-\xi,1+\xi)$ in $\mathbb{C}^{2}$ linearly dependent?
+\begin{proof}
+  The vectors are linearly dependent if and only if $\xi = 0$. Clearly, the vectors are equal when $\xi = 0$ and so linearly dependent. For the converse, assume that the vectors are linearly dependent. Hence, there are scalars $\alpha$ and $\beta$ such that $\alpha(1+\xi,1-\xi) + \beta(1-\xi,1+\xi)=0$, where at least one of them, say $\alpha$, is nonzero. Then,
+\begin{align*}
+  (\alpha+\beta+(\alpha-\beta)\xi, \alpha+\beta-(\alpha-\beta)\xi)=0.
+\end{align*}
+Hence, $\alpha+\beta = -(\alpha-\beta)\xi$ and so $2(\alpha+\beta)=0$. This further implies that $\alpha = -\beta\neq 0$. Thus, $-(-2\beta)\xi=0$ and so $\xi =0$.
+\end{proof}
+  \item Under what conditions on the scalar $\xi$ are the vectors $(\xi,1,0),(1,\xi,1)$ and $(0,1,\xi)$ in $\R^{3}$ linearly dependent?
+\begin{proof}
+  Let these vectors be linearly dependent. Then, there are some scalars $\alpha,\beta,\gamma\in \R$ such that 
+\begin{align*}
+  \alpha (\xi,1,0) + \beta(1,\xi,1) + \gamma(0,1,\xi) = 0,
+\end{align*}
+where at least one of them is nonzero. Then,
+\begin{align*}
+  \alpha\xi = \gamma \xi = -\beta& &\text{and}& &\alpha+\gamma+\beta\xi = 0.
+\end{align*}
+If $\xi = 0$, then $\beta = 0$ and $\alpha=-\gamma \neq 0$. Now, let's consider the case when $\xi \neq 0$. Then, the left equation implies that $\gamma = \alpha = -\beta/\xi$ and so $\beta\neq 0$ (at least one of the scalars is nonzero). Futhermore,  
+\begin{align*}
+  \alpha + \gamma + \beta\xi &= 2\gamma + \beta\xi \\
+  &= -2\beta/\xi + \beta\xi = 0.
+\end{align*}
+With algebraic manipulations, one can conclude that $|\xi| = \sqrt{2}$.
+\end{proof}
+  \item What is the answer to (b) for $\Q^{3}$ (in place of $\R^{3}$)?
+\begin{proof}
+  From (b), it is evident that the vectors are linearly dependent if and only if $\xi = 0,\pm \sqrt{2}$. Hence, the vectors are linearly dependent in $\Q^{3}$ if and only if $\xi = 0$ since $\Q^{3}\subset \R^{3}$. 
+\end{proof}
+\end{enumerate}
+\end{problem}
 \end{document}
 
