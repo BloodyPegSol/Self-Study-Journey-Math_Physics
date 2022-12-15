@@ -585,5 +585,31 @@ With algebraic manipulations, one can conclude that $|\xi| = \sqrt{2}$.
 \end{proof}
 \end{enumerate}
 \end{problem}
+\begin{problem}{5}
+\begin{enumerate}
+  \item The vectors $(\xi_{1},\xi_{2})$ and $(\eta_{1},\eta_{2})$ in $\mathbb{C}^{2}$ are linearly dependent if and only if $\xi_{1}\eta_{2} = \xi_{2}\eta_{1}$.
+\begin{proof}
+  Assume that $\eta_{2}\xi_{1} = \xi_{2}\eta_{1}$. Then, 
+\begin{align*}
+  \eta_{1} (\xi_{1},\xi_{2}) - \xi_{1}(\eta_{1},\eta_{2}) &= (\eta_{1}\xi_{1}-\xi_{1}\eta_{1}, \eta_{1}\xi_{2}-\xi_{1}\eta_{2})\\
+  &= 0.
+\end{align*}
+For the converse, suppose that the vectors are linearly dependent. Then, one can be expressed as the other multiplied by a constant (since they are linearly dependent, the two scalars must be nonzero so that the sum of the vectors multiplied by their respective scalar is zero). Hence, $(\eta_{1},\eta_{2}) = c(\xi_{1},\xi_{2})$. Thus, $\eta_{1} = c\xi_{1}$ and $\eta_{2} = c\xi_{2}$. Multiplying the left equality by $\eta_{2}$, we get $c\xi_{2}\eta_{1} = c\xi_{1}\eta_{2}$. Because $c\neq 0$, $\eta_{1}\xi_{2} = \xi_{1}\eta_{2}$. 
+\end{proof}
+  \item Find a similar necessary and sufficient condition for the linear dependence of two vectors in $\mathbb{C}^{3}$. Do the same for three vectors in $\mathbb{C}^{3}$.
+\begin{solution}
+  Two vectors $(\xi_{1},\xi_{2},\xi_{3})$ and $(\eta_{1},\eta_{2},\eta_{3})$ are linearly dependent if and only if $\xi_{i}\eta_{j} = \eta_{i}\xi_{j}$ for any $i,j\in \left\{ 1,2,3 \right\}$. 
+\begin{proof}
+  Assume that $\xi_{i}\eta_{j} = \eta_{i}\xi_{j}$ for any $i,j\in \left\{ 1,2,3 \right\}$. Then, for some $i\in \left\{ 1,2,3 \right\}$, 
+\begin{align*}
+  \eta_{i}(\xi_{1},\xi_{2},\xi_{3}) - \xi_{i}(\eta_{1},\eta_{2},\eta_{3}) &= (\eta_{i}\xi_{1} - \xi_{i}\eta_{1}, \eta_{i}\xi_{2} - \xi_{i}\eta_{2}, \eta_{i}\xi_{3} - \xi_{i}\eta_{3})\\
+  =0.
+\end{align*}
+For the converse, suppose that these vectors are linearly dependent. Then, $\xi_{1} = c\eta_{1}, \xi_{2} = c\eta_{2}$ and $\xi_{3} = c\eta_{3}$. Generally, we have $\xi_{i} = c\eta_{i}$ for any $i\in \left\{ 1,2,3 \right\}$. Then, for some $j\in \left\{ 1,2,3 \right\}$, $c\eta_{j}\xi_{i} = c\eta_{i}\xi_{j}$. Since $c\neq 0$, it follows that $\eta_{j}\xi_{i} = \eta_{i}\xi_{j}$ for any $i,j\in \left\{ 1,2,3 \right\}$.
+\end{proof}
+\end{solution}
+  \item Is there a set of three linearly independent vectors $\mathbb{C}^{2}$?
+\end{enumerate}
+\end{problem}
 \end{document}
 
