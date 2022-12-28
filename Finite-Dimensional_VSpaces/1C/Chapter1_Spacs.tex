@@ -607,8 +607,75 @@ For the converse, suppose that the vectors are linearly dependent. Then, one can
 \end{align*}
 For the converse, suppose that these vectors are linearly dependent. Then, $\xi_{1} = c\eta_{1}, \xi_{2} = c\eta_{2}$ and $\xi_{3} = c\eta_{3}$. Generally, we have $\xi_{i} = c\eta_{i}$ for any $i\in \left\{ 1,2,3 \right\}$. Then, for some $j\in \left\{ 1,2,3 \right\}$, $c\eta_{j}\xi_{i} = c\eta_{i}\xi_{j}$. Since $c\neq 0$, it follows that $\eta_{j}\xi_{i} = \eta_{i}\xi_{j}$ for any $i,j\in \left\{ 1,2,3 \right\}$.
 \end{proof}
+For any $3$ vectors $(a_{1},b_{1},c_{1}),(a_{2},b_{2},c_{2}),(a_{3},b_{3},c_{3})\in \mathcal{C}^{3}$, they are linearly dependent if and only if 
+\begin{align*}
+  a_{1}b_{3}c_{2} + a_{3}b_{2}c_{1} + a_{2}b_{1}c_{3} = a_{2}b_{3}c_{1} + a_{1}b_{2}c_{3} + a_{3}b_{1}c_{2}.
+\end{align*}
+(Note the ones on the left have indexes ordered in an improper permutation, the opposite is seen on the right-side).
+\begin{proof}
+  First, assume the latter for some set of linearly independent vectors in $\mathbb{C}^{3}$. Then, consider the following linear combination, 
+\begin{align*}
+  \left( \left[ b_{2}c_{3}-b_{3}c_{2} \right] + \left[ a_{3}c_{2}-a_{2}c_{3} \right]+\left[ a_{2}b_{3}-a_{3}b_{2} \right] \right) \cdot (a_{1},b_{1},c_{1})+\\
+  \left( \left[ b_{3}c_{1}-b_{1}c_{3} \right] + \left[ a_{1}c_{3}-a_{3}c_{1} \right]+\left[ a_{3}b_{1}-a_{1}b_{3} \right] \right) \cdot (a_{2},b_{2},c_{2})+\\
+  \left( \left[ b_{1}c_{2}-b_{2}c_{1} \right] + \left[ a_{2}c_{1}-a_{1}c_{2} \right]+\left[ a_{1}b_{2}-a_{2}b_{1} \right] \right) \cdot (a_{3},b_{3},c_{3})
+\end{align*}
+For the converse, suppose that these vectors are linearly dependent. Then, there are scalars $a,b,c \in \mathbb{C}$ such that $a x_{1} + b x_{2} + c x_{3} =0$ and at least one of them, say $\alpha$, is nonzero. Hence,
+\begin{align*}
+  a_{1} &= \beta a_{2} + \gamma a_{3}\\
+  b_{1} &= \beta b_{2} + \gamma b_{3}\\
+  c_{1} &= \beta c_{2} + \gamma c_{3}.
+\end{align*}
+If only the scalar $a$ is nonzero, then $x_{1}=0$ (the vectors are linearly dependent) and so $0b_{3}c_{2} + 0b_{2}c_{1} + 0b_{1}c_{3} = 0 = 0b_{3}c_{1} + 0b_{2}c_{3} + 0b_{1}c_{2}$. If only two are nonzero, say $a$ and $b$, then, by the previous result for a linearly dependent set of two vectors, $a_{1}(b_{3}c_{2} - b_{2}c_{3}) + a_{3}(b_{2}c_{1} - b_{1}c_{2}) + a_{2}(b_{1}c_{3} - b_{3}c_{1}) = (a_{1}+a_{2}+a_{3})0 = 0$. Thus, we can assume that all scalars are nonzero and so $\beta,\gamma \neq 0$.\\
+Now, note that $a_{1}(\beta b_{2} + \gamma b_{3}) = b_{1} (\beta a_{2} + \gamma a_{3})$ and so 
+\begin{align}
+  \gamma c_{3}(\beta a_{1}b_{2} -\beta a_{2}b_{1}) &= c_{1}(\gamma a_{3}b_{1} - \gamma a_{1}b_{3}) - \beta c_{2} (\gamma a_{3}b_{1} - \gamma a_{1}b_{3})\\
+  \gamma\beta(a_{1}b_{2}c_{3} - a_{2}b_{1}c_{3}) &= - \gamma \beta (a_{3}b_{1}c_{2} - a_{1}b_{3}c_{2}) + \gamma a_{3}b_{1}c_{1} - \gamma a_{1}b_{3}c_{1}.
+\end{align}
+Let's find some useful equalities for $\gamma a_{1}b_{3}c_{1}$ and $\gamma a_{3}b_{1}c_{1}$ for substitution in the previous equality. Note that   
+\begin{align*}
+  \gamma\beta(a_{1}c_{2}b_{3} - a_{2}c_{1}b_{3}) &= - \gamma \beta (a_{3}c_{1}b_{2} - a_{1}c_{3}b_{2}) + \gamma a_{3}c_{1}b_{1} - \gamma a_{1}c_{3}b_{1}\\
+  \gamma\beta(c_{1}b_{2}a_{3} - c_{2}b_{1}a_{3}) &= - \gamma \beta (c_{3}b_{1}a_{2} - c_{1}b_{3}a_{2}) + \gamma c_{3}b_{1}a_{1} - \gamma c_{1}b_{3}a_{1}
+\end{align*}
+by interchanging $b$ and $c$, and $a$ and $c$ in equation (2), respectively. It's like using the same algorithm to derive (2) but interchanging the position of letters (placeholders). Hence,
+\begin{align*}
+  \gamma\beta (a_{1}b_{2}c_{3} - a_{2}b_{1}c_{3} + a_{3}b_{1}c_{2} - a_{1}b_{3}c_{2}) &= \gamma\beta (a_{1}c_{2}b_{3}-a_{2}c_{1}b_{3}+a_{3}c_{1}b_{2}-a_{1}c_{3}b_{2}) + \gamma a_{1}c_{3}b_{1}\\
+  + \gamma\beta (c_{1}b_{2}a_{3} - c_{2}b_{1}a_{3} + c_{3}b_{1}a_{2} - c_{1}b_{3}a_{2}) - \gamma c_{3}b_{1}a_{1} &\implies\\
+  2\gamma\beta (a_{1}b_{2}c_{3} + a_{3}b_{1}c_{2} + a_{2}b_{3}c_{1}) &= 2\gamma\beta (a_{2}b_{1}c_{3} +a_{1}b_{3}c_{2}+a_{3}b_{2}c_{1}).  
+\end{align*}
+Therefore,  
+\begin{align*}
+  a_{1}b_{3}c_{2} + a_{3}b_{2}c_{1} + a_{2}b_{1}c_{3} = a_{2}b_{3}c_{1} + a_{1}b_{2}c_{3} + a_{3}b_{1}c_{2}.
+\end{align*}
+\end{proof}
 \end{solution}
   \item Is there a set of three linearly independent vectors $\mathbb{C}^{2}$?
+\end{enumerate}
+\end{problem}
+\begin{problem}{8}
+\begin{enumerate}
+  \item Under what conditions on the scalar $\xi$ do the vectors $(1,1,1)$ and $(1,\xi,\xi^{2})$ form a basis of $\mathbb{C}$?
+\begin{solution}
+  We know that for any $n\in\N$, the basis of $\mathbb{C}^{n}$ must contain at least $n$ vectors. Furthermore, these must be linearly independent. Otherwise,
+\begin{align*}
+  x_{1} = \alpha_{2}x_{2}+\alpha_{3}x_{3}+\dots+\alpha_{n}x_{n}
+\end{align*}
+for some $x_{1}$ and scalars $\alpha_{2},\dots,\alpha_{n}$, and so the linear combination $\sum_{i=1}^{n}\beta_{i}x_{i} = \sum_{i=2}^{n}(\alpha_{i}\beta_{1} + \beta_{i})x_{i}$ is a linear combination of $n-1$ vectors.\\
+
+Then, since there are two vectors and the vector space is $\mathbb{C}$, it follows that we just have to look for a condition for them to be lineraly independent. Then, this vectors form a basis if and  only if $\xi \neq 1$. 
+\begin{proof}
+  Assume that the vectors are linearly dependent. Then, $(1,\xi,\xi^{2}) = c(1,1,1)$ for some nonzero $c\in \mathbb{C}$. Then, $1=\xi = \xi^{2}$ and so $\xi = 1$. \\
+
+  For the converse, suppose that $\xi \neq 1$. Then, $\xi < \xi^{2}$ and so there is no nonzero scalar $c$ such that $(1,\xi,\xi^{2}) = c(1,1,1)$. 
+\end{proof}
+\end{solution}
+  \item Under what conditions on the scalar $\xi$ do the vectors $(0,1,\xi), (\xi,0,1),$ and $(\xi,1,1+\xi)$ form a basis of $\mathbb{C}^{3}$.
+\begin{solution}
+  Note that for any $\xi \in \mathbb{C}$, 
+\begin{align*}
+  (0,1,\xi) = - (\xi,0,1) + (\xi,1,1+\xi).
+\end{align*}
+Hence, for every $\xi\in \mathbb{C}$, the vectors are linearly dependent and so not a basis of $\mathbb{C}^{3}$. There are no conditions for them to be a basis.
+\end{solution}
 \end{enumerate}
 \end{problem}
 \end{document}
