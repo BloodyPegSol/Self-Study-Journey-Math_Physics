@@ -684,5 +684,40 @@ Hence, for every $\xi\in \mathbb{C}$, the vectors are linearly dependent and so 
   Two maximal linearly independent subsets are $(0,0,1,1),(0,1,0,1),\\ (0,1,1,0),(1,0,0,1),(1,1,0,0)$ and $(1,1,0,0),(1,0,1,0),(1,0,0,1),(0,1,1,0)$. Note that we can divide the vectors in two groups, the ones with number 1 as the first entry and the ones with a 0. Furthermore, the last three entries of the vectors of each group are linearly independent and so they span the last three entries of each vector from the other group.   
 \end{solution}
 \end{problem}
+\section{Classification of Finite Vector Spaces: dimension and isomorphism}
+We know that a basis of some Vector Space $\mathcal{V}$ is a subset that is both linearly independent and a generator of $\mathcal{V}$. One can show, by repeatedly using the fact that a set is linearly independent if and only if the preceding vectors span it, that a linearly independent set has less or equal number of vectors than a generator set. Hence, any basis of the same vector space has the same number of elements. \\
+This is a very useful fact, which the concept of \textit{Dimension} harnesses. One can categorize Vector Spaces into sets according to their dimension, namely, the number of elements that its basis has. Furthermore, for any $n$ finite dimensional vector space $\mathcal{U}$ over $\mathbb{F}$ with basis $\left(x_{\alpha} \right)_{\alpha\in \N}$, there is the isomorphism $\phi: \mathcal{U} \to \mathbb{F}^{n}$ such that
+\begin{align*}
+  x \to (\lambda^{\alpha})_{\alpha\in\N}, x=\sum\lambda_{\alpha}x_{\alpha}.
+\end{align*}
+since there is a one-to-one correspondence between the vector $x$ and scalars $\lambda_{\alpha}$. With this, one concludes this connects vector spaces in a way such that there is an isomorphism between two vector spaces if and only if the have the same dimension. 
+\begin{problem}{1}
+\begin{enumerate}
+  \item What is the dimension of the set $\mathbb{C}$ of all complex numbers considered as a real vector space? 
+\begin{solution}
+  So the field is $\mathbb{R}$ and there is a one-to-one correspondence between each number $a+bi\in \mathbb{C}$ and $(a,b)\in \mathbb{R}^{2}$, which is also a real vector space. Hence the dimension of the real vector space $\mathbb{C}$ is 2. From this, we can prove the following useful theorem:
+  \begin{theorem}{Isomorphism-dimension:}
+    There is an isomorphism between two finite vector spaces over the same field if and only if they have the same dimension.
+\begin{proof}
+  Let $\mathcal{V},\mathcal{U}$ be vector spaces over the same field such that $\mathcal{V}\leftrightarrows \mathcal{U}$, there is an isomorphism $T$.  Both have unique basis, and so let $(x_{\lambda})_{\lambda\leq n}$ be the basis of $\mathcal{V}$. We show that $(T(x_{\lambda}))_{\lambda\leq n}$ is the basis of $\mathcal{U}$. Consider any vector $u\in \mathcal{U}$. By the surjectivity of $T$, there is some $v\in \mathcal{V}$ such that $T(v) = u$ and so, 
+\begin{align*}
+  T(\sum_{\lambda\leq n} \alpha_{\lambda}x_{\lambda}) = \sum_{\lambda\leq n}\alpha_{\lambda} T(x_{\lambda}). 
+\end{align*}
+Furthermore, if $u=0$, then $\alpha_{\lambda} = 0$ and so $(T(x_{\lambda}))$ is linearly independent and a generator of $\mathcal{U}$. It is the basis of $\mathcal{U}$. \\
+To prove the converse, it suffices to note that $\mathcal{V}\leftrightarrows \mathbb{F}^{n}\leftrightarrows \mathcal{U}$, where $\mathbb{F}$ is the field of both vector spaces.
+\end{proof}
+\end{theorem}
+\item Every complex vector space $\mathcal{V}$ is intimately associated with a real vector space $\mathcal{V}^{-}$; the space $\mathcal{V}^{-}$ is obtained from $\mathcal{V}$ by refusing to multiply vectors of $\mathcal{V}$ by anything other than real scalars. If the dimension of the complex vector space $\mathcal{V}$ is $n$, what is the dimension of the real vector space $\mathcal{V}^{-}$.
+\begin{proof}
+  The dimension of $\mathcal{V}^{-}$ is $2n$. We use the notation $\mathbb{R}|\mathcal{C}$ to represent the vector space $\mathcal{C}$ over $\mathbb{R}$. Note that 
+\begin{align*}
+  \mathbb{C}|\mathcal{V}\leftrightarrows& \mathbb{C}|\left\{ (a_{1}+b_{1}i,\dots,a_{n}+b_{n}i):a_{1},b_{1},\dots,a_{n},b_{n}\in \R \right\} \\
+  \leftrightarrows& \mathbb{C}|\left\{ (a_{1},b_{1},\dots,a_{n},b_{n})|a_{1},\dots,b_{n}\in \R\right\} = \mathbb{C}|\mathbb{R}^{2n}.
+\end{align*}
+Hence, $\mathbb{R}|\mathcal{V}\leftrightarrows \mathbb{R}|\mathbb{R}^{2n}$ and so the dimension of $\mathcal{V}^{-}$ is $2n$.
+\end{proof}
+\end{solution}
+\end{enumerate}
+\end{problem}
 \end{document}
 
