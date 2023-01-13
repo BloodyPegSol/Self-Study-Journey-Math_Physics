@@ -754,6 +754,12 @@ Before diving into the interesting idea and usage of subsapces, we must account 
 Now, a subspace $\mathcal{M}$ of a $\mathbb{F}|\mathcal{V}$ is a subset such that if $x,y\in \mathcal{M}$, then $\alpha x+\beta y\in \mathcal{M}, \alpha,\beta\in \mathbb{F}$. Clearly, this is a vector space when restricted to the operations of addition and scalar multiplication from $\mathcal{V}$ (Note that $x-x\in \mathcal{M}$). Furthermore, for any collection $\{\mathcal{M}_{p}\}$ of subsapces, their intersection $\bigcap_{p}\left\{ \mathcal{M}_{p} \right\}\supseteq \mathcal{O}=\left\{ 0 \right\}$ is a vector space.\\
 
 This is useful, because for any linearly independent set of vectors $\mathcal{S}\subset \mathcal{V}$, we can find the intersection of all subspaces that cointain $S$, whic can be shown to be equivalent to the set of all linear combinations of the vectors in $\mathcal{S}$. Sounds familiar?. Indeed, this $\mathcal{S}$ is a basis for $\mathcal{M}$. Hence, a new way to look at a basis is the linearly independent set of vectors such that $\mathcal{M}$ is the set of all linear combinations of these vectors. Then, it is said that the linearly independent set ``spans'' $\mathcal{M}$. Also, the dimension of $\mathcal{M}$ is the cardinality of this linearly independent set. 
+\begin{problem}{1}
+  If $\mathcal{M}$ and $\mathcal{N}$ are finite-dimensional subspaces with the same dimension, and if $\mathcal{M}\subset \mathcal{N}$, then $\mathcal{M}=\mathcal{N}$.
+\begin{proof}
+ Since $\mathcal{M}\subset \mathcal{N}$, it follows that $\mathcal{M}$ is a subspace of the vector space $\mathcal{N}$. Hence, by theorem 2, we can find a basis $K$ in $\mathcal{N}$ so that $L\subseteq K$ forms a basis in $\mathcal{M}$. However, both vector spaces have the same dimension and so $|K|=|L|=n$, which implies that $K=L$. Thus, $\mathcal{M}=\mathcal{N}$.
+\end{proof}
+\end{problem}
 
 \end{document}
 
