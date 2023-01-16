@@ -761,5 +761,24 @@ This is useful, because for any linearly independent set of vectors $\mathcal{S}
 \end{proof}
 \end{problem}
 
+\begin{problem}{2}
+  If $\mathfrak{M}$ and $\mathfrak{N}$ are subspaces of a vector space $\mathfrak{V}$, and if every vector in $\mathfrak{V}$ belongs either to $\mathfrak{M}$ or to $\mathfrak{N}$ (or both), then either $\mathfrak{M} = \mathfrak{V}$ or $\mathfrak{N} = \mathfrak{V}$ (or both).
+\begin{proof}
+  Suppose, without loss of generality, that every vector in $\mathfrak{V}$ belongs to $\mathfrak{M}$. Then, $\mathfrak{V}\subseteq \mathfrak{M}$ and $\mathfrak{M}\subseteq \mathfrak{V}$, since $\mathfrak{M}$ is a subspace of $\mathfrak{V}$. Hence, $\mathfrak{M}=\mathfrak{V}$. 
+\end{proof}
+\end{problem}
+\begin{problem}{3}
+  If $x,y,$ and $z$ are vectors such that $x+y+z=0$, then $x$ and $y$ span the same subspace as $y$ and $z$.
+\begin{proof}
+  Consider the subspaces $\mathfrak{Z} = \left\{ \gamma z : \gamma \in \mathbb{F} \right\}, \mathfrak{X} = \left\{ \alpha x : \alpha\in \mathbb{F}\right\}$ and $\mathfrak{Y} = \left\{ \beta y : \beta\in \mathbb{F}\right\}$, where $\mathbb{F}$ is the field. Then, 
+\begin{align*}
+  \mathfrak{X}+\mathfrak{Y} &= \mathfrak{Y}\cup \mathfrak{X} = \left\{ \alpha x + \beta y : \alpha,\beta\in \mathbb{F}\right\}\\
+  &= \left\{ \alpha(z-y)+\beta y : \alpha,\beta\in \mathbb{F} \right\} \\
+  &= \left\{ \alpha z + \gamma y: \alpha,\gamma\in \mathbb{F} \right\}\\
+  &= \mathfrak{Y}+\mathfrak{Z}
+\end{align*}
+because $\mathbb{F}$ is closed under addition. 
+\end{proof}
+\end{problem}
 \end{document}
 
