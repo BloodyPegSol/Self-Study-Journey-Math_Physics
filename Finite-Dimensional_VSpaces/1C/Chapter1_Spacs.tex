@@ -772,13 +772,44 @@ This is useful, because for any linearly independent set of vectors $\mathcal{S}
 \begin{proof}
   Consider the subspaces $\mathfrak{Z} = \left\{ \gamma z : \gamma \in \mathbb{F} \right\}, \mathfrak{X} = \left\{ \alpha x : \alpha\in \mathbb{F}\right\}$ and $\mathfrak{Y} = \left\{ \beta y : \beta\in \mathbb{F}\right\}$, where $\mathbb{F}$ is the field. Then, 
 \begin{align*}
-  \mathfrak{X}+\mathfrak{Y} &= \mathfrak{Y}\cup \mathfrak{X} = \left\{ \alpha x + \beta y : \alpha,\beta\in \mathbb{F}\right\}\\
+  \mathfrak{X}+\mathfrak{Y} &= \left\{ \alpha x + \beta y : \alpha,\beta\in \mathbb{F}\right\}\\
   &= \left\{ \alpha(z-y)+\beta y : \alpha,\beta\in \mathbb{F} \right\} \\
   &= \left\{ \alpha z + \gamma y: \alpha,\gamma\in \mathbb{F} \right\}\\
   &= \mathfrak{Y}+\mathfrak{Z}
 \end{align*}
 because $\mathbb{F}$ is closed under addition. 
 \end{proof}
+From this, we can easily derive a corollary:\\
+
+If $x_{1}+x_{2}+\dots+x_{n} = 0$, then any subspace spanned by a pair of the vectors $x_{k}$ spans the space spanned by the rest plus at least one of the pair. The need of a pair must have to do with the binary nature of addition. 
+\end{problem}
+\begin{problem}{4}
+  Suppose that $x$ and $y$ are vectors and $\mathfrak{M}$ is a subspace in a vector space $\mathfrak{V}$; let $\mathfrak{H}$ be the subspace spanned by $\mathfrak{M}$ and $x$, and let $\mathfrak{K}$ be the subspace spanned by $\mathfrak{M}$ and $y$. Prove that if $y$ is in $\mathfrak{H}$ but not in $\mathfrak{M}$, then $x$ is in $\mathfrak{K}$. 
+\begin{proof}
+  We know that $\left\{ \alpha x \right\} + \mathfrak{M} = \mathfrak{H}$ and $\left\{ \beta y \right\} + \mathfrak{M} = \mathfrak{K}$. Since $y\in \mathfrak{H}$, it follows that $y= \alpha x+ m$ for some $m\in \mathfrak{M}$. Furtheremore, $\alpha \neq 0$ because $y\not\in \mathfrak{M}$. Thus, $x = \alpha^{-1} y - \alpha^{-1} m \in \mathfrak{K}$.
+\end{proof}
+\end{problem}
+\begin{problem}{5}
+  Suppose that $\mathfrak{L},\mathfrak{M},$ and $\mathfrak{N}$ are subspaces of a vector space.
+\begin{enumerate}
+  \item Show that the equation 
+\begin{align*}
+  \mathfrak{L}\cap (\mathfrak{M}+\mathfrak{N}) = (\mathfrak{L}\cap\mathfrak{M})+ (\mathfrak{L}\cap\mathfrak{N})
+\end{align*}
+is not necessarily true.
+\begin{proof}
+  Let $\mathfrak{M} = \left\{ \alpha m \right\}, \mathfrak{N} = \left\{ \alpha n \right\}$ and $\mathfrak{L} = \left\{ \alpha(n+m) \right\}$, where $\left\{ m,n \right\}$ are linearly independent. Then, 
+\begin{align*}
+  \mathfrak{L}\cap(\mathfrak{M}+\mathfrak{N}) &= \mathfrak{L}\\
+  &\neq \left\{ 0 \right\} = \mathfrak{L}\cap \mathfrak{M} + \mathfrak{L}\cap \mathfrak{N}.
+\end{align*}
+The subspaces $\mathfrak{L},\mathfrak{M},\mathfrak{N}$ can be seen as lines in the plane $\mathfrak{M}+\mathfrak{N}$ that only intersect at the origin.
+\end{proof}
+\item Prove that 
+\begin{align*}
+  \mathfrak{L}\cap(\mathfrak{M}+(\mathfrak{L}\cap\mathfrak{N})) = (\mathfrak{L}\cap \mathfrak{M}) + (\mathfrak{L}\cap \mathfrak{N})
+\end{align*}
+\end{enumerate}
 \end{problem}
 \end{document}
 
