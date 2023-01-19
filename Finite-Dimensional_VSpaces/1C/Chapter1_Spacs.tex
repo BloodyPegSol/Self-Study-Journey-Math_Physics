@@ -809,6 +809,21 @@ The subspaces $\mathfrak{L},\mathfrak{M},\mathfrak{N}$ can be seen as lines in t
 \begin{align*}
   \mathfrak{L}\cap(\mathfrak{M}+(\mathfrak{L}\cap\mathfrak{N})) = (\mathfrak{L}\cap \mathfrak{M}) + (\mathfrak{L}\cap \mathfrak{N})
 \end{align*}
+\begin{proof}
+  Let $\mathfrak{B} = \mathfrak{L}\cap \mathfrak{N}$. Since $0\in \mathfrak{M},\mathfrak{B}$, it follows that $\left\{ m +0 \right\} = \mathfrak{M}$ and $\left\{b + 0 \right\} = \mathfrak{B}$ are subsets of $\mathfrak{M}+\mathfrak{B}$ and so
+\begin{align*}
+  \mathfrak{B},  \mathfrak{L}\cap\mathfrak{M} &\subseteq \mathfrak{L}\cap(\mathfrak{M}+\mathfrak{B})\implies\\
+  \mathfrak{L}\cap\mathfrak{M} + \mathfrak{B} &\subseteq \mathfrak{L}\cap(\mathfrak{M}+\mathfrak{B}).
+\end{align*}
+Now, consider any $x\in \mathfrak{L}\cap \left( \mathfrak{M}+\left( \mathfrak{L}\cap\mathfrak{N} \right) \right)$. Then, $x= m+n$, where $m\in \mathfrak{M}$ and $n\in \mathfrak{N}\cap\mathfrak{L}$. Then, $-n \in \mathfrak{L}\cap (\mathfrak{M} + \mathfrak{N}\cap\mathfrak{L})$ and so $m+n-n = m \in \mathfrak{L}\cap\left( \mathfrak{M}+\mathfrak{N}\cap\mathfrak{L} \right)$. Thus, $m\in \mathfrak{L}\cap\mathfrak{M}$ and so $m+n=x\in \mathfrak{L}\cap\mathfrak{M} + \mathfrak{L}\cap\mathfrak{N}$.\\
+
+Something interesting about subspaces, resembling vectors, is that
+\begin{align*}
+  \mathfrak{A},\mathfrak{B}&\subseteq V\implies\\
+  \mathfrak{A}+\mathfrak{B}&\subseteq V.
+\end{align*}
+Just change $\subseteq$ for $\in$ and let $\mathfrak{A},\mathfrak{B}$ be vectors to note the resemblance.
+\end{proof}
 \end{enumerate}
 \end{problem}
 \end{document}
