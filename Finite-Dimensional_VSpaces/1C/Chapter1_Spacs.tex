@@ -15,6 +15,8 @@
 \newcommand{\Abs}[1]{\left\vert #1 \right\vert}
 \newcommand{\Dom}[1]{\mathrm{dom}\left(#1\right)}
 \newcommand{\Range}[1]{\mathrm{range}(#1)}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
 
 \newlist{legal}{enumerate}{10}
 \setlist[legal]{label=(\alph*)}
@@ -823,6 +825,31 @@ Something interesting about subspaces, resembling vectors, is that
   \mathfrak{A}+\mathfrak{B}&\subseteq V.
 \end{align*}
 Just change $\subseteq$ for $\in$ and let $\mathfrak{A},\mathfrak{B}$ be vectors to note the resemblance.
+\end{proof}
+\end{enumerate}
+\end{problem}
+\begin{problem}{6}
+\begin{enumerate}
+  \item Can it happen that a non-trivial subspace of a vector space $\mathcal{V}$ (i.e., a subspace different from both $\mc{O}$ and $\mc{V}$) has a unique complement?
+\begin{proof}
+  Let $\mathcal{V}$ be a vector space of dimension $\geq 2$ and $\mf{X}$ be a non-trivial subspace with complement $\mf{Y}$. Then, $\mf{X}\cap\mf{Y} = \mc{O}$ and $\mf{X} + \mf{Y} = \mc{V}$. Thus, the basis of $\mf{X}$ and $\mf{Y}$ are complementary. Now, consider some basis vector $x_{1}$ of $\mf{X}$ and other $y_{1}$ of $\mf{Y}$. We show that the subspace $\mf{B} = \left\{ \alpha_{1}(x_{1}+y_{1}) + \alpha_{2} y_{2} + \alpha_{3} y_{3} + \dots\right\}$ is a different complement of $\mf{X}$.\\
+  Because the union of the basis of $\mf{X}$ and $\mf{Y}$ is a linearly independent basis that spans $\mc{V}$, it follows that $\left\{ x_{1}+y_{1},y_{2},y_{3},\dots \right\}$ is linearly independent and $x_{1}+y_{1}\not\in \mf{Y},\mf{X}$. Furthermore,
+\begin{align*}
+  \alpha_{1}(x_{1}+y_{1})+\alpha_{2} y_{2} + \dots &= \beta_{1} x_{1} + \beta_{2} x_{2}+ \dots \implies\\
+  (\alpha_{1}-\beta_{1})x_{1} + \alpha_{1}y_{1} - \beta_{2}x_{2} + \alpha_{2}y_{2} + \dots &= 0\implies\\
+  \alpha_{1}=\beta_{1} =\alpha_{2} = \beta_{2} = \dots &= 0.
+\end{align*}
+
+  Hence, $\mf{X}\cap\mf{B} = \mc{O}$, $\mf{B}\neq \mf{Y}$ and $\mf{B}+\mf{X} = \mc{V}$.
+\end{proof}
+  \item If $\mc{M}$ is an $m$-dimensional subspace in an $n$-dimensional vectors space, then every complement of $\mc{M}$ has dimension $n-m$.
+\begin{proof}
+  Let $\mc{X}$ be the complement of $\mc{M}$ with dimension $x$. Then, the dimension  $\dim(\mc{M}+\mc{X}) = n$. Furthermore, let $B = \left\{ b_{1},b_{2},\dots,b_{m} \right\}$ and $A=\left\{ a_{1},a_{2},\dots,a_{x} \right\}$ be basis of $\mc{M}$ and $\mc{X}$, respectively. We show that $A\cup B$ is a basis of $\mc{M}+\mc{X}$. First, since, by definition, $\mc{M}\cap \mc{X}=\left\{ 0 \right\}$, it follows that $A\cup B$ is linearly independent (Note that if the contrary is true, then it implies that some vector of a set can be expressed as a linear combination of the basis of the other set and so $\mc{M}\cap\mc{X} \supset \left\{ 0 \right\}$).\\
+  Now, consider any vector $a\in \mc{M}+\mc{X}$. Then, $a=x+m$, for some $x\in \mc{X}$ and $m\in \mc{M}$. Thus,  
+\begin{align*}
+  x+m &= (\sum_{i=1}^{x}\beta_{i}a_{i})+(\sum_{k=1}^{m}\alpha_{k}b_{k}).
+\end{align*}
+Hence, $|A\cup B| = m+x=n$ and so $x=n-m$.
 \end{proof}
 \end{enumerate}
 \end{problem}
