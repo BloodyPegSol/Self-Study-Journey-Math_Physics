@@ -864,7 +864,24 @@ Hence, $|A\cup B| = m+x=n$ and so $x=n-m$.
   \text{dim}\mathcal{M} + \text{dim}\mathcal{N} = \text{dim}(\mathcal{M}+\mathcal{N}) + \text{dim}(\mathcal{M}\cap\mathcal{N}).
 \end{align*}
 \begin{proof}
-
+  First we show the following Lemma:
+  \begin{lemma}{21}
+    Consider two vector spaces $A$ and $B$ with some bases $A_{0}$ and $B_{0}$. Then, $A\cap B\neq \left\{ 0 \right\}$ if and only if $A_{0}\cup B_{0}$ is linearly dependent.
+\begin{proof}
+  First, if $A_{0}\cup B_{0}$ is linearly dependent, then, as we have seen, one can show that a nonzero linear combination of the basis of $A$ can be expressed as a linear combination of the basis of $B$. Hence, $A\cap B\neq \left\{ 0 \right\}$. Now, suppose that $A\cap B\neq \left\{ 0 \right\}$. Consider any basis $A_{0}$ and $B_{0}$, and any nonzero vector $c\in A\cap B$. Then, 
+\begin{align*}
+  c = \sum \alpha a_{0} = \sum \beta b_{0}
+\end{align*}
+Since at least one $\alpha$ and one $\beta$ are nonzero, and $\sum \beta b_{0} - \sum \alpha a_{0} = 0$, it follows that $A_{0}\cup B_{0}$ is linearly dependent.
+\end{proof}
+\end{lemma}
+Now we proceed with the proof of the result in question.\\
+Let $A$ be a  basis of $\mathcal{M}\cap\mathcal{N}$. Note that it is possible to construct a basis $M_{0}$ and $N_{0}$ for  $\mathcal{M}$ and $\mathcal{N}$ from $A$, clearly with vectors that are not in $\mathcal{M}\cap\mathcal{N}$. Therefore, $M_{0}\cap N_{0}=A$ and $M_{0}\cup N_{0}$ spans $\mathcal{M}+\mathcal{N}$. Furthermore, because $M_{0}\cup N_{0} = M_{0}\cup (N_{0}/A)$ and $(\mc{N}/(\mc{M}\cap \mc{N}))\cap \mc{M}=\left\{ 0 \right\}$, it follows that  $M_{0}\cup N_{0}$ is linearly independent. Thus,
+\begin{align*}
+  \dim{(\mc{M}+\mc{N})} &= |M_{0}\cup N_{0}|\\
+  &= |M_{0}| + |N_{0}| - |N_{0}\cap M_{0}|\\
+  &= \dim{\mc{M}} + \dim{\mc{N}} - \dim {(\mc{M}\cap \mc{N})}.
+\end{align*}
 \end{proof}
 \end{enumerate}
 \end{problem}
