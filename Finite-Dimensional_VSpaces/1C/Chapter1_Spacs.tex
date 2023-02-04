@@ -885,5 +885,29 @@ Let $A$ be a  basis of $\mathcal{M}\cap\mathcal{N}$. Note that it is possible to
 \end{proof}
 \end{enumerate}
 \end{problem}
+\begin{problem}{8}
+  A polynomial $x$ is called \textit{even} if $x(-t)=x(t)$ identically in $t$, and it is called \textit{odd} if $x(-t) = -x(t)$. 
+\begin{enumerate}
+  \item Both the class $\mathcal{M}$ of even polynomials and the class $\mathcal{N}$ of odd polynomials are subspaces of the space $\mathcal{P}$ of all (complex) polynomials.
+\begin{proof}
+  Both $\mathcal{M},\mathcal{N}\subset \mathcal{P}$ and are nonempty since $x^{2}\in\mathcal{M}$ and $x^{3}\in\mathcal{N}$. Furthermore, their inherited operations of addition and scalar multiplication are (associative/commutative) and commutative, respectively. Also, $1x(t) = x(t)$ for all $t\in \mathbb{C}$ and scalar multiplications is distributive over addition, and viceversa. Thus, we only have to show they contain the zero polynomial $(N(t) = 0, \forall t\in \mathbb{C})$, the unique inverses and that they are closed under addition and scalar multiplication, to conclude that they are vector spaces.\\
+
+  \textit{Even.} Consider any $x(t),y(t)\in \mathcal{M}$ and $\alpha\in\mathbb{C}$. Then, $g(-t) = \alpha x(-t) + y(-t) = \alpha x(t) + y(t) = g(t)$ and so $g(t)\in \mathcal{M}$.\\
+
+  \textit{Odd.} Consider any $x(t),y(T)\in \mathcal{N}$ and $\alpha\in\mathbb{C}$. Then, $h(-t) = \alpha x(-t) + y(-t) = \alpha (-1x(t)) + (-1)y(t) = -\alpha x(t) -y(t) = h(t)$ and so $h(t)\in \mathcal{N}$.
+\end{proof}
+  \item Prove that $\mathcal{M}$ and $\mathcal{N}$ are each other's complements.
+\begin{proof}
+  First, we show that $\mathcal{M}\cap \mathcal{N} = \left\{ 0 \right\}$. First, note that both $\mathcal{M},\mathcal{N}$ are subsets of complex polynomials and so for any $a\in \mathbb{C}$, the complex polynomial $x(a)\in \mathbb{C}$. Since $\mathbb{C}$ is a field, it follows that $0$ is the only scalar that is its own additive inverse. Thus, a polynomial $x(-t) = x(t)=-x(t)$ for all $t\in \mathbb{C}$ if and only if $x(t) = N(t)$. Therefore, $\mathcal{M}\cap \mathcal{N} = \left\{ 0 \right\}$.\\
+
+  Now, we prove that any $p\in \mathcal{P}$ can be expressed as a linear combination of vectors in $\mathcal{M}$ and $\mathcal{N}$. Note that $(-t)^{i} = t^{i}$ and $(-t)^{j} = -t^{j}$ for any nonnegative even integer $i$ and odd integer $j$. Thus, 
+\begin{align*}
+  p(t) &= \sum^{n} \alpha_{i}t^{i} = \sum_{\{i\leq n: i\text{ is odd}\}} \alpha_{i}t^{i} + \sum_{\{j\leq n:j\text{ is even}\}}\alpha_{j}t^{j}\\
+  &= n(t)+m(t).
+\end{align*}
+Then, $n(t)\in\mathcal{N}$ and $m(t) \in \mathcal{M}$, and so $\mathcal{M}+\mathcal{N} = \mathcal{P}$.
+\end{proof}
+\end{enumerate}
+\end{problem}
 \end{document}
 
