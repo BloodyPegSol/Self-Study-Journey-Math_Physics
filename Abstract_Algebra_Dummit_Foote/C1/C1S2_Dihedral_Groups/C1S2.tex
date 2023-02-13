@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\Lim}[1]{\mathrm{lim}(#1)}
+\newcommand{\Abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\Dom}[1]{\mathrm{dom}\left(#1\right)}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+\setenumerate[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[1][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+\title{Section 1.2: Dihedral Groups}
+   \author{Juan Patricio Carrizales Torres}
+     \date{Feb 13, 2023}
+       \maketitle
+
+       One group is known as a Dihedral Group. It's origin can be traced to the study of the symmetries of geometric entities known as $n$-gons. Hand-wavy explained, a symmetry is a rigid motion of all points in the n-gon such that the resulting copy can be placed over the original one, namely, points of some ``nature'' lay on top of points of the same nature. Then, the Dihedral group, also represented by $D_{2n}$, is the set of symmetries of the $n$-gon. Clearly, we must first represent them by appropiate mathematical objects. Thus, symmetries can be defined as functions $f:V\to V$, where $V$ is the set of vertices of the $n-gon$. This has to do with the fact that the position of the vertices determine the position of all points (particularly, due to the ``symmetric'' shape of $n$-gons, one must only know the distance from two points to characterize all points on the $n$-gon [for an elaborated argument about this fact check ``Dihedral Groups'' by Keith Conrad]). Thus, the identity $e$ function leaves vertices intact, the inverse of the symmetry ``reverses'' the rigid motion (brings vertices to the position they were at before the application of the symmetry), and the permutations are defined by the operation of composition of functions, which is associative. \\
+
+      For $n$-gons, two basic symmetries are the $2\pi/n$ rotation $r$ applied to vertex some vertex labelled as $1$ and the reflection $s$ about the line of symmetry of $1$ and the center of the $n$-gon. This is not enough to show that they are the only ones, there could be more. However, one can show the limit $|D_{2n}|\leq 2n$ and construct $2n$ symmetries by permutations of $s$ and $r$. 
+
+      To construct the $2n$ symmetries, We show the following useful properties of the Dihedral Group:
+\begin{enumerate}
+  \item $r^{n}\neq r^{m}$ such that $n\neq m$ and $n,m\in \left\{ 0,1,\dots,n-1 \right\}$.
+\begin{proof}
+  Consider the vertex labeled by $1$, which is at some position $i\in \left\{ 1,\dots,n \right\}$. Note that $r$ maps vertex $1$ from position $\bar{i}$ to position $\overline{i+1}$ and $r^{0}=e$ (we use the $n$ residue classes to account the cyclic nature of the permutation of symmetries on $n$-gons, where each vertex can be represented by the class and labeled by the representative number of that class). Thus, $r(r): \overline{i+1}\to\overline{i+2}$ and so, by induction, $r^{m}: \bar{i}\to \overline{i+n}$ for $m\in \left\{ 0,\dots, n-1\right\}$. Clearly, if $m,k<n$ and  $m\neq k$, then $\bar{m}\neq \bar{k}$ and so $r^{m}\neq r^{k}$. Furthermore, $r^{n}:\bar{i}\to\overline{i+n} = e:\bar{i}\to\bar{i}$. Therefore, $|r|=n$.  
+\end{proof}
+\end{enumerate}
+       \end{document}
+
+
