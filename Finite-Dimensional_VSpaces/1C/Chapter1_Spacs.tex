@@ -931,7 +931,60 @@ Furthermore, $[x,O] = 0$ for all vectors $x$ is the neutral linear functional. T
 \end{align*}
 where $j=1,2$. Note that $\xi_{i}$ is not unique to its vector and so it is possible that $y(x_{1}) = y(x_{2})$ for $x_{1}\neq x_{2}$ (not one-to-one).
 \end{proof}
+\item $y(x)=\xi_{1}^{2}$
+\begin{proof}
+  It is not a linear functional, since it is not true that
+\begin{align*}
+  y(\alpha x_{1} + \beta x_{2}) &= y(\alpha \xi_{1} + \beta \gamma_{1} + i(\alpha \xi_{2} + \beta \gamma_{2}))\\
+  &= (\alpha \xi_{1} + \beta \gamma_{1})^{2}, 
+  \end{align*}
+  is equal to $\alpha \xi_{1}^{2} + \beta \gamma_{1}^{2}$ for every scalars $\alpha,\beta,\xi_{1},\gamma_{1}$. 
+\end{proof}
+\item $y(x) = \xi_{1} - i\xi_{2}$
+\begin{proof}
+  The function $y$ is a linear functional. The functional $y$ only multiplies the imaginary coeficient by $-1$. Thus,
+\begin{align*}
+  y(\alpha x_{1} + \beta x_{2}) &= (\alpha \xi_{1} + \beta \gamma_{1}) - i(\xi_{2} + \beta \gamma_{2})\\
+  &= \alpha(\xi_{1}-i\xi_{2}) + \beta(\gamma_{1}-i\gamma_{2})\\
+  &= \alpha y(x_{1}) + \beta y(x_{2}).
+\end{align*}
+\end{proof}
+\item $y(x) = \sqrt{\xi_{1}^{2} +\xi_{2}^{2}}$. 
+\begin{proof}
+  The function $y$ is not a linear functional because of the restrictions on addition of square roots of real numbers, namely,
+\begin{align*}
+  \sqrt{(\alpha \xi_{1} + \beta \gamma_{1})^{2} + (\beta \gamma_{2} + \alpha \xi_{2})^{2}} \neq \alpha \sqrt{\xi_{1}^{2}+\xi_{2}^{2}} + \beta \sqrt{\gamma_{1}^{2}+\gamma_{2}^{2}}
+\end{align*}
+for at least one real scalars $\alpha,\beta,\gamma,\xi$.
+\end{proof}
 \end{enumerate}
+\end{problem}
+\begin{problem}{4}
+  If $(a_{0},a_{1},a_{2},\dots)$ is an arbitrary sequence of complex numbers, and if $x$ is an element of $\mathfrak{P}, x(t)=\sum_{i=0}^{n}\xi_{i}t^{i}$, write $y(x) = \sum_{i=0}^{n}\xi_{i}a_{i}$. Prove that $y$ is an element of $\mathfrak{P}'$ and that every element of $\mathfrak{P}'$ can be obtained in this manner by a suitable choice of the $a$'s.
+\begin{proof}
+  First, we show that $y\in \mathfrak{P}'$ for some arbitrary choice of complex numbers $(a_{0},a_{1},a_{2},\dots)$. Note that
+\begin{align*}
+  y(\alpha x_{1} + \beta x_{2} (t)) &= y\left( \sum_{i=0}^{n}(\alpha \xi_{i} + \beta \gamma_{i})t^{i}\right) \\
+  &= \sum_{i=0}^{n} (\alpha\xi_{i}+\beta\gamma_{i})a_{i} = \alpha \sum_{i=0}^{n} \xi_{i}a_{i} + \beta \sum_{i=0}^{n} \gamma_{i}a_{i}\\
+  &= \alpha y(x_{1}(t)) + \beta y(x_{2}(t)).
+\end{align*}
+Thus, $y\in \mathfrak{P}'$. Now, we show that any element of $\mathfrak{P}'$ can be expressed in a similar manner to $y$ with a suitable choice of complex numbers. We know that a basis of $\mathfrak{P}$ is $\left\{ 1,t^{1},t^{2},\dots \right\}$. Then, consider any $y\in \mathfrak{P}'$ and so $y (\alpha t^{i} ) = \alpha y(t^{i}) = \alpha \beta_{i} \in \mathbb{C}$. Now, consider the sequence $\left( y(t^{i}): i\in \N\cup\left\{ 0 \right\}\right) = \left( \beta_{i}:i\in\N\cup\left\{ 0 \right\} \right)$. Then, for any $x\in \mathfrak{P}$ and by induction, 
+\begin{align*}
+  y(x) &= y(\sum_{i=0}^{n}\xi_{i}t^{i}) = \sum_{i=0}^{n}\xi_{i} y(t^{i})\\
+  &= \sum_{i=0}^{n}\xi_{i} \beta_{i}.
+\end{align*}
+\end{proof}
+\end{problem}
+\begin{problem}{5}
+  If $y$ is a non-zero linear functional on a vector space $V$, and if $\alpha$ is an arbitrary scalar, does there necessarily exist a vector $x$ in $V$ such that $[x,y] = \alpha$.
+\begin{proof}
+  This result is equivalent to the statement that every nonzero linear functional $y:V\to \mathbb{F}$ is surjective. Since $y$ is nonzero, it follows that there is some $x\in V$ such that $[x,y] = \alpha \neq 0$. Thus, there exists its inverse in $\mathbb{F}$ and so 
+\begin{align*}
+  [\beta(\alpha^{-1}x), y] &=  \beta\alpha^{-1}[x,y] = \beta(\alpha^{-1}\alpha)\\
+  &= \beta.
+\end{align*}
+Therefore, every nonzero linear functional on a vector space is surjective. Note that $[x,y] \neq 0$ and so $x\neq 0$. Thus, $y$ on $V$ being nonzero implies that $V\neq \left\{ 0 \right\}$.
+\end{proof}
 \end{problem}
 \end{document}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  8 FEB 2023 11:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  16 FEB 2023 14:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -928,7 +928,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 901--902
 
  []
 
-[25] [26] (./Chapter1_Spacs.aux) ) 
+[25]
+Overfull \hbox (8.645pt too wide) in paragraph at lines 965--966
+[]\OT1/cmr/m/n/12 First, we show that $\OML/cmm/m/it/12 y \OMS/cmsy/m/n/12 2 \U
+/euf/m/n/12 P[]$ \OT1/cmr/m/n/12 for some ar-bi-trary choice of com-plex num-be
+rs $(\OML/cmm/m/it/12 a[]; a[]; a[]; [] \OT1/cmr/m/n/12 )$.
+ []
+
+[26] [27] (./Chapter1_Spacs.aux) ) 
 Here is how much of TeX's memory you used:
  26347 strings out of 480806
  642898 string characters out of 5905151
@@ -952,10 +959,10 @@ ts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type
 ic/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb>
-Output written on Chapter1_Spacs.pdf (26 pages, 237969 bytes).
+Output written on Chapter1_Spacs.pdf (27 pages, 243027 bytes).
 PDF statistics:
- 152 PDF objects out of 1000 (max. 8388607)
- 107 compressed objects within 2 object streams
+ 155 PDF objects out of 1000 (max. 8388607)
+ 109 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
