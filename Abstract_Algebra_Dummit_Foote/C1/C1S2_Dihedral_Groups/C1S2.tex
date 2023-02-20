@@ -56,9 +56,45 @@
 \begin{enumerate}
   \item $r^{n}\neq r^{m}$ such that $n\neq m$ and $n,m\in \left\{ 0,1,\dots,n-1 \right\}$.
 \begin{proof}
-  Consider the vertex labeled by $1$, which is at some position $i\in \left\{ 1,\dots,n \right\}$. Note that $r$ maps vertex $1$ from position $\bar{i}$ to position $\overline{i+1}$ and $r^{0}=e$ (we use the $n$ residue classes to account the cyclic nature of the permutation of symmetries on $n$-gons, where each vertex can be represented by the class and labeled by the representative number of that class). Thus, $r(r): \overline{i+1}\to\overline{i+2}$ and so, by induction, $r^{m}: \bar{i}\to \overline{i+n}$ for $m\in \left\{ 0,\dots, n-1\right\}$. Clearly, if $m,k<n$ and  $m\neq k$, then $\bar{m}\neq \bar{k}$ and so $r^{m}\neq r^{k}$. Furthermore, $r^{n}:\bar{i}\to\overline{i+n} = e:\bar{i}\to\bar{i}$. Therefore, $|r|=n$.  
+  Consider the vertex labeled by $1$, which is at some position $i\in \left\{ 1,\dots,n \right\}$. Note that $r$ maps vertex $1$ from position $\bar{i}$ to position $\overline{i+1}$ and $r^{0}=e$ (we use the $n$ residue classes to account the cyclic nature of the permutation of symmetries on $n$-gons, where each vertex can be represented by the class and labeled by the representative number of that class). Thus, $r(r): \overline{i+1}\to\overline{i+2}$ and so, by induction, $r^{m}: \bar{i}\to \overline{i+m}$ for $m\in \left\{ 0,\dots, n-1\right\}$. Clearly, if $m,k<n$ and  $m\neq k$, then $\bar{m}\neq \bar{k}$ and so $r^{m}\neq r^{k}$. Furthermore, $r^{n}:\bar{i}\to\overline{i+n} = e:\bar{i}\to\bar{i}$. Therefore, $|r|=n$.  
+\end{proof}
+\item $|s|=2$
+\begin{proof}
+  We know that $s:\overline{1+i}\to\overline{1-i}$ for all $0\leq i \leq n-1$ and $s^{0} = e$. Note that $\overline{1-1} = \overline{0} = \overline{1+(n-1)}$ and so $s(s):\overline{1+(n-1)}\to\overline{-n+2}$. Because $\overline{-n+2} = \overline{2}$, it follows that $s^{2}$ brings the point initially at vertex $\overline{2}$ back to $\overline{2}$. Furthermore, by definition, the vertex at position $\overline{1}$ remains intact. Thus, since the position of two adjacent vertices determines the position of the other points on the $n$-gon, $s^{2}=e$.
+\end{proof}
+\item $s\neq r^{i}$ for any nonnegative integer $i$.
+\begin{proof}
+  We know that $s$ mantain one point ate vertex $\overline{1}$ and moves the position of the point at vertex $\overline{i+1}$. Also, any permutation of $r$ either changes the position of all points or keeps them intact $r^{e}$. Therefore, $s\neq r^{i}$ for any nonnegative $i$. 
+\end{proof}
+\item $sr^{i} \neq sr^{i}$ for $0\leq i\neq j<n$.
+\begin{proof}
+  Since $\overline{i}\neq \overline{j}$ for $0\leq i,j<n$, it follows that $r^{i}\neq r^{j}$. Therefore, they have at least on vertex with different points and so $sr^{i}\neq sr^{j}$. 
+\end{proof}
+\item $rs = r^{-1}s$
+\begin{proof}
+  Note that $s$ moves points $1$ and $2$ to vertices $\overline{1}$ and $\overline{n}$, respectively. Then $rs$ moves points $1$ and $2$ to vertices $\overline{2}$ and $\overline{1}$, respectively.\\
+
+  Now, $r^{-1}$ brings point $1$ and $2$ to vertices $\overline{n}$ and $\overline{1}$, respectively. Then, $sr^{-1}$ moves points $1$ and $2$ to vertices $\overline{2}$ and $\overline{1}$. \\
+
+  Thus, $rs = sr^{-1}$.
+\end{proof}
+\item $r^{i}s = sr^{-i}$ for any $i$.
+\begin{proof}
+  It suffices to show that $r^{i}s = s^{-i}$ for any nonegative integer $i$.Clearly, $r^{0}s = sr^{-0} = s$.  Now, we proceed by induction. We know that $rs = sr^{-1}$. Now, assume that $r^{k}s = sr^{-k}$ for any $1\leq k$. Then, 
+\begin{align*}
+  r^{k+1}s &= r(r^{k}s) = r(sr^{-k})\\
+  &= (rs)r^{-k}= sr^{-1}r^{-k} = sr^{-(k+1)}.
+\end{align*}
 \end{proof}
 \end{enumerate}
+
+Note that $(6)$ is a relation that (6) is a commutative relation, which show a way to move powers of an element of a binary operation to the opposite side. Furthermore, any permutation can be reduced to $s^{k}r^{i}$, where $k\in\left\{ 0,1 \right\}$ and $i\in \left\{ 0,\dots,n-1 \right\}$, with relations (1), (2) and (6).\\
+
+Furthermore, there are two important concepts. A \textbf{generator} is any set $S\subset G$ of some group $G$, such that every element in $G$ can be expressed as a finite product of elements and their inverses of $S$. This set comes with \textbf{Relations} between its elements, there can be many, however, the idea is to look for the lowest quantity of relations to reduce any product of $G$ to a finite product of the elements and their inverses in $S$. Thus, any group can have a representation 
+\begin{align*}
+  G= <S| R_{1},R_{2},\dots,R_{n}>.
+\end{align*}
+Its important to note that the choice of representation for a group is important, because, depending on the relations chosen, they can be interwined in such a way that a lot of collapsing occurs. BY collapsing, I believe, the authour means that at first it gives an impression of a limit of elements in the group just to end up realizing that a lot of them can be reduced, lowering the limit. 
        \end{document}
 
 
