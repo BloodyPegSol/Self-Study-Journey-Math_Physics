@@ -126,6 +126,24 @@ and so
 Using (4) one can conclude that all elements of $D_{2n}$ can be reduced to powers of $r$ and these multiplied by $s$. Thus, $S=\left\{ s,sr \right\}$ generates $D_{2n}$.
 \end{proof}
 \end{problem}
+\begin{problem}{4}
+  If $n=2k$ is even and $n\geq 4$, show that $z=r^{k}$ is an element of order 2 which commutes with all elements of $D_{2n}$. Show also that $z$ is the only nonidentity element of $D_{2n}$ which commutes with all elements of $D_{2n}$. 
+\begin{proof}
+  First we show the following Lemma, 
+\begin{lemma}
+  Considering elements of $D_{2n}$, any nonidentity power of $r^{k}$ $(1\leq k \leq n-1)$ commutes with some nonpower of $r$ if and only if $r^{k}= r^{-k}$.
+\begin{proof}
+  If $r^{k} = r^{-k}$, it follows that $|r^{k}|=2$. Furthermore, every nonpower of $r$ has order 2 and so any nonpower of $r$ commutes with $r^{k}$.\\
+  For the converse, assume that $r^{k}$ $(1\leq k \leq n-1)$ commutes with any nonpower of $r$. Then, for any $0\leq i\leq n-1$,
+\begin{align*}
+  r^{k}(sr^{i}) &= (sr^{i})r^{k} \implies sr^{-k}r^{i} = (sr^{i})r^{k} \implies\\
+  sr^{i-k} &= sr^{i+k} \implies r^{-k}r^{i} = r^{k}r^{i} \implies r^{-k} = r^{k}.
+\end{align*}
+\end{proof}
+\end{lemma}
+By the relations of the $D_{2n}$ group, we know that $|r|=n=2k$. Then, $|r^{k}|=2$ and so it is the only nonidentity power of $r$ with order 2 (Recall the bijection from $\N$ to the even integers). Then, it is the only nonidentity power of $r$ that is equal to its inverse.  Thus, by Lemma, $r^{k}$ is the only nonidentity power of $r$ such that every nonpower of $r$ commutes with. Therefore, $r^{k}$ is the only nonidentity element that commutes with all elements.   
+\end{proof}
+\end{problem}
        \end{document}
 
 
