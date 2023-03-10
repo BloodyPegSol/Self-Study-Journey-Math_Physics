@@ -992,5 +992,42 @@ Therefore, every nonzero linear functional on a vector space is surjective. Note
   If $[x,z]=0$, then $[x,y]=1\cdot [x,z]=0$. On the other hand, $[x,z]\neq 0$ implies that $[x,y] = \left( [x,y][x,z]^{-1} \right)[x,z]^{-1}$. 
 \end{proof}
 \end{problem}
+\section{Dual Bases: Reflexitivity and Annihilators}
+To make this discussion compact, we will show the most important points mentioned by the author:\\
+\begin{enumerate}
+  \item Dual Bases:\\
+\begin{itemize}
+  \item For some finite-dimensional vector space $V$, with basis $\mf{X}=\left\{ x_{1},\dots,x_{n} \right\}$, and for any set of scalars $\left\{ \alpha_{1},\dots,\alpha_{n} \right\}$. There is a unique funcitonal $y$ on $V$ such that $\left[ x_{i},y \right] = \alpha_{i}$. (This was proven by using the fact of the uniqueness of the representation $x=\sum \xi_{i}x_{i}$), namely, 
+\begin{align*}
+  \left[y,x\right]=\sum\xi_{i}\alpha_{i} \iff \left[y,x_{i}\right]=\alpha_{i}
+\end{align*}
+Basically, we constructed a unique $y$ such that $\left[ y,x_{i} \right]=\alpha_{i}$.
+\item Using the previous fact, the existence of a dual basis $\mf{X}'=\left\{ y_{1},\dots,y_{n} \right\}$ of $V'$ such that $\left[ x_{j},y_{i} \right]=\delta_{ji}$ is confirmed (for each $i\leq n$ there exists a unique $y_{i}$ such that $\left[ x_{j},y_{i} \right]=\delta_{ji}$). Also, it is confirmed that $dim(V) = dim(V')$.
+\item For any $u,v\in V$, $u\neq v \implies \exists y, [u,y]\neq [v,y]$. This is equivalent to say that $\forall y, [u,y]=[v,y]\implies u=v$, by contrapositive.
+\end{itemize}
+\item Reflexivity:\\
+\begin{itemize}
+  \item One can construct some linear functional $z_{0}$ on $V'$ with the relation $z_{0}(y) = y(x_{0})$ for some fixed scalar $x_{0}$. Clearly, it is a functional since $y$ is linear on $x$. The set containing all such functionals on $V'$ shall be called $Z'$.
+  \item It was shown that the correspondence $z_{0}\leftrightarrows x_{0}$ between $V''$ and $V$ is an isomorphism. It was only necessary to show that the transformation $V\to V''$ defined by $y(x_{0}) = z_{0}(y)$ was linear (preserving the linearity) and one-to-one. From this, one concludes that $dim(V'')=dim(Z')$ and $Z'\subseteq V''$, and so $Z'=V''$.
+  \item The natural correspondence $z_{0}\leftrightarrows x_{0}$ is an isomorphism. This property of vector spaces is called \textit{reflexivity}.
+\end{itemize}
+\end{enumerate}
+\begin{problem}{1} 
+  Define a non-zero linear functional $y$ on $\mathbb{C}^{3}$ such that if $x_{1} = (1,1,1)$ and $x_{2} = (1,1,-1)$, then $[x_{1},y]=[x_{2},y]=0$.
+\begin{proof}
+  Let $[x,y]=\xi_{1}-\xi_{2}$ for all $x\in\mathbb{C}^{3}$. Then, $[x_{1},y]=[x_{2},y]=1-1=0$. We just show that $y\in \mathcal{V}'$.  
+\begin{align*}
+  [\alpha x + \beta x',y] &= \left( \alpha\xi_{1}+\beta\xi_{1}' \right)-\left( \alpha\xi_{2}+\beta\xi_{2}' \right)\\
+  &= \alpha\left(  \xi_{1}-\xi_{2}\right)+\beta\left( \xi_{1}'-\xi_{2}' \right)\\
+  &= \alpha[x,y]+\beta[x',y]
+\end{align*}
+\end{proof}
+\end{problem}
+\begin{problem}{3}
+  Prove that if $y$ is a linear functional on an $n-dimensional$ vector space $\mathcal{V}$, then the set of all those vectors $x$ for which $[x,y]=0$ is a subspace of $\mathcal{V}$.
+\begin{proof}
+
+\end{proof}
+\end{problem}
 \end{document}
 
