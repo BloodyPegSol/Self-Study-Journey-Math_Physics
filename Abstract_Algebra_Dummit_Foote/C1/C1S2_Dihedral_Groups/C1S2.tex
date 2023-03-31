@@ -206,17 +206,18 @@ Hence, $|\sigma_{1}\dots\sigma_{k}|\leq p$. Clearly, the previous integer is the
 \end{proof}
 \end{problem}
 \begin{problem}{c}
-  Let $\sigma$ be a cycle of $n$ positions and $k>1$ a nonzero positive integer, $\sigma^{k}$ can be represented by a single cycle of $n$ positions if and only if $k$ is not a divisor of $n$.
+  Let $\sigma$ be a cycle of $n$ positions and $k$ be a positive integer, $\sigma^{k}$ can be represented by a single cycle of $n$ positions if and only if $k$ is relative prime to $n$
 \begin{proof}
-  A characteristic that distinguishes a cycle with $n$ positions from other smaller or bigger cycles, is that its order of permutation is $n$ (As we showed in \textbf{Problem a}). \\
-  Suppose that $k>1$ is a nonzero divisor of $n$. Then, there is some $c\in \Z^{+}$ such that $n=kc$. Thus, $\sigma^{k}$ transforms integers at $\overline{i}$ into the integer at $\overline{i+k}$ and its order of permutation is $c$ $\left( \left( \sigma^{k} \right)^{c} = \sigma^{n}=i(a) \right)$. Clearly, $c<n$ and so $\sigma^{k}$ can not be represented by a single cycle of $n$ positions.\\
-  For the converse, assume that $\sigma^{k}$ can be represented by a single cycle of $n$ positions. Then, its permutation order is $n$, which means that $n$ is the smallest nonzero positive integer such that $k\cdot n>n$ is a multiple of $n$. Therefore, $k$ is not a divisor of $n$.
+  A characteristic that distinguishes a cycle with $n$ positions from other smaller or bigger cycles, is that its order of permutation is $n$ (As we showed in \textbf{Problem a}). Furthermore, any $\sigma^{k}$ can be reduced to $\sigma^{m}$ for some integer $0\leq m<n$. \\
+  Suppose that $n>k\geq 0$ is relative prime to $n$. Then, the greatest common factor of $n$ and $k$ is 1. Thus, $kc$ is a multiple of $n$ if and only if $c=n$ and so the order of permutation of $\sigma^{k}$ is $n$ $\left( \left( \sigma^{k} \right)^{c} = \sigma^{c\cdot k}=i(a) \right)$. Thus $\sigma^{k}$ can be represented by a single cycle of $n$ positions.\\
+  For the converse, assume that $\sigma^{k}$ can be represented by a single cycle of $n$ positions. Then, its permutation order is $n$, which means that $n$ is the smallest nonzero positive integer such that $k\cdot n>n$ is a multiple of $n$. Therefore, $k$ is relative prime to $n$.
 \end{proof}
 \end{problem}
 \begin{corollary}{a1}
-  Let $\sigma$ be a cycle with a prime $n$ number of positions. For any integer $1\leq k$, $\sigma^{k}$ can be respresented as a cycle of $n$ positions.
+  Let $\sigma$ be a cycle with a prime $n$ number of positions. For any positive integer $k$ that is not a multiple of $n$, $\sigma^{k}$ can be respresented as a cycle of $n$ positions.
 \begin{proof}
-  Since $n$ is prime, it follows that every nonzero positive integer $1<k<n$ is not a divisor of $n$.
+  Since $n$ is prime, it follows that any integer not multiple of $n$ is relative prime to $n$.                                            
+%  Furthermore, for any integer $k$ that is not a multiple of $n$, $\sigma^{k}$ can be reduced to $\sigma^{m}$, for some $1\leq m <n$. Thus, $\sigma^{k}$ can be represented as a cycle of $n$ positions.
 \end{proof}
 \end{corollary}
        \end{document}
