@@ -189,37 +189,61 @@ Every element of $S_{\Omega}$ is a permutation of $\sigma$. A permutation $\sigm
 \end{enumerate}
 \begin{problem}{a}
   Show that the order of a permutation represented by a single cycle $\sigma$ of $n$ integers is $n$.
-\begin{proof}
-  Each position in the string (cycle) can be represented by the residue class $\overline{i}$. Hence, the permutation ``transforms''  integer at $\overline{i}$ to the integer at position $\overline{i+1}$. It's easy to show that $\sigma^{m}$ transforms integers at $\overline{i}$ into the integers at $\overline{i+m}$ (i.e. by induction). Since $\overline{i}$ are residue classes, it follows that $\overline{i+cn} = \overline{i}$ if and only if $c\in \Z$. Therefore, the smallest nonzero nonnegative multiple of $n$ is itself, and so $|\sigma|=n$. Note that this proof considers any cycle represented by a string of $n$ positions with any elements.
-\end{proof}
+  \begin{proof}
+    Each position in the string (cycle) can be represented by the residue class $\overline{i}$. Hence, the permutation ``transforms''  integer at $\overline{i}$ to the integer at position $\overline{i+1}$. It's easy to show that $\sigma^{m}$ transforms integers at $\overline{i}$ into the integers at $\overline{i+m}$ (i.e. by induction). Since $\overline{i}$ are residue classes, it follows that $\overline{i+cn} = \overline{i}$ if and only if $c\in \Z$. Therefore, the smallest nonzero nonnegative multiple of $n$ is itself, and so $|\sigma|=n$. Note that this proof considers any cycle represented by a string of $n$ positions with any elements.
+  \end{proof}
 \end{problem}
 \begin{problem}{b}
   Prove that the order of any cyclic decomposition $\sigma$ is the lowest common multiple of the orders of its disjoint cycles. 
-\begin{proof}
-  Note that a cyclic decomposition of one cycle one permutes the integers in this cycle while leaving the others alone. Hence, a function $f$ with cyclic decomposition $\sigma_{1}\sigma_{2}\dots\sigma_{k}$ can be expressed as the product of the separate cycles, namely, $\sigma_{1}\sigma_{2}\dots\sigma_{k} = \sigma_{1}\circ\sigma_{2}\circ\dots\circ\sigma_{k}$. Furthermore, the order of the factors does not matter since the product of disjoint cycles is commutative. Therefore, assuming that $p$ is the lowest common multiple of the orders of each cycle, 
-\begin{align*}
-  \left(\sigma_{1}\circ\sigma_{2}\circ\dots\circ\sigma_{k}\right)^{p} &= \sigma_{1}^{|\sigma_{1}|c_{1}}\circ\dots\circ\sigma_{k}^{|\sigma_{k}|c_{2}}, \; c_{1},c_{2}\in \N\\ 
-  &= \left(\sigma_{1}^{|\sigma_{1}|}\right)^{c_{1}}\circ\dots\circ\left(\sigma_{k}^{|\sigma_{k}|}\right)^{c_{2}}\\
-  &= 1.
-\end{align*}
-Hence, $|\sigma_{1}\dots\sigma_{k}|\leq p$. Clearly, the previous integer is the lowest common multiple and so any nonzero positive integer lower than it is not a common multiple of the orders of the cycles. Hence, this lower integer $k$ would not be a multiple of at least one $|\sigma_{m}|$ and so $\sigma_{m}^{k}\neq 1$. Therefore, the order of the permutation $f$ is $p$.
-\end{proof}
+  \begin{proof}
+    Note that a cyclic decomposition of one cycle one permutes the integers in this cycle while leaving the others alone. Hence, a function $f$ with cyclic decomposition $\sigma_{1}\sigma_{2}\dots\sigma_{k}$ can be expressed as the product of the separate cycles, namely, $\sigma_{1}\sigma_{2}\dots\sigma_{k} = \sigma_{1}\circ\sigma_{2}\circ\dots\circ\sigma_{k}$. Furthermore, the order of the factors does not matter since the product of disjoint cycles is commutative. Therefore, assuming that $p$ is the lowest common multiple of the orders of each cycle, 
+    \begin{align*}
+      \left(\sigma_{1}\circ\sigma_{2}\circ\dots\circ\sigma_{k}\right)^{p} &= \sigma_{1}^{|\sigma_{1}|c_{1}}\circ\dots\circ\sigma_{k}^{|\sigma_{k}|c_{2}}, \; c_{1},c_{2}\in \N\\ 
+      &= \left(\sigma_{1}^{|\sigma_{1}|}\right)^{c_{1}}\circ\dots\circ\left(\sigma_{k}^{|\sigma_{k}|}\right)^{c_{2}}\\
+      &= 1.
+    \end{align*}
+    Hence, $|\sigma_{1}\dots\sigma_{k}|\leq p$. Clearly, the previous integer is the lowest common multiple and so any nonzero positive integer lower than it is not a common multiple of the orders of the cycles. Hence, this lower integer $k$ would not be a multiple of at least one $|\sigma_{m}|$ and so $\sigma_{m}^{k}\neq 1$. Therefore, the order of the permutation $f$ is $p$.
+  \end{proof}
 \end{problem}
 \begin{problem}{c}
   Let $\sigma$ be a cycle of $n$ positions and $k$ be a positive integer, $\sigma^{k}$ can be represented by a single cycle of $n$ positions if and only if $k$ is relative prime to $n$
-\begin{proof}
-  A characteristic that distinguishes a cycle with $n$ positions from other smaller or bigger cycles, is that its order of permutation is $n$ (As we showed in \textbf{Problem a}). Furthermore, any $\sigma^{k}$ can be reduced to $\sigma^{m}$ for some integer $0\leq m<n$. \\
-  Suppose that $n>k\geq 0$ is relative prime to $n$. Then, the greatest common factor of $n$ and $k$ is 1. Thus, $kc$ is a multiple of $n$ if and only if $c=n$ and so the order of permutation of $\sigma^{k}$ is $n$ $\left( \left( \sigma^{k} \right)^{c} = \sigma^{c\cdot k}=i(a) \right)$. Thus $\sigma^{k}$ can be represented by a single cycle of $n$ positions.\\
-  For the converse, assume that $\sigma^{k}$ can be represented by a single cycle of $n$ positions. Then, its permutation order is $n$, which means that $n$ is the smallest nonzero positive integer such that $k\cdot n>n$ is a multiple of $n$. Therefore, $k$ is relative prime to $n$.
-\end{proof}
+  \begin{proof}
+    A characteristic that distinguishes a cycle with $n$ positions from other smaller or bigger cycles, is that its order of permutation is $n$ (As we showed in \textbf{Problem a}). Furthermore, any $\sigma^{k}$ can be reduced to $\sigma^{m}$ for some integer $0\leq m<n$. \\
+    Suppose that $n>k\geq 0$ is relative prime to $n$. Then, the greatest common factor of $n$ and $k$ is 1. Thus, $n$ is the smallest integer such that $kn$ is a multiple of $n$ and so the order of permutation of $\sigma^{k}$ is $n$ $\left( \left( \sigma^{k} \right)^{c} = \sigma^{c\cdot k}=i(a) \right)$. Thus $\sigma^{k}$ can be represented by a single cycle of $n$ positions.\\
+    For the converse, assume that $\sigma^{k}$ can be represented by a single cycle of $n$ positions. Then, its permutation order is $n$, which means that $n$ is the smallest nonzero positive integer such that $k\cdot n>n$ is a multiple of $n$. Therefore, $k$ is relative prime to $n$.
+  \end{proof}
 \end{problem}
 \begin{corollary}{a1}
   Let $\sigma$ be a cycle with a prime $n$ number of positions. For any positive integer $k$ that is not a multiple of $n$, $\sigma^{k}$ can be respresented as a cycle of $n$ positions.
-\begin{proof}
-  Since $n$ is prime, it follows that any integer not multiple of $n$ is relative prime to $n$.                                            
+  \begin{proof}
+    Since $n$ is prime, it follows that any integer not multiple of $n$ is relative prime to $n$.                                            
 %  Furthermore, for any integer $k$ that is not a multiple of $n$, $\sigma^{k}$ can be reduced to $\sigma^{m}$, for some $1\leq m <n$. Thus, $\sigma^{k}$ can be represented as a cycle of $n$ positions.
-\end{proof}
+  \end{proof}
 \end{corollary}
+\section{Excercises}
+\begin{problem}{12}
+\begin{enumerate}
+ \item If $\tau = (1\; 2)(3\; 4)(5\; 6)(7\; 8)(9\; 10)$ determine whether there is a $n$-cycle $\sigma (n\geq 10)$ with $\tau = \sigma^{k}$ for some integer $k$.
+\begin{solution}
+  Yep, there is. Consider the $10$-cycle $\sigma = (1\; 3\; 5\; 7\; 9\; 2\; 4\; 6\; 8\; 10)$. Then, $\sigma^{5} = (1\; 2) (3\; 4) (5\; 6) (7\; 8) (9\; 10)$. It seems that if $k$ is not relative prime to $n$, then $\sigma^{k}$ has a cycle decomposition of $m=\text{gcf}(k,n)$ disjoint cycles each with $r$ elements, where $n=m\cdot r$.
+\end{solution}
+  \item If $\tau = (1\;2)(3\;4\;5)$ determine whether there is an $n$-cycle $\sigma (n\geq 5)$ with $\tau = \sigma^{k}$ for some integer $k$. 
+\begin{solution}
+  There is no such cycle. (I will prove that for any $n$-cycle $\sigma$, $\sigma^{k}$ has a cycle decomposition of disjoint cycles of same length).
+\end{solution}
+\end{enumerate}
+\end{problem}
+
+
+\begin{lemma}{A}
+  Consider some $n$-cycle $\sigma$. $\sigma^{k}$ can be represented by a cycle decomposition of $m=\text{gcf}(k,n)$ disjoint cycles each with $r$ elements, where $n=m\cdot r$.
+\begin{proof}
+  Consider some $n$-cycle $\sigma$ and let $m=\text{gcf}(k,n)$, where $k\in \N$. Then, $k=mb$ and $n=mr$ for some $b,r\in\N$. Thus, $r$ is the lowest integer such that $n|r\cdot k$. Now consider the elements at the first $m$ positions. We show that they lie in different $r$-cycles in the cycle decomposition of $\sigma^{k}$. \\
+  First, we show for any $0 \leq i,j < m$ that if $i\neq j$, then $\overline{i+c_{1}k} \neq \overline{j+c_{2}k}$, where $c_{1},c_{2}$ are nonnegative integers. Observe that $\overline{i+c_{1}k}=\overline{i+c_{1}mb}$ and $\overline{j+c_{2}k} = \overline{j+c_{2}bm}$. Because $i\neq j$ and $0\leq i,j<m$, it follows that $i+c_{1}mb$ and $j+c_{2}mb$ are not congruent modulo $m$. This implies that $m\nmid |(i+c_{1}mb)-(j+c_{2}mb)|$ and so $rm\nmid |(i+c_{1}mb)-(j+c_{2}mb)|$. Therefore, $\overline{i+c_{1}k}\neq \overline{j+c_{2}k}$ for any nonegative integers $c_{1},c_{2}$. \\
+  This means that the elements at the first $m$ positions lie at disjoint cycles in the cycle decomposition of $\sigma^{k}$. Furthermore, at each disjoint cycle, $\sigma^{k}$ brings the element at position $\overline{i}$ to its initial position after $r$ iterations. Hence, each cycle has an order of $r$. Hence, $\sigma^{k}$ has a cycle decomposition of $m$ disjoint cycles of length $r$, which gives a total of $r\cdot m=n$ positions.  
+\end{proof}
+\end{lemma}
+
        \end{document}
 
 
