@@ -244,6 +244,45 @@ Every element of $S_{\Omega}$ is a permutation of $\sigma$. A permutation $\sigm
 \end{proof}
 \end{lemma}
 
+
+\begin{problem}{16}
+  SHow that if $n\geq m$ then the number of $m$-cycles in $S_{n}$ is given by
+\begin{align*}
+  \frac{n(n-2)(n-2)\dots(n-m+1)}{m}
+\end{align*}
+[Count the number of ways performing an $m$-cycle and divide by the number of representations of a particular $m$-cycle]
+\begin{proof}
+  Recall that the elements in $S_{n}$ are injective functions that go from one set to itself. These can be represented by cycles. First, we consider the number of ways to perform an $m$-cycle. Their elements can be ordered and no repreated. Thus, there are $n(n-1)\dots(n-(m-1))$ possible ways to order $m$ of the $n$ elements inside an $m$-cycle. \\
+  However, multiple cycles can represent a single function and thus be equivalent. Consider some $m$-cycle $\sigma=(a_{1}\;a_{2}\;\dots\;a_{m})$. Note that if  we change the first element for any inside the $m$-cycle, the whole ``chain'' of elements is predisposed in order to mantain the sequential order. Namely, there are $m$ different ways to acommodate the elements inside $\sigma$ while keeping the sequential order, which are equivalent. Therefore. the number of $m$-cycles is given by
+\begin{align*}
+  \frac{n(n-1)(n-2)\dots(n-m+1)}{m}.
+\end{align*}
+\end{proof}
+\end{problem}
+
+
+\begin{problem}{18}
+  Find all numbers $n$ such that $S_{5}$ contains an element of order $n$.
+\begin{proof}
+  Since any ciclic decomposition in $S_{5}$ is composed of disjoint cycles with a nonzero quantity of elements that is lower or equal to $5$  and, by \textbf{Problem b.}, the order of any ciclic decomposition is the lowest common multiple of the orders of its disjoint cycles, it follows that the orders of the cyclic decompositions of the elements in $S_{5}$ must be factors of $5$. Therefore, $n=1,2,\dots,5$ are all numbers such that $S_{5}$ contains an element of order $n$.
+
+\end{proof}
+\end{problem}
+\begin{problem}{20}
+  Find a set of generators and relations for $S_{3}$
+\begin{proof}
+  Consider the presentation $S_{3} = \left< (1\;2)=s,(1\;2\;3)=r| s^{2}=e,r^{3}=e,sr=r^{-1}s \right>$. Then,
+\begin{align*}
+  (1)(2)(3) &= (1\;2)^{2} = s^{2}\\
+  (1\;2)(3) &= s\\
+  (1\;3)(2) &= (1\;2)(1\;2\;3) = sr\\
+  (2\;3)(1) &= (1\;2)(1\;3\;2) = sr^{-1}\\
+  (1\;2\;3) &= r\\
+  (1\;3\;2) &= r^{-1},
+\end{align*}
+which are the cyclic decompositions of every function in $S_{3}$.
+\end{proof}
+\end{problem}
        \end{document}
 
 
