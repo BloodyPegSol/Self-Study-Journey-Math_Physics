@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\Lim}[1]{\mathrm{lim}(#1)}
+\newcommand{\Abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\Dom}[1]{\mathrm{dom}\left(#1\right)}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+\setenumerate[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[1][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+ \title{Section 1.4: Matrix Groups}
+   \author{Juan Patricio Carrizales Torres}
+     \date{May 8, 2023}
+       \maketitle
+
+       Before describing the matrix group, we must define what a \textit{field} is. A field is a set $F$ with two binary operations $+$ and $\cdot$ such that both $(F,+)$ and $(F/\left\{ 0 \right\},\cdot)$ are abelian groups. Also, the distributive law holds, namely, for any $a,b,c\in F$
+\begin{align*}
+  a\cdot(b+c) = a\cdot b + a\cdot c.
+\end{align*}
+
+Then, the general linear group $GL_{n}(F)$ is the set of all $n\times n$ matrices with entries from the field $F$ and nonzero determinant, where the associative matrix multiplication is the binary operation. Two useful results regarding general linear groups are the following: 
+\begin{enumerate}
+  \item if $F$ is a finite field, then $|F|=p^{m}$ for some prime $p$ and integer $m$.
+  \item if $|F|=q<\infty$, then $|GL_{n}(F)|=(q^{n}-1)(q^{n}-q)(q^{n}-q^{2})\dots(q^{n}-q^{n-1})$.
+\end{enumerate}
+	
+\section{PROBLEMS}
+
+Let $F$ be a field and let $n\in \Z^{+}$.
+\begin{problem}{1}
+  Prove that $|GL_{2}(F_{2})|=6$
+\begin{proof}
+  This general linear group $GL_{2}(F_{2})$ contains $2\times 2$ matrices 
+\begin{align*}
+\begin{pmatrix}
+  b_{1} & b_{2}\\
+  b_{3} & b_{4}
+\end{pmatrix},
+\end{align*}
+where $b_{1},b_{2},b_{3},b_{4}\in F_{2}$ and $b_{3}\cdot b_{2} - b_{4}\cdot b_{1} \neq  0$ (nonzero determinant). Then, $b_{3}\cdot b_{2} \neq b_{4}\cdot b_{1}$ (Recall that $\cdot$ is the binary operation in $F_{2}$ such that ($F_{2}/\left\{ 0 \right\},\cdot$) is a group). Then, the statement $|GL_{2}(F_{2})|=6$ is equivalent to saying that there are 6 possible unique equations $b_{3}\cdot b_{2} \neq b_{4}\cdot b_{1}$ for elements $b_{1},b_{2},b_{3},b_{4}\in F_{2}$. Let's call the instance $b\cdot a$ a \textit{binary multiplication}.\\
+Because multiplication is closed, it follows that it is equal to some element inside $F_{2}$ and so we must find all ways to accomodate \textit{binary multiplications} in the equation such that one side is $0$ and the other is $1$. 
+Before doing that, we have to look at the 4 possible \textit{binary multiplications}. We know that $0$ is the \textit{additive identity} and that the other element $1$ is the \textit{multiplicative identity} and its own additive and multiplicative inverse. Then, it follows that 
+\begin{align*}
+  0\cdot 1 &= (1+1)\cdot 1 = 1\cdot 1+ 1\cdot 1\\
+ &= 0 + 0 = 0 \\
+ &= 0\cdot 0 = 0\cdot (1+1) \\
+ &= 0\cdot 1 + 0 \cdot 1 = 0 + 0.
+\end{align*}
+and $1\cdot 1 = 1$. Then, all binary multiplications, except for $1\cdot 1$, are equal to $0$. \\
+Now, let one side of the equation be $1$, which there is only one binary multiplication able to represent that, namely, $1\cdot1$. Then, we only have 3 binary multiplications out of the possible 4 that we can place at the other side such that two sides are not equal $(1\cdot 0, 0\cdot 1, 0\cdot 0)$. Hence, per side there are 3 possible non equal equations and so there are 6 possible equations such that the binary multiplications at each side are not equal. 
+\end{proof}
+\end{problem}
+
+\begin{problem}{2}
+  Write out all the elements of $GL_{2}(F_{2})$ and compute the order of each element.
+\begin{solution}
+  We have the following elements with their respective orders (n):
+\begin{align*}
+\begin{pmatrix}
+  1 & 0\\
+  1 & 1
+\end{pmatrix}, &n = 2\\
+\begin{pmatrix}
+  1 & 1\\
+  0 & 1
+\end{pmatrix}, &n = 2\\
+\begin{pmatrix}
+  1 & 0\\
+  0 & 1
+\end{pmatrix}, &n = 1 \text{(identity matrix)}\\
+\begin{pmatrix}
+  1 & 1\\
+  1 & 0
+\end{pmatrix}, &n = 3\\
+\begin{pmatrix}
+  0 & 1\\
+  1 & 1
+\end{pmatrix}, &n = 3\\
+\begin{pmatrix}
+  0 & 1\\
+  1 & 0
+\end{pmatrix}, &n = 2\\
+\end{align*}
+\end{solution}
+\end{problem}
+\begin{problem}{3}
+  Show that $GL_{2}(F_{2})$ is non-abelian.
+\begin{proof}
+  Note that
+\begin{align*}
+\begin{pmatrix}1 & 1\\ 0 & 1\end{pmatrix} \begin{pmatrix} 1 & 1 \\ 1 & 0\end{pmatrix} &= \begin{pmatrix} 0 & 1\\ 1 & 0\end{pmatrix}\\
+&\neq \begin{pmatrix} 1 & 0\\ 1 & 1\end{pmatrix} = \begin{pmatrix} 1 & 1\\ 1 & 0\end{pmatrix}\begin{pmatrix} 1 & 1\\ 0 & 1\end{pmatrix}
+\end{align*}
+\end{proof}
+\end{problem}
+
+       \end{document}
+
+
