@@ -129,6 +129,71 @@ Now, let one side of the equation be $1$, which there is only one binary multipl
 \end{proof}
 \end{problem}
 
+\begin{problem}{4}
+  Show that if $n$ is not prime then $\Z/n\Z$ is not a field.
+\begin{proof}
+  Suppose that $n$ is not prime. Then, there is at least one integer $1<k<n$ that is a factor. Hence, $n=kq_{1}q_{2}\dots q_{m}$ and so $l=q_{1}q_{2}\dots q_{m}$ is an integer (factor) such that $1<l<n$ and $k\cdot l = n$. Therefore, $\overline{k},\overline{l}$ are two elements in $\Z/n\Z$ such that $\overline{k}\cdot\overline{l}=\overline{k\cdot l}=\overline{n} = \overline{0}$, the additive identity. Hence, $\Z/n\Z^{\times}$ is not closed under multiplication, which implies that it is not a group.
+\end{proof}
+\end{problem}
+\begin{problem}{5}
+  Show that $GL_{n}(F)$ is a finite group if and only if $F$ has a finite number of elements.
+\begin{proof}
+  First assume that $|F|=n$ for some $n\in\N$. Then, there are $n$ possible ways to accomodate the $n$ elements in an entry. Therefore, there are $n^{n\times n}$ different ways to accomodate the elements of $F$ in the entries of a $n\times n$ matrix. Then, $|GL_{n}(F)|\leq n^{n\times n}$ which is finite.\\
+  Now, for the converse, assume that $F$ has an infinity of elements. Note that the set of diagonal matrices
+\begin{align*}
+  D = \{ A=\begin{pmatrix} d_{1} \\ & d_{2} \\ & & \ddots \\ & & & d_{n}\end{pmatrix} | \text{det}(A)\neq 0 \iff d_{1},d_{2},\dots,d_{n}\neq 0\}
+\end{align*}
+is a subgroup of $GL_{n}(F)$, namely the inverse of a diagonal matrix with nonzero determinant is a diagonal matrix with nonzero determinant, and the multiplication of two diagonal matrices with nonzero determinant results in a diagonal matrix with nonzero determinant. We show that one can construct an infinity ofdiagonal matrices with nonzero determinant. Note that, for some fixed $a\in F/\left\{ 0 \right\}$ and every $b\in F/\{0\}$,
+\begin{align*} 
+\begin{pmatrix}
+  a \\ & a\\ & & \ddots \\ & & & b
+\end{pmatrix}
+\end{align*}
+is a diagonal matrix with nonzero determinant. Hence, $D$ has an infinity of elements and so $GL_{n}(F)$ has an infinity of elements.
+\end{proof}
+\end{problem}
+\begin{problem}{10}
+  Let $G=\left\{ \begin{pmatrix} a& b\\ 0 & c\end{pmatrix}| a,b,c\in\R,a\neq 0, c\neq 0\right\}$.
+\begin{enumerate}
+  \item Compute the product of $\begin{pmatrix}a_{1} & b_{1}\\ 0 & c_{1}\end{pmatrix}$ and $\begin{pmatrix}a_{2} & b_{2} \\ 0 & c_{2}\end{pmatrix}$ to show that $G$ is closed under matrix multiplication.
+\begin{solution}
+  Note that 
+\begin{align*}
+  \begin{pmatrix}a_{1} & b_{1}\\ 0 & c_{1}\end{pmatrix} \begin{pmatrix} a_{2} & b_{2} \\ 0 & c_{2}\end{pmatrix} = \begin{pmatrix} a_{1}a_{2} & a_{1}b_{2} + b_{1}c_{2}\\ 0 & c_{1}c_{2}\end{pmatrix}.
+\end{align*}
+Because $a_{1},a_{2},c_{1},c_{2}\neq 0$, it follows that $a_{1}a_{2},c_{1}c_{2}\neq 0$ and so $G$ is closed under matrix multiplication.
+\end{solution}
+  \item Find the matrix inverse of $A=\begin{pmatrix}a & b\\ 0 & c\end{pmatrix}$ and deduce that $G$ is closed under inverses.
+\begin{solution}
+  Consider some element $B=\begin{pmatrix}a_{2} & b_{2}\\ 0 & c_{2} \end{pmatrix}$ of $G$. Since $A\in G$ it follows that $a_{1},c_{1}\neq 0$. According to the result of the matrix multiplication showed in (a), for $B$ to be an inverse of $A$ it must be true that $a_{1}a_{2} = c_{1}c_{2} = 1$ and $a_{1}b_{2}+b_{1}c_{2} = 0\iff a_{1}b_{2} = -b_{1}c_{2}$. \\
+
+  Then, $a_{2} = a_{1}^{-1} \neq 0 , c_{2} = c_{1}^{-1}\neq 0$ and $b_{2} = (- b_{1})c_{1}^{-1}a_{1}^{-1}$ which are elements of the field $F$. Hence, the inverse of $A$ exists in $G$.  Thus, $G$ is closed under inverses.
+\end{solution}
+  \item Deduce that $G$ is a subgroup of $GL_{2}(\R)$.
+\begin{solution}
+  The set $G$ over $\R$ is closed under matrix multiplication, closed under inverses and there is the identity $\begin{pmatrix} 1 & 0\\ 0 & 1\end{pmatrix}$. Hence, $G$ is a group. Furthermore, note that for any $\begin{pmatrix} a & b\\ 0 & c\end{pmatrix}$ in $G$, $ac-0\neq 0$ (nonzero determinant). Thus, $G$ is a subgroup of $GL_{2}(\R)$.
+\end{solution}
+  \item Prove that the set of elements of $G$ whose two diagonal entries are equal (i.e., $a=c$) is also subgroup of $GL_{2}(\R)$.
+\begin{proof}
+  Let the set in question be represented by $B$. From (a) we know that the matrix multiplication of two elements in $B$ results in the matrix $\begin{pmatrix}a_{1}a_{2} & a_{1}b_{2}+b_{1}c_{2}\\ 0 & c_{1}c_{2}\end{pmatrix}$, where $a_{1}a_{2} = c_{1}c_{2}$ since $a_{1}=c_{1}$ and $a_{2}=c_{2}$. Hence, $B$ is closed under matrix multiplication.\\
+
+  From (b), the inverse of any matrix in $B\subseteq G$ is represented by $\begin{pmatrix} a^{-1} & (-b)c^{-1}a^{-1}\\ 0 & c^{-1} \end{pmatrix}$, where $a^{-1} = c^{-1}$ since $a=c$ (in the group $F^{\times}$ the inverses are unique). Therefore, $B$ is closed under matrix multiplication.\\
+ Finally, the identity matrix is an element of $B$. Hence, $B$ is a subgroup of $GL_{2}(\R)$.
+\end{proof}
+\end{enumerate}
+\end{problem}
+
+The next exercise introduces the \textit{Heisenberg group} over the field $F$ and develops some of its basic properties.
+\begin{problem}{11}
+  Let $H(F)=\left\{ \begin{pmatrix}1 & a & b\\ 0 & 1 & c\\ 0 & 0 & 1\end{pmatrix} | a,b,c\in F\right\}-$called the \textit{Heisenberg group} over $F$. Let $X=\begin{pmatrix}1 & a & b\\ 0 & 1 & c\\ 0 & 0 & 1\end{pmatrix}$ and $Y=\begin{pmatrix}1 & d & e \\ 0 & 1 & f\\ 0 & 0 & 1\end{pmatrix}$ be elements of $H(F)$.
+\begin{enumerate}
+  \item Compute the matrix product $XY$ and deduce that $H(F)$ is closed under matrix multiplication. Exhibit explicit matrices such that $XY\neq YX$ (so that $H(F)$ non-abelian).
+  \item Find an explicit formula for the matrix inverse $X^{-1}$ and deduce that $H(F)$ is closed under inverses.
+  \item Prove the associative law for $H(f)$ and deduce that $H(F)$ is a group of order $|F|^{3}$. (Do not assume that matrix multiplication is associative.)
+  \item Find the order of each element of the finite group $H(\Z/2\Z)$.
+  \item Prove that every nonidentity element of the group $H(\R)$ has infinite order.
+\end{enumerate}
+\end{problem}
        \end{document}
 
 
