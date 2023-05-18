@@ -188,10 +188,52 @@ The next exercise introduces the \textit{Heisenberg group} over the field $F$ an
   Let $H(F)=\left\{ \begin{pmatrix}1 & a & b\\ 0 & 1 & c\\ 0 & 0 & 1\end{pmatrix} | a,b,c\in F\right\}-$called the \textit{Heisenberg group} over $F$. Let $X=\begin{pmatrix}1 & a & b\\ 0 & 1 & c\\ 0 & 0 & 1\end{pmatrix}$ and $Y=\begin{pmatrix}1 & d & e \\ 0 & 1 & f\\ 0 & 0 & 1\end{pmatrix}$ be elements of $H(F)$.
 \begin{enumerate}
   \item Compute the matrix product $XY$ and deduce that $H(F)$ is closed under matrix multiplication. Exhibit explicit matrices such that $XY\neq YX$ (so that $H(F)$ non-abelian).
+\begin{proof}
+  First we show that $H(F)$ is closed under matrix multiplication. Note that
+\begin{align*}
+  XY = \begin{pmatrix} 1 & d+a & e + fa+b \\ 0 & 1 & f + c \\ 0 & 0 & 1\end{pmatrix}.
+\end{align*}
+Since $F$ is closed under addition and multiplication ($0a=0$ for all $a\in F$) it follows that $d+a,e+fa+b,f+c\in F$. Thus, $H(F)$ is closed under matrix multiplication. Furthermore, note that $e+fa+b = b+cd+e$ (the left hand side comes from the entry $(1,3)$ of the matrix $YX$) is not true when $fa=0$ and $cd=1$, the additive and multiplicative identities, respectively. Hence, $H(F)$ is non-abelian.
+\end{proof}
   \item Find an explicit formula for the matrix inverse $X^{-1}$ and deduce that $H(F)$ is closed under inverses.
+\begin{proof}
+   Note that for $Y=X^{-1}$ to be true a necessary and sufficient condition is that $d=-a$, $f=-c$ and $e=ca-b$. Note that $-a,-c,ca-b\in F$ and so $H(F)$ is closed under inverses. 
+\end{proof}
   \item Prove the associative law for $H(f)$ and deduce that $H(F)$ is a group of order $|F|^{3}$. (Do not assume that matrix multiplication is associative.)
+\begin{proof}
+  Consider the matrices $X,Y, Z=\begin{pmatrix} 1 & g & h \\ 0 & 1 & i\\ 0 & 0 & 1\end{pmatrix}$. Then
+\begin{align*}
+  (XY)Z &= \begin{pmatrix} 1 & d+a & e+fa+b \\ 0 & 1 & f+c\\ 0 & 0 & 1\end{pmatrix} \begin{pmatrix} 1 & g & h\\ 0 & 1 & i \\ 0 & 0 & 1\end{pmatrix}\\
+  &= \begin{pmatrix} 1 & g+d+a & h+(d+a)i+e+fa+b\\ 0 & 1 & i + f +c \\ 0 & 0 & 1\end{pmatrix}\\
+  &= \begin{pmatrix} 1 & a & b\\ 0 & 1 & c\\ 0 & 0 & 1\end{pmatrix} \begin{pmatrix} 1 & d+g & e+di + h \\ 0 & 1 & f+i \\ 0 & 0 & 1\end{pmatrix}\\
+  &= X(YZ).
+\end{align*}
+Hence, the matrix multiplication in $H(F)$ is associative. In order to calculate the order of $H(F)$, we consider how many matrices can be constructed using the given conditions as restrictions. Consider the matrix $X$. It is a ``squeleton'' for any matrix element of $H(G)$, where the only values that can be changed are $a,b,c$. Since $a,b,c\in F$, it follows, in the case that $F$ is finite,  that there are $|F|\cdot|F|\cdot|F|$ possible combinations of $a,b,c$ and so the order of $H(F)$ is $|F|^{3}$. Clearly, if $F$ is infinite then $H(F)$ is infinite.
+\end{proof}
   \item Find the order of each element of the finite group $H(\Z/2\Z)$.
+\begin{proof}
+
+\end{proof}
   \item Prove that every nonidentity element of the group $H(\R)$ has infinite order.
+\begin{proof}
+  \begin{lemma}{e.1}
+    Let $X = \begin{pmatrix} 1 & a & b\\ 0 & 1 & c\\ 0 & 0 & 1\end{pmatrix}\in H(F)$ for some field $F$. Then,  
+\begin{align*}
+  X^{n} = \begin{pmatrix} 1 & n\cdot a & n\cdot b + m \\ 0 & 1 & n\cdot c\\ 0 & 0 & 1\end{pmatrix},
+\end{align*}
+where $m\in F$ and $n\in \N$.
+\begin{proof}
+  We proceed by induction. By \textbf{(a)}, $X^{2}=\begin{pmatrix} 1 & 2a & 2b+ca \\ 0 & 1 & 2c \\ 0 & 0 & 1\end{pmatrix}$. Hence, the result is true for $n=2$. Now, assume that the result is true for $X^{k}$ for some $k\in \N$. We show that it follows that the result is true for $X^{k+1}$. We know that, 
+\begin{align*}
+  X^{k+1} &= X^{k}X = \begin{pmatrix} 1 & k\cdot a & k\cdot b + m \\ 0 & 1 & k\cdot c \\ 0 & 0 & 1\end{pmatrix} \begin{pmatrix}1 & a & b \\ 0 & 1 & c \\ 0 & 0 &1\end{pmatrix}\\
+  &=  \begin{pmatrix} 1 & k\cdot a + a & k\cdot b + m + b +k\cdot ac \\ 0 & 1 & c+k\cdot c\\ 0 & 0 & 1\end{pmatrix}\\
+  &= \begin{pmatrix} 1 & (k+1)a & (k+1)b + (m+k\cdot ac)\\ 0 & 1 & (k+1)c\\ 0 & 0 & 1\end{pmatrix}.
+\end{align*}
+Since $m+k\cdot ac\in F$ (closed under addition and multiplication) it follows that the result is true for $X^{k+1}$. By the Principle of Mathematical Induction, the result is true.
+\end{proof}
+\end{lemma}
+Consider some nonidentity element $X\in H(F)$. Then, at least one of the variables $a,b,c$ is nonzero. Then, for some $n\in \N$, at least one of the elements $n\cdot a, n\cdot b, n\cdot c$ is nonzero. By \textbf{Lemma e.1}, $X^{n}$ is a nonidentity matrix for any $n\in \N$. Hence, every nonidentity element of $H(F)$ has infinite order.
+\end{proof}
 \end{enumerate}
 \end{problem}
        \end{document}
