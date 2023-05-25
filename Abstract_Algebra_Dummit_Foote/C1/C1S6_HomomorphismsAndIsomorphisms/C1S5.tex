@@ -1,0 +1,105 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\Lim}[1]{\mathrm{lim}(#1)}
+\newcommand{\Abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\Dom}[1]{\mathrm{dom}\left(#1\right)}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+\setenumerate[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[1][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+ \title{Homomorphisms and isomorphisms}
+   \author{Juan Patricio Carrizales Torres}
+     \date{May 23, 2023}
+       \maketitle
+
+       The notion of an \textit{isomorphism} is that two groups have the same gorup-theoretic structure (any property that can be derived from the axioms of the group holds for both groups). Let $(G,*)$ and $(H,\cdot)$ be groups. A map $\phi: G\to H$ such that $\phi(x*y)=\phi(x)\cdot\phi(y)$ for all $x,y\in G$ is a homomorphism. For this map to be considered an ismorphism, it must be bijective. The symbol $\cong$ represent the equivalence isomorphic relation. Since $\cong$ is an equivalence relation in the set $\mathfrak{G}$ of all groups, it follows that there are equivalence clases that are isomorphic. This is important for the classification of groups using isomorphisms.\\
+
+       Also, one can show isomorphic relationships between sets by looking at their group presentations. Suppose for a group $G$ with generators $\left\{r_{1},\dots,r_{m} \right\}$ and group $H$ with some subset $\left\{s_{1},\dots,s_{m}  \right\}$ that every relation in $G$ is fulfilled in $H$ when $r_{i}$ is changed to $s_{i}$. Then there is a unique homomorphism $\varphi:G\to H$ such that $r_{i}\to s_{i}$. Furthermore, if $\left\{ s_{1},\dots,s_{m} \right\}$ is the set of generators for $H$, then $\varphi$ is surjective. Also, if $|G|=|H|$, then $\varphi$ is injective and so an isomorphism.
+\section{Excercises}
+
+Let $G$ and $H$ be groups.
+\begin{problem}{1}
+ Let $\varphi:G\to H$ be a homomorphism.
+\begin{enumerate}
+  \item Prove that $\varphi(x^{n})=\varphi(x)^{n}$ for all $n\in \Z^{+}$.
+\begin{proof}
+  We proceed by induction. First, note that $\varphi(e\cdot x) = \varphi(e)\cdot \varphi(x) = \varphi(x)$ for any $x\in G$ and so $\varphi(e)=e'$ (Recall that there is a unique identity element in a group). Since $\varphi:G\to H$ is a homomorphism, it follows that $\varphi(x^{0}) = \varphi(e) = e' = \varphi(x)^{0}$ for any $x\in G$. Hence, the result is true for $n=0$. \\
+
+  Now, assume that $\varphi(x^{k}) = \varphi(x)^{k}$ for any $x\in G$ and some nonnegative integer $k$. We show that $\varphi(x^{k+1}) = \varphi(x)^{k+1}$. Observe that
+\begin{align*}
+  \varphi(x^{k+1}) &= \varphi(x^{k}\cdot x^{1})\\
+  &= \varphi(x^{k})\cdot \varphi(x) = \varphi(x)^{k}\cdot \varphi(x)\\
+  &= \varphi(x)^{k+1}.
+\end{align*}
+By the Principle of Mathematical Induction, $\varphi(x^{n})=\varphi(x)^{n}$ for any $x\in G$ and any $k\in \Z^{+}$.
+\end{proof}
+  \item Do part (a) for $n=-1$ and deduce that $\varphi(x^{n})=\varphi(x)^{n}$ for all $n\in \Z$.
+\begin{proof}
+  Let $x\in G$. Then $\varphi(x\cdot x^{-1}) = \varphi(x)\cdot \varphi(x^{-1})$ and $\varphi(x\cdot x^{-1})=\varphi(e) = e'$. Since there is a unique inverse for any element of a group, it follows that $\varphi(x)\cdot \varphi(x^{-1})=e'$ implies that $\varphi(x^{-1})=\varphi(x)^{-1}$, namely, it is the unique inverse of $\varphi(x)$. Now, consider what happens when we plug the inverse of $x^{n}$ inside the function, namely, $\varphi(x^{-n})$ for some $n\in \N$. Note that,
+\begin{align*}
+  \varphi\left( x^{-n} \right) &= \varphi\left( \left(x^{-1}\right)^{n} \right) \\
+  &= \varphi\left( x^{-1} \right) ^{n} = \left( \varphi(x)^{-1} \right)^{n} \\
+  &= \varphi(x)^{-n}.
+\end{align*}
+Therefore, $\varphi(x^{n}) = \varphi(x)^{n}$ for all $n\in\Z$.
+\end{proof}
+\end{enumerate}
+\end{problem}
+\begin{problem}{2}
+  If $\varphi: G\to H$ is an isomorphism, prove that $|\varphi(x)| = |x|$ for all $x\in G$. Deduce that any two isomorphic groups have the same number of elements of order $n$ for each $n\in \Z^{+}$. Is the result true if $\varphi$ is only assumed to be a homomorphism?
+\begin{proof}
+  First, we show that $|\varphi(x)|=|x|$. Consider any $x\in G$ with some order $n=|x|$, where $n\in \Z^{+}$. Then, $\varphi(x^{n}) = \varphi(e) = e' = \varphi(x)^{n}$ and so $\varphi(x)$ has a finite order. Let $k=|\varphi(x)|\in \Z^{+}$. Note that, 
+\begin{align*}
+  \varphi(x)^{k} &= e' = \varphi(e) = \varphi(x^{k})
+\end{align*}
+Then, $k\leq n$ $(\varphi(x)^{k} = \varphi(x)^{n})$ and $n\leq k$ $(x^{n} = x^{k})$, which implies that $n=k$.\\
+For the previous argument, we only used the results that are derived from the homorphic property of the function and didn't need to assume that $\varphi$ was bijective. Thus, for any homomorphic function $\varphi: G\to H$, $|\varphi(x)|=|x|$ for all $x\in G$.\\
+
+Now, we show that the homomorphism $\varphi:G\to H$ being a bijection is a necessary and sufficient condition for both $G$ and $H$ to have the same number of elements of order $n$.\\
+If the homomorphism $\varphi:G\to H$ is a bijection, then there is a one-to-one correspondence $x\leftrightarrow \varphi(x)$, where $|x|=|\varphi(x)|$ for any $x\in G$. Hence, both isomorphic groups have the same number of elements of order $n$ for each $n\in \Z^{+}$. \\
+
+For the converse, assume that the homomorhpism $\varphi:G\to H$ is not a bijection. Then, $\varphi:G\to H$ is not surjective and so there is at least one $a\in H$ with order $n$ such that no element $x\in G$ can be mapped to it. Since every element of $G$ with some order can be mapped to a unique element of $H$ with the same order, it follows that the number of elements with order $n$ in $G$ is lower than the number of elements with order $n$ in $H$. \\
+
+Note that this only applies when we consider any $n$, including $\infty$. There can be homomorphic groups such that they have the same quantity of elements with order $n\in \Z^{+}$.
+\end{proof}
+\end{problem}
+
+       \end{document}
+
+
