@@ -91,15 +91,33 @@ Therefore, $\varphi(x^{n}) = \varphi(x)^{n}$ for all $n\in\Z$.
 Then, $k\leq n$ $(\varphi(x)^{k} = \varphi(x)^{n})$ and $n\leq k$ $(x^{n} = x^{k})$, which implies that $n=k$.\\
 For the previous argument, we only used the results that are derived from the homorphic property of the function and didn't need to assume that $\varphi$ was bijective. Thus, for any homomorphic function $\varphi: G\to H$, $|\varphi(x)|=|x|$ for all $x\in G$.\\
 
-Now, we show that the homomorphism $\varphi:G\to H$ being a bijection is a necessary and sufficient condition for both $G$ and $H$ to have the same number of elements of order $n$.\\
+Now, we show that the homomorphism $\varphi:G\to H$ being a bijection is a sufficient condition for both $G$ and $H$ to have the same number of elements of order $n$.\\
 If the homomorphism $\varphi:G\to H$ is a bijection, then there is a one-to-one correspondence $x\leftrightarrow \varphi(x)$, where $|x|=|\varphi(x)|$ for any $x\in G$. Hence, both isomorphic groups have the same number of elements of order $n$ for each $n\in \Z^{+}$. \\
-
-For the converse, assume that the homomorhpism $\varphi:G\to H$ is not a bijection. Then, $\varphi:G\to H$ is not surjective and so there is at least one $a\in H$ with order $n$ such that no element $x\in G$ can be mapped to it. Since every element of $G$ with some order can be mapped to a unique element of $H$ with the same order, it follows that the number of elements with order $n$ in $G$ is lower than the number of elements with order $n$ in $H$. \\
 
 Note that this only applies when we consider any $n$, including $\infty$. There can be homomorphic groups such that they have the same quantity of elements with order $n\in \Z^{+}$.
 \end{proof}
 \end{problem}
 
+\begin{problem}{3}
+  If $\varphi:G\to H$ is an isomorphism, prove that $G$ is abelian if and only if $H$ is abelian. If $\varphi G\to H$ is a homomorphism, what additional condiitons on $\varphi$ (if any) are sufficient to ensure that if $G$ is abelian, then so is $H$?
+\begin{proof}
+  Since $\varphi:G\to H$ is an isomorphism, there is a one-to-one correspondence $x\leftrightarrow y$, where $x\in G$ and $y\in H$. Basically, we can ``translate'' one element from a group to the other, and viceversa. We just have to show that the abelian property is maintained throug the isomorphism. Note that,
+\begin{align*}
+  x\cdot y = y\cdot x &\implies \varphi(x\cdot y) = \varphi(x) * \varphi(y) = \varphi(y) * \varphi(x) = \varphi (y\cdot x). \forall x,y,\in G\\
+  \\
+  y*x =x*y &\implies \varphi^{-1}(y*x) = \varphi^{-1}(y)\cdot \varphi^{-1}(x) = \varphi^{-1}(x)\cdot \varphi^{-1}(y) = \varphi^{-1}(x*y). \forall x,y,\in H,
+\end{align*}
+because the inverse of an isomorphism is homomorphic.\\
+In the case of a homomorphism $\varphi: G\to H$ an additional condition to ensure that if $G$ is abelian, then so is $H$, is that $\varphi$ must be surjective. This is so because this implies that the image of $\varphi$ is $H$ and so the commutativity of $G$ can be trasmitted to all the elements of $H$ through the surjective homomorphism $\varphi$. 
+\end{proof}
+\end{problem}
+
+\begin{problem}{I}
+  The homomorphism $\varphi:G\to H$ is injective if and only if there is a one-to-one correspondence between the identities of both groups.
+\begin{proof}
+  The direct is clear, since a homomorphism maps the identity of $G$ ot the identity of $H$. So let's assume the converse. Then, $e\leftrightarrow e'$. Consider some $x,y \in G$ such that $\varphi(y) = \varphi(x)$. Then, $e' = \varphi(x)* \varphi(y)^{-1} = \varphi(x\cdot y^{-1})$, which implies that $x\cdot y^{-1}=e$ and so $x=y$. The homomorphism $\varphi$ is injective.
+\end{proof}
+\end{problem}
        \end{document}
 
 
