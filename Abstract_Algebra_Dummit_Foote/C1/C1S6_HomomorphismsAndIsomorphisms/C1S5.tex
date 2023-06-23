@@ -118,6 +118,70 @@ In the case of a homomorphism $\varphi: G\to H$ an additional condition to ensur
   The direct is clear, since a homomorphism maps the identity of $G$ ot the identity of $H$. So let's assume the converse. Then, $e\leftrightarrow e'$. Consider some $x,y \in G$ such that $\varphi(y) = \varphi(x)$. Then, $e' = \varphi(x)* \varphi(y)^{-1} = \varphi(x\cdot y^{-1})$, which implies that $x\cdot y^{-1}=e$ and so $x=y$. The homomorphism $\varphi$ is injective.
 \end{proof}
 \end{problem}
+
+
+\begin{problem}{II}
+  Let $\varphi: G\to H$ be a homomorphism. Here we show that any equality relation between binary structures with elements in G, holds between equal structures of the binary operation corresponding to H for all elements in $\varphi(G)$. Namely, for some finite sequences $A,B$ of elements of $G$, if $g\left[A, \cdot \right] = f\left[ B, \cdot \right]$, then $g\left[ \varphi(A), *\right] = f\left[ \varphi(B), * \right]$. Before beginning, we must define what $g\left[ A, \cdot \right]$ means. For any finite sequence $A=\left( \pi_{1},\pi_{2},\pi_{3},\dots,\pi_{n} \right)$ of elements of a group $G$, the binary structure 
+\begin{align*}
+  g\left[ A, \cdot \right] &= \pi_{1}\cdot \pi_{2} \cdot \pi_{3}\cdot \ldots \cdot \pi_{n}\\
+  &= \prod_{(i\leq n, \cdot)} \pi_{i}
+\end{align*}
+\end{problem}
+\begin{proof}
+  Consider some equality relation $g\left[ A,\cdot \right] = f\left[ B,\cdot \right]$ in $G$, where $A=\left( a_{i}:i\leq n \right)$ and $B=\left( b_{i}:i\leq m \right)$ are finite sequences of elements in $G$. Note that these sequences can contain particular elements and/or general representations for any elements. \\
+  Since $\varphi$ is a homomorphism, it follows that
+\begin{align*}
+  \varphi\left( g\left[ A,\cdot \right] \right) &= \varphi\left( f\left[ B,\cdot \right] \right) \implies \\
+  \varphi\left( \prod_{(i\leq n, \cdot )} a_{i} \right) &= \prod_{(i\leq n, *)}\varphi(a_{i}) = \varphi\left( \prod_{(i\leq m,\cdot)}b_{i} \right)\\
+  &= \prod_{(i\leq m, *)}\varphi(b_{i}).
+\end{align*}
+Therefore, $g\left[ \varphi(A),* \right] = f\left[ \varphi(B),* \right]$. Here are some issues. If $A$ and $B$ are sequences of general elements that represent any element  in $G$, then $\varphi(A),\varphi(B)$ are sequences of general elements that represent any element in $\varphi(G)$. However, if one of the sequences contain specific elements in $G$, one must be sure that this element is mapped to a unique element in $\varphi(G)$, which can be assured if $\varphi$ is injective. However, some work must be done to define how a structure with specific elements can be maintained through a homomorphism. But for now, we are sure that general structures like $a+b=b+a$ for any $a,b\in G$ are maintained through homomorphism.
+\end{proof}
+\begin{problem}{10}
+  Let's prove the following interesting result:\\
+
+  Consider two sets $\Omega, \Delta$. If $|\Omega|=|\Delta|$ then $S_{\Delta} \cong S_{\Omega}$. 
+\begin{proof}
+  Assume that $|\Omega|=|\Delta|$. Then, there is a bijection $\vartheta: \Delta \to \Omega$. Consider the function $\varphi: S_{\Delta} \to S_{\Omega}$, defined by
+\begin{align*}
+  \varphi(\sigma) = \vartheta\cdot \sigma_{\Delta} \cdot \vartheta^{-1}, \;\; \forall \sigma_{\Delta}\in S_{\Delta}.
+\end{align*}
+We show that $\varphi$ is an isomorphism.
+\begin{enumerate}
+  \item $\varphi$ is well-defined.\\
+
+    We have to show that $\varphi(\sigma_{\Delta})$ is a permutation of $\Omega$ for all $\sigma_{\Delta}$. Note that 
+\begin{align*}
+  \varphi(\sigma_{\Delta}) &= \vartheta \cdot \sigma_{\Delta}\cdot \vartheta^{-1} : \left( \Omega \to \Delta \right) \to \left( \Delta \to  \Delta \right) \to \left( \Delta \to \Omega \right),
+\end{align*}
+and so $\varphi(\sigma_{\Delta}):\Omega\to \Omega$. Furthermore, observe that $\varphi(\sigma_{\Delta})$ is an association of bijective functions, which is also bijective. Therefore, $\varphi(\sigma_{\Delta})$ is a permutation of $\Omega$. Thus, $\varphi$ is well-defined.
+
+  \item $\varphi$ is a bijection.\\
+
+  We can show that it is a bijection if we can define a double-inverse $\varphi^{-1}$. Let $\varphi^{-1}:S_{\Omega}\to S_{\Delta}$ be defined by 
+\begin{align*}
+  \varphi^{-1}(\sigma_{\Omega}) = \vartheta^{-1} \cdot \sigma_{\Omega} \cdot \vartheta, \;\; \forall \sigma_{\Omega} \in S_{\Omega}.
+\end{align*}
+With a similar argument from (a), we can show that $\varphi^{-1}$ is well-defined. Consider any $\sigma_{\Omega}\in S_{\Omega}$ and $\sigma_{\Delta}\in S_{\Delta}$. Then,
+\begin{align*}
+  \varphi^{-1}\left( \varphi(\sigma_{\Delta}) \right) &= \vartheta^{-1} \cdot \left( \vartheta \cdot \sigma_{\Delta}\cdot \vartheta^{-1} \right)\cdot \vartheta = \sigma_{\Delta}.\\
+  \varphi \left( \varphi^{-1}\left( \sigma_{\Omega} \right) \right) &= \vartheta \cdot \left( \vartheta^{-1}\cdot \sigma_{\Omega}\cdot \vartheta \right)\vartheta^{-1} = \sigma_{\Omega}.
+\end{align*}
+Thus, $\varphi\cdot \varphi^{-1} = id_{S_{\Omega}}$ and $\varphi^{-1} \cdot \varphi = id_{S_{\Delta}}$. This implies that $\varphi^{-1}$ is the double-inverse of $\varphi$ and so $\varphi$ is a bijection.
+  \item $\varphi$ is a homomorhpism.\\
+
+    This is easier to prove. Consider any $\sigma_{\Delta},\delta_{\Delta}\in S_{\Delta}$. Then, 
+\begin{align*}
+  \varphi \left( \sigma_{\Delta}\cdot \delta_{\Delta} \right) &= \vartheta \cdot \left( \sigma_{\Delta}\cdot \delta_{\Delta} \right)\cdot \vartheta\\ 
+  &= \vartheta \cdot \left( (\sigma_{\Delta}\cdot (\vartheta^{-1}\cdot \vartheta))\cdot \delta_{\Delta} \right)\cdot \vartheta\\ 
+&= \vartheta \cdot \left( ((\sigma_{\Delta}\cdot \vartheta^{-1})\cdot \vartheta)\cdot \delta_{\Delta} \right)\cdot \vartheta\\ 
+&= \vartheta \cdot \left( (\sigma_{\Delta}\cdot \vartheta^{-1})\cdot (\vartheta \cdot \delta_{\Delta}) \right)\cdot \vartheta\\ 
+&= (\vartheta \cdot \sigma_{\Delta}\cdot \vartheta^{-1})\cdot (\vartheta \cdot \delta_{\Delta}\cdot \vartheta) = \varphi(\sigma_{\Delta}) \cdot \varphi(\delta_{\Delta}). 
+\end{align*}
+Since both $S_{\Delta},S_{\Omega}$ use function association as binary operation, it follows that $\varphi$ is a homomorphism and, by (b), $\varphi$ is an isomorphism. This implies that $S_{\Delta} \cong S_{\Omega}$.
+\end{enumerate}
+\end{proof}
+\end{problem}
        \end{document}
 
 
