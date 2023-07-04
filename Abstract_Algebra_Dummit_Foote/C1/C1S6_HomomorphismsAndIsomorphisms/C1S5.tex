@@ -182,6 +182,136 @@ Since both $S_{\Delta},S_{\Omega}$ use function association as binary operation,
 \end{enumerate}
 \end{proof}
 \end{problem}
+
+\begin{problem}{11}
+  Let $A$ and $B$ be groups. Prove that $A\times B \cong B\times A$.
+\begin{proof}
+  Let $\varphi:A\times B\to B\times A$ be defined by 
+\begin{align*}
+  \varphi\left( (a,b) \right) = (b,a)\;\; \forall (a,b)\in A\times B.
+\end{align*}
+Clearly, this is a bijection from $A\times B$ to $B\times A$. We just have to show that it is an homorphism, where the binary operation $\circ$ on a cartesian product $A\times B$ of two groups is defined by
+\begin{align*}
+  (a,b) \circ (c,d) &= (a\circ_{A} c, b \circ_{B} d).
+\end{align*}
+Then,
+\begin{align*}
+  \varphi\left( (a_{1},b_{1})\circ(a_{2},b_{2}) \right) &= \varphi\left( (a_{1}\circ_{A} a_{2}, b_{1}\circ_{B} b_{2}) \right) \\
+  &= \left( b_{1}\circ_{B} b_{2}, a_{1}\circ_{A} a_{2} \right) = \left( b_{1},a_{1} \right) \circ \left( b_{2},a_{2} \right)\\
+  &= \varphi\left( (a_{1},b_{1}) \right) \circ \varphi\left( (a_{2},b_{2}) \right).
+\end{align*}
+Hence, $A\times B\cong B\times A$.
+\end{proof}
+\end{problem}
+
+\begin{problem}{12}
+  Let $G$ and $H$ be groups and let $G=A\times B$ and $H=B\times C$. Prove that $G\times C \cong A\times H$.
+\begin{proof}
+  Let $\varphi:(A\times B)\times C \to A\times (B\times C)$ be defined by 
+\begin{align*}
+  \varphi\left( \left( (a,b),c \right) \right) = \left( a,(b,c) \right).
+\end{align*}
+Clearly, $\varphi$ is a bijection. We just have to show that it is a homomorphism using the previously defined binary operation between cartesian products of groups. Then,
+\begin{align*}
+\varphi\left( ((a_{1},b_{1}),c_{1})\circ ( (a_{2},b_{2}),c_{2}) \right) )&= \varphi\left(  \left( (a_{1}\circ_{A} a_{2},b_{1}\circ_{B} b_{2} \right), c_{1}\circ_{C} c_{2}\right) )\\
+&= \left( a_{1}\circ_{A} a_{2}, \left( b_{1}\circ_{B} b_{2}, c_{1}\circ c_{2} \right) \right) = \left( a_{1},\left( b_{1},c_{1} \right) \right) \circ \left( a_{2}, \left( b_{2},c_{2} \right) \right)\\
+&= \varphi\left( \left( (a_{1},b_{1}),c_{1} \right) \right) \circ \varphi\left( \left( (a_{2},b_{2}),c_{2} \right) \right).
+\end{align*}
+\end{proof}
+\end{problem}
+
+From the previous excercises we can conclude that cartesian product is commutative and associative with respect to the equivalence relation $\cong$ isomorphism. Hence, one can prove inductively that for any sequence of groups $(A_{i}:i\leq n)$,  
+\begin{align*}
+  A_{1}\times A_{2} \times A_{3} \times \dots \times A_{n} &\cong A_{n} \times \dots \times A_{3} \times A_{2} \times A_{1} \\
+  A_{1} \times \left( A_{2}\times A_{3} \times \dots \times A_{n} \right) & \cong \left( A_{1}\times A_{2} \times A_{3} \times \dots A_{n-1} \right) \times A_{n}.
+\end{align*}
+
+Some important aspects we proved (notebook) in 13 and 14 is that for any homomorphism $\varphi: G\to H$, 
+\begin{enumerate}
+  \item $\varphi(G)$ and $\text{kernel}(G)$ are subgroups.
+  \item $G\cong \varphi(G) \iff \varphi$ is injective $\iff \left\{ e \right\} \cong \text{kernel}(G)$
+\end{enumerate}
+\begin{problem}{IV}
+  Let $A_{1},\dots,A_{n}$ be a sequence of groups. Then, $A_{1}\times A_{2}\times \dots \times A_{n}=G$ is also a group. Show that the function $\pi:G\to A_{i}$ for some positive integer $i\leq n$, defined by
+\begin{align*}
+  \pi\left( (a_{1},\dots,a_{n} ) \right) = a_{i}
+\end{align*}
+is a homomorphism and find the kernel.
+\begin{proof}
+  We will keep using the previously binary operation defined for cartesian products of groups. Then,
+\begin{align*}
+  \pi( (y_{1},\dots,y_{n}) \circ (x_{1},\dots,x_{n}) ) &= y_{i}\circ x_{i}\\
+  &= \pi( (y_{1},\dots, y_{n}) ) \circ \pi( (x_{1}, \dots, x_{n}) ),
+\end{align*}
+which completes the proof. Clearly, the kernel of $\pi$ is 
+\begin{align*}
+  \text{ker}(\pi) &= \left\{ g\in G | \text{ ith element is }1_{A_{i}} \right\}.
+\end{align*}
+\end{proof}
+\end{problem}
+
+\begin{problem}{17}
+  Let $G$ be any group. Prove that the map from $G$ to itself defined by $g\to g^{-1}$ is a homomorphism if and only if $G$ is abelian.
+\begin{proof}
+  First, assume that $G$ is abelian, then
+\begin{align*}
+  \pi( g_{1} \circ g_{2} ) &= \left( g_{1}\circ g_{2} \right)^{-1}\\
+  &= g_{2}^{-1}\circ g_{1}^{-1}\\
+  &= g_{1}^{-1}\circ g_{2}^{-1} = \pi(g_{1}) \circ \pi(g_{2}),
+\end{align*}
+since $G$ is abelian.\\
+
+For the converse, suppose that $\pi$ is a homomorphism. Then, 
+\begin{align*}
+  \pi(g_{1}\circ g_{2}) = \pi(g_{1}) \circ \pi(g_{2}),
+\end{align*}
+which implies that $g_{2}^{-1}\circ g_{1}^{-1} = g_{1}^{-1}\circ g_{2}^{-1}$. Because, by definition, all elements of groups are inverses of some elements, it follows that $G$ is abelian.
+\end{proof}
+\end{problem}
+\begin{problem}{18}
+  Let $G$ be any group. Prove that the map from $G$ to itself defined by $g\to g^{2}$ is a homomorphism if and only if $G$ is abelian.
+\begin{proof}
+  First, assume that $G$ is abelian, then
+\begin{align*}
+  \pi( g_{1} \circ g_{2} ) &= \left( g_{1}\circ g_{2} \right)^{2}\\
+  &= (g_{1}\circ g_{2})\circ (g_{1}\circ g_{2}) = g_{1}\circ ( g_{2} \circ g_{1} ) \circ g_{2}\\
+  &= g_{1}\circ (g_{1}\circ g_{2})\circ g_{2} = g_{1}^{2}\circ g_{2}^{2}\\
+  &= \pi(g_{1}) \circ \pi(g_{2}),
+\end{align*}
+since $G$ is abelian.\\
+
+For the converse, suppose that $\pi$ is a homomorphism. Then, 
+\begin{align*}
+  \pi(g_{1}\circ g_{2}) &= \pi(g_{1}) \circ \pi(g_{2})\implies\\
+  g_{1}\circ g_{2}\circ g_{1}\circ g_{2} &= g_{1}\circ g_{1} \circ g_{2} \circ g_{2}
+\end{align*}
+which implies that $g_{2}\circ g_{1} = g_{1}\circ g_{2}$. It follows that $G$ is abelian.
+\end{proof}
+\end{problem}
+\begin{problem}{19}
+  Let $G= \left\{ z\in \mathbb{C} | z^{n} = 1 \text{ for some } n\in \Z^{+} \right\}$. Prove that for any fixed integer $k>1$ the map from $G$ to itself defined by $z\to z^{k}$ is a surjective homomorphism but is not an isomorphism.
+  \begin{proof}
+  Clearly, $G$ is the group of all complex numbers with finite order. First we show that the map $\pi: G\to G$ defined by $z\to z^{k}$ for some fixed integer $k>1$ is a homomorphism. Note that
+\begin{align*}
+  \pi(z_{1}\cdot z_{2}) &= \left( z_{1}\cdot z_{2} \right)^{k}\\
+  &= z_{1}^{k}\cdot z_{2}^{k} = \pi(z_{1})\cdot \pi(z_{2}),
+\end{align*}
+since multiplication is commutative in $\mathbb{C}$. Furthermore, note that if $z\in G$, then $z^{1/k}\in G$ . However, it is not injective.\\
+
+Observe that $w=e^{2\pi i/k} \neq 1$ is equal to 1 when raised to $k$. Hence, ker$(\pi) \neq \left\{ 1 \right\}$ and so the function is not injective. In fact, there are $k$ unity roots of the form $w, w^{1}, w^{2},\dots,w^{k-1}$.
+\end{proof}
+\end{problem}
+\begin{problem}{24}
+  Let $G$ be a finite group and let $x$ and $y$ be distinct elements of order 2 in $G$ that generate $G$. Prove that $G\cong D_{2n}$, where $n=|xy|$. 
+\begin{proof}
+  Since $G$ is finite, it follows that every element has a finite order. Thus, $|xy|<\infty$. Furthermore, by excercise 1.2.6, $|x|=|y|=2$ and $|xy|<\infty$ imply that $xy$ and $y$ satisfy the same relations in $G$ as $r,s$ do in $D_{2n}$, where $n=|xy|$. \\
+  Also, note that $(xy)y^{-1} =x$, hence $xy$ and $y$ generate $x$. Thus, $xy$ and $y$ are generators of $G$. All this means that $G$ and $D_{2n}$ have the same group representations, namely, same generators that fulfill same relations. Then, if we define a homomorphism $\varphi: D_{2n}\to G$ by
+\begin{align*}
+  \varphi(r) = xy \text{ and } \varphi(s) = y, 
+\end{align*}
+it follows that $\varphi$ is an isomorphism.
+\end{proof}
+\end{problem}
        \end{document}
 
 
