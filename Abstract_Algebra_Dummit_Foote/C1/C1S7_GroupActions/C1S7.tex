@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts,amsthm,amssymb,epigraph,etoolbox,mathtools,setspace,enumitem}  
+\usepackage{tikz}
+\usetikzlibrary{datavisualization} 
+\usepackage[makeroom]{cancel} 
+\usepackage[linguistics]{forest}
+\usetikzlibrary{patterns}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\Lim}[1]{\mathrm{lim}(#1)}
+\newcommand{\Abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\Dom}[1]{\mathrm{dom}\left(#1\right)}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label=(\alph*)}
+\setenumerate[legal]{label=(\alph*)}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{result}[2][Result]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[1][Solution]{\begin{trivlist} \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+\begin{document}
+  
+\title{Section 1.7: Group Actions}
+   \author{Juan Patricio Carrizales Torres}
+     \date{Jul 10, 2023}
+       \maketitle
+
+       Intuitively speaking, a \textbf{Group Action} by some group $G$ on a set $A$, is some type of ``action'' that permutes the elements of $A$ in such a manner that group operations are maintained. More precisely, a \textbf{group action} by some group $G$ on a set $A$ is a map $\varphi: G\times A \to A$ such that for every $(g,a)\in G\times A$, 
+\begin{enumerate}
+  \item $\varphi((g,a)) = ga \in A$.
+  \item $g_{1}\circ(g_{2}a) = (g_{1}\circ g_{2})a$.
+  \item $1a = a$.
+\end{enumerate}
+Furthermore, if we let $\sigma_{g}:A\to A$ be a representation of the group action og the element $g$ on $A$, defined by $\sigma_{g}(a) = ga$, then 
+\begin{enumerate}
+  \item $\sigma_{g} \in S_{A}$, namely, a symmetric permutation of $A$.
+  \item The map $G\to S_{A}$ defined by $g \to sigma_{g}$ is homomorphic.
+\end{enumerate}
+This map $G\to S_{A}$ is called \textit{permutation representation} associated to the given action. Where there is a bijective correspondence between the group action  $G\to A$ and its permutation representation $G\times A \to A$. This is very usefull, since it implies that both are the same thing but expressed differently.\\
+
+Other important concepts are the ``faithful'' characteristic and the kernel. A permutation representation is \textbf{faithfull} if it is injective. A kernel of a group action is the set
+\begin{align*}
+  A = \left\{ b\in G :  gb = b, b\in A\right\} \supset \sigma_{1} = i_{A}.
+\end{align*}
+Note that the left cancellation law in groups $(a\circ b = a\circ c \implies b=c)$ implies that the group action of a group $G$ over itself defined by \textit{left multplication} is \textbf{faithful}.
+       \end{document}
+
+
